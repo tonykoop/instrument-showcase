@@ -1,0 +1,48 @@
+template: 14-wholesale-line-sheet
+format: html-letter-portrait-print
+output_filename: line-sheet.html
+
+fields:
+  - name: serial_prefix
+    source: design.md → Instrument ID prefix (e.g., "TNG-")
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: instrument_type
+    source: design.md
+    required: true
+  - name: variants_available
+    source: design.md → "Variant/Size" + sister design rows if multiple
+    required: true
+  - name: wholesale_price_usd
+    description: NOT derived — confirm with Tony per cycle
+    required: true
+  - name: map_usd
+    description: Minimum Advertised Price — confirm with Tony
+    required: true
+  - name: retail_price_usd
+    source: design.md → "Target Price"
+    required: true
+  - name: moq
+    description: Minimum order quantity — confirm with Tony
+    required: true
+  - name: lead_time_weeks
+    description: Build-and-ship lead time range, e.g., "6–10 weeks"
+    required: true
+  - name: case_pack
+    description: Units per shipping box
+    required: false
+  - name: description_3_sentences
+    source: README.md distilled
+    required: true
+  - name: hero_image_path
+    source: images/
+    required: true
+  - name: ordering_contact
+    source: tonykoop/README.md
+    required: true
+  - name: season_year
+    description: e.g., "Spring 2026"
+    source: confirm with Tony per cycle
+    required: true

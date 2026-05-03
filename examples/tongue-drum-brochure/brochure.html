@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tongue Drum — TNG-001 — Heifer Zephyr</title>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<style>
+  @page { size: letter landscape; margin: 0; }
+  body  { margin: 0; }
+
+  .sheet {
+    width: 11in; height: 8.5in;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    page-break-after: always;
+    background: var(--hz-cream);
+  }
+  .panel {
+    padding: 0.5in 0.5in;
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .accent-stripe { height: 4px; background: var(--hz-accent); margin-bottom: var(--hz-pad-md); }
+
+  .cover-mark { display: flex; align-items: center; gap: var(--hz-pad-md); margin-bottom: var(--hz-pad-md); }
+  .cover-mark .mark-svg { width: 56px; height: 56px; border: var(--hz-rule-hair);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--hz-font-mono); font-size: 8px; color: var(--hz-shadow); }
+  .cover-mark .wordmark { font-family: var(--hz-font-display); font-style: italic;
+    font-size: 28px; color: var(--hz-ink); }
+  .cover-title { font-family: var(--hz-font-display); font-style: italic; font-size: 64px;
+    line-height: 1.05; margin: var(--hz-pad-lg) 0 var(--hz-pad-sm) 0; color: var(--hz-ink); }
+  .cover-tag { font-style: italic; color: var(--hz-shadow); font-size: 17px; margin: 0 0 var(--hz-pad-md) 0; }
+  .cover-hero { flex: 1; background: var(--hz-bone);
+    background-size: cover; background-position: center;
+    border-bottom: var(--hz-rule-thin);
+    margin-top: auto;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    color: var(--hz-shadow);
+    font-family: var(--hz-font-mono); font-size: 9px;
+    padding: var(--hz-pad-sm); }
+
+  .panel h2 { font-family: var(--hz-font-mono); font-style: normal; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.2em; color: var(--hz-shadow);
+    border-bottom: var(--hz-rule-hair); padding-bottom: var(--hz-pad-xs);
+    margin: var(--hz-pad-md) 0 var(--hz-pad-sm) 0; }
+  .marketing { font-size: 16px; line-height: 1.55; }
+
+  blockquote.pull { border-left: 3px solid var(--hz-accent);
+    padding: var(--hz-pad-sm) 0 var(--hz-pad-sm) var(--hz-pad-md);
+    margin: var(--hz-pad-lg) 0 0 0;
+    font-family: var(--hz-font-display); font-style: italic; font-size: 22px; line-height: 1.2; }
+
+  table.spec { width: 100%; border-collapse: collapse;
+    font-family: var(--hz-font-mono); font-size: 11px; letter-spacing: 0.04em; }
+  table.spec td { padding: 6px 0; border-bottom: var(--hz-rule-hair); vertical-align: top; }
+  table.spec td:first-child { width: 38%; color: var(--hz-shadow);
+    text-transform: uppercase; letter-spacing: 0.16em; }
+
+  ol.steps { padding-left: var(--hz-pad-md); margin: var(--hz-pad-sm) 0 0 0;
+    font-size: 14px; line-height: 1.45; }
+  ol.steps li { margin-bottom: var(--hz-pad-xs); }
+
+  .back-mark { display: flex; align-items: center; gap: var(--hz-pad-sm);
+    margin-bottom: var(--hz-pad-md); }
+  .back-mark .mark-svg { width: 36px; height: 36px; border: var(--hz-rule-hair);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--hz-font-mono); font-size: 7px; color: var(--hz-shadow); }
+  .back-mark .wordmark { font-family: var(--hz-font-display); font-style: italic;
+    font-size: 20px; color: var(--hz-ink); }
+
+  .bio { font-size: 14px; line-height: 1.5; }
+
+  .colophon { margin-top: auto; padding-top: var(--hz-pad-md);
+    border-top: var(--hz-rule-bold);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--hz-font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--hz-shadow); }
+
+  .label { font-family: var(--hz-font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.18em; color: var(--hz-shadow); }
+</style>
+</head>
+
+<body class="hz-family-percussion">
+
+<!-- ===========================================================
+     SHEET 1 — outside spread
+     =========================================================== -->
+<div class="sheet">
+
+  <!-- BACK COVER -->
+  <div class="panel">
+    <div class="accent-stripe"></div>
+
+    <div class="back-mark">
+      <div class="mark-svg">[mark]</div>
+      <div class="wordmark">Heifer Zephyr</div>
+    </div>
+
+    <h2>About the maker</h2>
+    <p class="bio">
+      Tony Koop is a mechanical R&amp;D engineer who builds wooden drums and
+      flutes. He's been making and studying instruments for sixteen years,
+      beginning with drum building at Morgan Drums in St. Paul, and is
+      first-named inventor on US Patent 11,137,017&nbsp;B2. The instruments
+      and the engineering inform each other.
+    </p>
+
+    <h2 style="margin-top: var(--hz-pad-lg);">Provenance</h2>
+    <table class="spec">
+      <tr><td>Serial</td><td>TNG-001</td></tr>
+      <tr><td>Built</td><td>Santa Clara, CA · 2026</td></tr>
+      <tr><td>Repo</td><td>github.com/tonykoop/tongue-drum</td></tr>
+      <tr><td>Reference</td><td>WOOD magazine, Oct 2008 (S. Roberts; O. Duvall)</td></tr>
+    </table>
+
+    <div class="colophon">
+      <span>Heifer Zephyr</span>
+      <span>Tony Koop</span>
+      <span>2026</span>
+    </div>
+  </div>
+
+  <!-- FRONT COVER -->
+  <div class="panel">
+    <div class="accent-stripe"></div>
+
+    <div class="cover-mark">
+      <div class="mark-svg">[mark]</div>
+      <div class="wordmark">Heifer Zephyr</div>
+    </div>
+
+    <h1 class="cover-title">Tongue Drum</h1>
+    <p class="cover-tag">A small wooden idiophone, six tongues, paired slits.</p>
+
+    <p class="label" style="margin-top: var(--hz-pad-md); margin-bottom: 0;">
+      TNG-001 · Small (magazine baseline)
+    </p>
+
+    <div class="cover-hero" style="background-image: url('../../../tongue-drum/images/img20260426_00430913.png');">
+      <span>tongue-drum/images/img20260426_00430913.png</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===========================================================
+     SHEET 2 — inside spread
+     =========================================================== -->
+<div class="sheet">
+
+  <!-- INSIDE LEFT -->
+  <div class="panel">
+    <div class="accent-stripe"></div>
+
+    <h2>The instrument</h2>
+    <p class="marketing">
+      This is a small wooden tongue drum — six tongues cut from a single
+      ¼&#8243; top panel in a paired-slit pattern, mounted on a black-walnut
+      box body. The original plan is from <em>WOOD&nbsp;magazine</em>,
+      October 2008. I'm building three: the magazine baseline, an original
+      bilateral-tongue version, and an extended-range variant — each phase
+      of a key-tuning DoE study. Each tongue's pitch is set by length,
+      thickness, and the wood's specific stiffness; the body's air cavity
+      tunes the bass through Helmholtz coupling.
+    </p>
+
+    <blockquote class="pull">
+      The same engineering instincts that make a stave-built djembe sound
+      right are what make a medical-device prototype assemble cleanly.
+    </blockquote>
+
+    <h2 style="margin-top: var(--hz-pad-xl);">Engineering note</h2>
+    <p style="font-size: 14px; line-height: 1.5;">
+      Each tongue's fundamental is predicted by
+      <span class="hz-mono">f₁ ≈ 0.162 · (h/L²) · √(E/ρ)</span> and validated
+      against a 43-column strike-level dataset borrowed from the tensile-
+      testing protocol I use professionally. Phase&nbsp;1 (this drum)
+      establishes the noise floor and a species sweep across red oak,
+      walnut, padauk, and maple.
+    </p>
+
+    <div style="margin-top: auto; padding-top: var(--hz-pad-md); aspect-ratio: 4/3;
+                background: var(--hz-bone);
+                background-image: url('../../../tongue-drum/images/img20260426_00455146.png');
+                background-size: cover; background-position: center;
+                border-bottom: var(--hz-rule-thin);
+                display:flex; align-items: flex-end; padding-bottom: var(--hz-pad-xs);
+                font-family: var(--hz-font-mono); font-size: 9px; color: var(--hz-shadow);">
+      <span style="padding-left: var(--hz-pad-sm);">tongue-drum/images/img20260426_00455146.png</span>
+    </div>
+  </div>
+
+  <!-- INSIDE RIGHT -->
+  <div class="panel">
+    <div class="accent-stripe"></div>
+
+    <h2>Specifications</h2>
+    <table class="spec">
+      <tr><td>Family</td><td>Drum / Idiophone</td></tr>
+      <tr><td>Key / Scale</td><td>D minor / A minor</td></tr>
+      <tr><td>Top</td><td>Red oak, ¼&#8243;</td></tr>
+      <tr><td>Body</td><td>Black walnut, paired-slit pattern</td></tr>
+      <tr><td>Tongues</td><td>Six, ~12&#8243; length, undercut for tuning</td></tr>
+      <tr><td>Hardware</td><td>Internal cleats, no external fasteners</td></tr>
+      <tr><td>Finish</td><td>Pure tung oil, hand-rubbed</td></tr>
+      <tr><td>Mallet</td><td>Hard-rubber, 80 Shore A</td></tr>
+    </table>
+
+    <h2 style="margin-top: var(--hz-pad-lg);">Build method</h2>
+    <ol class="steps">
+      <li>Mill ¼&#8243; top panel from selected tonewood; verify thickness ±0.005&#8243;.</li>
+      <li>Lay out paired-slit tongue pattern from the magazine plan, scaled to actual stock.</li>
+      <li>Cut tongues on the CNC router; verify slit width and tongue length.</li>
+      <li>Strike-test each tongue, record f₁; undercut as needed to drop pitch.</li>
+      <li>Glue top to body, finish with tung oil, validate full tuning ±10 cents.</li>
+    </ol>
+
+    <div style="margin-top: auto; padding-top: var(--hz-pad-md);
+                font-family: var(--hz-font-mono); font-size: 10px;
+                color: var(--hz-shadow); text-transform: uppercase; letter-spacing: 0.16em;">
+      Played, struck, blown, bent, bowed, plucked.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

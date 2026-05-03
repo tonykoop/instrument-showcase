@@ -1,0 +1,60 @@
+template: 04-sales-page
+format: html-single-page-responsive
+output_filename: sale-{{ serial }}.html
+
+fields:
+  - name: serial
+    source: design.md → "Instrument ID"
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: price
+    source: design.md → Master Catalog Row → "Target Price"
+    required: true
+  - name: build_date
+    source: design.md → "Generated" or earliest validation.csv date
+    required: true
+  - name: instrument_type
+    source: design.md
+    required: true
+  - name: variant
+    source: design.md
+    required: false
+  - name: top_material_detail
+    source: bom.csv + cut-list.csv
+    required: true
+  - name: body_material_detail
+    source: bom.csv + cut-list.csv
+    required: true
+  - name: dimensions
+    source: design.md OR cut-list.csv "Final stock size" rows
+    required: true
+  - name: weight_g
+    source: validation.csv (if measured)
+    required: false
+  - name: tuning_table
+    description: Per-tongue/note table — note name, target Hz, measured Hz, cents error
+    source: validation.csv
+    required: true
+  - name: gallery_image_paths
+    source: images/ — pick 3–8 photos of this unit
+    required: true
+  - name: included_items
+    description: List — instrument, mallet, case, care card, certificate
+    source: per-template default + bom.csv "Validation" row
+    required: true
+  - name: shipping_clause
+    description: Free-text shipping policy (1–2 sentences)
+    source: per-maker default — confirm with Tony
+    required: true
+  - name: certificate_link
+    source: rendered Template 09 path
+    required: false
+  - name: build_method_link
+    source: rendered Template 03 path
+    required: false
+  - name: sound_sample_path
+    description: Path to .mp3 / .wav audio sample
+    source: data/ or images/ if present
+    required: false

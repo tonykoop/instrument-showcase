@@ -1,0 +1,39 @@
+template: 09-certificate-of-authenticity
+format: html-letter-portrait-print
+output_filename: certificate-{{ serial }}.html
+
+fields:
+  - name: serial
+    source: design.md
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: instrument_type
+    source: design.md
+    required: true
+  - name: variant
+    source: design.md
+    required: false
+  - name: build_date
+    source: design.md → Generated date OR earliest validation date
+    required: true
+  - name: materials_summary
+    source: bom.csv (top + body + finish, one line)
+    required: true
+  - name: tuning_summary
+    description: One-line tuning summary, e.g., "D minor / A minor, six tongues, ±10 cents"
+    source: validation.csv → range + worst tolerance
+    required: true
+  - name: edition
+    description: Edition statement, e.g., "1 of 3 in the magazine-baseline series" or "unique"
+    source: confirm with Tony per build
+    required: true
+  - name: signature_image_path
+    source: brand/assets/signature.svg (when present)
+    required: true
+    default: brand/assets/signature.svg
+  - name: qr_link_target
+    description: Where the certificate's QR code points (sales page, repo, or void)
+    source: per-build choice
+    required: false

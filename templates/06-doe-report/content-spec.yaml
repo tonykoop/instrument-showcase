@@ -1,0 +1,45 @@
+template: 06-doe-report
+format: html-letter-portrait-print
+output_filename: doe-report.html
+
+fields:
+  - name: serial
+    source: design.md
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: abstract
+    source: study/README.md → first paragraph
+    required: true
+  - name: research_questions
+    source: study/README.md → Q1..Qn
+    required: true
+  - name: methods
+    source: study/README.md → methods section
+    required: true
+  - name: instrumentation
+    source: study/README.md → instrumentation list
+    required: true
+  - name: materials
+    source: bom.csv + cut-list.csv
+    required: true
+  - name: phase_results
+    description: One section per phase, each with chart paths and CSV references
+    source: study/data/*.csv (if present) + study/README.md narrative
+    required: true
+  - name: correction_factors_section
+    source: post-phase analysis (Tony fills in once data exists)
+    required: false
+  - name: limitations
+    source: study/README.md → scope notes / limitations
+    required: true
+  - name: future_work
+    source: study/README.md → "Forthcoming" + Phase N predictions
+    required: false
+  - name: references
+    source: README.md citation block + design.md reference plan citations
+    required: true
+  - name: prototype_history_images
+    source: images/ → prototype evolution shots
+    required: false

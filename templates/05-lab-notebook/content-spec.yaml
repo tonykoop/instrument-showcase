@@ -1,0 +1,30 @@
+template: 05-lab-notebook
+format: html-letter-landscape-print
+output_filename: lab-notebook.html
+
+fields:
+  - name: serial
+    source: design.md → "Instrument ID"
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: phases
+    description: List of DoE phases — each with title, research questions, instrumentation, predicted-value table
+    source: study/README.md
+    required: true
+  - name: data_schema_columns
+    description: Column headers for the strike-level data table
+    source: study/data-template.csv → first row
+    required: true
+  - name: model_correction_tables
+    description: One per model — e.g., cantilever, helmholtz. Predicted column pre-filled.
+    source: study/README.md → models referenced + design.md design table predictions
+    required: true
+  - name: build_validation_rows
+    description: Targets from validation.csv with measured/result columns blank
+    source: validation.csv → target rows
+    required: true
+  - name: bom_reference
+    source: bom.csv (truncated)
+    required: false

@@ -1,0 +1,54 @@
+template: 07-capstone-document
+format: html-letter-portrait-print
+output_filename: capstone.html
+also_export:
+  - format: pptx
+    via_skill: pptx
+    filename: capstone.pptx
+
+fields:
+  - name: serial
+    source: design.md
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: project_intent
+    source: design.md → Intent
+    required: true
+  - name: master_catalog_row
+    source: design.md → Master Catalog Row
+    required: true
+  - name: design_table_summary
+    source: <instrument>-design-table.xlsx via xlsx skill
+    required: false
+  - name: bom_table
+    source: bom.csv
+    required: true
+  - name: sourcing_table
+    source: sourcing.csv
+    required: true
+  - name: cut_list_table
+    source: cut-list.csv
+    required: true
+  - name: drawing_brief
+    source: drawing-brief.md
+    required: true
+  - name: assembly_summary
+    source: assembly-manual.md → first two levels
+    required: true
+  - name: validation_targets
+    source: validation.csv
+    required: true
+  - name: doe_study_summary
+    source: study/README.md → first 2 paragraphs
+    required: false
+  - name: skills_index
+    source: SKILLS.md (if present)
+    required: false
+  - name: hero_image_path
+    source: images/
+    required: true
+  - name: github_repo_url
+    source: design.md
+    required: true

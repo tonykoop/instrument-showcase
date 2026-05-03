@@ -1,0 +1,43 @@
+template: 03-build-method-landing-page
+format: html-single-page-responsive
+output_filename: build-method.html
+
+fields:
+  - name: serial
+    source: design.md → "Instrument ID"
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: hero_image_path
+    source: images/ → highest-res
+    required: true
+  - name: tagline
+    source: README.md, distilled
+    required: true
+  - name: origin_story
+    description: Why this instrument, where the plan came from, what it draws on
+    source: README.md → "What this is" + "Background"
+    required: true
+  - name: materials_paragraph
+    source: bom.csv + cut-list.csv distilled into prose
+    required: true
+  - name: tools_paragraph
+    source: assembly-manual.md tools + sister-repo links (cnc/, cad/, woodworking/)
+    required: true
+  - name: method_phases
+    description: 3–5 phase summary, each with title + paragraph + photo path
+    source: assembly-manual.md sections
+    required: true
+  - name: validation_paragraph
+    source: study/README.md OR validation.csv summary
+    required: true
+  - name: result_paragraph
+    source: study/README.md status OR design.md validation plan
+    required: true
+  - name: github_repo_url
+    source: design.md → "GitHub Repo"
+    required: true
+  - name: maker_bio
+    source: tonykoop/README.md
+    required: true

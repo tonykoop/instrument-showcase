@@ -1,0 +1,35 @@
+template: 02-workshop-print-packet
+format: html-letter-print
+output_filename: workshop-packet.html
+
+fields:
+  - name: serial
+    source: design.md → Master Catalog Row → "Instrument ID"
+    required: true
+  - name: family_accent
+    source: derived from family
+    required: true
+  - name: required_tools
+    description: List of tools (router/lathe/laser/handtools) used across the build
+    source: assembly-manual.md → all tool mentions, deduped
+    required: true
+  - name: required_ppe
+    description: List of PPE (eye protection, hearing, dust mask, gloves)
+    source: assembly-manual.md → safety mentions, OR default safe set per family
+    required: true
+  - name: required_materials
+    source: bom.csv (full table)
+    required: true
+  - name: required_drawings
+    source: drawing-brief.md → drawing list
+    required: false
+  - name: stock_prep_steps
+    source: cut-list.csv → operations column
+    required: true
+  - name: build_steps
+    description: Section list, each with title, tools, materials, sub-steps, validation
+    source: assembly-manual.md → top-level sections + sub-bullets
+    required: true
+  - name: validation_checks
+    source: validation.csv → target rows
+    required: true

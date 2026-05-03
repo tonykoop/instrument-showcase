@@ -1,0 +1,28 @@
+template: 12-press-kit
+format: html-letter-portrait-print
+output_filename: press-kit.html
+
+fields:
+  - name: maker_bio_paragraphs
+    description: 3 paragraphs — engineering, instruments, teaching
+    source: tonykoop/README.md → "What I do"
+    required: true
+  - name: selected_works
+    description: 4–6 instruments — thumbnail + 1-liner + repo URL
+    source: tonykoop/README.md → "Portfolio" + each instrument repo's README hero
+    required: true
+  - name: sound_samples
+    description: List of (instrument_name, sample_url)
+    source: per-instrument data/ folders if present
+    required: false
+  - name: awards
+    description: Patents, awards, press mentions
+    source: tonykoop/README.md (US Patent 11,137,017 B2 is canonical)
+    required: false
+  - name: contact_line
+    source: tonykoop/README.md profile email + LinkedIn
+    required: true
+  - name: asset_bundle_path
+    description: Path to a folder/zip of hi-res photos
+    source: confirm with Tony (default: brand/assets/press-bundle/)
+    required: false

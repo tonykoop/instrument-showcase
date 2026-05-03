@@ -1,0 +1,26 @@
+template: 10-care-and-tuning-card
+format: html-postcard-print
+output_filename: care-card.html
+
+fields:
+  - name: serial
+    source: design.md
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: instrument_type
+    source: design.md
+    required: true
+  - name: care_rules
+    description: Exactly 3 imperative-tense rules
+    source: assembly-manual.md "maintenance notes" OR family default
+    required: true
+  - name: tuning_tolerance
+    description: One-line tuning tolerance from validation.csv
+    source: validation.csv → worst-case cents-error
+    required: true
+  - name: retuning_contact
+    description: Email or repo issues URL for retuning service
+    source: tonykoop/README.md profile email + repo URL
+    required: true

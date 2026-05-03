@@ -1,0 +1,119 @@
+/*
+ * Heifer Zephyr — Design Tokens
+ * The single source of truth for color, type, spacing, and rule weight
+ * across all instrument-showcase document templates.
+ *
+ * Claude Design ingests this file as the brand's design system.
+ * Every template's HTML pulls these CSS custom properties.
+ */
+
+:root {
+  /* ─── Color: Editorial Monochrome Baseline ─── */
+  --hz-ink:        #1a1410;   /* primary text, mark, rules */
+  --hz-cream:      #f5efe6;   /* page background — warm, not optical white */
+  --hz-bone:       #ebe3d4;   /* secondary surfaces, cards */
+  --hz-shadow:     #2a221c;   /* deep accents, footers */
+  --hz-rule:       #1a141033; /* hairline rules at ~20% ink */
+
+  /* ─── Color: Instrument-Family Accents ───
+     One restrained accent per document, picked by instrument family. */
+  --hz-accent-percussion: #b15a3c;  /* terracotta — drums, idiophones */
+  --hz-accent-winds:      #5a6b73;  /* slate — flutes, aerophones */
+  --hz-accent-strings:    #7a4f2c;  /* walnut — guitars, lutes, harps */
+  --hz-accent-keyboard:   #4a4a3c;  /* olive-stone — marimba, glockenspiel */
+  --hz-accent-electronic: #3c4a4a;  /* graphite — electric instruments */
+
+  /* default accent — overridden per-template based on instrument family */
+  --hz-accent: var(--hz-accent-percussion);
+
+  /* ─── Typography ───
+     Italic serif for wordmark + section titles.
+     Upright text serif for body.
+     Mono for spec tables.
+     No sans-serif as a primary face. */
+  --hz-font-display: "Heifer Zephyr Italic", "Edwardian Script ITC",
+                     "Snell Roundhand", "Apple Chancery", cursive;
+  --hz-font-body:    "Caslon", "Adobe Caslon Pro", "EB Garamond",
+                     "Iowan Old Style", "Hoefler Text", Georgia, serif;
+  --hz-font-mono:    "JetBrains Mono", "IBM Plex Mono", "Iosevka",
+                     "Courier New", monospace;
+
+  /* type scale (modular, 1.25 ratio off 17px base) */
+  --hz-size-base:    17px;
+  --hz-size-small:   13.5px;
+  --hz-size-caption: 12px;
+  --hz-size-h3:      21px;
+  --hz-size-h2:      26px;
+  --hz-size-h1:      33px;
+  --hz-size-display: 52px;
+
+  /* leading */
+  --hz-leading-tight: 1.15;
+  --hz-leading-body:  1.5;
+  --hz-leading-loose: 1.7;
+
+  /* ─── Spacing ─── */
+  --hz-pad-xs: 4px;
+  --hz-pad-sm: 8px;
+  --hz-pad-md: 16px;
+  --hz-pad-lg: 28px;
+  --hz-pad-xl: 48px;
+  --hz-pad-2xl: 80px;
+
+  /* ─── Rules ─── */
+  --hz-rule-hair: 0.5px solid var(--hz-rule);
+  --hz-rule-thin: 1px solid var(--hz-ink);
+  --hz-rule-bold: 2px solid var(--hz-ink);
+
+  /* ─── Print page geometry ─── */
+  --hz-page-margin: 0.75in;
+  --hz-page-bleed:  0.125in;
+}
+
+/* ─── Per-family accent helpers ─── */
+.hz-family-percussion { --hz-accent: var(--hz-accent-percussion); }
+.hz-family-winds      { --hz-accent: var(--hz-accent-winds); }
+.hz-family-strings    { --hz-accent: var(--hz-accent-strings); }
+.hz-family-keyboard   { --hz-accent: var(--hz-accent-keyboard); }
+.hz-family-electronic { --hz-accent: var(--hz-accent-electronic); }
+
+/* ─── Base typography baseline ─── */
+body {
+  font-family: var(--hz-font-body);
+  font-size: var(--hz-size-base);
+  line-height: var(--hz-leading-body);
+  color: var(--hz-ink);
+  background: var(--hz-cream);
+}
+
+h1, h2, h3, .hz-display {
+  font-family: var(--hz-font-display);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--hz-leading-tight);
+  letter-spacing: 0.005em;
+}
+
+.hz-wordmark {
+  font-family: var(--hz-font-display);
+  font-style: italic;
+  font-size: var(--hz-size-h1);
+  letter-spacing: 0.01em;
+}
+
+.hz-spec, .hz-mono {
+  font-family: var(--hz-font-mono);
+  font-size: var(--hz-size-small);
+  letter-spacing: 0;
+}
+
+.hz-caption {
+  font-size: var(--hz-size-caption);
+  font-style: italic;
+  color: var(--hz-shadow);
+}
+
+/* ─── Common rules ─── */
+hr.hz-hair { border: 0; border-top: var(--hz-rule-hair); margin: var(--hz-pad-md) 0; }
+hr.hz-thin { border: 0; border-top: var(--hz-rule-thin); margin: var(--hz-pad-lg) 0; }
+hr.hz-bold { border: 0; border-top: var(--hz-rule-bold); margin: var(--hz-pad-lg) 0; }

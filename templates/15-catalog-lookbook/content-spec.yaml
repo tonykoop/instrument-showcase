@@ -1,0 +1,32 @@
+template: 15-catalog-lookbook
+format: html-letter-portrait-print
+output_filename: catalog-{{ season_year }}.html
+
+fields:
+  - name: season_year
+    source: confirm with Tony, e.g., "Spring 2026"
+    required: true
+  - name: foreword_paragraphs
+    description: 2 paragraphs from the maker's voice
+    source: tonykoop/README.md OR custom intro Tony writes per cycle
+    required: true
+  - name: featured_instruments
+    description: |
+      List of (folder_name, hero_image_path, name, tagline, description_2_sentences,
+      spec_excerpt, repo_url, sales_page_url). 6–12 entries.
+    source: per-instrument folders + Tony's curation
+    required: true
+  - name: behind_the_work_images
+    description: 4–8 process / workshop photos
+    source: instrument folders + retail-displays/images/
+    required: true
+  - name: maker_bio_full
+    source: tonykoop/README.md → all of "What I do"
+    required: true
+  - name: contact_block
+    source: tonykoop/README.md
+    required: true
+  - name: cover_hero_image_path
+    description: Composite or single hero image
+    source: confirm with Tony per cycle
+    required: true

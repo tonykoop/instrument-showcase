@@ -1,0 +1,129 @@
+# Content spec for Template 01 — Art-Fair Brochure
+# This file declares the structured fields template.html needs.
+# scripts/render.py reads this spec, pulls content from the instrument folder
+# according to the source rules, and fills template.html.
+
+template: 01-brochure
+format: html-bifold-letter
+output_filename: brochure.html
+
+fields:
+
+  # ─── Identity ─── ─────────────────────────────────────────────
+  - name: serial
+    description: Instrument serial (e.g., TNG-001)
+    source: design.md → Master Catalog Row → "Instrument ID"
+    required: true
+
+  - name: family
+    description: Instrument family (drums, winds, strings, keyboard, electronic)
+    source: design.md → Master Catalog Row → "Family"
+    required: true
+
+  - name: family_accent
+    description: CSS class for family-accent color (auto-derived from family)
+    source: derived
+    rule: |
+      drums          → hz-family-percussion
+      winds/flutes   → hz-family-winds
+      strings        → hz-family-strings
+      marimba/keys   → hz-family-keyboard
+      electric/synth → hz-family-electronic
+    required: true
+
+  - name: instrument_type
+    description: Instrument type (e.g., "Tongue drum")
+    source: design.md → Master Catalog Row → "Instrument Type"
+    required: true
+
+  - name: variant
+    description: Variant or size (e.g., "Small (magazine baseline)")
+    source: design.md → Master Catalog Row → "Variant/Size"
+    required: false
+
+  # ─── Marketing ─── ─────────────────────────────────────────────
+  - name: tagline
+    description: One-sentence under-the-name descriptor (italic). Concrete.
+    source: README.md → "What this is" first sentence, distilled to ≤14 words
+    required: true
+
+  - name: marketing_paragraph
+    description: 80–140 word buyer-facing paragraph. Engineering-honest, no puffery.
+    source: README.md → "Background" or "What this is" sections, paraphrased to brand voice
+    required: true
+
+  - name: pull_quote
+    description: A 12–22 word quote-style line. Often borrowed from tonykoop bio.
+    source: tonykoop/README.md "What I do" section OR design.md intent
+    required: true
+
+  # ─── Specs ─── ──────────────────────────────────────────────────
+  - name: key_or_scale
+    description: Musical key or scale (or "TBD" with reason)
+    source: design.md → Master Catalog Row → "Key/Scale"
+    required: false
+
+  - name: top_material
+    description: Top / soundboard material
+    source: bom.csv row 1 (Primary structure)
+    required: true
+
+  - name: body_material
+    description: Body / shell / resonator material
+    source: bom.csv row 1 Notes OR design.md
+    required: true
+
+  - name: hardware_summary
+    description: Hardware (one short clause)
+    source: bom.csv row 3 (Hardware)
+    required: false
+
+  - name: finish
+    description: Finish description
+    source: bom.csv row 5 (Finish) Notes
+    required: false
+
+  # ─── Build method (abstract) ─── ───────────────────────────────
+  - name: build_method_steps
+    description: 3–5 step build summary, imperative tense
+    source: assembly-manual.md → top-level steps, distilled
+    required: true
+
+  # ─── Provenance ─── ─────────────────────────────────────────────
+  - name: built_year
+    description: Year built
+    source: design.md → "Generated" date OR validation.csv earliest date
+    required: true
+
+  - name: built_location
+    description: Build location (default "Santa Clara, CA")
+    source: tonykoop/README.md profile location
+    required: true
+    default: "Santa Clara, CA"
+
+  - name: maker_bio
+    description: 2–3 sentence maker bio
+    source: tonykoop/README.md → "What I do" first paragraph, distilled
+    required: true
+
+  - name: github_repo_url
+    description: Public repo URL
+    source: design.md → "GitHub Repo"
+    required: false
+
+  # ─── Imagery ─── ────────────────────────────────────────────────
+  - name: hero_image_path
+    description: Path to the hero photo (full-bleed front cover)
+    source: images/ — pick the highest-resolution, instrument-only photo
+    required: true
+
+  - name: inside_image_path
+    description: Path to the inside photo (build, materials, or detail shot)
+    source: images/ — second hero candidate
+    required: false
+
+  # ─── DoE / engineering hook (optional) ─── ─────────────────────
+  - name: engineering_hook
+    description: One-sentence summary of the engineering/DoE story (if present)
+    source: study/README.md → first paragraph, distilled
+    required: false

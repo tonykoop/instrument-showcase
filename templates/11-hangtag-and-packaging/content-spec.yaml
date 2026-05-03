@@ -1,0 +1,34 @@
+template: 11-hangtag-and-packaging
+format: html-multi-format-print
+output_filename: packaging.html
+sub_formats:
+  - hangtag (2.5x4 die-cut, 6-up on letter)
+  - box-label (4x6 adhesive)
+  - insert (5x7 folded)
+
+fields:
+  - name: serial
+    source: design.md
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: instrument_type
+    source: design.md
+    required: true
+  - name: variant
+    source: design.md
+    required: false
+  - name: key_or_scale
+    source: design.md
+    required: false
+  - name: materials_oneliner
+    source: bom.csv → top + body summary
+    required: true
+  - name: tuning_oneliner
+    source: validation.csv
+    required: false
+  - name: first_5_minutes_steps
+    description: 3 imperative steps for the new owner's first interaction
+    source: assembly-manual.md → "first play" or family default
+    required: true

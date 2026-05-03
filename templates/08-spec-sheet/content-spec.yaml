@@ -1,0 +1,33 @@
+template: 08-spec-sheet
+format: html-letter-portrait-print
+output_filename: spec-sheet.html
+
+fields:
+  - name: serial
+    source: design.md
+    required: true
+  - name: family_accent
+    source: derived
+    required: true
+  - name: identity_table
+    source: design.md → master catalog row (subset)
+    required: true
+  - name: materials_table
+    source: bom.csv + cut-list.csv
+    required: true
+  - name: geometry_table
+    source: cut-list.csv + design.md
+    required: true
+  - name: acoustics_table
+    description: Two columns — predicted vs measured — per note/tongue
+    source: <instrument>-design-table.xlsx + validation.csv
+    required: true
+  - name: provenance
+    source: design.md + tonykoop/README.md
+    required: true
+  - name: hero_image_path
+    source: images/
+    required: true
+  - name: github_repo_url
+    source: design.md
+    required: true
