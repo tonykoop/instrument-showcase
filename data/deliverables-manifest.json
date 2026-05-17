@@ -1,0 +1,550 @@
+{
+  "schema_version": "instrument-showcase-deliverables-manifest-v1",
+  "generated_at": "2026-05-17T14:10:00-07:00",
+  "source_plan": "/docs/plans/2026-05-17-instrument-wolfram-site-r24/matrix.md",
+  "source_rounds": [23, 24],
+  "summary": "Machine-readable seed for Round 23 and Round 24 instrument deliverables referenced by the Wolfram + Showcase sprint.",
+  "items": [
+    {
+      "slug": "clarinet",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../clarinet",
+      "github_repo": "https://github.com/tonykoop/clarinet",
+      "artifact_types": ["design.md", "validation.csv", "family-spec.csv", "visual-output-register.csv", "wolfram", "showcase"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A2",
+          "lane": "instrument issue #1 (reed/mouthpiece/leak capture)",
+          "worktree": "/tmp/clarinet-A2-r23-reed-leak-capture",
+          "branch": "sprint/A2-r23-clarinet-reed-leak"
+        },
+        {
+          "round": 24,
+          "pane": "A4",
+          "lane": "instrument-showcase: bore/tone-hole Wolfram starter",
+          "worktree": "/tmp/clarinet-A4-r24-wolfram-bore-calibration",
+          "branch": "sprint/A4-r24-clarinet-wolfram-bore"
+        }
+      ],
+      "draft_prs": [
+        {
+          "id": 5,
+          "url": "https://github.com/tonykoop/clarinet/pull/5",
+          "state": "draft",
+          "lane": "A4"
+        }
+      ],
+      "links": {
+        "repo": "../clarinet",
+        "design": "../clarinet/design.md",
+        "validation": "../clarinet/validation.csv"
+      }
+    },
+    {
+      "slug": "didgeridoo",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../didgeridoo",
+      "github_repo": "https://github.com/tonykoop/didgeridoo",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "showcase", "cnc"],
+      "rounds": [
+        {
+          "round": 24,
+          "pane": "A5",
+          "lane": "didgeridoo issue #1 / PR #3 sidecar bore-station packet",
+          "worktree": "/tmp/didgeridoo-A5-r24-wolfram-bore-stations",
+          "branch": "sprint/A5-r24-didgeridoo-wolfram-bore"
+        }
+      ],
+      "draft_prs": [
+        {
+          "id": 3,
+          "url": "https://github.com/tonykoop/didgeridoo/pull/3",
+          "state": "draft",
+          "lane": "A5",
+          "notes": "draft follow-up context from matrix"
+        }
+      ],
+      "links": {
+        "repo": "../didgeridoo",
+        "design": "../didgeridoo/design.md",
+        "validation": "../didgeridoo/validation.csv"
+      }
+    },
+    {
+      "slug": "sheng",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../sheng",
+      "github_repo": "https://github.com/tonykoop/sheng",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "free-reed capture"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A3",
+          "lane": "sheng issue #1 capture packet",
+          "worktree": "/tmp/sheng-A3-r23-reed-coupon-capture",
+          "branch": "sprint/A3-r23-sheng-reed-coupon"
+        },
+        {
+          "round": 24,
+          "pane": "A6",
+          "lane": "sheng free-reed pull-down/onset Wolfram starter",
+          "worktree": "/tmp/sheng-A6-r24-wolfram-free-reed",
+          "branch": "sprint/A6-r24-sheng-wolfram-free-reed"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../sheng",
+        "design": "../sheng/design.md"
+      }
+    },
+    {
+      "slug": "erhu",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../erhu",
+      "github_repo": "https://github.com/tonykoop/erhu",
+      "artifact_types": ["design.md", "validation.csv", "evidence-register"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A4",
+          "lane": "erhu resonator/photo measurement evidence",
+          "worktree": "/tmp/erhu-A4-r23-resonator-evidence",
+          "branch": "sprint/A4-r23-erhu-resonator-evidence"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../erhu",
+        "design": "../erhu/design.md"
+      }
+    },
+    {
+      "slug": "pipa",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../pipa",
+      "github_repo": "https://github.com/tonykoop/pipa",
+      "artifact_types": ["design.md", "validation.csv", "source-media"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A5",
+          "lane": "pipa source-media evidence + fret/scale intake",
+          "worktree": "/tmp/pipa-A5-r23-source-media",
+          "branch": "sprint/A5-r23-pipa-source-media"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../pipa",
+        "design": "../pipa/design.md"
+      }
+    },
+    {
+      "slug": "konghou",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../konghou",
+      "github_repo": "https://github.com/tonykoop/konghou",
+      "artifact_types": ["design.md", "validation.csv", "proof-load"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A6",
+          "lane": "konghou proof-load/coupon plan",
+          "worktree": "/tmp/konghou-A6-r23-proof-load",
+          "branch": "sprint/A6-r23-konghou-proof-load"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../konghou",
+        "design": "../konghou/design.md"
+      }
+    },
+    {
+      "slug": "dundun",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../dundun",
+      "github_repo": "https://github.com/tonykoop/dundun",
+      "artifact_types": ["design.md", "validation.csv", "head-tension"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A7",
+          "lane": "dundun material/head-tension capture",
+          "worktree": "/tmp/dundun-A7-r23-head-tension-coupons",
+          "branch": "sprint/A7-r23-dundun-coupons"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../dundun",
+        "design": "../dundun/design.md"
+      }
+    },
+    {
+      "slug": "electric-guitar-bodies",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../electric-guitar-bodies",
+      "github_repo": "https://github.com/tonykoop/electric-guitar-bodies",
+      "artifact_types": ["design.md", "validation.csv", "html-artifact-card", "showcase"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "A8",
+          "lane": "route-template capture + bridge/neck-pocket coupon tables",
+          "worktree": "/tmp/electric-guitar-bodies-A8-r23-guitar-route-coupons",
+          "branch": "sprint/A8-r23-guitar-route-coupons"
+        },
+        {
+          "round": 24,
+          "pane": "A7",
+          "lane": "static HTML artifact card / mini-gallery",
+          "worktree": "/tmp/electric-guitar-bodies-A7-r24-guitar-html-card",
+          "branch": "sprint/A7-r24-guitar-html-card"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../electric-guitar-bodies",
+        "design": "../electric-guitar-bodies/design.md"
+      }
+    },
+    {
+      "slug": "guzheng",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../guzheng",
+      "github_repo": "https://github.com/tonykoop/guzheng",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "scaling-table"],
+      "rounds": [
+        {
+          "round": 24,
+          "pane": "A8",
+          "lane": "Wolfram/string-family scaling starter",
+          "worktree": "/tmp/guzheng-A8-r24-wolfram-family-scaling",
+          "branch": "sprint/A8-r24-guzheng-wolfram-scaling"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../guzheng",
+        "design": "../guzheng/design.md"
+      }
+    },
+    {
+      "slug": "hulusi",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../hulusi",
+      "github_repo": "https://github.com/tonykoop/hulusi",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "reed-loop"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B0",
+          "lane": "reed pull-down empirical-loop packet",
+          "worktree": "/tmp/hulusi-B0-r23-reed-loop",
+          "branch": "sprint/B0-r23-hulusi-reed-loop"
+        },
+        {
+          "round": 24,
+          "pane": "B0",
+          "lane": "wolfram reed pull-down starter",
+          "worktree": "/tmp/hulusi-B0-r24-hulusi-wolfram-reed",
+          "branch": "sprint/B0-r24-hulusi-wolfram-reed"
+        }
+      ],
+      "draft_prs": [
+        {
+          "id": 2,
+          "url": "https://github.com/tonykoop/hulusi/pull/2",
+          "state": "draft",
+          "lane": "A4 / B0 references"
+        }
+      ],
+      "links": {
+        "repo": "../hulusi",
+        "design": "../hulusi/design.md"
+      }
+    },
+    {
+      "slug": "duduk",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../duduk",
+      "github_repo": "https://github.com/tonykoop/duduk",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "openscad"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B1",
+          "lane": "OpenSCAD smoke packet",
+          "worktree": "/tmp/duduk-B1-r23-openscad-smoke",
+          "branch": "sprint/B1-r23-duduk-openscad-smoke"
+        },
+        {
+          "round": 24,
+          "pane": "B1",
+          "lane": "Wolfram + OpenSCAD smoke packet",
+          "worktree": "/tmp/duduk-B1-r24-wolfram-openscad-smoke",
+          "branch": "sprint/B1-r24-duduk-wolfram-smoke"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../duduk",
+        "design": "../duduk/design.md"
+      }
+    },
+    {
+      "slug": "kora",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../kora",
+      "github_repo": "https://github.com/tonykoop/kora",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "string-tension"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B2",
+          "lane": "V5 build-packet starter",
+          "worktree": "/tmp/kora-B2-r23-v5-starter",
+          "branch": "sprint/B2-r23-kora-v5-starter"
+        },
+        {
+          "round": 24,
+          "pane": "B2",
+          "lane": "string-tension Wolfram starter",
+          "worktree": "/tmp/kora-B2-r24-kora-wolfram-tension",
+          "branch": "sprint/B2-r24-kora-wolfram-tension"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../kora",
+        "design": "../kora/design.md"
+      }
+    },
+    {
+      "slug": "ngoni",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../ngoni",
+      "github_repo": "https://github.com/tonykoop/ngoni",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "string-tension"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B3",
+          "lane": "V5 build-packet starter",
+          "worktree": "/tmp/ngoni-B3-r23-v5-starter",
+          "branch": "sprint/B3-r23-ngoni-v5-starter"
+        },
+        {
+          "round": 24,
+          "pane": "B3",
+          "lane": "Wolfram string-tension starter",
+          "worktree": "/tmp/ngoni-B3-r24-ngoni-wolfram-tension",
+          "branch": "sprint/B3-r24-ngoni-wolfram-tension"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../ngoni",
+        "design": "../ngoni/design.md"
+      }
+    },
+    {
+      "slug": "stave-lute-oud",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../stave-lute-oud",
+      "github_repo": "https://github.com/tonykoop/stave-lute-oud",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "body-starter"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B4",
+          "lane": "stave/body-family packet starter",
+          "worktree": "/tmp/stave-lute-oud-B4-r23-v5-starter",
+          "branch": "sprint/B4-r23-stave-lute-oud-starter"
+        },
+        {
+          "round": 24,
+          "pane": "B4",
+          "lane": "missing V5 starter slice with rib/body-family geometry",
+          "worktree": "/tmp/stave-lute-oud-B4-r24-wolfram-body-starter",
+          "branch": "sprint/B4-r24-stave-lute-oud-wolfram"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../stave-lute-oud",
+        "design": "../stave-lute-oud/design.md"
+      }
+    },
+    {
+      "slug": "ceramic-electric-violin",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../ceramic-electric-violin",
+      "github_repo": "https://github.com/tonykoop/ceramic-electric-violin",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "material-body"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B5",
+          "lane": "V5 build-packet starter",
+          "worktree": "/tmp/ceramic-electric-violin-B5-r23-v5-starter",
+          "branch": "sprint/B5-r23-ceramic-electric-violin"
+        },
+        {
+          "round": 24,
+          "pane": "B5",
+          "lane": "Wolfram material/body-response starter",
+          "worktree": "/tmp/ceramic-electric-violin-B5-r24-wolfram-body-response",
+          "branch": "sprint/B5-r24-ceramic-violin-wolfram"
+        }
+      ],
+      "draft_prs": [
+        {
+          "id": 2,
+          "url": "https://github.com/tonykoop/ceramic-electric-violin/pull/2",
+          "state": "draft",
+          "lane": "B5"
+        }
+      ],
+      "links": {
+        "repo": "../ceramic-electric-violin",
+        "design": "../ceramic-electric-violin/design.md"
+      }
+    },
+    {
+      "slug": "tongue-drum",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../tongue-drum",
+      "github_repo": "https://github.com/tonykoop/tongue-drum",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "tuning"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B6",
+          "lane": "Phase 1 CAD/CNC/tuning gate packet",
+          "worktree": "/tmp/tongue-drum-B6-r23-phase1-gates",
+          "branch": "sprint/B6-r23-tongue-drum-phase1"
+        },
+        {
+          "round": 24,
+          "pane": "B6",
+          "lane": "Wolfram tongue-frequency/runtime packet",
+          "worktree": "/tmp/tongue-drum-B6-r24-wolfram-tongue-frequency",
+          "branch": "sprint/B6-r24-tongue-drum-wolfram"
+        }
+      ],
+      "draft_prs": [
+        {
+          "id": 5,
+          "url": "https://github.com/tonykoop/tongue-drum/pull/5",
+          "state": "draft",
+          "lane": "B6"
+        }
+      ],
+      "links": {
+        "repo": "../tongue-drum",
+        "design": "../tongue-drum/design.md"
+      }
+    },
+    {
+      "slug": "fujara",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../fujara",
+      "github_repo": "https://github.com/tonykoop/fujara",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "side-branch"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B8",
+          "lane": "V5 build-packet starter",
+          "worktree": "/tmp/fujara-B8-r23-v5-starter",
+          "branch": "sprint/B8-r23-fujara-v5-starter"
+        },
+        {
+          "round": 24,
+          "pane": "B7",
+          "lane": "Wolfram side-branch relation starter",
+          "worktree": "/tmp/fujara-B7-r24-fujara-wolfram-sidebranch",
+          "branch": "sprint/B7-r24-fujara-wolfram-sidebranch"
+        }
+      ],
+      "draft_prs": [
+        {
+          "id": 6,
+          "url": "https://github.com/tonykoop/fujara/pull/6",
+          "state": "draft",
+          "lane": "B7"
+        }
+      ],
+      "links": {
+        "repo": "../fujara",
+        "design": "../fujara/design.md"
+      }
+    },
+    {
+      "slug": "cnc-guitar-bodies",
+      "status_label": "lane-active",
+      "readiness_label": "not-build-ready",
+      "repo_path": "../cnc-guitar-bodies",
+      "github_repo": "https://github.com/tonykoop/cnc-guitar-bodies",
+      "artifact_types": ["design.md", "validation.csv", "template-starter"],
+      "rounds": [
+        {
+          "round": 23,
+          "pane": "B7",
+          "lane": "CNC body-family datum + router-template authority",
+          "worktree": "/tmp/cnc-guitar-bodies-B7-r23-v5-starter",
+          "branch": "sprint/B7-r23-cnc-guitar-bodies"
+        }
+      ],
+      "draft_prs": [],
+      "links": {
+        "repo": "../cnc-guitar-bodies",
+        "design": "../cnc-guitar-bodies/design.md"
+      }
+    },
+    {
+      "slug": "sambuca",
+      "status_label": "availability-check",
+      "readiness_label": "blocked",
+      "repo_path": "../sambuca",
+      "github_repo": "https://github.com/tonykoop/sambuca",
+      "artifact_types": ["design.md", "validation.csv", "wolfram", "showcase-card"],
+      "rounds": [
+        {
+          "round": 24,
+          "pane": "B8",
+          "lane": "Tony-choice creative lane if issue exists",
+          "worktree": "/tmp/sambuca-B8-r24-wolfram-tony-choice",
+          "branch": "sprint/B8-r24-sambuca-wolfram"
+        }
+      ],
+      "draft_prs": [],
+      "notes": "Issue/PR state should be confirmed before adding runtime artifacts.",
+      "links": {
+        "repo": "../sambuca",
+        "design": "../sambuca/design.md"
+      }
+    }
+  ]
+}
