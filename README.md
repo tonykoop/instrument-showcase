@@ -69,6 +69,27 @@ python ~/.claude/skills/instrument-showcase/scripts/render.py \
 
 Output goes to `<instrument-folder>/showcase/<doc-type>.html`.
 
+## Static deliverables hub
+
+Round 24 adds a separate multi-repo site flow for browsing sprint deliverables across
+instrument repos. It does not replace the per-instrument document templates above.
+
+Render the hub from the checked-in manifest seed:
+
+```bash
+python scripts/render_site_hub.py
+```
+
+This writes a fully static site under `site/` with:
+
+- `site/index.html` — landing page with instrument cards, filters, and sprint metadata
+- `site/instruments/*.html` — detail pages per repo
+- `site/manifest.html` — browsable copy of the machine-readable manifest
+
+The source manifest lives in `data/deliverables-manifest.json`. Keep readiness and
+runtime evidence honest: Wolfram outputs and showcase HTML are review artifacts, not
+fabrication authority.
+
 ## The Heifer Zephyr brand
 
 The brand identity lives in `brand/`:
