@@ -138,7 +138,7 @@ def page_shell(title: str, body: str, page_dir: Path, output_dir: Path) -> str:
     css_href = Path(shutil.os.path.relpath(output_dir / "assets" / "hub.css", page_dir)).as_posix()
     home_href = Path(shutil.os.path.relpath(output_dir / "index.html", page_dir)).as_posix()
     manifest_href = Path(shutil.os.path.relpath(output_dir / "manifest.html", page_dir)).as_posix()
-    return f"""<!DOCTYPE html>
+    markup = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -163,6 +163,7 @@ def page_shell(title: str, body: str, page_dir: Path, output_dir: Path) -> str:
 </body>
 </html>
 """
+    return "\n".join(line.rstrip() for line in markup.splitlines()) + "\n"
 
 
 def build_item_context(item: dict[str, Any], manifest_path: Path, page_dir: Path) -> dict[str, Any]:
