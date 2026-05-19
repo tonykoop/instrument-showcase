@@ -114,12 +114,31 @@ def resolve_reference(raw_value: str | None, manifest_path: Path) -> str | Path 
     return (CANONICAL_REPO_ROOT / raw_value).resolve()
 
 
-def href_for_page(target: str | Path | None, page_dir: Path) -> str | None:
+CANONICAL_SITE_ROOT = CANONICAL_REPO_ROOT / "site"
+
+
+def canonical_page_dir(page_dir: Path, output_dir: Path) -> Path:
+    """Map a real page directory to its canonical site location.
+
+    Generated hrefs must be the same regardless of where the renderer was
+    invoked (Tony's checkout, CI, a temp dir). We compute relpath against the
+    canonical site root, not the actual output dir, so workspace-relative
+    manifest paths produce stable links like ``../../docs/plans/...``.
+    """
+    try:
+        sub = page_dir.resolve().relative_to(output_dir.resolve())
+    except ValueError:
+        sub = Path()
+    return CANONICAL_SITE_ROOT / sub
+
+
+def href_for_page(target: str | Path | None, page_dir: Path, output_dir: Path) -> str | None:
     if target is None:
         return None
     if isinstance(target, str):
         return target
-    return Path(shutil.os.path.relpath(target, page_dir)).as_posix()
+    base = canonical_page_dir(page_dir, output_dir)
+    return Path(shutil.os.path.relpath(target, base)).as_posix()
 
 
 def manifest_reference_target(raw_value: str | None) -> Path | str | None:
@@ -128,13 +147,13 @@ def manifest_reference_target(raw_value: str | None) -> Path | str | None:
     if is_external_url(raw_value):
         return raw_value
     if raw_value.startswith("/"):
-        return (REPO_ROOT.parent / raw_value.lstrip("/")).resolve()
-    return (REPO_ROOT / raw_value).resolve()
+        return (WORKSPACE_ROOT / raw_value.lstrip("/")).resolve()
+    return (CANONICAL_REPO_ROOT / raw_value).resolve()
 
 
-def href_for_manifest_reference(raw_value: str | None, page_dir: Path) -> str | None:
+def href_for_manifest_reference(raw_value: str | None, page_dir: Path, output_dir: Path) -> str | None:
     target = manifest_reference_target(raw_value)
-    return href_for_page(target, page_dir)
+    return href_for_page(target, page_dir, output_dir)
 
 
 def public_reference_label(raw_value: str | None) -> str:
@@ -220,19 +239,19 @@ def page_shell(title: str, body: str, page_dir: Path, output_dir: Path) -> str:
     return "\n".join(line.rstrip() for line in markup.splitlines()) + "\n"
 
 
-def build_item_context(item: dict[str, Any], manifest_path: Path, page_dir: Path) -> dict[str, Any]:
+def build_item_context(item: dict[str, Any], manifest_path: Path, page_dir: Path, output_dir: Path) -> dict[str, Any]:
     slug = str(item["slug"])
     artifact_types = [str(kind) for kind in item.get("artifact_types", [])]
     rounds = list(item.get("rounds", []))
     draft_prs = list(item.get("draft_prs", []))
     notes = list(item.get("notes", []))
     repo_raw = item.get("repo_path") or item.get("links", {}).get("repo")
-    repo_href = href_for_manifest_reference(str(repo_raw), page_dir) if repo_raw else item.get("github_repo")
+    repo_href = href_for_manifest_reference(str(repo_raw), page_dir, output_dir) if repo_raw else item.get("github_repo")
     repo_is_manifest_path = bool(repo_raw and not is_external_url(str(repo_raw)))
 
     links = []
     for link_name, link_value in sorted(item.get("links", {}).items()):
-        href = href_for_manifest_reference(str(link_value), page_dir)
+        href = href_for_manifest_reference(str(link_value), page_dir, output_dir)
         links.append(
             {
                 "name": link_name.replace("_", " "),
@@ -396,7 +415,7 @@ def render_index_page(manifest: dict[str, Any], contexts: list[dict[str, Any]], 
             '''
         )
 
-    source_plan_href = href_for_manifest_reference(str(manifest.get("source_plan", "")), page_dir)
+    source_plan_href = href_for_manifest_reference(str(manifest.get("source_plan", "")), page_dir, output_dir)
     source_plan_html = ""
     if source_plan_href:
         source_plan_html = f'<a href="{html.escape(source_plan_href)}">Open sprint contract</a>'
@@ -598,7 +617,7 @@ def render_site(manifest_path: Path, output_dir: Path) -> None:
     )
 
     index_contexts = [
-        build_item_context(item, manifest_path, output_dir)
+        build_item_context(item, manifest_path, output_dir, output_dir)
         for item in manifest.get("items", [])
     ]
     index_contexts.sort(key=lambda item: item["title"])
@@ -613,7 +632,7 @@ def render_site(manifest_path: Path, output_dir: Path) -> None:
     )
 
     for item in sorted(manifest.get("items", []), key=lambda entry: titleize_slug(str(entry["slug"]))):
-        context = build_item_context(item, manifest_path, instruments_dir)
+        context = build_item_context(item, manifest_path, instruments_dir, output_dir)
         detail_page = instruments_dir / f"{context['slug']}.html"
         detail_page.write_text(
             render_detail_page(context, output_dir),
