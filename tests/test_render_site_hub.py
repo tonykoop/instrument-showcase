@@ -47,6 +47,46 @@ class RenderSiteHubTests(unittest.TestCase):
             self.assertTrue((output_dir / "assets" / "hub.css").exists())
             self.assertTrue((output_dir / "assets" / "deliverables-manifest.json").exists())
 
+    def test_render_site_uses_canonical_relative_links(self) -> None:
+        manifest_path = REPO_ROOT / "data" / "deliverables-manifest.json"
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_dir = Path(tmp_dir) / "site"
+            MODULE.render_site(manifest_path, output_dir)
+
+            index_html = (output_dir / "index.html").read_text(encoding="utf-8")
+            detail_html = (output_dir / "instruments" / "clarinet.html").read_text(encoding="utf-8")
+
+            self.assertIn('href="../../docs/plans/2026-05-17-instrument-wolfram-site-r24/matrix.md"', index_html)
+            self.assertIn('href="../../clarinet"', index_html)
+            self.assertIn('href="../../../clarinet"', detail_html)
+            self.assertIn('href="../../../clarinet/design.md"', detail_html)
+
+    def test_render_site_does_not_emit_local_filesystem_paths(self) -> None:
+        manifest_path = REPO_ROOT / "data" / "deliverables-manifest.json"
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_dir = Path(tmp_dir) / "site"
+            MODULE.render_site(manifest_path, output_dir)
+
+            generated = "\n".join(
+                path.read_text(encoding="utf-8")
+                for path in output_dir.rglob("*")
+                if path.is_file() and path.suffix in {".html", ".json"}
+            )
+            forbidden_fragments = ["/mnt/", "/tmp/", "/home/", "/Users/", "file://", "C:\\"]
+            for fragment in forbidden_fragments:
+                self.assertNotIn(fragment, generated)
+
+    def test_availability_check_is_status_filter_not_readiness_filter(self) -> None:
+        manifest_path = REPO_ROOT / "data" / "deliverables-manifest.json"
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_dir = Path(tmp_dir) / "site"
+            MODULE.render_site(manifest_path, output_dir)
+
+            index_html = (output_dir / "index.html").read_text(encoding="utf-8")
+
+            self.assertIn('data-filter-group="status" data-filter-value="availability-check"', index_html)
+            self.assertNotIn('data-filter-group="readiness" data-filter-value="availability-check"', index_html)
+
 
 if __name__ == "__main__":
     unittest.main()
