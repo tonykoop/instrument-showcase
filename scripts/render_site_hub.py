@@ -9,6 +9,7 @@ import json
 import re
 import shutil
 from collections import Counter
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -31,6 +32,14 @@ FAMILY_ACCENT_RULES = [
     (re.compile(r"electric|midi|synth|electron", re.I),
      "hz-family-electronic"),
 ]
+LOCAL_PATH_PATTERNS = (
+    re.compile(r"file://", re.I),
+    re.compile(r"[A-Za-z]:\\"),
+    re.compile(r"/mnt/"),
+    re.compile(r"/tmp/"),
+    re.compile(r"/home/"),
+    re.compile(r"/Users/"),
+)
 
 
 def discover_workspace_root() -> Path:
@@ -65,6 +74,10 @@ def titleize_slug(slug: str) -> str:
 def is_external_url(value: str) -> bool:
     parsed = urlparse(value)
     return parsed.scheme in {"http", "https"}
+
+
+def is_local_filesystem_path(value: str) -> bool:
+    return any(pattern.search(value) for pattern in LOCAL_PATH_PATTERNS)
 
 
 def derive_family_accent(*parts: str) -> str:
@@ -107,6 +120,47 @@ def href_for_page(target: str | Path | None, page_dir: Path) -> str | None:
     if isinstance(target, str):
         return target
     return Path(shutil.os.path.relpath(target, page_dir)).as_posix()
+
+
+def manifest_reference_target(raw_value: str | None) -> Path | str | None:
+    if not raw_value:
+        return None
+    if is_external_url(raw_value):
+        return raw_value
+    if raw_value.startswith("/"):
+        return (REPO_ROOT.parent / raw_value.lstrip("/")).resolve()
+    return (REPO_ROOT / raw_value).resolve()
+
+
+def href_for_manifest_reference(raw_value: str | None, page_dir: Path) -> str | None:
+    target = manifest_reference_target(raw_value)
+    return href_for_page(target, page_dir)
+
+
+def public_reference_label(raw_value: str | None) -> str:
+    if not raw_value:
+        return "not declared"
+    if is_external_url(raw_value):
+        return raw_value
+    return raw_value.replace("\\", "/")
+
+
+def public_round_worktree(value: str) -> str:
+    if not value:
+        return ""
+    if is_local_filesystem_path(value):
+        return "temporary worktree not published"
+    return value
+
+
+def public_site_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
+    public_manifest = deepcopy(manifest)
+    for item in public_manifest.get("items", []):
+        for round_info in item.get("rounds", []):
+            worktree = str(round_info.get("worktree", ""))
+            if is_local_filesystem_path(worktree):
+                round_info["worktree"] = "temporary worktree not published"
+    return public_manifest
 
 
 def escaped_json(data: Any) -> str:
@@ -172,21 +226,19 @@ def build_item_context(item: dict[str, Any], manifest_path: Path, page_dir: Path
     rounds = list(item.get("rounds", []))
     draft_prs = list(item.get("draft_prs", []))
     notes = list(item.get("notes", []))
-    repo_target = resolve_reference(item.get("repo_path") or item.get("links", {}).get("repo"), manifest_path)
-    repo_href = href_for_page(repo_target, page_dir) if isinstance(repo_target, Path) and repo_target.exists() else item.get("github_repo")
-    repo_is_local = isinstance(repo_target, Path) and repo_target.exists()
+    repo_raw = item.get("repo_path") or item.get("links", {}).get("repo")
+    repo_href = href_for_manifest_reference(str(repo_raw), page_dir) if repo_raw else item.get("github_repo")
+    repo_is_manifest_path = bool(repo_raw and not is_external_url(str(repo_raw)))
 
     links = []
     for link_name, link_value in sorted(item.get("links", {}).items()):
-        resolved = resolve_reference(str(link_value), manifest_path)
-        link_exists = not isinstance(resolved, Path) or resolved.exists()
-        href = href_for_page(resolved, page_dir) if link_exists else None
+        href = href_for_manifest_reference(str(link_value), page_dir)
         links.append(
             {
                 "name": link_name.replace("_", " "),
                 "href": href,
-                "exists": link_exists,
-                "resolved_path": str(resolved) if isinstance(resolved, Path) else str(link_value),
+                "exists": True,
+                "resolved_path": public_reference_label(str(link_value)),
             }
         )
 
@@ -198,7 +250,7 @@ def build_item_context(item: dict[str, Any], manifest_path: Path, page_dir: Path
                 "pane": round_info.get("pane", ""),
                 "lane": round_info.get("lane", ""),
                 "branch": round_info.get("branch", ""),
-                "worktree": round_info.get("worktree", ""),
+                "worktree": public_round_worktree(str(round_info.get("worktree", ""))),
             }
         )
 
@@ -212,7 +264,7 @@ def build_item_context(item: dict[str, Any], manifest_path: Path, page_dir: Path
         "runtime_label": normalize_label(runtime_label_for_item(item), "runtime-unspecified"),
         "github_repo": item.get("github_repo"),
         "repo_href": repo_href,
-        "repo_is_local": repo_is_local,
+        "repo_is_local": repo_is_manifest_path,
         "artifact_types": artifact_types,
         "artifact_count": len(artifact_types),
         "rounds": rounds_display,
@@ -262,7 +314,7 @@ def render_link_list(links: list[dict[str, Any]]) -> str:
             items.append(
                 "<li>"
                 f"{html.escape(link_info['name'])}"
-                f'<span class="hub-link-meta">unavailable locally: {html.escape(link_info["resolved_path"])}</span>'
+                f'<span class="hub-link-meta">not declared: {html.escape(link_info["resolved_path"])}</span>'
                 "</li>"
             )
     return f'<ul class="hub-link-list">{"".join(items)}</ul>'
@@ -308,7 +360,7 @@ def render_index_page(manifest: dict[str, Any], contexts: list[dict[str, Any]], 
         repo_link = ""
         if ctx["repo_href"]:
             repo_target = html.escape(str(ctx["repo_href"]))
-            repo_label = "Open local repo" if ctx["repo_is_local"] else "Open GitHub repo"
+            repo_label = "Open repository path" if ctx["repo_is_local"] else "Open GitHub repo"
             repo_link = f'<a class="hub-card-link-secondary" href="{repo_target}">{repo_label}</a>'
 
         filter_cards.append(
@@ -344,8 +396,7 @@ def render_index_page(manifest: dict[str, Any], contexts: list[dict[str, Any]], 
             '''
         )
 
-    source_plan = resolve_reference(str(manifest.get("source_plan", "")), DEFAULT_MANIFEST)
-    source_plan_href = href_for_page(source_plan, page_dir) if isinstance(source_plan, Path) and source_plan.exists() else None
+    source_plan_href = href_for_manifest_reference(str(manifest.get("source_plan", "")), page_dir)
     source_plan_html = ""
     if source_plan_href:
         source_plan_html = f'<a href="{html.escape(source_plan_href)}">Open sprint contract</a>'
@@ -382,11 +433,23 @@ def render_index_page(manifest: dict[str, Any], contexts: list[dict[str, Any]], 
 
   <section class="hub-filter-panel">
     <div>
+      <p class="hub-filter-label">Status</p>
+      <div class="hub-filter-row">
+        <button type="button" class="hub-filter-button is-active" data-filter-group="status" data-filter-value="all">All</button>
+        {''.join(
+          f'<button type="button" class="hub-filter-button" data-filter-group="status" data-filter-value="{html.escape(slugify(status))}">{html.escape(status)}</button>'
+          for status in sorted(status_counts)
+        )}
+      </div>
+    </div>
+    <div>
       <p class="hub-filter-label">Readiness</p>
       <div class="hub-filter-row">
         <button type="button" class="hub-filter-button is-active" data-filter-group="readiness" data-filter-value="all">All</button>
-        <button type="button" class="hub-filter-button" data-filter-group="readiness" data-filter-value="not-build-ready">Not build ready</button>
-        <button type="button" class="hub-filter-button" data-filter-group="readiness" data-filter-value="availability-check">Availability check</button>
+        {''.join(
+          f'<button type="button" class="hub-filter-button" data-filter-group="readiness" data-filter-value="{html.escape(slugify(readiness))}">{html.escape(readiness)}</button>'
+          for readiness in sorted(readiness_counts)
+        )}
       </div>
     </div>
     <div>
@@ -412,16 +475,17 @@ def render_index_page(manifest: dict[str, Any], contexts: list[dict[str, Any]], 
   </section>
 </main>
 <script>
-const activeFilters = {{ readiness: "all", runtime: "all", rounds: "all" }};
+const activeFilters = {{ status: "all", readiness: "all", runtime: "all", rounds: "all" }};
 const cards = [...document.querySelectorAll(".hub-card")];
 const buttons = [...document.querySelectorAll(".hub-filter-button")];
 
 function applyFilters() {{
   cards.forEach((card) => {{
     const readinessOk = activeFilters.readiness === "all" || card.dataset.readiness === activeFilters.readiness;
+    const statusOk = activeFilters.status === "all" || card.dataset.status === activeFilters.status;
     const runtimeOk = activeFilters.runtime === "all" || card.dataset.runtime === activeFilters.runtime;
     const roundsOk = activeFilters.rounds === "all" || card.dataset.rounds.split(",").includes(activeFilters.rounds);
-    card.hidden = !(readinessOk && runtimeOk && roundsOk);
+    card.hidden = !(statusOk && readinessOk && runtimeOk && roundsOk);
   }});
 }}
 
@@ -446,7 +510,7 @@ def render_detail_page(context: dict[str, Any], output_dir: Path) -> str:
     page_dir = output_dir / "instruments"
     repo_target_html = ""
     if context["repo_href"]:
-        repo_label = "Open local repo" if context["repo_is_local"] else "Open GitHub repo"
+        repo_label = "Open repository path" if context["repo_is_local"] else "Open GitHub repo"
         repo_target_html = f'<a class="hub-card-link-primary" href="{html.escape(str(context["repo_href"]))}">{repo_label}</a>'
 
     artifact_badges = "".join(badge(kind, "artifact") for kind in context["artifact_types"])
@@ -520,6 +584,7 @@ def render_manifest_page(manifest: dict[str, Any], output_dir: Path) -> str:
 
 def render_site(manifest_path: Path, output_dir: Path) -> None:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    public_manifest = public_site_manifest(manifest)
     output_dir.mkdir(parents=True, exist_ok=True)
     instruments_dir = output_dir / "instruments"
     assets_dir = output_dir / "assets"
@@ -527,7 +592,10 @@ def render_site(manifest_path: Path, output_dir: Path) -> None:
     assets_dir.mkdir(parents=True, exist_ok=True)
 
     shutil.copy2(SITE_SOURCE_CSS, assets_dir / "hub.css")
-    shutil.copy2(manifest_path, assets_dir / "deliverables-manifest.json")
+    (assets_dir / "deliverables-manifest.json").write_text(
+        json.dumps(public_manifest, indent=2, ensure_ascii=True) + "\n",
+        encoding="utf-8",
+    )
 
     index_contexts = [
         build_item_context(item, manifest_path, output_dir)
@@ -540,7 +608,7 @@ def render_site(manifest_path: Path, output_dir: Path) -> None:
         encoding="utf-8",
     )
     (output_dir / "manifest.html").write_text(
-        render_manifest_page(manifest, output_dir),
+        render_manifest_page(public_manifest, output_dir),
         encoding="utf-8",
     )
 
