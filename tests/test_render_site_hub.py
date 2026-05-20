@@ -13,6 +13,12 @@ MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader
 SPEC.loader.exec_module(MODULE)
 
+CHECK_MODULE_PATH = REPO_ROOT / "scripts" / "check_site_hub.py"
+CHECK_SPEC = importlib.util.spec_from_file_location("check_site_hub", CHECK_MODULE_PATH)
+CHECK_MODULE = importlib.util.module_from_spec(CHECK_SPEC)
+assert CHECK_SPEC and CHECK_SPEC.loader
+CHECK_SPEC.loader.exec_module(CHECK_MODULE)
+
 
 class RenderSiteHubTests(unittest.TestCase):
     def test_resolve_reference_supports_workspace_root_paths(self) -> None:
@@ -86,6 +92,34 @@ class RenderSiteHubTests(unittest.TestCase):
 
             self.assertIn('data-filter-group="status" data-filter-value="availability-check"', index_html)
             self.assertNotIn('data-filter-group="readiness" data-filter-value="availability-check"', index_html)
+
+    def test_checked_in_site_hub_check_passes_on_rendered_output(self) -> None:
+        manifest_path = REPO_ROOT / "data" / "deliverables-manifest.json"
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_dir = Path(tmp_dir) / "site"
+            MODULE.render_site(manifest_path, output_dir)
+
+            self.assertEqual([], CHECK_MODULE.run_checks(output_dir))
+
+    def test_site_hub_check_catches_local_paths_and_stale_availability(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            site_dir = Path(tmp_dir) / "site"
+            (site_dir / "assets").mkdir(parents=True)
+            (site_dir / "index.html").write_text(
+                '<a href="/mnt/c/Users/Tony/Documents/GitHub/clarinet">bad</a>\n'
+                '<button data-filter-group="readiness" data-filter-value="availability-check">bad</button>\n',
+                encoding="utf-8",
+            )
+            (site_dir / "assets" / "deliverables-manifest.json").write_text(
+                '{"items": [{"slug": "sambuca", "readiness_label": "availability-check"}]}\n',
+                encoding="utf-8",
+            )
+
+            findings = CHECK_MODULE.run_checks(site_dir)
+
+        self.assertTrue(any("/mnt/" in finding for finding in findings))
+        self.assertTrue(any("readiness filter" in finding for finding in findings))
+        self.assertTrue(any("readiness_label" in finding for finding in findings))
 
 
 if __name__ == "__main__":
