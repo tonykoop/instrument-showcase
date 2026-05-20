@@ -78,6 +78,7 @@ Render the hub from the checked-in manifest seed:
 
 ```bash
 python scripts/render_site_hub.py
+python scripts/check_site_hub.py
 ```
 
 This writes a fully static site under `site/` with:
