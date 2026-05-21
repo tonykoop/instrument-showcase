@@ -166,9 +166,9 @@ code{font-family:var(--mono);font-size:0.88em}
   </section>
 
   <section class="stats">
-    <div class="stat"><div class="k">Repos in library</div><div class="v">51</div></div>
-    <div class="stat"><div class="k">With explorer</div><div class="v">47</div></div>
-    <div class="stat"><div class="k">Wolfram live</div><div class="v">2</div></div>
+    <div class="stat"><div class="k">Repos in library</div><div class="v">58</div></div>
+    <div class="stat"><div class="k">With explorer</div><div class="v">53</div></div>
+    <div class="stat"><div class="k">Wolfram live</div><div class="v">3</div></div>
     <div class="stat"><div class="k">CAD inlined</div><div class="v">0</div></div>
     <div class="stat"><div class="k">With wiki</div><div class="v">6</div></div>
   </section>
@@ -178,7 +178,7 @@ code{font-family:var(--mono);font-size:0.88em}
     <div class="filter-group" data-filter-key="family">
       <label>Family</label>
       <button class="filter-btn active" data-filter-key="family" data-filter-val="all">all</button>
-      <button class="filter-btn" data-filter-key="family" data-filter-val="drum">drum <span class="count">8</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="idiophone">idiophone <span class="count">11</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="string">string <span class="count">8</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="wind">wind <span class="count">24</span></button>
+      <button class="filter-btn" data-filter-key="family" data-filter-val="drum">drum <span class="count">8</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="idiophone">idiophone <span class="count">11</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="string">string <span class="count">14</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="wind">wind <span class="count">25</span></button>
     </div>
     <div class="filter-group" data-filter-key="cad">
       <label>CAD</label>
@@ -212,6 +212,25 @@ code{font-family:var(--mono);font-size:0.88em}
   </section>
 
   <section class="grid" id="grid">
+<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="no" data-wiki="missing">
+  <header class="card-head">
+    <a class="card-title" href="https://github.com/tonykoop/bell-stack-chord-horn">Bell-Stack Chord Horn — Sheet-Metal Greenfield Blueprint</a>
+    <span class="explorer-pill explorer-pill-no">Explorer pending</span>
+  </header>
+  <div class="card-meta">
+    <span class="badge badge-family family-wind">wind</span>
+    <span class="badge">brass</span>
+    <span class="badge badge-acoustic">bessel-flare chord radiator</span>
+  </div>
+  <p class="card-slug"><code>bell-stack-chord-horn</code></p>
+  <p class="card-desc">Three nested Bessel-flare bells (4"/5"/6" mouths, γ = 0.85/0.55/0.35) on a 1500 mm Bb tenor body. A single buzz radiates a Bb major triad — H1 (root) + H3 (5th) + H5 (3rd) — via per-bell cutoff tuning. v0.1.0-blueprint with cascaded transmission-line acoustic model.</p>
+  <div class="card-pills">
+    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
+    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
+    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
+  </div>
+</article>
 <article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
   <header class="card-head">
     <a class="card-title" href="../../triple-cone-slide-guitar/explorer.html">Triple-Cone Slide Guitar — V5 sheet-metal blueprint</a>
@@ -664,6 +683,26 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>guzheng</code></p>
 </article>
 
+<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
+  <header class="card-head">
+    <a class="card-title" href="../../folding-travel-resonator-guitar/explorer.html">Folding Travel Resonator Guitar - V5 sheet-metal blueprint</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  <div class="card-meta">
+    <span class="badge badge-family family-string">string</span>
+    <span class="badge badge-acoustic">resonator guitar</span>
+    <span class="badge badge-state-ready">private blueprint</span>
+  </div>
+  <p class="card-desc">Folding parlor-size resonator guitar with a gasketed hinged sheet-metal body, bought neck and strings, and a lower-half cone/bridge load path.</p>
+  <div class="card-pills">
+    <span class="pill pill-status pill-private" title="Private review blueprint">Private review</span>
+    <span class="pill pill-wolfram pill-w-pending" title="Starter model in repo; publish pending"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-cad pill-cad-none" title="CAD skeleton and drawing briefs only"><span class="dot"></span>CAD · Skeleton</span>
+    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
+  </div>
+  <p class="card-slug"><code>folding-travel-resonator-guitar</code></p>
+</article>
+
 <article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="live" data-has-explorer="yes" data-wiki="active">
   <header class="card-head">
     <a class="card-title" href="../../kora/explorer.html">Kora-inspired 21-string prototype</a>
@@ -756,6 +795,24 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>pipa</code></p>
+</article>
+
+<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+  <header class="card-head">
+    <a class="card-title" href="../../resophonic-bouzouki/explorer.html">Resophonic Bouzouki - V5 sheet-metal blueprint</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  <div class="card-meta">
+    <span class="badge badge-family family-string">string</span>
+    <span class="badge badge-acoustic">resophonic</span>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-private" title="Private blueprint repo">Private blueprint</span>
+    <span class="pill pill-wolfram pill-w-pending" title="Local Wolfram starter present"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-cad pill-cad-none" title="No native CAD assets yet"><span class="dot"></span>CAD · None</span>
+    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
+  </div>
+  <p class="card-slug"><code>resophonic-bouzouki</code></p>
 </article>
 
 <article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="live" data-has-explorer="yes" data-wiki="active">
