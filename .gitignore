@@ -1,0 +1,12 @@
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# OS junk
+.DS_Store
+Thumbs.db
+# Stash-recovery sidecars
+stash-recovered-*/
+*.pyc

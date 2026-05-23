@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heifer Zephyr · Instrument Wiki</title>
+<style>
+:root{
+  --walnut:#3D2817; --cedar:#B98B47; --cream:#F8F4E9; --paper:#FFFFFF;
+  --lapis:#1E3A8A; --gold:#D4A017; --ink:#1F1A14; --muted:#6B5E4D;
+  --rule:#E0D6C5; --ok:#2E7D32; --warn:#C89220; --block:#A03A2A;
+  --pill-bg:#FCEFC6; --pill-border:#D4A017;
+  --hover:#EFE7D3;
+  --serif:"Fraunces","Source Serif Pro",Georgia,serif;
+  --ui:"Inter","Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",Menlo,Consolas,monospace;
+  --italic-serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);
+  font-family:var(--ui);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--lapis);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:var(--mono);font-size:0.88em;background:#FFFCF5;padding:1px 4px;border-radius:3px;border:1px solid var(--rule)}
+pre{background:#FFFCF5;border:1px solid var(--rule);border-radius:5px;padding:12px 14px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.5}
+pre code{background:transparent;border:0;padding:0}
+
+.app-bar{position:sticky;top:0;z-index:30;height:56px;
+  background:var(--walnut);color:var(--cream);
+  border-bottom:3px solid var(--gold);
+  display:flex;align-items:center;gap:24px;padding:0 22px}
+.wordmark em{font-family:var(--italic-serif);font-style:italic;
+  font-size:22px;color:var(--gold);letter-spacing:0.01em}
+.tagline{font-family:var(--serif);font-size:15px;color:var(--cream);
+  border-left:1px solid rgba(248,244,233,0.3);padding-left:14px}
+.actions{margin-left:auto;display:flex;align-items:center;gap:12px}
+.action-btn{display:inline-block;font-family:var(--ui);font-size:12px;
+  letter-spacing:0.04em;text-transform:uppercase;color:var(--cream);
+  border:1px solid rgba(248,244,233,0.35);border-radius:3px;padding:6px 10px}
+.action-btn:hover{background:rgba(248,244,233,0.12);text-decoration:none;color:var(--gold)}
+
+.shell{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 56px)}
+.sidebar{background:var(--paper);border-right:1px solid var(--rule);
+  height:calc(100vh - 56px);overflow-y:auto;position:sticky;top:56px;padding:18px 16px 60px}
+.search{width:100%;padding:8px 12px;font-family:var(--ui);font-size:13px;
+  border:1px solid var(--rule);border-radius:4px;background:#FFFCF5;margin-bottom:10px}
+.search:focus{outline:none;border-color:var(--lapis)}
+.filter-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.filter-btn{font-family:var(--ui);font-size:11px;background:var(--cream);
+  color:var(--walnut);border:1px solid var(--rule);border-radius:12px;
+  padding:3px 9px;cursor:pointer;letter-spacing:0.02em}
+.filter-btn.active{background:var(--walnut);color:var(--cream);border-color:var(--walnut)}
+.nav-group{margin-bottom:18px}
+.nav-label{font-family:var(--ui);font-size:10px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;padding-bottom:4px;
+  border-bottom:1px solid var(--rule)}
+.nav-item{display:flex;justify-content:space-between;gap:8px;padding:5px 6px;
+  border-radius:3px;color:var(--ink);font-size:13px}
+.nav-item:hover{background:var(--hover);text-decoration:none}
+.nav-item.active{background:var(--cream);border-left:2px solid var(--gold);padding-left:8px}
+.nav-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-meta{font-family:var(--mono);font-size:10px;color:var(--muted);display:flex;align-items:center;gap:5px;flex:0 0 auto}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+.main{padding:28px 36px 80px;max-width:980px}
+.hero{margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:32px;color:var(--walnut);margin:0 0 6px;letter-spacing:-0.005em}
+.hero h1 .eyebrow{display:block;font-family:var(--ui);font-weight:500;
+  font-size:11px;color:var(--lapis);text-transform:uppercase;letter-spacing:0.16em;margin-bottom:6px}
+.hero p{color:var(--muted);font-size:14px;max-width:760px}
+.stats{display:flex;gap:10px;margin:14px 0 22px;flex-wrap:wrap}
+.stat{background:var(--paper);border:1px solid var(--rule);border-radius:5px;padding:10px 16px;min-width:130px}
+.stat .k{font-family:var(--ui);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px}
+.stat .v{font-family:var(--serif);font-size:22px;color:var(--walnut);font-weight:600;line-height:1.1}
+
+.page{background:var(--paper);border:1px solid var(--rule);border-radius:5px;
+  padding:28px 32px;margin-bottom:26px;scroll-margin-top:72px}
+.page.hidden{display:none}
+.page-head{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.page-head .eyebrow{font-family:var(--ui);font-size:11px;color:var(--lapis);
+  text-transform:uppercase;letter-spacing:0.14em;margin-bottom:5px}
+.page-head h1{font-family:var(--serif);font-weight:600;font-size:26px;color:var(--walnut);margin:0 0 10px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;background:var(--cream);
+  border:1px solid var(--rule);border-radius:11px;padding:2px 9px;font-size:11px;color:var(--ink);font-family:var(--ui)}
+.pill.mono{font-family:var(--mono)}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.tag{font-family:var(--mono);font-size:10px;color:var(--muted);background:#FFFCF5;border:1px solid var(--rule);border-radius:3px;padding:1px 6px}
+
+.page-body h1,.page-body h2,.page-body h3,.page-body h4{font-family:var(--serif);color:var(--walnut);font-weight:600;letter-spacing:-0.005em;margin:1.6em 0 0.5em}
+.page-body h1{display:none} /* duplicate of page-head title */
+.page-body h2{font-size:20px;border-bottom:1px solid var(--rule);padding-bottom:5px}
+.page-body h3{font-size:17px}
+.page-body ul,.page-body ol{padding-left:22px}
+.page-body li{margin:4px 0}
+.page-body blockquote{border-left:3px solid var(--gold);padding:6px 14px;margin:14px 0;background:#FFFCF5;color:var(--muted);font-family:var(--serif);font-style:italic}
+.wikilink{color:var(--lapis);border-bottom:1px dashed var(--lapis)}
+.wikilink.broken{color:var(--block);border-bottom-style:dotted}
+.wikilink:hover{background:#FFFCF5;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="app-bar">
+  <div class="brand">
+    <div class="wordmark"><em>Heifer Zephyr</em></div>
+    <div class="tagline">Instrument Wiki</div>
+  </div>
+  <div class="actions">
+    <a class="action-btn" href="./library.html">Library</a>
+    <a class="action-btn" href="../portfolio.html">Portfolio</a>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <input class="search" id="search" placeholder="Search wiki…" autocomplete="off">
+    <div class="filter-row" id="status-filters">
+      <button class="filter-btn active" data-status="all">All</button>
+      <button class="filter-btn" data-status="active">Active</button>
+      <button class="filter-btn" data-status="stub">Stub</button>
+      <button class="filter-btn" data-status="review-needed">Review</button>
+      <button class="filter-btn" data-status="stale">Stale</button>
+    </div>
+    <div class="nav-group" data-type="index"><div class="nav-label">Index</div>
+<a class="nav-item" data-slug="index" data-status="active" data-search="heifer zephyr instrument wiki index " href="#index"><span class="nav-title">Heifer Zephyr Instrument Wiki Index</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="synthesis"><div class="nav-label">Synthesis</div>
+<a class="nav-item" data-slug="synthesis__public-release-blockers" data-status="active" data-search="public release blockers synthesis release validation" href="#synthesis__public-release-blockers"><span class="nav-title">Public Release Blockers</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 8q</span></a>
+<a class="nav-item" data-slug="synthesis__README" data-status="stub" data-search="readme " href="#synthesis__README"><span class="nav-title">Readme</span><span class="nav-meta"><span class="dot" style="background:var(--muted)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="instrument"><div class="nav-label">Instrument</div>
+<a class="nav-item" data-slug="instruments__cajon" data-status="active" data-search="cajon family public-review prototype instrument drum box-drum public-review" href="#instruments__cajon"><span class="nav-title">Cajon Family Public-Review Prototype</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 6q</span></a>
+<a class="nav-item" data-slug="instruments__kora" data-status="active" data-search="kora-inspired 21-string prototype instrument string harp-lute private-review" href="#instruments__kora"><span class="nav-title">Kora-Inspired 21-String Prototype</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 7q</span></a>
+<a class="nav-item" data-slug="instruments__wood-shell-tongue-drum" data-status="active" data-search="wood shell tongue drum instrument drum tongue-drum-wood pre-prototype" href="#instruments__wood-shell-tongue-drum"><span class="nav-title">Wood Shell Tongue Drum</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 8q</span></a>
+</div>
+<div class="nav-group" data-type="instruments"><div class="nav-label">Instrument</div>
+<a class="nav-item" data-slug="instruments__README" data-status="stub" data-search="readme " href="#instruments__README"><span class="nav-title">Readme</span><span class="nav-meta"><span class="dot" style="background:var(--muted)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="acoustic-class"><div class="nav-label">Acoustic Class</div>
+<a class="nav-item" data-slug="acoustic-classes__box-drum" data-status="active" data-search="box drum acoustic class acoustic-class drum box-drum" href="#acoustic-classes__box-drum"><span class="nav-title">Box Drum Acoustic Class</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 5q</span></a>
+<a class="nav-item" data-slug="acoustic-classes__harp-lute" data-status="active" data-search="harp-lute acoustic class acoustic-class string harp-lute" href="#acoustic-classes__harp-lute"><span class="nav-title">Harp-Lute Acoustic Class</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 6q</span></a>
+<a class="nav-item" data-slug="acoustic-classes__tongue-drum-wood" data-status="active" data-search="wood tongue drum acoustic class acoustic-class drum tongue-drum wood" href="#acoustic-classes__tongue-drum-wood"><span class="nav-title">Wood Tongue Drum Acoustic Class</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 6q</span></a>
+</div>
+<div class="nav-group" data-type="acoustic-classes"><div class="nav-label">Acoustic Class</div>
+<a class="nav-item" data-slug="acoustic-classes__README" data-status="stub" data-search="readme " href="#acoustic-classes__README"><span class="nav-title">Readme</span><span class="nav-meta"><span class="dot" style="background:var(--muted)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="fabrication"><div class="nav-label">Fabrication</div>
+<a class="nav-item" data-slug="fabrication__README" data-status="stub" data-search="readme " href="#fabrication__README"><span class="nav-title">Readme</span><span class="nav-meta"><span class="dot" style="background:var(--muted)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="materials"><div class="nav-label">Material</div>
+<a class="nav-item" data-slug="materials__README" data-status="stub" data-search="readme " href="#materials__README"><span class="nav-title">Readme</span><span class="nav-meta"><span class="dot" style="background:var(--muted)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="sources"><div class="nav-label">Source</div>
+<a class="nav-item" data-slug="sources__README" data-status="stub" data-search="readme " href="#sources__README"><span class="nav-title">Readme</span><span class="nav-meta"><span class="dot" style="background:var(--muted)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="log"><div class="nav-label">Log</div>
+<a class="nav-item" data-slug="log" data-status="active" data-search="log " href="#log"><span class="nav-title">Log</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 0q</span></a>
+</div>
+<div class="nav-group" data-type="AGENTS"><div class="nav-label">Agent Guide</div>
+<a class="nav-item" data-slug="AGENTS" data-status="active" data-search="agents " href="#AGENTS"><span class="nav-title">Agents</span><span class="nav-meta"><span class="dot" style="background:var(--ok)"></span>0s · 0q</span></a>
+</div>
+  </aside>
+
+  <main class="main">
+    <div class="hero">
+      <h1><span class="eyebrow">Knowledge Layer</span>Instrument Wiki</h1>
+      <p>Living, cross-linked engineering memory for the Heifer Zephyr instrument design library. Browse pages by type at left, click <span class="pill">wikilinks</span> to jump between pages, and search across titles and tags. Edit in Obsidian; regenerate this view with <code>python3 scripts/generate_wiki.py</code>.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">Pages</div><div class="v">16</div></div>
+      <div class="stat"><div class="k">Active</div><div class="v">10</div></div>
+      <div class="stat"><div class="k">Sources cited</div><div class="v">0</div></div>
+      <div class="stat"><div class="k">Open questions</div><div class="v">46</div></div>
+      <div class="stat"><div class="k">Generated</div><div class="v" style="font-size:13px;font-family:var(--mono)">2026-05-18 21:21 UTC</div></div>
+    </div>
+    <article class="page" id="AGENTS" data-type="AGENTS" data-status="active"><header class="page-head"><div class="eyebrow">Agent Guide · <code>AGENTS.md</code></div><h1>Agents</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="heifer-zephyr-instrument-wiki-agent-guide">Heifer Zephyr Instrument Wiki Agent Guide</h1>
+<p>This wiki is the living knowledge layer for the Heifer Zephyr musical instrument design library. The library and explorer pages show <em>what exists</em>; this wiki explains <em>what has been learned</em>, <em>why decisions were made</em>, <em>how projects relate to each other</em>, and <em>what still needs investigation</em>.</p>
+<p>Schema version: <strong>v2 (2026-05-18)</strong>. v1 pages (kora, cajon, wood-shell-tongue-drum) are valid and will be migrated opportunistically on next ingest.</p>
+<h2 id="operating-model">Operating Model</h2>
+<ul>
+<li>Raw sources are source of truth. Read them, cite them, and do not rewrite them from inside this wiki workflow.</li>
+<li>Wiki pages are LLM-maintained synthesis. Update pages when new sources, repo changes, or user questions reveal better structure.</li>
+<li>The wiki compounds. When a query produces a useful comparison, roadmap, contradiction note, or design pattern, file it back into the wiki instead of leaving it only in chat (see Answer-as-Page Workflow below).</li>
+<li>Do not invent measurements, release status, CAD readiness, or validation evidence. If a claim is not present in a repo, source note, or user instruction, mark it as an open question.</li>
+<li>Cite, do not copy. Prefer Obsidian-style wikilinks for wiki↔wiki references, and ordinary markdown links into repos, raw sources, and generated artifacts.</li>
+</ul>
+<h2 id="directory-contract">Directory Contract</h2>
+<pre><code>wiki/
+  AGENTS.md
+  index.md
+  log.md
+  instruments/        One page per instrument repo, named &lt;slug&gt;.md.
+  acoustic-classes/   Cross-instrument acoustic model pages.
+  fabrication/        Process, tooling, fixture, and material workflow pages.
+  materials/          Material behavior and sourcing pages.
+  synthesis/          Portfolio-level analysis, decision records, answer-as-page outputs.
+  sources/            Source summaries when a raw source deserves a stable distillation.
+raw-sources/
+  inbox/              Drop new sources here for ingest queue.
+  processed/&lt;YYYY-MM&gt;/  Inbox items move here after ingest.
+  second-brain/       Symlink → C:\Users\Tony\Documents\Second_Brain (allowlisted).
+  obsidian-clips/     Symlink → C:\Users\Tony\Documents\Second_Brain\Clippings.
+  .ingest-allowlist   Newline-separated path globs the LLM may read.
+data/
+  wiki-manifest.json  Generated. Library bridge.
+  library-manifest.json  Generated. Library control surface.</code></pre>
+<p>Machine-readable wiki state lives at <code>data/wiki-manifest.json</code>. It is generated by <code>scripts/generate_library.py</code> and consumed by <code>site/library.html</code>. A complementary <code>scripts/generate_wiki.py</code> produces a browsable <code>site/wiki.html</code>.</p>
+<h2 id="frontmatter-schema-v2">Frontmatter Schema (v2)</h2>
+<p>Every wiki page MUST start with YAML frontmatter. Fields:</p>
+<pre><code>---
+# Identity
+title: Kora-Inspired 21-String Prototype
+slug: kora                         # for instrument pages; folder/filename otherwise
+wiki_type: instrument              # see Type Values below
+status: active                     # see Status Values below
+
+# Provenance
+sources:
+  - path: ../../../kora/README.md
+    kind: repo                     # repo | obsidian | clip | web | photo | cad | spreadsheet | wolfram
+    last_seen: 2026-05-18
+  - path: second-brain/Instruments/Kora field notes 2025-11.md
+    kind: obsidian
+    last_seen: 2026-05-18
+
+# Wiki graph
+crosslinks:
+  - acoustic-classes/harp-lute
+  - synthesis/public-release-blockers
+  - fabrication/stave-construction
+
+# Knowledge state
+open_questions:
+  - &quot;Cultural-provenance wording review (consult sources, finalize copy).&quot;
+  - &quot;Bridge/head staged load test plan.&quot;
+answers_filed:                     # answer-as-page outputs originating from this page
+  - synthesis/string-tension-tradeoffs
+
+# Maintenance
+last_ingest: 2026-05-18            # date a source was last integrated
+last_lint: 2026-05-18              # date the page was last health-checked
+review_due: 2026-08-18             # optional; if set, lint surfaces stale pages
+
+# Search/UI
+tags: [instrument, string, harp-lute, private-review]
+---</code></pre>
+<h3 id="type-values-wiki-type">Type values (<code>wiki_type</code>)</h3>
+<p>| Value | Folder | Purpose | | --- | --- | --- | | <code>index</code> | <code>wiki/</code> root | Index pages and navigation hubs | | <code>instrument</code> | <code>instruments/</code> | One per repo | | <code>acoustic-class</code> | <code>acoustic-classes/</code> | Cross-instrument acoustic model | | <code>fabrication</code> | <code>fabrication/</code> | Process / tooling / fixture / workflow | | <code>material</code> | <code>materials/</code> | Material behavior, sourcing, properties | | <code>synthesis</code> | <code>synthesis/</code> | Portfolio analysis, decision record, comparison | | <code>source-distillation</code> | <code>sources/</code> | Stable LLM-readable summary of a raw source |</p>
+<h3 id="status-values">Status values</h3>
+<ul>
+<li><code>stub</code> — page exists but has not had a real source ingest yet.</li>
+<li><code>active</code> — contains integrated notes from one or more real sources.</li>
+<li><code>review-needed</code> — claims need human review, source reconciliation, or freshness check.</li>
+<li><code>stale</code> — <code>review_due</code> has passed; surface in next lint pass.</li>
+<li><code>missing</code> — reserved for generated manifests; never set in frontmatter.</li>
+</ul>
+<h3 id="counts-derived-by-the-generator">Counts derived by the generator</h3>
+<p><code>generate_library.py</code> derives <code>source_count = len(sources)</code> and <code>open_questions = len(open_questions)</code>. Pages MAY also persist these as scalar fields for back-compat with v1 pages and Dataview; if both exist, the array length wins.</p>
+<h2 id="page-conventions">Page Conventions</h2>
+<ul>
+<li>Use Obsidian-style links for wiki relationships: <code><a class="wikilink" href="#acoustic-classes__harp-lute">acoustic-classes/harp-lute</a></code>.</li>
+<li>Use ordinary markdown links for files, repo paths, web sources, and generated artifacts.</li>
+<li>Stable section headings (so future agents can find their place): <code>Overview</code>, <code>Current Status</code>, <code>Source Notes</code>, <code>Design Knowledge</code>, <code>Cross-Links</code>, <code>Open Questions</code>, <code>Maintenance Notes</code>.</li>
+<li>Concise bullets over long prose when capturing source facts.</li>
+<li>Put uncertainties in <code>Open Questions</code>, not hidden in vague language.</li>
+<li>Each <code>Source Notes</code> bullet SHOULD start with the source kind in brackets, e.g. <code>[repo] kora/README.md — bridge geometry settled at 11 mm spacing after third prototype.</code></li>
+</ul>
+<h2 id="ingest-workflow">Ingest Workflow</h2>
+<ol>
+<li>Identify the raw source and record where it came from (repo path, Obsidian wikilink, web URL).</li>
+<li>Verify the source is allowed by <code>raw-sources/.ingest-allowlist</code>.</li>
+<li>Read the relevant existing wiki pages before writing.</li>
+<li>Create or update a <code>wiki/sources/&lt;slug&gt;.md</code> summary if the source is substantial (multi-page PDF, dense spreadsheet, long article).</li>
+<li>Update the instrument, acoustic-class, fabrication, material, or synthesis pages touched by the source.</li>
+<li>Update <code>wiki/index.md</code> if new pages were added.</li>
+<li>Update <code>last_ingest</code> in the frontmatter of every touched page.</li>
+<li>Append an entry to <code>wiki/log.md</code> using the chronological entry format.</li>
+<li>If the source came from <code>raw-sources/inbox/</code>, move it to <code>raw-sources/processed/&lt;YYYY-MM&gt;/</code>.</li>
+<li>Run <code>python3 scripts/generate_library.py</code> and <code>python3 scripts/generate_wiki.py</code> from <code>instrument-showcase/</code>.</li>
+</ol>
+<h2 id="query-workflow">Query Workflow</h2>
+<ol>
+<li>Read <code>wiki/index.md</code> first.</li>
+<li>Search the wiki and relevant raw project files.</li>
+<li>Answer with citations to wiki pages and source files.</li>
+<li><strong>Decide if the answer is reusable.</strong> If yes → Answer-as-Page Workflow.</li>
+</ol>
+<h2 id="answer-as-page-workflow">Answer-as-Page Workflow</h2>
+<p>When a query produces useful reusable knowledge — a comparison across instruments, a roadmap, a contradiction note, a design pattern — file it back into the wiki instead of letting it disappear into chat history.</p>
+<ol>
+<li>Pick a folder: usually <code>synthesis/</code>, occasionally <code>acoustic-classes/</code> or <code>fabrication/</code>.</li>
+<li>Create <code>wiki/&lt;folder&gt;/&lt;slug&gt;.md</code> with full frontmatter. Set <code>wiki_type</code> appropriately and <code>status: active</code>.</li>
+<li>In <code>sources:</code>, list the wiki pages and raw sources that supported the answer.</li>
+<li>Add <code>answers_filed: [&lt;this-page&gt;]</code> to the originating page(s) so the audit trail is bidirectional.</li>
+<li>Append a log entry of type <code>answer-as-page</code> (see log format below).</li>
+<li>Run the generators.</li>
+</ol>
+<p>Heuristic for promoting: if you'd be willing to write the same answer again in two weeks, file it now.</p>
+<h2 id="lint-workflow">Lint Workflow</h2>
+<p>Run periodically (monthly is a good cadence; can be scheduled). Walks the wiki and surfaces:</p>
+<ul>
+<li><strong>Missing pages.</strong> Active repos with no <code>wiki/instruments/&lt;slug&gt;.md</code>.</li>
+<li><strong>Stale pages.</strong> <code>review_due</code> in the past, or <code>last_ingest</code> older than 90 days for <code>active</code> pages.</li>
+<li><strong>Orphans.</strong> Pages with zero inbound and zero outbound <code>crosslinks</code>.</li>
+<li><strong>Hot crosslink targets without a page.</strong> Wikilinks that point to a non-existent page.</li>
+<li><strong><code>review-needed</code> backlog.</strong> All pages currently in that status, oldest first.</li>
+<li><strong>Acoustic classes with multiple instruments but no synthesis page.</strong> e.g. 3+ instruments in <code>tongue-drum-ceramic</code> and no class page yet.</li>
+<li><strong>Open-question candidates for closure.</strong> Questions that can be resolved by a fresh source ingest, measurement, CAD export, or web lookup.</li>
+<li><strong>Contradictions.</strong> Same claim with different values across two pages (e.g. bridge spacing).</li>
+</ul>
+<p>After lint, update <code>last_lint</code> on every touched page and append a <code>lint</code> log entry summarizing findings.</p>
+<p>Run lint by asking the agent: <em>"Run wiki lint. Read index.md, walk the manifest, surface findings, propose next ingests."</em></p>
+<h2 id="obsidian-second-brain-bridge">Obsidian / Second_Brain Bridge</h2>
+<p>The Obsidian vault at <code>C:\Users\Tony\Documents\Second_Brain</code> and its clippings subfolder <code>C:\Users\Tony\Documents\Second_Brain\Clippings</code> are <em>source streams</em>, not the wiki itself.</p>
+<p><strong>Three patterns operating in parallel:</strong></p>
+<ol>
+<li><strong>Symlink + allowlist.</strong> <code>raw-sources/second-brain/</code> is a symlink to the vault. <code>raw-sources/.ingest-allowlist</code> controls which subpaths the LLM may read. Default policy: allowlist <code>Instruments/</code>, <code>Clippings/</code>, <code>Daily Notes/2025-<em></code>, <code>Daily Notes/2026-</em></code>. Everything else is off-limits unless explicitly added.</li>
+<li><strong>Inbox.</strong> Web Clipper drops new pages into <code>Clippings/</code>, which is also reachable via the symlink. On each session start, the agent SHOULD list new files in <code>raw-sources/obsidian-clips/</code> against the existing wiki and decide which to integrate.</li>
+<li><strong>Wikilink citation.</strong> When citing an Obsidian note inside a wiki page, prefer the relative path that resolves both for the LLM and for Obsidian (<code>second-brain/Instruments/Kora field notes 2025-11.md</code>). When the user opens the wiki page inside Obsidian, the link should resolve to their actual vault note.</li>
+</ol>
+<p>The agent MUST NOT modify, delete, or rename files inside <code>raw-sources/second-brain/</code>. The vault is read-only from the wiki's perspective.</p>
+<h2 id="log-entry-format">Log Entry Format</h2>
+<p>Single-line prefix so <code>grep "^## \[" log.md | tail -10</code> gives a clean recent-activity view.</p>
+<pre><code>## [2026-05-18] ingest | Source Title
+## [2026-05-18] query | Question summary
+## [2026-05-18] answer-as-page | Page Title
+## [2026-05-18] lint | Findings summary
+## [2026-05-18] scaffold | Setup summary
+## [2026-05-18] migrate | Schema upgrade summary</code></pre>
+<p>Body fields: <code>Source</code>, <code>Pages touched</code>, <code>Summary</code>, <code>Follow-ups</code>.</p>
+<h2 id="relationship-to-the-library">Relationship To The Library</h2>
+<p><code>scripts/generate_library.py</code> scans <code>wiki/instruments/&lt;slug&gt;.md</code> for each instrument repo. The library card claims a wiki page exists only when that exact markdown page exists. Frontmatter enriches the card with status, source count, open-question count, and last-updated date.</p>
+<p><code>scripts/generate_wiki.py</code> produces <code>site/wiki.html</code> — a browsable HTML rendering of the wiki in the Heifer Zephyr brand. This is the <em>public</em> face for non-Obsidian readers; Obsidian remains the <em>editing</em> face. Same files, two views.</p>
+<h2 id="migration-notes-v1-v2">Migration Notes (v1 → v2)</h2>
+<p>v1 pages have scalar <code>source_count</code> and <code>open_questions</code> ints, no <code>sources[]</code> array, and no <code>crosslinks[]</code>, <code>last_ingest</code>, <code>last_lint</code>, or <code>review_due</code> fields. They are valid. On next ingest into a v1 page, the agent SHOULD:</p>
+<ol>
+<li>Convert <code>source_count</code> / <code>open_questions</code> to arrays.</li>
+<li>Add <code>crosslinks</code> from the page's actual <code><a class="wikilink broken" href="#" title="No page found for wikilinks">wikilinks</a></code>.</li>
+<li>Set <code>last_ingest</code> to today.</li>
+<li>Leave <code>last_lint</code> and <code>review_due</code> unset until lint runs.</li>
+</ol>
+<p>The generator handles both shapes.</p></div></article>
+<article class="page" id="acoustic-classes__README" data-type="acoustic-classes" data-status="stub"><header class="page-head"><div class="eyebrow">Acoustic Class · <code>acoustic-classes/README.md</code></div><h1>Readme</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--muted)"></span>Stub</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="acoustic-classes">Acoustic Classes</h1>
+<p>Cross-instrument acoustic model pages live here. These pages should explain the reusable physics, sizing relationships, measurement methods, and known limitations shared by groups of instruments.</p></div></article>
+<article class="page" id="acoustic-classes__box-drum" data-type="acoustic-class" data-status="active"><header class="page-head"><div class="eyebrow">Acoustic Class · <code>acoustic-classes/box-drum.md</code></div><h1>Box Drum Acoustic Class</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">5 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">acoustic-class</span><span class="tag">drum</span><span class="tag">box-drum</span></div></header><div class="page-body"><h1 id="box-drum-acoustic-class">Box Drum Acoustic Class</h1>
+<h2 id="overview">Overview</h2>
+<p>This page tracks closed-box drums where a thin struck plate couples to an internal cavity. In the current wiki, the first active member is <a class="wikilink" href="#instruments__cajon">instruments/cajon</a>.</p>
+<p>The useful reusable model is plate plus Helmholtz cavity, with practical corrections for panel material, fastener boundary conditions, port end correction, snare preload, and player ergonomics.</p>
+<h2 id="active-instruments">Active Instruments</h2>
+<ul>
+<li><a class="wikilink" href="#instruments__cajon">instruments/cajon</a> - three-member cajon family with Compact, Standard, and Bass sizes; first physical prototype is Standard <code>CJ-S</code>, V1 finger joint, guitar-string snare.</li>
+</ul>
+<p>Potential future members:</p>
+<ul>
+<li><code>resonant-box</code></li>
+<li>other closed wooden percussion boxes if added to the library</li>
+</ul>
+<h2 id="governing-model">Governing Model</h2>
+<p>The cajon page uses two coupled systems:</p>
+<ul>
+<li>A front plate <code>(1,1)</code> bending mode.</li>
+<li>A Helmholtz cavity mode through the back port.</li>
+</ul>
+<p>Class-level formula:</p>
+<pre><code>f_H = (c / 2 pi) * sqrt(A / (V * L_eff))
+L_eff = t_back + 1.7 * (d_hole / 2)</code></pre>
+<p>The first ingest recorded an important correction: the earlier cajon workbook formula used only back-panel thickness for effective neck length. The design notes now use the end-corrected expression; the workbook itself still needs confirmation before it becomes final public authority.</p>
+<p>Source: <a href="../../../cajon/design.md">cajon design notes</a></p>
+<h2 id="reusable-validation-pattern">Reusable Validation Pattern</h2>
+<p>Every box-drum packet should distinguish predicted values from measured values:</p>
+<ul>
+<li>Helmholtz cavity frequency</li>
+<li>plate fundamental</li>
+<li>perceived coupled bass</li>
+<li>slap-vs-bass spectral delta</li>
+<li>snare buzz onset, when applicable</li>
+<li>fastener torque or boundary-condition repeatability</li>
+<li>structural load, if the instrument is sat on</li>
+</ul>
+<p>For the cajon, all acoustic values remain predictions until the Standard prototype is built and <code>validation.csv</code> receives measured rows.</p>
+<h2 id="design-risks-to-watch">Design Risks To Watch</h2>
+<ul>
+<li>Missing or inconsistent Helmholtz end correction.</li>
+<li>Plate material variability, especially plywood thickness and stiffness.</li>
+<li>Fastener torque changing the plate boundary condition.</li>
+<li>Snare contact pressure being adjusted by ear but not captured as a design variable.</li>
+<li>Placeholder imagery or generated previews being mistaken for fabrication authority.</li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>Should this class require an explicit <code>predicted</code> vs <code>measured</code> badge in the library or explorer UI?</li>
+<li>What is the standard measurement workflow for the plate and cavity modes?</li>
+<li>Should snare preload become a cross-instrument parameter?</li>
+<li>How should box-drum packets represent player-size ergonomics?</li>
+<li>Which drawings or CAD files are authoritative before the first measured build?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>When the first cajon prototype is measured, update this page with actual plate/cavity deltas and note whether the corrected Helmholtz model held within the expected tolerance.</p></div></article>
+<article class="page" id="acoustic-classes__harp-lute" data-type="acoustic-class" data-status="active"><header class="page-head"><div class="eyebrow">Acoustic Class · <code>acoustic-classes/harp-lute.md</code></div><h1>Harp-Lute Acoustic Class</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">6 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">acoustic-class</span><span class="tag">string</span><span class="tag">harp-lute</span></div></header><div class="page-body"><h1 id="harp-lute-acoustic-class">Harp-Lute Acoustic Class</h1>
+<h2 id="overview">Overview</h2>
+<p>This page tracks instruments where many open strings are carried over a bridge into a resonant body, with the bridge and body acting as load-bearing and tone-shaping systems. In the current wiki, the first active member is <a class="wikilink" href="#instruments__kora">instruments/kora</a>.</p>
+<p>This class is different from a simple frame harp or zither because the bridge, neck/spine, tail anchoring, membrane or soundboard behavior, and player hand access are coupled. The design problem is structural, acoustic, ergonomic, and cultural at the same time.</p>
+<h2 id="active-instruments">Active Instruments</h2>
+<ul>
+<li><a class="wikilink" href="#instruments__kora">instruments/kora</a> - 21-string kora-inspired hybrid prototype with segmented wooden bowl, membrane/head decision, tall bridge, through-neck or internal-spine load path, and private cultural/safety review gates.</li>
+</ul>
+<p>Potential future members:</p>
+<ul>
+<li><code>ngoni</code></li>
+<li><code>sambuca</code></li>
+<li><code>egyptian-harps</code></li>
+<li><code>floor-harp</code></li>
+</ul>
+<h2 id="governing-design-pattern">Governing Design Pattern</h2>
+<p>Reusable questions for this class:</p>
+<ul>
+<li>What is the string schedule, and what are the real unit weights and break margins?</li>
+<li>Does the neck or internal spine carry the string load continuously, or is the shell being asked to carry load accidentally?</li>
+<li>How does the bridge footprint distribute force into the head or soundboard?</li>
+<li>Is the resonator material a source of cultural meaning, acoustic behavior, or both?</li>
+<li>Does the player have safe hand access to both banks of strings?</li>
+<li>Which claims are engineering-study claims, and which claims require cultural or musical tradition review?</li>
+</ul>
+<h2 id="kora-specific-notes-from-first-ingest">Kora-Specific Notes From First Ingest</h2>
+<p>The kora page currently treats the instrument as a private-review hybrid prototype. The critical design issues are:</p>
+<ul>
+<li>Treble string break margins are too high under the current idealized schedule.</li>
+<li>The segmented wooden bowl is a shop substitute and should not be described as acoustically or culturally equivalent to a traditional calabash.</li>
+<li>The bridge is both tone-shaping and safety-critical because it is tall and head-loaded.</li>
+<li>The neck/tail load path needs proof-load validation before stringing.</li>
+<li>Public language needs cultural provenance review before release.</li>
+</ul>
+<p>Source: <a href="../../../kora/design.md">kora design notes</a></p>
+<h2 id="cross-instrument-knowledge-to-build">Cross-Instrument Knowledge To Build</h2>
+<p>This page should eventually compare:</p>
+<ul>
+<li>kora and ngoni bridge load paths</li>
+<li>arched-harp vs harp-lute string banking</li>
+<li>membrane resonator vs wooden soundboard behavior</li>
+<li>string tension ramps and practical break-margin conventions</li>
+<li>public-release language for culturally situated instruments</li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>Which other Heifer Zephyr string instruments should be grouped here versus under <code>harp</code>, <code>arched-harp</code>, or <code>zither</code>?</li>
+<li>What break-margin threshold should be the default safety gate for nylon treble strings in this library?</li>
+<li>Should bridge-foot pressure become a standard validation row for every harp-lute or bridge-harp packet?</li>
+<li>What minimum proof-load factor should apply to neck/tail assemblies?</li>
+<li>Which public wording constraints are class-level, and which are instrument-specific cultural review issues?</li>
+<li>Should this class get a shared Wolfram string-schedule notebook template?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>When <code>ngoni</code>, <code>sambuca</code>, or other related string instruments are ingested, update the active member list and split any historical/cultural release concerns into <a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a> if they affect multiple projects.</p></div></article>
+<article class="page" id="acoustic-classes__tongue-drum-wood" data-type="acoustic-class" data-status="active"><header class="page-head"><div class="eyebrow">Acoustic Class · <code>acoustic-classes/tongue-drum-wood.md</code></div><h1>Wood Tongue Drum Acoustic Class</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">6 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">acoustic-class</span><span class="tag">drum</span><span class="tag">tongue-drum</span><span class="tag">wood</span></div></header><div class="page-body"><h1 id="wood-tongue-drum-acoustic-class">Wood Tongue Drum Acoustic Class</h1>
+<h2 id="overview">Overview</h2>
+<p>This page tracks wood slit-tongue instruments where tuned tongues behave as cantilevers cut into a wooden soundboard. The first active member is <a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a>.</p>
+<p>The class has two branches:</p>
+<ul>
+<li>Rectangular or open-body wooden tongue drums, represented by the legacy <code>tongue-drum</code> repo.</li>
+<li>Enclosed round-body wooden tongue drums, represented by <code>wood-shell-tongue-drum</code>, where Helmholtz cavity coupling becomes part of the design.</li>
+</ul>
+<h2 id="active-instruments">Active Instruments</h2>
+<ul>
+<li><a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> - round-body wood tongue drum family with cylinder/hemisphere bodies, flat/domed tops, Padauk soundboard assumptions, Black Walnut shell, and an enclosed gu-port-tuned cavity.</li>
+</ul>
+<p>Related source stream:</p>
+<ul>
+<li><a href="../../../tongue-drum/README.md">legacy rectangular tongue-drum repo</a></li>
+</ul>
+<h2 id="governing-model">Governing Model</h2>
+<p>The tongue model is flat-cantilever Euler-Bernoulli in the current packets:</p>
+<pre><code>f = K * t / L^2
+L = sqrt(K * t / f)</code></pre>
+<p>For domed soundboards, <code>wood-shell-tongue-drum</code> starts with an empirical length multiplier:</p>
+<pre><code>L_curved = L_flat * 1.025</code></pre>
+<p>That multiplier is not yet measured for the actual dome rise. The first dome build should cut one calibration tongue, measure it, and then propagate the corrected multiplier.</p>
+<h2 id="enclosed-cavity-pattern">Enclosed Cavity Pattern</h2>
+<p>The round-body wooden shell adds a Helmholtz resonator under the tongue field:</p>
+<pre><code>f_H = (c / 2 pi) * sqrt(A_port / (V * L_neck))</code></pre>
+<p>The <code>wood-shell-tongue-drum</code> design target is <code>f_H/f_ding</code> between 0.80 and 1.20. The gu port is drilled last and opened while measuring cavity response. Opening the port raises <code>f_H</code>; restricting area or lengthening the neck lowers <code>f_H</code>.</p>
+<h2 id="validation-pattern">Validation Pattern</h2>
+<p>Reusable rows for this class:</p>
+<ul>
+<li>each tongue frequency and cents error</li>
+<li>A4 or other reference-pitch sanity check</li>
+<li>material K back-calculation</li>
+<li>Helmholtz frequency and <code>f_H/f_ding</code> ratio when enclosed</li>
+<li>soundboard thickness and flatness</li>
+<li>slit kerf width</li>
+<li>rim or soundboard seal test</li>
+<li>post-finish pitch drift</li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>How much of the legacy rectangular <code>tongue-drum</code> repo should be distilled into this page?</li>
+<li>Should Padauk K calibration become a shared material page under <code>materials/padauk</code>?</li>
+<li>What is the standard test for post-finish pitch drift in wood tongue instruments?</li>
+<li>Should enclosed wood tongue drums share a Wolfram notebook with steel and ceramic tongue-drum cousins?</li>
+<li>What is the best way to represent gu-port tuning curves in the wiki?</li>
+<li>Should <code>tongue-drum-wood</code> split into open-body and enclosed-cavity pages after more examples are ingested?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>When the legacy rectangular <code>tongue-drum</code> repo is ingested, merge its empirical flat-cantilever lessons here and distinguish measured results from design-study predictions.</p></div></article>
+<article class="page" id="fabrication__README" data-type="fabrication" data-status="stub"><header class="page-head"><div class="eyebrow">Fabrication · <code>fabrication/README.md</code></div><h1>Readme</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--muted)"></span>Stub</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="fabrication">Fabrication</h1>
+<p>Process, tooling, fixture, workholding, finishing, and shop-floor knowledge lives here when it applies to more than one instrument.</p></div></article>
+<article class="page" id="index" data-type="index" data-status="active"><header class="page-head"><div class="eyebrow">Index · <code>index.md</code></div><h1>Heifer Zephyr Instrument Wiki Index</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"></div></header><div class="page-body"><h1 id="heifer-zephyr-instrument-wiki">Heifer Zephyr Instrument Wiki</h1>
+<p>This wiki is the maintained knowledge layer for the musical instrument design library. It lives alongside the generated explorer library, but it has a different job: it captures cross-instrument knowledge, design rationale, source synthesis, open questions, and portfolio-level patterns.</p>
+<h2 id="start-here">Start Here</h2>
+<ul>
+<li><a class="wikilink" href="#log">log</a> records ingests, queries, lint passes, and maintenance work.</li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/portfolio-map">synthesis/portfolio-map</a> will become the high-level map of instrument families, design lanes, and current priorities.</li>
+<li><a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a> tracks what prevents instrument pages from becoming public-release candidates.</li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/cad-readiness-roadmap">synthesis/cad-readiness-roadmap</a> will track which instruments need CAD export, glTF packaging, or <code>.glb</code> inlining.</li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/wolfram-model-patterns">synthesis/wolfram-model-patterns</a> will track shared Wolfram notebook and acoustic model patterns.</li>
+</ul>
+<h2 id="instrument-pages">Instrument Pages</h2>
+<p>Active pages:</p>
+<ul>
+<li><a class="wikilink" href="#instruments__kora">instruments/kora</a> - private-review 21-string kora-inspired hybrid prototype; main issues are cultural provenance review, string safety, bridge/head load testing, and neck/tail proof-load.</li>
+<li><a class="wikilink" href="#instruments__cajon">instruments/cajon</a> - public-review three-member cajon family; main issues are pre-build measurement gates, corrected Helmholtz workbook formula, visual authority, and first CJ-S prototype validation.</li>
+<li><a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> - round-body wooden tongue drum family; main issues are Padauk K calibration, Helmholtz end correction, airtight rim seal, and V1 Standard prototype measurements.</li>
+</ul>
+<p>Suggested next pilot order:</p>
+<ul>
+<li><code>sambuca</code></li>
+<li><code>ceramic-hang</code> or <code>ceramic-tongue-drum</code></li>
+<li><code>shakuhachi</code> or <code>flutes</code></li>
+</ul>
+<h2 id="acoustic-classes">Acoustic Classes</h2>
+<p>Active pages:</p>
+<ul>
+<li><a class="wikilink" href="#acoustic-classes__harp-lute">acoustic-classes/harp-lute</a> - string-bank instruments with bridge, resonator, neck/spine, and tail-load coupling.</li>
+<li><a class="wikilink" href="#acoustic-classes__box-drum">acoustic-classes/box-drum</a> - closed-box plate-and-Helmholtz drums, starting with cajon.</li>
+<li><a class="wikilink" href="#acoustic-classes__tongue-drum-wood">acoustic-classes/tongue-drum-wood</a> - wooden slit-tongue idiophones, including enclosed round-body designs.</li>
+</ul>
+<p>Seed these next when multiple instruments start sharing the same design logic:</p>
+<ul>
+<li><code>duct-flute</code></li>
+<li><code>open-pipe</code></li>
+<li><code>reed</code></li>
+<li><code>free-reed</code></li>
+<li><code>tuned-shell</code></li>
+<li><code>tuned-bar</code></li>
+<li><code>tongue-drum-ceramic</code></li>
+<li><code>tongue-drum-steel</code></li>
+</ul>
+<h2 id="fabrication">Fabrication</h2>
+<p>Candidate process pages:</p>
+<ul>
+<li><code>stave-construction</code></li>
+<li><code>slip-casting</code></li>
+<li><code>laser-cutting</code></li>
+<li><code>cnc-routing</code></li>
+<li><code>bamboo-processing</code></li>
+<li><code>hide-or-membrane-mounting</code></li>
+<li><code>bridge-and-string-layout</code></li>
+</ul>
+<h2 id="synthesis-pages">Synthesis Pages</h2>
+<p>Active pages:</p>
+<ul>
+<li><a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a> - portfolio-level release evidence and blocker rollup.</li>
+</ul>
+<h2 id="source-streams">Source Streams</h2>
+<p>Likely source pools:</p>
+<ul>
+<li>Instrument repos in <code>C:\Users\Tony\Documents\GitHub</code>.</li>
+<li><code>second_brain</code> and Obsidian notes.</li>
+<li>Existing explorer pages and capstone manifests.</li>
+<li>Wolfram notebooks and sync manifests.</li>
+<li>Build photos, CAD exports, spreadsheets, and lab notes.</li>
+</ul>
+<h2 id="maintenance">Maintenance</h2>
+<p>After adding or updating instrument pages, run:</p>
+<pre><code>python3 scripts/generate_library.py</code></pre>
+<p>That refreshes <code>data/library-manifest.json</code>, <code>data/wiki-manifest.json</code>, and <code>site/library.html</code>.</p></div></article>
+<article class="page" id="instruments__README" data-type="instruments" data-status="stub"><header class="page-head"><div class="eyebrow">Instrument · <code>instruments/README.md</code></div><h1>Readme</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--muted)"></span>Stub</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="instrument-pages">Instrument Pages</h1>
+<p>Create one page per instrument repo using the repo slug as the filename, for example:</p>
+<pre><code>wiki/instruments/kora.md
+wiki/instruments/cajon.md
+wiki/instruments/shakuhachi.md</code></pre>
+<p>The library generator treats these pages as the source of truth for whether an instrument has a wiki page.</p></div></article>
+<article class="page" id="instruments__cajon" data-type="instrument" data-status="active"><header class="page-head"><div class="eyebrow">Instrument · <code>instruments/cajon.md</code></div><h1>Cajon Family Public-Review Prototype</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">6 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">instrument</span><span class="tag">drum</span><span class="tag">box-drum</span><span class="tag">public-review</span></div></header><div class="page-body"><h1 id="cajon-family-public-review-prototype">Cajon Family Public-Review Prototype</h1>
+<h2 id="overview">Overview</h2>
+<p>The <code>cajon</code> repo is a pre-build V5 build-packet candidate for a parametric three-member cajon family. It treats the cajon as a coordinated box-drum system rather than a single fixed box: Compact, Standard, and Bass members share a geometric law, multiple joinery paths, and optional snare lineages.</p>
+<p>The first physical prototype is the Standard <code>CJ-S</code>, V1 finger-joint shell, with snare option B using guitar strings.</p>
+<p>Primary repo links:</p>
+<ul>
+<li><a href="../../../cajon/README.md">README</a></li>
+<li><a href="../../../cajon/design.md">Design notes</a></li>
+<li><a href="../../../cajon/assembly-manual.md">Assembly manual</a></li>
+<li><a href="../../../cajon/validation-report.md">Validation report</a></li>
+<li><a href="../../../cajon/risks.md">Risks</a></li>
+<li><a href="../../../cajon/capstone-manifest.json">Capstone manifest</a></li>
+<li><a href="../../../cajon/explorer.html">Explorer</a></li>
+</ul>
+<h2 id="current-status">Current Status</h2>
+<ul>
+<li>Release state: public-review prototype / pre-build V5 candidate.</li>
+<li>Library family: drum.</li>
+<li>Acoustic class: box drum, coupled plate-and-Helmholtz system.</li>
+<li>Wolfram state: owner-only in the central library manifest.</li>
+<li>CAD state: no <code>.glb</code> detected yet; OpenSCAD source, SVG drawings, jig templates, and a visual authority register exist.</li>
+<li>Fabrication authority: design table, OpenSCAD source, jig templates, and reviewed drawing set. Measurement-gated before production-release claims.</li>
+</ul>
+<h2 id="source-notes">Source Notes</h2>
+<p>The first ingest used the text-native sources and linked the binary/generated artifacts without deep extraction:</p>
+<ul>
+<li><a href="../../../cajon/README.md">README</a> gives the family overview, authority status, physics summary, first prototype, file map, and roadmap.</li>
+<li><a href="../../../cajon/design.md">Design notes</a> explain the family scaling law, plate model, corrected Helmholtz formula, snare strategy, joinery variants, CNC inlay strategy, and open assumptions.</li>
+<li><a href="../../../cajon/assembly-manual.md">Assembly manual</a> defines the build sequence for inlay, joinery, sound hole, glue blocks, snare, box glue-up, tapa attachment, tuning, finish, and inspection.</li>
+<li><a href="../../../cajon/validation-report.md">Validation report</a> records pre-build validation status, acceptance gates, test sequence, and release checklist.</li>
+<li><a href="../../../cajon/risks.md">Risks</a> tracks 17 acoustic, structural, ergonomic, supply, and fit/finish risks.</li>
+<li><a href="../../../cajon/family-spec.csv">Family spec</a> defines Compact, Standard, and Bass dimensions and predicted acoustic targets.</li>
+<li><a href="../../../cajon/validation.csv">Validation table</a> holds predicted-vs-measured rows. At ingest, measured values are still blank.</li>
+<li><a href="../../../cajon/capstone-manifest.json">Capstone manifest</a> identifies the prototype, authority boundary, core files, directories, and public-release concerns.</li>
+<li><a href="../../../cajon/BUILD.md">Build instructions</a> explain binary deliverable generation and clarify markdown/CSV as source of truth for regenerated binaries.</li>
+<li><a href="../../../cajon/jig-decision.md">Jig decision</a> and <a href="../../../cajon/resources.md">resources</a> should be read in the next deeper fabrication pass.</li>
+<li><a href="../../../cajon/visual-output-register.csv">Visual output register</a> controls visual/CAD authority.</li>
+</ul>
+<p>Linked artifacts not distilled in this pass:</p>
+<ul>
+<li><a href="../../../cajon/cajon-design-table.xlsx">Reference workbook</a></li>
+<li><a href="../../../cajon/Cajon-Family-Design.xlsx">Generated design workbook</a></li>
+<li><a href="../../../cajon/Cajon-Family-Capstone.pptx">Capstone deck PPTX</a></li>
+<li><a href="../../../cajon/Cajon-Family-Print-Packet.pdf">Print packet PDF</a></li>
+<li><a href="../../../cajon/drawings/">Drawings folder</a></li>
+<li><a href="../../../cajon/cad/">CAD folder</a></li>
+<li><a href="../../../cajon/jigs/">Jigs folder</a></li>
+<li><a href="../../../cajon/learn-to-play/">Learn-to-play folder</a></li>
+</ul>
+<h2 id="design-knowledge">Design Knowledge</h2>
+<p>The cajon bass voice is governed by two coupled systems:</p>
+<ul>
+<li>Front-plate <code>(1,1)</code> bending mode of the 3 mm Baltic-birch tapa.</li>
+<li>Helmholtz cavity mode of the closed box and circular back port.</li>
+</ul>
+<p>The corrected Helmholtz model is:</p>
+<pre><code>f_H = (c / 2 pi) sqrt(A / (V L_eff))
+L_eff = t_back + 1.7 * (d_hole / 2)</code></pre>
+<p>The repo flags an important correction: the original workbook used only back-panel thickness for <code>L_eff</code>, missing the end correction. The design notes now use the corrected expression; workbook formula revision remains a release concern.</p>
+<p>Family targets:</p>
+<p>| Member | Size | Sound hole | Predicted f_H | Predicted plate | Voice | | --- | --- | --- | --- | --- | --- | | Compact <code>CJ-C</code> | 15 x 11 x 11 in | 4.0 in | 107 Hz | 107 Hz | bright A2/G#2 | | Standard <code>CJ-S</code> | 18 x 12 x 12 in | 4.5 in | 96 Hz | 84 Hz | balanced G2 | | Bass <code>CJ-B</code> | 22 x 14 x 14 in | 5.0 in | 77 Hz | 60 Hz | deep E2/D#2 |</p>
+<p>The Standard is the first prototype because it is the family tonal center and can calibrate the family law before Compact and Bass builds.</p>
+<h2 id="build-and-validation-logic">Build And Validation Logic</h2>
+<p>The build plan emphasizes repeatability and measurement:</p>
+<ol>
+<li>Acclimate and mill stock.</li>
+<li>Route inlay before assembly.</li>
+<li>Cut V1 finger joints for the first prototype.</li>
+<li>Cut and deburr the back-panel sound hole.</li>
+<li>Glue internal corner blocks.</li>
+<li>Mount the guitar-string snare system after the shell plan is stable.</li>
+<li>Glue and square the box.</li>
+<li>Attach the tapa with the top 4 to 5 in slap-zone relief.</li>
+<li>Tune snare onset by ear, then record Helmholtz, plate, slap, and sustain measurements.</li>
+</ol>
+<p>The validation report says measured prototype data is not yet available. All acoustic values remain predictions until <code>validation.csv</code> has measured values and dates.</p>
+<h2 id="risks-and-release-constraints">Risks And Release Constraints</h2>
+<p>The risk register identifies 17 open risks across five categories. Highest-leverage concerns for first prototype:</p>
+<ul>
+<li>Helmholtz/plate mismatch if the corrected model or material assumptions are wrong.</li>
+<li>The historical workbook formula missing Helmholtz end correction.</li>
+<li>Tapa screw torque non-uniformity changing plate boundary behavior.</li>
+<li>Supplier variation in 3 mm Baltic-birch tapa thickness.</li>
+<li>Snare preload not represented as a parametric workbook value.</li>
+<li>Inlay press-fit and panel routing risk before assembly.</li>
+</ul>
+<p>Public-release concerns in the manifest include replacing placeholder visuals with real build photos, verifying supplier pricing, confirming workbook Helmholtz cells, preserving predicted-vs-measured language, and validating snare preload, panel thickness, joinery fit, and strike response.</p>
+<h2 id="cross-links">Cross-Links</h2>
+<ul>
+<li><a class="wikilink" href="#acoustic-classes__box-drum">acoustic-classes/box-drum</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for fabrication/cnc-inlay">fabrication/cnc-inlay</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for fabrication/jigs-and-fixtures">fabrication/jigs-and-fixtures</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for materials/baltic-birch">materials/baltic-birch</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for materials/walnut">materials/walnut</a></li>
+<li><a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/cad-readiness-roadmap">synthesis/cad-readiness-roadmap</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/wolfram-model-patterns">synthesis/wolfram-model-patterns</a></li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>Has <code>cajon-design-table.xlsx</code> itself been updated to use the corrected Helmholtz end correction, or only the generated workbook/design notes?</li>
+<li>Should <code>snare contact preload</code> become a workbook parameter after the first CJ-S build?</li>
+<li>What measurement setup will be used for REW/tap tests, and where should first-build spectral data land under <code>data/</code>?</li>
+<li>Which SVG drawings are authoritative enough for shop work before CAD-exported drawings replace them?</li>
+<li>Should the library card eventually show visual-authority status in addition to CAD/Wolfram/wiki status?</li>
+<li>When measured values arrive, should the wiki split a reusable <a class="wikilink" href="#acoustic-classes__box-drum">acoustic-classes/box-drum</a> page from this instrument page?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>Next ingest should inspect <code>visual-output-register.csv</code>, <code>jig-decision.md</code>, <code>resources.md</code>, and the OpenSCAD master. After first-build measurements exist, update this page and create a cross-instrument <code>box-drum</code> acoustic-class page.</p></div></article>
+<article class="page" id="instruments__kora" data-type="instrument" data-status="active"><header class="page-head"><div class="eyebrow">Instrument · <code>instruments/kora.md</code></div><h1>Kora-Inspired 21-String Prototype</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">7 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">instrument</span><span class="tag">string</span><span class="tag">harp-lute</span><span class="tag">private-review</span></div></header><div class="page-body"><h1 id="kora-inspired-21-string-prototype">Kora-Inspired 21-String Prototype</h1>
+<h2 id="overview">Overview</h2>
+<p>The <code>kora</code> repo is a private-review, root-mode build packet for a 21-string kora-inspired engineering prototype. It is explicitly framed as a hybrid learning prototype, not a traditional-authenticity claim, production-ready commercial instrument, or culturally authoritative kora design.</p>
+<p>The project is built around a compact parametric source workbook and a generated shop packet. The technical center of gravity is the coupling between string schedule, tall bridge, membrane-loaded resonator, through-neck load path, tail anchoring, player ergonomics, and cultural provenance review.</p>
+<p>Primary repo links:</p>
+<ul>
+<li><a href="../../../kora/README.md">README</a></li>
+<li><a href="../../../kora/design.md">Design notes</a></li>
+<li><a href="../../../kora/assembly-manual.md">Assembly manual</a></li>
+<li><a href="../../../kora/risks.md">Risks</a></li>
+<li><a href="../../../kora/capstone-manifest.json">Capstone manifest</a></li>
+<li><a href="../../../kora/explorer.html">Explorer</a></li>
+</ul>
+<h2 id="current-status">Current Status</h2>
+<ul>
+<li>Release state: private review.</li>
+<li>Library family: string.</li>
+<li>Acoustic class: harp-lute / arched bridge-harp territory, with a membrane-loaded resonator and split string banks.</li>
+<li>Wolfram state: live in the central library manifest.</li>
+<li>CAD state: no <code>.glb</code> detected yet; CAD currently exists as a parametric brief and OpenSCAD placeholder.</li>
+<li>First-build stance: do not string to full target tension until workbook traceability, string safety, bridge/head staged-load testing, neck proof-load, and cultural wording review are complete.</li>
+</ul>
+<h2 id="source-notes">Source Notes</h2>
+<p>The first ingest used the text-native sources and linked the binary/generated artifacts without deep extraction:</p>
+<ul>
+<li><a href="../../../kora/README.md">README</a> establishes the packet map, public-release caution, workbook snapshot, and cultural provenance framing.</li>
+<li><a href="../../../kora/design.md">Design notes</a> capture the workbook cell map, governing Mersenne-Taylor string model, segmented bowl assumptions, bridge requirements, and done criteria.</li>
+<li><a href="../../../kora/assembly-manual.md">Assembly manual</a> defines staged prototype build phases and hold points before full tension.</li>
+<li><a href="../../../kora/risks.md">Risks</a> records cultural, string tension, bridge, resonator/head, neck/joint, and ergonomic risks.</li>
+<li><a href="../../../kora/validation.csv">Validation table</a> defines 15 release gates, all open at ingest.</li>
+<li><a href="../../../kora/family-spec.csv">Family spec</a> defines the root prototype, low-tension mule, and partial bridge study.</li>
+<li><a href="../../../kora/bom.csv">BOM</a> captures the segmented bowl, head, neck, tail, bridge, string, electronics, jig, and finish planning assumptions.</li>
+<li><a href="../../../kora/cad/kora-parametric-brief.md">CAD brief</a> states that CAD must make the load path visible and should not treat the shell as the default load-bearing member.</li>
+<li><a href="../../../kora/cnc/cnc-plan.md">CNC plan</a> recommends fixture work before final CNC and defines CNC-ready exit criteria.</li>
+<li><a href="../../../kora/wolfram/README.md">Wolfram notes</a> point to string percent-break plots, low-tension mule schedule, bowl geometry, and measured-vs-predicted charts as future notebook outputs.</li>
+</ul>
+<p>Linked artifacts not distilled in this pass:</p>
+<ul>
+<li><a href="../../../kora/kora-design-table.xlsx">Design workbook</a></li>
+<li><a href="../../../kora/capstone-deck.md">Capstone deck markdown</a></li>
+<li><a href="../../../kora/capstone-deck.pptx">Capstone deck PPTX</a></li>
+<li><a href="../../../kora/print-packet.pdf">Print packet PDF</a></li>
+<li><a href="../../../kora/drawings/">Drawings folder</a></li>
+<li><a href="../../../kora/cad/">CAD folder</a></li>
+<li><a href="../../../kora/learn-to-play/">Learn-to-play folder</a></li>
+</ul>
+<h2 id="design-knowledge">Design Knowledge</h2>
+<p>The workbook snapshot gives the current dimensional anchor:</p>
+<ul>
+<li>Bowl outside diameter: 20.3 in.</li>
+<li>Bowl depth: 9.8 in.</li>
+<li>Neck length: 51.2 in.</li>
+<li>String vibrating lengths: 8.7 to 31.1 in.</li>
+<li>Target string tension ramp: 8 to 14 lbf per string.</li>
+<li>Segmented bowl: 12 segments per ring, 14 rings, 168 total bowl segments.</li>
+<li>Bridge: about 6 in high, with about 0.273 in string spacing by formula.</li>
+</ul>
+<p>The governing string model is Mersenne-Taylor:</p>
+<pre><code>f = (1 / (2 L)) sqrt(T / mu)</code></pre>
+<p>The critical limitation is that the current schedule puts several treble strings near or above practical nylon break targets under the idealized round-string model. The design notes call this a safety/readiness issue, not an aesthetic tweak.</p>
+<p>The resonator is a segmented wooden bowl replacing a natural calabash form. The wiki should preserve the distinction: this is a practical shop substitute and acoustic study object, not a traditional-material equivalence claim.</p>
+<h2 id="build-and-validation-logic">Build And Validation Logic</h2>
+<p>The assembly plan is intentionally staged:</p>
+<ol>
+<li>Confirm workbook labels and cell map.</li>
+<li>Build segmented bowl and rim test rings before committing all segments.</li>
+<li>Select and test head material before bridge installation.</li>
+<li>Establish a continuous neck/spine and proof-load the neck/tail path.</li>
+<li>Prototype the bridge with a broad foot and staged load tests.</li>
+<li>Use a low-tension mule schedule before full-pitch stringing.</li>
+<li>Record frequency, head deflection, bridge position, neck deflection, and humidity into <code>validation.csv</code>.</li>
+</ol>
+<p>The validation table has no passed measurements yet. It should be treated as a release-gate checklist, not evidence of performance.</p>
+<h2 id="release-and-provenance-constraints">Release And Provenance Constraints</h2>
+<p>This page should keep the kora's cultural context visible. The repo already names the instrument as culturally situated in West African Mande/Mandinka traditions and associated with jali/griot musicianship. Public language should use phrases such as <code>kora-inspired prototype</code>, <code>engineering study</code>, and <code>hybrid build packet</code>.</p>
+<p>Avoid:</p>
+<ul>
+<li>authentic</li>
+<li>traditional replica</li>
+<li>master kora</li>
+<li>improved kora</li>
+<li>modernized kora</li>
+</ul>
+<p>Public release requires cultural provenance review, safety validation, measured prototype data, and owned or permission-cleared visuals.</p>
+<h2 id="cross-links">Cross-Links</h2>
+<ul>
+<li><a class="wikilink" href="#acoustic-classes__harp-lute">acoustic-classes/harp-lute</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for fabrication/stave-or-segmented-bowl">fabrication/stave-or-segmented-bowl</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for fabrication/bridge-and-string-layout">fabrication/bridge-and-string-layout</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for materials/hide-and-synthetic-heads">materials/hide-and-synthetic-heads</a></li>
+<li><a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/cad-readiness-roadmap">synthesis/cad-readiness-roadmap</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/wolfram-model-patterns">synthesis/wolfram-model-patterns</a></li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>Should the first physical build be <code>KORA-21-MULE</code> rather than <code>KORA-21-ROOT</code> until treble string break margins are fixed?</li>
+<li>Who should review cultural provenance language before any public-release candidate?</li>
+<li>Which head material path should be tested first: ethically sourced hide, synthetic membrane, or parallel samples?</li>
+<li>What real string unit-weight data should replace the current idealized nylon/wound-string assumptions?</li>
+<li>Should the continuous neck/spine be modeled as a through-neck, an internal spine, or a mechanically backed hybrid?</li>
+<li>What bridge-foot footprint and pad material should be used for the first staged-load test?</li>
+<li>Which workbook cells need human-readable labels before CAD/CNC work is allowed to become authoritative?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>Next ingest should extract or summarize the workbook structure, inspect the Wolfram starter file, and decide whether the first synthesis page belongs under <code>acoustic-classes/harp-lute</code>, <code>fabrication/bridge-and-string-layout</code>, or <code>synthesis/public-release-blockers</code>.</p></div></article>
+<article class="page" id="instruments__wood-shell-tongue-drum" data-type="instrument" data-status="active"><header class="page-head"><div class="eyebrow">Instrument · <code>instruments/wood-shell-tongue-drum.md</code></div><h1>Wood Shell Tongue Drum</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">8 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">instrument</span><span class="tag">drum</span><span class="tag">tongue-drum-wood</span><span class="tag">pre-prototype</span></div></header><div class="page-body"><h1 id="wood-shell-tongue-drum">Wood Shell Tongue Drum</h1>
+<h2 id="overview">Overview</h2>
+<p>The <code>wood-shell-tongue-drum</code> repo is an L2 root-mode packet for a round-body wood slit-tongue idiophone with an enclosed resonator. It is positioned as the round-body counterpart to Tony's rectangular-prism wooden tongue drum work, but with an added Helmholtz cavity under the tongue field.</p>
+<p>The packet defines four geometric variants across three size envelopes, all driven by a single parametric design table. The recommended first prototype is V1 Cylinder + Flat Top, Standard 16 in, A Kurd, A3 ding, 11 tongues.</p>
+<p>Primary repo links:</p>
+<ul>
+<li><a href="../../../wood-shell-tongue-drum/README.md">README</a></li>
+<li><a href="../../../wood-shell-tongue-drum/design.md">Design notes</a></li>
+<li><a href="../../../wood-shell-tongue-drum/assembly-manual.md">Assembly manual</a></li>
+<li><a href="../../../wood-shell-tongue-drum/validation-report.md">Validation report</a></li>
+<li><a href="../../../wood-shell-tongue-drum/risks.md">Risks</a></li>
+<li><a href="../../../wood-shell-tongue-drum/joinery-configuration-matrix.md">Joinery matrix</a></li>
+<li><a href="../../../wood-shell-tongue-drum/capstone-manifest.json">Capstone manifest</a></li>
+</ul>
+<h2 id="current-status">Current Status</h2>
+<ul>
+<li>Release state: L2 root-mode packet / pre-prototype review.</li>
+<li>Library family: drum.</li>
+<li>Acoustic class: wood tongue drum with enclosed Helmholtz cavity.</li>
+<li>Wolfram state: owner-only in the central library manifest.</li>
+<li>Explorer state: awaiting explorer generation in the central library manifest.</li>
+<li>CAD state: no <code>.glb</code> detected yet; CAD and G-code are intentionally deferred until Phase 1 measurements calibrate Padauk K, rim seal behavior, Helmholtz end correction, and hold-down strategy.</li>
+<li>First-build stance: V1 Standard 16 in prototype should populate <code>validation.csv</code> and <code>validation-report.md</code> before the packet claims build-ready evidence.</li>
+</ul>
+<h2 id="source-notes">Source Notes</h2>
+<p>The first ingest used text-native sources and linked binary/generated artifacts without deep extraction:</p>
+<ul>
+<li><a href="../../../wood-shell-tongue-drum/README.md">README</a> gives the concept, variant matrix, first-prototype recommendation, acoustic one-paragraph model, build status, sister repos, and highest-risk unknowns.</li>
+<li><a href="../../../wood-shell-tongue-drum/design.md">Design notes</a> define the four variants, size presets, tongue equations, Helmholtz model, computed coupling ratios, tongue-fit caps, prototype configuration, and build phase sequence.</li>
+<li><a href="../../../wood-shell-tongue-drum/assembly-manual.md">Assembly manual</a> defines the V1/V2 cylinder path, V3/V4 hemisphere path, soundboard workflows, gu-port tuning, tongue tuning, validation, and finish.</li>
+<li><a href="../../../wood-shell-tongue-drum/validation-report.md">Validation report</a> records clean packet checks and human-owned remaining actions from the 2026-05-08 public-readiness pass.</li>
+<li><a href="../../../wood-shell-tongue-drum/risks.md">Risks</a> tracks 16 risks across acoustic, structural, ergonomic, supply, and fit/finish categories.</li>
+<li><a href="../../../wood-shell-tongue-drum/family-spec.csv">Family spec</a> defines all 12 variant/size cells and computed Helmholtz ratios.</li>
+<li><a href="../../../wood-shell-tongue-drum/validation.csv">Validation table</a> defines predicted tongue/cavity values and measurement rows. At ingest, measured values are blank.</li>
+<li><a href="../../../wood-shell-tongue-drum/joinery-configuration-matrix.md">Joinery matrix</a> separates shell construction from soundboard capture and recommends a stave/segmented shell plus rabbeted top capture.</li>
+<li><a href="../../../wood-shell-tongue-drum/cnc/jig-and-template-plan.md">Jig and template plan</a> defines first-prototype fixture choices, laser outputs, and CAM readiness gates.</li>
+<li><a href="../../../wood-shell-tongue-drum/capstone-manifest.json">Capstone manifest</a> lists the packet files and generated output state.</li>
+<li><a href="../../../wood-shell-tongue-drum/wolfram-starter.wl">Wolfram starter</a> is the future 3-DOF coupled oscillator starting point.</li>
+<li><a href="../../../tongue-drum/README.md">Legacy rectangular tongue-drum repo</a> is a likely future source stream but was not ingested deeply in this pass.</li>
+</ul>
+<p>Linked artifacts not distilled in this pass:</p>
+<ul>
+<li><a href="../../../wood-shell-tongue-drum/wood-shell-tongue-drum-design-table.xlsx">Parametric workbook</a></li>
+<li><a href="../../../wood-shell-tongue-drum/capstone-deck.md">Capstone deck markdown</a></li>
+<li><a href="../../../wood-shell-tongue-drum/capstone-deck.pptx">Capstone deck PPTX</a></li>
+<li><a href="../../../wood-shell-tongue-drum/print-packet.pdf">Print packet PDF</a></li>
+<li><a href="../../../wood-shell-tongue-drum/drawings/00-hero-v1-standard.svg">Hero drawing</a></li>
+<li><a href="../../../wood-shell-tongue-drum/concepts/round-body-variants_concept-sheet.png">Concept sheet</a></li>
+<li><a href="../../../wood-shell-tongue-drum/learn-to-play/">Learn-to-play folder</a></li>
+</ul>
+<h2 id="design-knowledge">Design Knowledge</h2>
+<p>The design matrix combines:</p>
+<ul>
+<li>V1: cylinder body, flat soundboard.</li>
+<li>V2: cylinder body, domed soundboard.</li>
+<li>V3: hemisphere bowl, flat soundboard.</li>
+<li>V4: hemisphere bowl, domed soundboard.</li>
+</ul>
+<p>Sizes:</p>
+<ul>
+<li>Travel 12 in OD.</li>
+<li>Standard 16 in OD.</li>
+<li>Floor Pouf 20 in OD.</li>
+</ul>
+<p>The recommended first prototype is V1 Standard 16 in because it has the lowest piece count, most predictable flat-cantilever physics, a coupled Helmholtz ratio on paper, and the fewest unknowns before calibration.</p>
+<p>Core tongue model:</p>
+<pre><code>f = K * t / L^2
+L = sqrt(K * t / f)</code></pre>
+<p>For the default Padauk soundboard, the design uses K = 24438. This value needs calibration against actual stock.</p>
+<p>Core cavity model:</p>
+<pre><code>f_H = (c / 2 pi) * sqrt(A_port / (V * L_neck))</code></pre>
+<p>Design target:</p>
+<pre><code>0.80 &lt;= f_H / f_ding &lt;= 1.20</code></pre>
+<p>For V1 Standard, the predicted values are A3 ding at 220 Hz and Helmholtz <code>f_H</code> around 194.6 Hz, ratio 0.88.</p>
+<h2 id="family-matrix-readout">Family Matrix Readout</h2>
+<p>Promising cells from the current design table:</p>
+<ul>
+<li>V1 Standard: ratio 0.88, recommended first build.</li>
+<li>V1 Floor Pouf: ratio 0.99, but the D3 ding tongue does not fit the current radial cap without mitigation.</li>
+<li>V3 Standard: ratio 1.08, likely a good second-phase build after flat/cylinder lessons.</li>
+</ul>
+<p>Cells needing caution:</p>
+<ul>
+<li>V2 Standard and V4 Standard are under-coupled at current gu-port presets.</li>
+<li>Floor Pouf variants have tongue-fit and ergonomics risks.</li>
+<li>Domed variants depend on an unmeasured curved-cantilever multiplier.</li>
+</ul>
+<h2 id="build-and-validation-logic">Build And Validation Logic</h2>
+<p>The Phase 1 V1 Standard build should answer the questions needed before later variants:</p>
+<ol>
+<li>Can the 16-stave Black Walnut cylinder close, glue, and lathe-true within tolerance?</li>
+<li>Does the rabbeted soundboard joint hold an airtight seal?</li>
+<li>Does the actual Padauk stock match the K constant closely enough?</li>
+<li>Does the gu-port tuning curve place <code>f_H/f_ding</code> inside the coupled regime?</li>
+<li>Do the slit kerf, tongue lengths, and post-finish behavior keep all tongues within tuning tolerance?</li>
+<li>Does the round-body form create acceptable weight, reach, and playability?</li>
+</ol>
+<p>The validation report says the packet passes clean file-presence and readiness checks, but measured prototype data is not yet available.</p>
+<h2 id="release-and-authority-constraints">Release And Authority Constraints</h2>
+<p>This packet is suitable for design review and first-prototype planning. It is not yet L3/build-ready evidence.</p>
+<p>Do not claim:</p>
+<ul>
+<li>measured acoustic performance</li>
+<li>validated Padauk K for Tony's actual stock</li>
+<li>validated Helmholtz end correction</li>
+<li>build-ready CAD or G-code</li>
+<li>real photos/audio until the prototype exists</li>
+</ul>
+<p>The public-readiness pass already fixed the gu-port tuning direction across several files: increasing port area raises Helmholtz frequency.</p>
+<h2 id="cross-links">Cross-Links</h2>
+<ul>
+<li><a class="wikilink" href="#acoustic-classes__tongue-drum-wood">acoustic-classes/tongue-drum-wood</a></li>
+<li><a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/cad-readiness-roadmap">synthesis/cad-readiness-roadmap</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for synthesis/wolfram-model-patterns">synthesis/wolfram-model-patterns</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for fabrication/jigs-and-fixtures">fabrication/jigs-and-fixtures</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for fabrication/cnc-routing">fabrication/cnc-routing</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for materials/padauk">materials/padauk</a></li>
+<li><a class="wikilink broken" href="#" title="No page found for materials/walnut">materials/walnut</a></li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>Should the first wiki distillation of the legacy rectangular <code>tongue-drum</code> repo be folded into <a class="wikilink" href="#acoustic-classes__tongue-drum-wood">acoustic-classes/tongue-drum-wood</a> before more wood-shell work?</li>
+<li>What measured Padauk K should replace the library value after the first A4 calibration tongue?</li>
+<li>What measured Helmholtz end-correction should be added to the workbook if V1 Standard deviates by more than 10 percent?</li>
+<li>Which rim seal strategy should become default if the rabbet joint leaks: lap step, cork gasket, or revised machining tolerance?</li>
+<li>When should CAD/G-code become public: after poplar test disc, after first Padauk soundboard, or after full finished prototype?</li>
+<li>Should Floor Pouf be redesigned around Cedar, a thinner soundboard, or a raised ding?</li>
+<li>How should gu-port tuning logs be stored: <code>validation.csv</code>, a dedicated data folder, or a source summary page?</li>
+<li>Should the concept sheet be preserved as ideation only, or routed into a visual/reference source summary?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>Next ingest should inspect the workbook, Wolfram starter, and <code>visual-output-register</code> if one is added. After V1 measurements exist, update this page, <a class="wikilink" href="#acoustic-classes__tongue-drum-wood">acoustic-classes/tongue-drum-wood</a>, and <a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a> with measured-vs-predicted deltas.</p></div></article>
+<article class="page" id="log" data-type="log" data-status="active"><header class="page-head"><div class="eyebrow">Log · <code>log.md</code></div><h1>Log</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="heifer-zephyr-instrument-wiki-log">Heifer Zephyr Instrument Wiki Log</h1>
+<p>Append-only record of wiki maintenance, source ingests, queries, and lint passes. Use entries like:</p>
+<pre><code>## [2026-05-18] ingest | Source Title
+
+- Source: `path/or/url`
+- Pages touched: [[instruments/kora]], [[acoustic-classes/harp-lute]]
+- Summary: One or two sentences.
+- Follow-ups: Open questions or next actions.</code></pre>
+<h2 id="2026-05-18-scaffold-initial-wiki-bridge">[2026-05-18] scaffold | Initial wiki bridge</h2>
+<ul>
+<li>Source: User request to incorporate the LLM Wiki pattern alongside the generated Heifer Zephyr instrument library.</li>
+<li>Pages touched: <a class="wikilink" href="#index">index</a>, <a class="wikilink" href="#log">log</a></li>
+<li>Summary: Created the instrument wiki scaffold and reserved <code>data/wiki-manifest.json</code> as the generated bridge into <code>site/library.html</code>.</li>
+<li>Follow-ups: Ingest the first pilot instrument page and begin linking source notes from Obsidian, second_brain, explorer pages, and capstone manifests.</li>
+</ul>
+<h2 id="2026-05-18-ingest-kora-and-cajon-pilot-pages">[2026-05-18] ingest | Kora and cajon pilot pages</h2>
+<ul>
+<li>Source: <code>../../../kora/README.md</code>, <code>../../../kora/design.md</code>, <code>../../../kora/assembly-manual.md</code>, <code>../../../kora/risks.md</code>, <code>../../../kora/capstone-manifest.json</code>, <code>../../../cajon/README.md</code>, <code>../../../cajon/design.md</code>, <code>../../../cajon/assembly-manual.md</code>, <code>../../../cajon/validation-report.md</code>, <code>../../../cajon/risks.md</code>, and related CSV/brief files.</li>
+<li>Pages touched: <a class="wikilink" href="#index">index</a>, <a class="wikilink" href="#instruments__kora">instruments/kora</a>, <a class="wikilink" href="#instruments__cajon">instruments/cajon</a></li>
+<li>Summary: Created the first two active instrument wiki pages with direct source links, design knowledge, validation state, release constraints, cross-links, and open questions.</li>
+<li>Follow-ups: Create the first reusable acoustic-class pages for <code>harp-lute</code> and <code>box-drum</code>, then add synthesis pages for public-release blockers and CAD readiness.</li>
+</ul>
+<h2 id="2026-05-18-synthesize-first-acoustic-classes-and-release-blockers">[2026-05-18] synthesize | First acoustic classes and release blockers</h2>
+<ul>
+<li>Source: <a class="wikilink" href="#instruments__kora">instruments/kora</a>, <a class="wikilink" href="#instruments__cajon">instruments/cajon</a>, <code>../../../wood-shell-tongue-drum/README.md</code>, <code>../../../wood-shell-tongue-drum/design.md</code>, <code>../../../wood-shell-tongue-drum/validation-report.md</code>, and related validation/risk files.</li>
+<li>Pages touched: <a class="wikilink" href="#index">index</a>, <a class="wikilink" href="#acoustic-classes__harp-lute">acoustic-classes/harp-lute</a>, <a class="wikilink" href="#acoustic-classes__box-drum">acoustic-classes/box-drum</a>, <a class="wikilink" href="#acoustic-classes__tongue-drum-wood">acoustic-classes/tongue-drum-wood</a>, <a class="wikilink" href="#synthesis__public-release-blockers">synthesis/public-release-blockers</a>, <a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a></li>
+<li>Summary: Added reusable acoustic-class pages for harp-lute, box drum, and wooden tongue drum patterns; added a portfolio release-blocker rollup; ingested the wood-shell tongue drum as the third active instrument example.</li>
+<li>Follow-ups: Create CAD-readiness and Wolfram-pattern synthesis pages, then ingest <code>sambuca</code> or the legacy rectangular <code>tongue-drum</code> source stream.</li>
+</ul></div></article>
+<article class="page" id="materials__README" data-type="materials" data-status="stub"><header class="page-head"><div class="eyebrow">Material · <code>materials/README.md</code></div><h1>Readme</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--muted)"></span>Stub</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="materials">Materials</h1>
+<p>Material behavior, sourcing notes, finishing compatibility, and acoustic consequences live here when they cut across multiple instruments.</p></div></article>
+<article class="page" id="sources__README" data-type="sources" data-status="stub"><header class="page-head"><div class="eyebrow">Source · <code>sources/README.md</code></div><h1>Readme</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--muted)"></span>Stub</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="sources">Sources</h1>
+<p>Stable summaries of substantial raw sources live here. Keep raw sources immutable elsewhere; this folder is for LLM-maintained source summaries and source-to-wiki routing notes.</p></div></article>
+<article class="page" id="synthesis__README" data-type="synthesis" data-status="stub"><header class="page-head"><div class="eyebrow">Synthesis · <code>synthesis/README.md</code></div><h1>Readme</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--muted)"></span>Stub</span><span class="pill mono">0 sources</span><span class="pill mono">0 open questions</span></div><div class="tags"></div></header><div class="page-body"><h1 id="synthesis">Synthesis</h1>
+<p>Portfolio-level analysis, design patterns, decision records, release blockers, and cross-instrument roadmaps live here.</p></div></article>
+<article class="page" id="synthesis__public-release-blockers" data-type="synthesis" data-status="active"><header class="page-head"><div class="eyebrow">Synthesis · <code>synthesis/public-release-blockers.md</code></div><h1>Public Release Blockers</h1><div class="meta"><span class="pill"><span class="dot" style="background:var(--ok)"></span>Active</span><span class="pill mono">0 sources</span><span class="pill mono">8 open questions</span><span class="pill mono">updated 2026-05-18</span></div><div class="tags"><span class="tag">synthesis</span><span class="tag">release</span><span class="tag">validation</span></div></header><div class="page-body"><h1 id="public-release-blockers">Public Release Blockers</h1>
+<h2 id="overview">Overview</h2>
+<p>This page tracks recurring reasons an instrument packet should stay private, remain in public review, or avoid production-ready claims. It is the portfolio-level counterweight to enthusiastic explorer pages: the library can be beautiful and still be honest about missing evidence.</p>
+<h2 id="current-instrument-readout">Current Instrument Readout</h2>
+<p>| Instrument | Current release posture | Main blockers | | --- | --- | --- | | <a class="wikilink" href="#instruments__kora">instruments/kora</a> | Private review | Cultural provenance review, unsafe treble string margins, neck/tail proof-load, bridge/head staged-load validation, measured prototype data, owned or permission-cleared visuals | | <a class="wikilink" href="#instruments__cajon">instruments/cajon</a> | Public review / pre-build candidate | Measured CJ-S prototype data, workbook Helmholtz confirmation, snare preload validation, panel thickness and joinery fit, real prototype photos | | <a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> | L2 root-mode / pre-prototype review | V1 Standard physical tuning data, Padauk K calibration, Helmholtz end correction, rim seal behavior, seasonal joint behavior, CAD/G-code after calibration |</p>
+<h2 id="blocker-types">Blocker Types</h2>
+<h3 id="cultural-or-provenance-review">Cultural Or Provenance Review</h3>
+<p>Use for instruments whose public language could overclaim cultural authority, historical continuity, lineage, or authenticity.</p>
+<p>Active example:</p>
+<ul>
+<li><a class="wikilink" href="#instruments__kora">instruments/kora</a> must remain private until cultural provenance language is reviewed by a knowledgeable player, maker, or advisor.</li>
+</ul>
+<h3 id="safety-and-load-path">Safety And Load Path</h3>
+<p>Use when the first build can fail energetically or structurally:</p>
+<ul>
+<li>high string tension</li>
+<li>membrane/head loading</li>
+<li>bridge rocking</li>
+<li>tail or neck proof-load</li>
+<li>seat-load testing</li>
+<li>high-speed lathe or CNC hazards</li>
+</ul>
+<p>Active examples:</p>
+<ul>
+<li><a class="wikilink" href="#instruments__kora">instruments/kora</a> has string break, bridge/head, and neck/tail proof-load gates.</li>
+<li><a class="wikilink" href="#instruments__cajon">instruments/cajon</a> has seat-load, joinery, and tapa/screw-boundary gates.</li>
+<li><a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> has lathe-trued shell/rim, stave glue-line, soundboard, and slit-routing gates.</li>
+</ul>
+<h3 id="predicted-versus-measured-claims">Predicted Versus Measured Claims</h3>
+<p>Use whenever an explorer or packet has formulas but no physical prototype measurements.</p>
+<p>Active examples:</p>
+<ul>
+<li><a class="wikilink" href="#instruments__cajon">instruments/cajon</a> has predicted plate, Helmholtz, and coupled bass values pending CJ-S measurements.</li>
+<li><a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> has predicted tongue and cavity values pending V1 Standard measurements.</li>
+<li><a class="wikilink" href="#instruments__kora">instruments/kora</a> has string and resonator models pending safe staged validation.</li>
+</ul>
+<h3 id="fabrication-authority">Fabrication Authority</h3>
+<p>Use when drawings, generated images, CAD previews, or concept art could be mistaken for build authority.</p>
+<p>Active examples:</p>
+<ul>
+<li><a class="wikilink" href="#instruments__cajon">instruments/cajon</a> explicitly separates design table, OpenSCAD source, jig templates, reviewed drawings, previews, and placeholder images.</li>
+<li><a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> defers CAD and G-code until Phase 1 measurements calibrate the acoustic model and hold-down strategy.</li>
+</ul>
+<h3 id="source-and-supplier-freshness">Source And Supplier Freshness</h3>
+<p>Use when public instructions depend on prices, availability, substitutions, hardware, or material claims that can go stale.</p>
+<p>Active examples:</p>
+<ul>
+<li><a class="wikilink" href="#instruments__cajon">instruments/cajon</a> requires supplier price/availability verification before recommending purchases.</li>
+<li><a class="wikilink" href="#instruments__wood-shell-tongue-drum">instruments/wood-shell-tongue-drum</a> requires current tonewood stock, Padauk thickness, and substitute checks before buying.</li>
+</ul>
+<h2 id="suggested-library-status-terms">Suggested Library Status Terms</h2>
+<ul>
+<li><code>private-review</code>: do not publish beyond trusted review.</li>
+<li><code>public-review</code>: safe to show as a design packet, but not a measured production build.</li>
+<li><code>pre-build-candidate</code>: complete enough for shop review, not evidence of acoustic performance.</li>
+<li><code>measured-prototype</code>: at least one physical prototype has measurement rows.</li>
+<li><code>production-ready</code>: requires measured prototype, revised docs, authority chain, and release review.</li>
+</ul>
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li>Should <code>library.html</code> add a release-evidence filter separate from current release status?</li>
+<li>Should every public-facing explorer show a predicted-vs-measured badge?</li>
+<li>Should instrument pages have a standard <code>release_blockers</code> frontmatter list for machine-readable rollups?</li>
+<li>What counts as enough cultural review for culturally situated instruments?</li>
+<li>Should CAD authority, visual authority, and fabrication authority be separate status axes?</li>
+<li>Should binary generated artifacts be treated as source, output, or evidence in the wiki manifest?</li>
+<li>How should measured prototype data be promoted from CSV rows into reusable wiki summaries?</li>
+<li>Which blockers are Heifer Zephyr brand blockers versus general engineering blockers?</li>
+</ol>
+<h2 id="maintenance-notes">Maintenance Notes</h2>
+<p>Update this page after every instrument ingest. It should become the primary portfolio-level checklist for deciding what can move from private review to public review to measured prototype status.</p></div></article>
+  </main>
+</div>
+
+<script>
+(function(){
+  const search = document.getElementById('search');
+  const items = Array.from(document.querySelectorAll('.nav-item'));
+  const pages = Array.from(document.querySelectorAll('.page'));
+  const filters = Array.from(document.querySelectorAll('#status-filters .filter-btn'));
+  let activeStatus = 'all';
+
+  function apply(){
+    const q = search.value.trim().toLowerCase();
+    items.forEach(it => {
+      const matchQ = !q || it.dataset.search.includes(q);
+      const matchS = activeStatus === 'all' || it.dataset.status === activeStatus;
+      it.style.display = (matchQ && matchS) ? 'flex' : 'none';
+    });
+    pages.forEach(pg => {
+      const slug = pg.id;
+      const navItem = items.find(it => it.dataset.slug === slug);
+      const visible = navItem && navItem.style.display !== 'none';
+      pg.classList.toggle('hidden', !visible);
+    });
+  }
+  search.addEventListener('input', apply);
+  filters.forEach(b => b.addEventListener('click', () => {
+    filters.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    activeStatus = b.dataset.status;
+    apply();
+  }));
+
+  // Highlight active nav item on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const slug = e.target.id;
+        items.forEach(it => it.classList.toggle('active', it.dataset.slug === slug));
+      }
+    });
+  }, {rootMargin: '-30% 0px -60% 0px'});
+  pages.forEach(p => observer.observe(p));
+})();
+</script>
+</body>
+</html>

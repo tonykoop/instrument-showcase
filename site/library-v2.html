@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heifer Zephyr · Studio Explorers Library (v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Heifer Zephyr palette - reduced & re-tuned for digital product */
+  --ink:#1a1410;
+  --ink-2:#3D2817;        /* walnut */
+  --ink-3:#6B5E4D;        /* muted */
+  --rule:#E0D6C5;
+  --rule-soft:#EFE8D7;
+  --paper:#FBF8EE;        /* cream, slightly cooler */
+  --paper-2:#FFFFFF;
+  --paper-3:#F4ECDB;
+  --accent:#1E3A8A;       /* lapis */
+  --accent-soft:#E6EAF5;
+  --gold:#D4A017;
+  --gold-soft:#FCEFC6;
+  --cedar:#B98B47;
+  --ok:#2E7D32;
+  --warn:#C89220;
+  --block:#A03A2A;
+
+  /* Family tints */
+  --fam-wind:#1E3A8A;
+  --fam-wind-soft:#E6EAF5;
+  --fam-string:#8B5A1F;
+  --fam-string-soft:#F5E9D2;
+  --fam-drum:#A03A2A;
+  --fam-drum-soft:#F8E3DC;
+  --fam-idiophone:#1F5520;
+  --fam-idiophone-soft:#DDEED7;
+
+  --serif:"Fraunces","Source Serif Pro",Georgia,serif;
+  --ui:"Inter","Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",Menlo,Consolas,monospace;
+  --italic-serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
+
+  --radius-sm:4px;
+  --radius:6px;
+  --shadow:0 1px 0 rgba(31,26,20,0.04), 0 8px 24px -12px rgba(31,26,20,0.18);
+}
+
+[data-theme="dark"]{
+  --ink:#F4EEDC;
+  --ink-2:#E8DEC4;
+  --ink-3:#A89E89;
+  --rule:#3A2F22;
+  --rule-soft:#2E2519;
+  --paper:#1B1510;
+  --paper-2:#221A12;
+  --paper-3:#2A2117;
+  --accent:#7AA3FF;
+  --accent-soft:#1C2440;
+  --gold:#E8C064;
+  --gold-soft:#3A2F0F;
+  --fam-wind-soft:#1B2240;
+  --fam-string-soft:#33260F;
+  --fam-drum-soft:#3A1F18;
+  --fam-idiophone-soft:#1A2A1B;
+  --shadow:0 1px 0 rgba(0,0,0,0.5), 0 12px 32px -16px rgba(0,0,0,0.7);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:var(--ui);font-size:14.5px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"ss01","cv11";
+  transition:background 200ms,color 200ms}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--ink-2)}
+code,kbd{font-family:var(--mono);font-size:0.86em}
+
+/* ---------- App bar ---------- */
+.appbar{position:sticky;top:0;z-index:30;
+  background:rgba(27,21,16,0.96);
+  backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
+  color:var(--paper);border-bottom:1px solid rgba(212,160,23,0.35);
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+  gap:24px;padding:14px 26px}
+[data-theme="dark"] .appbar{background:rgba(10,7,4,0.96)}
+.brand{display:flex;align-items:baseline;gap:14px}
+.wordmark em{font-family:var(--italic-serif);font-style:italic;
+  font-size:24px;color:var(--gold);letter-spacing:0.005em;line-height:1}
+.tagline{font-family:var(--serif);font-size:13px;color:rgba(248,244,233,0.78);
+  border-left:1px solid rgba(248,244,233,0.22);padding-left:14px;letter-spacing:0.01em}
+.appnav{display:flex;gap:6px;justify-self:center}
+.appnav a{font-family:var(--ui);font-size:12px;font-weight:500;
+  color:rgba(248,244,233,0.78);padding:7px 11px;border-radius:4px;
+  letter-spacing:0.01em;transition:background 120ms,color 120ms}
+.appnav a:hover{background:rgba(248,244,233,0.07);color:var(--gold)}
+.appbar-tools{display:flex;align-items:center;gap:8px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:4px;color:rgba(248,244,233,0.78);
+  background:transparent;border:1px solid rgba(248,244,233,0.18);cursor:pointer;
+  transition:all 120ms}
+.icon-btn:hover{color:var(--gold);border-color:rgba(212,160,23,0.55)}
+.icon-btn svg{width:16px;height:16px;display:block}
+
+/* ---------- Hero band ---------- */
+.hero{
+  border-bottom:1px solid var(--rule);
+  background:
+    radial-gradient(900px 360px at 90% -10%, var(--gold-soft) 0%, transparent 55%),
+    radial-gradient(700px 320px at 10% -10%, var(--accent-soft) 0%, transparent 60%),
+    var(--paper);
+}
+.hero-inner{max-width:1380px;margin:0 auto;padding:48px 26px 22px}
+.eyebrow{font-family:var(--ui);font-weight:600;font-size:11px;
+  color:var(--accent);text-transform:uppercase;letter-spacing:0.18em;
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:14px}
+.eyebrow::before{content:"";display:inline-block;width:18px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,52px);
+  color:var(--ink);line-height:1.05;margin:0 0 14px;letter-spacing:-0.02em;
+  font-variation-settings:"opsz" 96}
+.hero h1 .accent{color:var(--accent-2,var(--ink-2));font-style:italic;
+  font-variation-settings:"opsz" 144;font-weight:400}
+.hero-sub{color:var(--ink-3);font-size:15.5px;max-width:720px;margin:0 0 26px}
+
+/* Stat strip */
+.statbar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  border:1px solid var(--rule);border-radius:var(--radius);
+  background:var(--paper-2);overflow:hidden}
+@media (max-width:760px){.statbar{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:14px 18px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+@media (max-width:760px){.stat{border-bottom:1px solid var(--rule)}}
+.stat .k{font-family:var(--ui);font-size:10.5px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:6px}
+.stat .v{font-family:var(--serif);font-size:30px;color:var(--ink);
+  font-weight:500;line-height:1;font-variation-settings:"opsz" 144;
+  letter-spacing:-0.01em;display:flex;align-items:baseline;gap:6px}
+.stat .v small{font-family:var(--ui);font-size:11.5px;color:var(--ink-3);font-weight:500}
+
+/* ---------- Toolbar (search + filters) ---------- */
+.toolbar{max-width:1380px;margin:0 auto;padding:18px 26px 8px}
+.search-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);
+  padding:8px 12px;box-shadow:var(--shadow)}
+.search{display:flex;align-items:center;gap:9px}
+.search svg{width:15px;height:15px;color:var(--ink-3);flex:0 0 auto}
+.search input{flex:1;border:none;outline:none;background:transparent;color:var(--ink);
+  font-family:var(--ui);font-size:14.5px;padding:6px 0}
+.kbd{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
+  border:1px solid var(--rule);border-bottom-width:2px;border-radius:3px;padding:1px 6px;background:var(--paper-3)}
+.viewmode{display:inline-flex;background:var(--paper-3);border:1px solid var(--rule);border-radius:5px;padding:2px}
+.viewmode button{font-family:var(--ui);font-size:11.5px;font-weight:500;
+  background:transparent;color:var(--ink-3);border:none;cursor:pointer;
+  padding:5px 10px;border-radius:3px;display:inline-flex;align-items:center;gap:6px}
+.viewmode button.active{background:var(--paper-2);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,0.06)}
+.viewmode svg{width:13px;height:13px}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding-top:14px;padding-bottom:8px}
+.facet{display:inline-flex;align-items:center;flex-wrap:wrap;gap:2px;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:999px;padding:3px 4px 3px 14px}
+.facet > label{font-family:var(--ui);font-size:10.5px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-right:8px}
+.chip{font-family:var(--ui);font-size:12px;font-weight:500;
+  color:var(--ink-2);border:none;background:transparent;cursor:pointer;
+  padding:5px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;
+  transition:background 120ms,color 120ms}
+.chip:hover{background:var(--rule-soft);color:var(--ink)}
+.chip.active{background:var(--ink-2);color:var(--paper)}
+.chip .count{font-family:var(--mono);font-size:10px;opacity:0.7;font-weight:400}
+.chip.active .count{color:var(--gold);opacity:1}
+
+.result-bar{max-width:1380px;margin:0 auto;padding:10px 26px;
+  display:flex;justify-content:space-between;align-items:center;
+  color:var(--ink-3);font-size:12.5px;border-bottom:1px solid var(--rule)}
+.result-bar strong{color:var(--ink);font-weight:600}
+.reset-link{font-family:var(--ui);font-size:12px;color:var(--accent);cursor:pointer;background:none;border:none;padding:0}
+.reset-link:hover{text-decoration:underline}
+
+/* ---------- Grid ---------- */
+.grid-wrap{max-width:1380px;margin:0 auto;padding:24px 26px 80px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+@media (max-width:1080px){.grid{grid-template-columns:repeat(8,1fr)}}
+@media (max-width:760px){.grid{grid-template-columns:repeat(4,1fr);gap:14px}}
+
+.card{grid-column:span 4;background:var(--paper-2);
+  border:1px solid var(--rule);border-radius:var(--radius);
+  display:flex;flex-direction:column;overflow:hidden;
+  text-decoration:none;color:inherit;
+  transition:transform 180ms cubic-bezier(.2,.7,.2,1), box-shadow 180ms, border-color 180ms;
+  position:relative}
+.card.featured{grid-column:span 8}
+.card.featured .cover{aspect-ratio:16/7}
+@media (max-width:1080px){
+  .card.featured{grid-column:span 8}
+}
+@media (max-width:760px){
+  .card{grid-column:span 4}
+  .card.featured{grid-column:span 4}
+  .card.featured .cover{aspect-ratio:16/9}
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--cedar)}
+.card.hidden{display:none}
+
+.cover{position:relative;aspect-ratio:16/9;overflow:hidden;
+  background:var(--paper-3);border-bottom:1px solid var(--rule)}
+.cover svg{display:block;width:100%;height:100%}
+.cover .badge-row{position:absolute;top:10px;left:10px;right:10px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:8px;pointer-events:none}
+.fam-tag{font-family:var(--ui);font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.12em;padding:4px 9px;border-radius:3px;
+  background:var(--paper-2);color:var(--ink-2);border:1px solid var(--rule);
+  pointer-events:auto;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.fam-tag .dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:var(--fam-wind);margin-right:6px;vertical-align:middle}
+.fam-tag[data-fam="string"] .dot{background:var(--fam-string)}
+.fam-tag[data-fam="drum"] .dot{background:var(--fam-drum)}
+.fam-tag[data-fam="idiophone"] .dot{background:var(--fam-idiophone)}
+.ready-tag{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;padding:4px 9px;border-radius:3px;
+  background:var(--ink-2);color:var(--paper);pointer-events:auto}
+.ready-tag.pending{background:var(--paper-3);color:var(--ink-3);border:1px dashed var(--rule)}
+
+.card-body{padding:16px 18px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-title{font-family:var(--serif);font-weight:500;font-size:18px;
+  color:var(--ink);line-height:1.22;letter-spacing:-0.01em;
+  font-variation-settings:"opsz" 144;margin:0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card:hover .card-title{color:var(--ink-2)}
+.card .acoustic{font-family:var(--mono);font-size:11px;color:var(--ink-3);
+  text-transform:lowercase;letter-spacing:0.02em}
+.card-meta-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:8px}
+.meta{font-family:var(--ui);font-size:10.5px;font-weight:600;letter-spacing:0.04em;
+  text-transform:uppercase;padding:3px 8px;border-radius:3px;
+  display:inline-flex;align-items:center;gap:5px}
+.meta-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-3)}
+.meta-wolfram.live{background:var(--accent-soft);color:var(--accent);}
+.meta-wolfram.live .meta-dot{background:var(--accent)}
+.meta-wolfram.owner-only{background:var(--rule-soft);color:var(--ink-3);}
+.meta-wolfram.pending{background:var(--gold-soft);color:#7A5814;}
+.meta-wolfram.pending .meta-dot{background:var(--warn)}
+.meta-wolfram.diagnostic{background:#F5DBD2;color:var(--block);}
+.meta-cad.inline-glb{background:#E8F1E5;color:var(--ok);}
+.meta-cad.inline-glb .meta-dot{background:var(--ok)}
+.meta-cad.none{background:var(--rule-soft);color:var(--ink-3);}
+.meta-wiki.active{background:#E8F1E5;color:var(--ok);}
+.meta-wiki.active .meta-dot{background:var(--ok)}
+.meta-wiki.stub{background:var(--gold-soft);color:#7A5814;}
+.meta-wiki.missing{background:var(--rule-soft);color:var(--ink-3);}
+.meta-wiki.review-needed{background:#F5DBD2;color:var(--block);}
+.meta-fam-count{background:var(--paper-3);color:var(--ink-3);border:1px dashed var(--rule)}
+
+.card-foot{display:flex;justify-content:space-between;align-items:center;
+  padding:10px 18px;border-top:1px solid var(--rule-soft);
+  background:var(--paper);font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.card-foot .arrow{font-family:var(--ui);font-weight:600;font-size:11px;
+  color:var(--ink-3);text-transform:uppercase;letter-spacing:0.08em}
+.card:hover .card-foot .arrow{color:var(--accent)}
+
+/* List view */
+body[data-view="list"] .grid{display:grid;grid-template-columns:1fr;gap:0;
+  border:1px solid var(--rule);border-radius:var(--radius);background:var(--paper-2);overflow:hidden}
+body[data-view="list"] .card{grid-column:1/-1;flex-direction:row;align-items:stretch;
+  border:none;border-bottom:1px solid var(--rule);border-radius:0;background:transparent;padding:0}
+body[data-view="list"] .card:last-child{border-bottom:none}
+body[data-view="list"] .card:hover{transform:none;background:var(--paper);box-shadow:none}
+body[data-view="list"] .cover{flex:0 0 120px;aspect-ratio:1/1;border-right:1px solid var(--rule);border-bottom:none}
+body[data-view="list"] .card.featured .cover{aspect-ratio:1/1}
+body[data-view="list"] .cover .badge-row{display:none}
+body[data-view="list"] .card-body{padding:14px 18px;gap:6px}
+body[data-view="list"] .card-foot{display:none}
+body[data-view="list"] .card-title{font-size:15.5px;-webkit-line-clamp:1}
+
+/* Empty state */
+.no-results{display:none;text-align:center;padding:80px 20px;color:var(--ink-3)}
+.no-results.show{display:block}
+.no-results h3{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--ink);margin:0 0 8px}
+.no-results p{margin:0 0 18px}
+
+/* Footnote */
+.footnote{max-width:1380px;margin:0 auto;padding:0 26px 60px;color:var(--ink-3);font-size:12px}
+.footnote code{background:var(--paper-3);padding:1px 5px;border-radius:3px;border:1px solid var(--rule)}
+
+/* Loading skeleton */
+.skel{background:linear-gradient(90deg, var(--paper-3) 0%, var(--rule-soft) 50%, var(--paper-3) 100%);
+  background-size:200% 100%;animation:sk 1.2s ease-in-out infinite}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+</style>
+</head>
+<body data-view="grid">
+
+<header class="appbar">
+  <div class="brand">
+    <span class="wordmark"><em>Heifer Zephyr</em></span>
+    <span class="tagline">Studio Explorers · Library</span>
+  </div>
+  <nav class="appnav">
+    <a href="index.html">Deliverables</a>
+    <a href="library.html">Library (v1)</a>
+    <a href="manifest.html">Manifest</a>
+    <a href="../wiki/index.md">Wiki</a>
+    <a href="https://github.com/tonykoop" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+  <div class="appbar-tools">
+    <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Library · v2 prototype</div>
+    <h1>Fifty instruments, <span class="accent">one viewport.</span></h1>
+    <p class="hero-sub">Every studio explorer in the Heifer Zephyr portfolio — woodwinds, strings, drums, and idiophones — surfaced as a single browsable catalog. Each card shows release status, Wolfram-Cloud model state, CAD readiness, and wiki coverage at a glance.</p>
+    <div class="statbar" id="statbar">
+      <div class="stat"><div class="k">Repos</div><div class="v" id="stat-total">__</div></div>
+      <div class="stat"><div class="k">Explorers ready</div><div class="v" id="stat-explorers">__</div></div>
+      <div class="stat"><div class="k">Wolfram live</div><div class="v" id="stat-wolfram">__</div></div>
+      <div class="stat"><div class="k">CAD inlined</div><div class="v" id="stat-cad">__</div></div>
+      <div class="stat"><div class="k">Wiki coverage</div><div class="v" id="stat-wiki">__</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="toolbar">
+  <div class="search-row">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search by name, slug, family, or acoustic class…" autocomplete="off" aria-label="Search">
+      <span class="kbd">/</span>
+    </div>
+    <div class="viewmode" role="tablist" aria-label="View mode">
+      <button data-view="grid" class="active" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Grid</button>
+      <button data-view="list" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>List</button>
+    </div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+</section>
+
+<div class="result-bar">
+  <div><strong id="visible-count">0</strong> of <strong id="total-count">0</strong> instruments</div>
+  <button class="reset-link" id="reset">Reset filters</button>
+</div>
+
+<main class="grid-wrap">
+  <section class="grid" id="grid"></section>
+  <div class="no-results" id="no-results">
+    <h3>No instruments match those filters.</h3>
+    <p>Try widening the filters or clearing your search.</p>
+    <button class="reset-link" onclick="document.getElementById('reset').click()">Reset filters</button>
+  </div>
+</main>
+
+<p class="footnote">Generated <time id="gen-time">…</time> from <code>scripts/generate_library.py</code>. Data: <code>../data/library-manifest.json</code>.</p>
+
+<script id="library-data" type="application/json">{"generated_at":"2026-05-18T21:44:01Z","entries":[{"slug":"andean-duct-flutes","title":"Andean Duct Flutes Build Packet","family":"wind","acoustic_class":"duct-flute","status":"unknown","status_label":"Unknown","explorer_path":"../../andean-duct-flutes/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"andean-duct-flutes-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"cajon","title":"Cajon Family Public-Review Prototype","family":"drum","acoustic_class":"box-drum","status":"unknown","status_label":"Pre-Build V5 Build-Packet Candidate","explorer_path":"../../cajon/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"cajon-starter","family_count":0,"wiki_status":"active","wiki_source_count":11,"wiki_open_questions":6,"wiki_path":"../wiki/instruments/cajon.md"},{"slug":"ceramic-electric-violin","title":"Ceramic Electric Violin Capstone","family":"string","acoustic_class":"bowed-electric","status":"unknown","status_label":"V5 Issue-Readiness Scaffold","explorer_path":"../../ceramic-electric-violin/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"ceramic-electric-violin-packet-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"ceramic-hang","title":"Ceramic Hang Capstone","family":"idiophone","acoustic_class":"tuned-shell","status":"unknown","status_label":"V5 Explorer-Readiness Scaffold","explorer_path":"../../ceramic-hang/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"ceramic-hang-starter","family_count":0,"wiki_status":"active","wiki_source_count":17,"wiki_open_questions":8,"wiki_path":"../wiki/instruments/ceramic-hang.md"},{"slug":"ceramic-tongue-drum","title":"Slip-Cast Ceramic Tongue Drum Family - V5 explorer readiness packet","family":"drum","acoustic_class":"tongue-drum-ceramic","status":"unknown","status_label":"Unknown","explorer_path":"../../ceramic-tongue-drum/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"ceramic-tongue-drum-starter","family_count":0,"wiki_status":"active","wiki_source_count":13,"wiki_open_questions":8,"wiki_path":"../wiki/instruments/ceramic-tongue-drum.md"},{"slug":"chalumeau","title":"Chalumeau Bare-Bones Starter Packet","family":"wind","acoustic_class":"reed","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../chalumeau/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-starter","family_count":4,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"clarinet","title":"Clarinet Bare-Bones Starter Packet","family":"wind","acoustic_class":"reed","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../clarinet/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-starter","family_count":3,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"didgeridoo","title":"Didgeridoo Bare-Bones Starter Packet","family":"wind","acoustic_class":"lip-driven","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../didgeridoo/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-study-notes","family_count":4,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"djembe","title":"Djembe Bare-Bones Starter Packet","family":"drum","acoustic_class":"single-membrane","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../djembe/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"","family_count":3,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"drone-flutes","title":"Native American Drone Flute Family","family":"wind","acoustic_class":"duct-flute","status":"unknown","status_label":"In-Progress","explorer_path":"../../drone-flutes/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"drone-flutes-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"duduk","title":"Duduk Family \u2014 Studio Explorer","family":"wind","acoustic_class":"reed","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../duduk/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-starter","family_count":5,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"dundun","title":"Dundun Trio Bare-Bones Starter Packet","family":"drum","acoustic_class":"double-membrane","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../dundun/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"membrane-shell-study","family_count":3,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"duntong","title":"Duntong Original Cylindrical Tongue Drum","family":"idiophone","acoustic_class":"tuned-bar","status":"unknown","status_label":"V5 Starter/Build-Packet Candidate; Not Build-Ready","explorer_path":"../../duntong/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"duntong-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"erhu","title":"Erhu Bare-Bones Starter Packet","family":"string","acoustic_class":"bowed","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../erhu/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"","family_count":4,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"flutes","title":"Flutes V5 Packet Scaffold","family":"wind","acoustic_class":"duct-flute","status":"unknown","status_label":"Unknown","explorer_path":"../../flutes/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"Flutes_Acoustic_Model","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"frame-drum","title":"Frame Drum V5 Explorer Packet","family":"drum","acoustic_class":"single-membrane","status":"unknown","status_label":"V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate","explorer_path":"../../frame-drum/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"frame-drum-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"fujara","title":"Fujara Studio Explorer","family":"wind","acoustic_class":"open-pipe","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../fujara/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"README","family_count":4,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"gemshorn","title":"Gemshorn Build Methods And Slip-Cast Family","family":"wind","acoustic_class":"vessel-flute","status":"unknown","status_label":"Unknown","explorer_path":"../../gemshorn/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"gemshorn-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"glockenspiel","title":"Glockenspiel - Tuned Metal-Bar Idiophone Build Packet","family":"idiophone","acoustic_class":"tuned-bar-metal","status":"unknown","status_label":"V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned","explorer_path":"../../glockenspiel/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"glockenspiel-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"great-highland-bagpipe","title":"Great Highland Bagpipe Capstone","family":"wind","acoustic_class":"reed","status":"unknown","status_label":"Unknown","explorer_path":"../../great-highland-bagpipe/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"great-highland-bagpipe-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"guzheng","title":"Guzheng Reference-Member-First Family Packet","family":"string","acoustic_class":"zither","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../guzheng/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-starter","family_count":3,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"handpan","title":"Handpan","family":"idiophone","acoustic_class":"tuned-shell","status":"private","status_label":"Private review","explorer_path":"../../handpan/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"handpan-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"hulusi","title":"Hulusi (\u846b\u82a6\u4e1d) \u2014 Wooden Cucurbit Free-Reed Flute Family (HUL-001) \u2014 Build Packet","family":"wind","acoustic_class":"free-reed","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../hulusi/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-starter","family_count":5,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"irish-flute","title":"Irish Flute","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../irish-flute/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"irish-flute-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"kaval-alghosazi-flutes","title":"Kaval + Alghosazi Fipple Flutes Capstone","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../kaval-alghosazi-flutes/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"kaval-alghosazi-flutes-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"kena","title":"KEN-001 Slip-Cast Kena G Key","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"V5 Starter/Build-Packet Candidate; Not Build-Ready","explorer_path":"../../kena/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"kena-packet-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"konghou","title":"Modern Konghou Family Starter Packet","family":"string","acoustic_class":"harp","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../konghou/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"pending","wolfram_notebook":"wolfram-starter","family_count":4,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"kora","title":"Kora-inspired 21-string prototype","family":"string","acoustic_class":"harp-lute","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../kora/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"live","wolfram_notebook":"kora-starter","family_count":0,"wiki_status":"active","wiki_source_count":10,"wiki_open_questions":7,"wiki_path":"../wiki/instruments/kora.md"},{"slug":"marimba","title":"Marimba CNC Bar And Resonator Build Packet","family":"idiophone","acoustic_class":"tuned-bar","status":"unknown","status_label":"Unknown","explorer_path":"../../marimba/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"marimba-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"moseno","title":"Moseno Capstone","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../moseno/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"moseno-packet-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"ocarina","title":"Slip-Cast Ceramic Ocarina (OCA-001) - V5 explorer candidate","family":"wind","acoustic_class":"vessel-flute","status":"unknown","status_label":"Unknown","explorer_path":"../../ocarina/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"ocarina-ceramic-vessel-lab-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"pipa","title":"Pipa Image-Grounded Prototype Packet","family":"string","acoustic_class":"lute","status":"unknown","status_label":"Unknown","explorer_path":"../../pipa/explorer.html","has_explorer":false,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"pipa-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"pistalka","title":"Slovak Pistalka Six-Hole Flute Build Packet","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../pistalka/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"pistalka-build-packet-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"rainstick","title":"Rainstick","family":"idiophone","acoustic_class":"shaker","status":"unknown","status_label":"Unknown","explorer_path":"../../rainstick/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"rainstick-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"resonant-box","title":"Resonant Box Build Packet","family":"idiophone","acoustic_class":"resonator-aid","status":"blocked","status_label":"Public-release blocked","explorer_path":"../../resonant-box/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"resonant-box-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"sambuca","title":"Sambuca \u2014 Modern Boat-Shaped Arched Harp Inspired by the Royal Cemetery of Ur","family":"string","acoustic_class":"arched-harp","status":"private","status_label":"Private review","explorer_path":"../../sambuca/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"live","wolfram_notebook":"sambuca-acoustics-starter","family_count":5,"wiki_status":"active","wiki_source_count":15,"wiki_open_questions":9,"wiki_path":"../wiki/instruments/sambuca.md"},{"slug":"shakuhachi","title":"Shakuhachi","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../shakuhachi/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"shakuhachi-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"sheng","title":"Sheng","family":"wind","acoustic_class":"free-reed","status":"unknown","status_label":"L2 V5 Build-Packet Candidate","explorer_path":"../../sheng/explorer.html","has_explorer":false,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"sheng-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"siku-zampona","title":"Siku (Zampo\u00f1a)","family":"wind","acoustic_class":"stopped-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../siku-zampona/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"siku-zampona-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"steel-pan","title":"Steel Pan Starter Build Packet - V5 Readiness","family":"idiophone","acoustic_class":"tuned-shell","status":"unknown","status_label":"Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated","explorer_path":"../../steel-pan/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"steel-pan-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"steel-tongue-drum","title":"Steel Tongue Drum - V5 issue readiness packet","family":"drum","acoustic_class":"tongue-drum-steel","status":"unknown","status_label":"Unknown","explorer_path":"../../steel-tongue-drum/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"steel-tongue-drum-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"tin-whistle","title":"Tin Whistle","family":"wind","acoustic_class":"duct-flute","status":"unknown","status_label":"Unknown","explorer_path":"../../tin-whistle/explorer.html","has_explorer":false,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"tin-whistle-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"transverse-flute","title":"Slip-Cast Transverse Flute Family","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../transverse-flute/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"transverse-flute-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"tubular-bells","title":"Tubular Bells Build Packet","family":"idiophone","acoustic_class":"tuned-pipe","status":"private","status_label":"Private review","explorer_path":"../../tubular-bells/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"tubular-bells-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"udu","title":"Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness","family":"drum","acoustic_class":"vessel-membrane","status":"unknown","status_label":"V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate","explorer_path":"../../udu/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"udu-ceramic-vessel-lab-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"vessel-flutes","title":"Vessel Flutes Build Packet","family":"wind","acoustic_class":"vessel-flute","status":"unknown","status_label":"Unknown","explorer_path":"../../vessel-flutes/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"vessel-flutes-ceramic-vessel-lab-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"wood-shell-tongue-drum","title":"Wood Shell Tongue Drum Capstone","family":"drum","acoustic_class":"tongue-drum-wood","status":"unknown","status_label":"Unknown","explorer_path":"../../wood-shell-tongue-drum/explorer.html","has_explorer":false,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"wood-shell-tongue-drum-starter","family_count":0,"wiki_status":"active","wiki_source_count":12,"wiki_open_questions":8,"wiki_path":"../wiki/instruments/wood-shell-tongue-drum.md"},{"slug":"wooden-hang","title":"Wooden Hang Capstone","family":"idiophone","acoustic_class":"tuned-shell","status":"unknown","status_label":"Unknown","explorer_path":"../../wooden-hang/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"wooden-hang-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"xiao","title":"Xiao","family":"wind","acoustic_class":"open-pipe","status":"unknown","status_label":"Unknown","explorer_path":"../../xiao/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"xiao-wolfram-model","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""},{"slug":"xylophone","title":"Xylophone Capstone","family":"idiophone","acoustic_class":"tuned-bar","status":"unknown","status_label":"Unknown","explorer_path":"../../xylophone/explorer.html","has_explorer":true,"cad":"none","wolfram_state":"owner-only","wolfram_notebook":"xylophone-starter","family_count":0,"wiki_status":"missing","wiki_source_count":0,"wiki_open_questions":0,"wiki_path":""}]}</script>
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('library-data').textContent);
+  const grid = document.getElementById('grid');
+  const filters = document.getElementById('filters');
+  const noResults = document.getElementById('no-results');
+  const searchEl = document.getElementById('q');
+  const visibleCountEl = document.getElementById('visible-count');
+  const totalCountEl = document.getElementById('total-count');
+
+  // ---------- Deterministic SVG cover generator ----------
+  // Each family has a distinct visual archetype. Variations are seeded by the slug.
+  function hashSeed(s){ let h=0x811c9dc5; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=(h+((h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24)))>>>0; } return h>>>0; }
+  function rng(seed){ let s=seed||1; return function(){ s = (s*1664525 + 1013904223) >>> 0; return s/0x100000000; }; }
+
+  function cover(slug, family){
+    const r = rng(hashSeed(slug));
+    const W=600,H=320;
+    const FAM = {
+      wind:      {bg:"var(--fam-wind-soft)", ink:"var(--fam-wind)",     accent:"#3D2817"},
+      string:    {bg:"var(--fam-string-soft)",ink:"var(--fam-string)",  accent:"#3D2817"},
+      drum:      {bg:"var(--fam-drum-soft)",  ink:"var(--fam-drum)",    accent:"#3D2817"},
+      idiophone: {bg:"var(--fam-idiophone-soft)",ink:"var(--fam-idiophone)",accent:"#3D2817"},
+    }[family] || {bg:"var(--paper-3)",ink:"var(--ink-2)",accent:"var(--cedar)"};
+
+    let body = '';
+    if (family === 'wind'){
+      // Vertical pipes with finger-hole arrays
+      const n = 3 + Math.floor(r()*4);
+      const cx = W/2;
+      const pipeW = 28 + Math.floor(r()*16);
+      const spacing = pipeW * 1.9;
+      const total = (n-1)*spacing;
+      const startX = cx - total/2;
+      const tipy = 60;
+      const baseTaper = r()*0.18 + 0.92;
+      for(let i=0;i<n;i++){
+        const x = startX + i*spacing;
+        const len = 200 + Math.floor(r()*40);
+        const w = pipeW * (0.8 + i*0.04);
+        const ry = 8 + Math.floor(r()*4);
+        body += `<rect x="${x-w/2}" y="${tipy}" width="${w}" height="${len}" rx="${ry}" fill="${FAM.ink}" opacity="0.92"/>`;
+        // Mouth/cap
+        body += `<rect x="${x-w/2-2}" y="${tipy-6}" width="${w+4}" height="6" fill="${FAM.accent}"/>`;
+        // Finger holes
+        const holes = 3 + Math.floor(r()*4);
+        for(let j=0;j<holes;j++){
+          const hy = tipy + 50 + j*((len-70)/holes);
+          body += `<circle cx="${x}" cy="${hy}" r="3.4" fill="${FAM.bg}"/>`;
+        }
+      }
+    } else if (family === 'string'){
+      // Arched harp / lute curve with parallel strings
+      const cx = W/2, cy = H/2;
+      const armBase = 120 + r()*30;
+      const armTop = 60 + r()*40;
+      const armRight = cx + 130;
+      const armLeft = cx - 90;
+      // Curved sound box (segment)
+      body += `<path d="M ${armLeft} ${cy+armBase*0.4} Q ${cx} ${cy+armBase*0.95} ${armRight} ${cy+armBase*0.4}" stroke="${FAM.ink}" stroke-width="34" stroke-linecap="round" fill="none" opacity="0.92"/>`;
+      // Neck/arch
+      body += `<path d="M ${armLeft+8} ${cy+armBase*0.42} Q ${armLeft-30} ${cy-armTop*0.4} ${cx-30} ${50}" stroke="${FAM.ink}" stroke-width="14" stroke-linecap="round" fill="none"/>`;
+      // Strings
+      const ns = 5 + Math.floor(r()*5);
+      for(let i=0;i<ns;i++){
+        const t = i/(ns-1);
+        const x1 = armLeft + 20 + t*(armRight-armLeft-40);
+        const y1 = cy + armBase*0.42 - (t<0.5? t*40 : (1-t)*40);
+        const x2 = cx - 30 + t*30;
+        const y2 = 56 + t*16;
+        body += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${FAM.accent}" stroke-width="1.2" opacity="0.8"/>`;
+      }
+      // Bridge dot
+      body += `<circle cx="${cx-20}" cy="${cy+armBase*0.75}" r="6" fill="${FAM.accent}"/>`;
+    } else if (family === 'drum'){
+      // Concentric rings + side perspective shell
+      const cx = W/2, cy = H/2 + 14;
+      const r1 = 110 + r()*22;
+      const r2 = r1 * 0.93;
+      const r3 = r1 * 0.6;
+      // Shell side
+      body += `<ellipse cx="${cx}" cy="${cy+r1*0.32}" rx="${r1}" ry="${r1*0.32}" fill="${FAM.ink}" opacity="0.85"/>`;
+      body += `<rect x="${cx-r1}" y="${cy-r1*0.05}" width="${r1*2}" height="${r1*0.42}" fill="${FAM.ink}" opacity="0.85"/>`;
+      // Head
+      body += `<ellipse cx="${cx}" cy="${cy-r1*0.05}" rx="${r1}" ry="${r1*0.34}" fill="${FAM.bg}" stroke="${FAM.accent}" stroke-width="3"/>`;
+      body += `<ellipse cx="${cx}" cy="${cy-r1*0.05}" rx="${r2}" ry="${r2*0.34}" fill="none" stroke="${FAM.ink}" stroke-width="1.4" opacity="0.5"/>`;
+      body += `<ellipse cx="${cx}" cy="${cy-r1*0.05}" rx="${r3}" ry="${r3*0.34}" fill="none" stroke="${FAM.ink}" stroke-width="1" opacity="0.4"/>`;
+      // Lugs
+      const lugs = 6 + Math.floor(r()*4);
+      for(let i=0;i<lugs;i++){
+        const a = -Math.PI + (i/(lugs-1))*Math.PI;
+        const lx = cx + Math.cos(a)*r1;
+        const ly = cy - r1*0.05 + Math.sin(a)*r1*0.34;
+        body += `<circle cx="${lx}" cy="${ly+8}" r="3" fill="${FAM.accent}"/>`;
+      }
+    } else if (family === 'idiophone'){
+      // Marimba-like bar array with tube resonators
+      const n = 7 + Math.floor(r()*5);
+      const padX = 60, padY = 70;
+      const avail = W - padX*2;
+      const barW = avail / n - 6;
+      for(let i=0;i<n;i++){
+        const x = padX + i*(barW+6);
+        const len = 180 - i*((180-90)/(n-1));
+        // resonator tube behind
+        body += `<rect x="${x+2}" y="${padY+len-8}" width="${barW-4}" height="${H - padY - len - 30}" fill="${FAM.ink}" opacity="0.45"/>`;
+        // bar
+        body += `<rect x="${x}" y="${padY+ (180-len)/2 + 10}" width="${barW}" height="${len-20}" rx="3" fill="${FAM.ink}"/>`;
+        // highlight
+        body += `<rect x="${x+barW*0.18}" y="${padY+ (180-len)/2 + 14}" width="${barW*0.18}" height="${len-28}" rx="2" fill="${FAM.bg}" opacity="0.45"/>`;
+      }
+      // Frame rails
+      body += `<rect x="${padX-8}" y="${padY+30}" width="${avail+16}" height="3" fill="${FAM.accent}"/>`;
+      body += `<rect x="${padX-8}" y="${padY+160}" width="${avail+16}" height="3" fill="${FAM.accent}"/>`;
+    } else {
+      body = `<rect x="120" y="80" width="${W-240}" height="${H-160}" fill="${FAM.ink}" opacity="0.5"/>`;
+    }
+
+    // Subtle blueprint grid backdrop
+    let grid = `<defs>
+      <pattern id="g-${slug}" width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="${FAM.ink}" stroke-width="0.4" opacity="0.12"/>
+      </pattern>
+    </defs>`;
+    return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      ${grid}
+      <rect width="${W}" height="${H}" fill="${FAM.bg}"/>
+      <rect width="${W}" height="${H}" fill="url(#g-${slug})"/>
+      ${body}
+    </svg>`;
+  }
+
+  // ---------- Card markup ----------
+  function escape(s){ return String(s||'').replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
+  function cardHTML(e, featured){
+    const slug = e.slug, fam = e.family || '?';
+    const explorerReady = !!e.has_explorer && !!e.explorer_path;
+    const href = explorerReady ? e.explorer_path : '#';
+    const wolfram = e.wolfram_state || 'owner-only';
+    const cad = e.cad || 'none';
+    const wiki = e.wiki_status || 'missing';
+    const status = e.status_label || e.status || 'Unknown';
+    const family_count = e.family_count || 0;
+    const acoustic = e.acoustic_class || '';
+    const wolframLabel = { live:"Wolfram · Live", "owner-only":"Wolfram · Owner-only", pending:"Wolfram · Pending", diagnostic:"Wolfram · Diagnostic" }[wolfram] || ('Wolfram · ' + wolfram);
+    const cadLabel = { "inline-glb":"CAD · Inline", "external-glb":"CAD · External", "gltf":"CAD · GLTF", "none":"CAD · None" }[cad] || ("CAD · " + cad);
+    const wikiLabel = { active:"Wiki · Active", stub:"Wiki · Stub", "review-needed":"Wiki · Review", missing:"Wiki · Missing" }[wiki] || ("Wiki · " + wiki);
+
+    return `<a class="card${featured?' featured':''}" href="${href}" data-family="${escape(fam)}" data-cad="${escape(cad)}" data-wolfram="${escape(wolfram)}" data-has-explorer="${explorerReady?'yes':'no'}" data-wiki="${escape(wiki)}" data-slug="${escape(slug)}">
+      <div class="cover">${cover(slug, fam)}
+        <div class="badge-row">
+          <span class="fam-tag" data-fam="${escape(fam)}"><span class="dot"></span>${escape(fam)}</span>
+          <span class="ready-tag ${explorerReady?'':'pending'}">${explorerReady?'Explorer ready':'Pending'}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${escape(e.title || slug)}</h3>
+        <div class="acoustic">${escape(acoustic)}${family_count? ' · ' + family_count + ' variants' : ''}</div>
+        <div class="card-meta-row">
+          <span class="meta meta-wolfram ${escape(wolfram)}"><span class="meta-dot"></span>${escape(wolframLabel)}</span>
+          <span class="meta meta-cad ${escape(cad)}"><span class="meta-dot"></span>${escape(cadLabel)}</span>
+          <span class="meta meta-wiki ${escape(wiki)}"><span class="meta-dot"></span>${escape(wikiLabel)}</span>
+        </div>
+      </div>
+      <div class="card-foot">
+        <code>${escape(slug)}</code>
+        <span class="arrow">${explorerReady?'Open explorer →':'Awaiting'}</span>
+      </div>
+    </a>`;
+  }
+
+  // ---------- Filters definition ----------
+  const FACETS = [
+    {key:'family',       label:'Family',  vals:['wind','string','drum','idiophone']},
+    {key:'has-explorer', label:'State',   vals:[{v:'yes',l:'ready'},{v:'no',l:'pending'}]},
+    {key:'wolfram',      label:'Wolfram', vals:[{v:'live',l:'live'},{v:'owner-only',l:'owner-only'},{v:'pending',l:'pending'},{v:'diagnostic',l:'diagnostic'}]},
+    {key:'cad',          label:'CAD',     vals:[{v:'inline-glb',l:'inline'},{v:'external-glb',l:'external'},{v:'gltf',l:'gltf'},{v:'none',l:'none'}]},
+    {key:'wiki',         label:'Wiki',    vals:[{v:'active',l:'active'},{v:'stub',l:'stub'},{v:'review-needed',l:'review'},{v:'missing',l:'missing'}]},
+  ];
+  const state = {family:'all','has-explorer':'all',wolfram:'all',cad:'all',wiki:'all',q:''};
+
+  function getKey(e, k){
+    if (k==='has-explorer') return e.has_explorer ? 'yes':'no';
+    if (k==='family') return e.family || 'unknown';
+    if (k==='wolfram') return e.wolfram_state || 'owner-only';
+    if (k==='cad') return e.cad || 'none';
+    if (k==='wiki') return e.wiki_status || 'missing';
+  }
+
+  function countsFor(k, ignore){
+    const map = {};
+    DATA.entries.forEach(e=>{
+      // count by k ignoring filter k itself
+      let pass = true;
+      for(const fk in state){
+        if (fk===k || fk==='q' || state[fk]==='all') continue;
+        if (getKey(e, fk) !== state[fk]){ pass=false; break; }
+      }
+      if (pass){
+        const val = getKey(e, k);
+        map[val] = (map[val]||0)+1;
+      }
+    });
+    return map;
+  }
+
+  function renderFilters(){
+    filters.innerHTML = '';
+    FACETS.forEach(f=>{
+      const counts = countsFor(f.key);
+      const totalForFacet = Object.values(counts).reduce((a,b)=>a+b,0);
+      const facet = document.createElement('div');
+      facet.className = 'facet';
+      let h = `<label>${f.label}</label>`;
+      h += `<button class="chip ${state[f.key]==='all'?'active':''}" data-k="${f.key}" data-v="all">all <span class="count">${totalForFacet}</span></button>`;
+      f.vals.forEach(v=>{
+        const val = typeof v === 'string' ? v : v.v;
+        const lab = typeof v === 'string' ? v : v.l;
+        const c = counts[val] || 0;
+        h += `<button class="chip ${state[f.key]===val?'active':''}" data-k="${f.key}" data-v="${val}" ${c===0?'disabled':''}>${lab} <span class="count">${c}</span></button>`;
+      });
+      facet.innerHTML = h;
+      filters.appendChild(facet);
+    });
+  }
+
+  function applyFilters(){
+    let visible = 0;
+    Array.from(grid.children).forEach((el)=>{
+      const d = el.dataset;
+      let show = true;
+      for(const k in state){
+        if (k==='q' || state[k]==='all') continue;
+        const want = state[k];
+        const have = d[k==='has-explorer' ? 'hasExplorer' : k];
+        if (have !== want){ show=false; break; }
+      }
+      if (show && state.q){
+        const hay = (el.querySelector('.card-title').textContent + ' ' + d.slug + ' ' + d.family + ' ' + (el.querySelector('.acoustic').textContent||'')).toLowerCase();
+        if (!hay.includes(state.q)) show=false;
+      }
+      el.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    visibleCountEl.textContent = visible;
+    totalCountEl.textContent = DATA.entries.length;
+    noResults.classList.toggle('show', visible===0);
+    renderFilters();
+  }
+
+  // Initial render of grid
+  // Decide which cards are "featured" (span 8). Pick 1 per family among entries that have_explorer=yes, deterministic
+  const featuredSlugs = new Set();
+  const seenFam = new Set();
+  DATA.entries.forEach(e=>{
+    if (!seenFam.has(e.family) && e.has_explorer){ featuredSlugs.add(e.slug); seenFam.add(e.family); }
+  });
+
+  // Sort: ready first, then by family then title
+  const sorted = DATA.entries.slice().sort((a,b)=>{
+    if (!!b.has_explorer - !!a.has_explorer) return !!b.has_explorer - !!a.has_explorer;
+    if ((a.family||'') !== (b.family||'')) return (a.family||'').localeCompare(b.family||'');
+    return (a.title||'').localeCompare(b.title||'');
+  });
+  grid.innerHTML = sorted.map(e=>cardHTML(e, featuredSlugs.has(e.slug))).join('');
+
+  // Wire filter chip clicks (event delegation)
+  filters.addEventListener('click', (ev)=>{
+    const btn = ev.target.closest('.chip'); if (!btn) return;
+    const k = btn.dataset.k, v = btn.dataset.v;
+    state[k] = v;
+    applyFilters();
+  });
+
+  // Search
+  let tmo;
+  searchEl.addEventListener('input', ()=>{
+    clearTimeout(tmo);
+    tmo = setTimeout(()=>{ state.q = searchEl.value.trim().toLowerCase(); applyFilters(); }, 100);
+  });
+
+  // Reset
+  document.getElementById('reset').addEventListener('click', ()=>{
+    for(const k in state){ state[k] = (k==='q')?'':'all'; }
+    searchEl.value = '';
+    applyFilters();
+  });
+
+  // View mode
+  document.querySelectorAll('.viewmode button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      document.body.dataset.view = b.dataset.view;
+      document.querySelectorAll('.viewmode button').forEach(x=>x.classList.toggle('active', x===b));
+    });
+  });
+
+  // Theme
+  const themeBtn = document.getElementById('theme-toggle');
+  const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('hz-theme')) || 'light';
+  if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+  themeBtn.addEventListener('click', ()=>{
+    const cur = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = cur;
+    try { localStorage.setItem('hz-theme', cur); } catch(e){}
+  });
+
+  // Keyboard: "/" focuses search
+  document.addEventListener('keydown', (ev)=>{
+    if (ev.key === '/' && document.activeElement !== searchEl){
+      ev.preventDefault(); searchEl.focus(); searchEl.select();
+    }
+    if (ev.key === 'Escape' && document.activeElement === searchEl){
+      searchEl.value = ''; state.q = ''; applyFilters(); searchEl.blur();
+    }
+  });
+
+  // Hero stats
+  document.getElementById('stat-total').textContent = DATA.entries.length;
+  document.getElementById('stat-explorers').innerHTML = DATA.entries.filter(e=>e.has_explorer).length + ' <small>/ ' + DATA.entries.length + '</small>';
+  document.getElementById('stat-wolfram').innerHTML = DATA.entries.filter(e=>e.wolfram_state==='live').length + ' <small>live</small>';
+  document.getElementById('stat-cad').innerHTML = DATA.entries.filter(e=>e.cad==='inline-glb').length + ' <small>inlined</small>';
+  const wikiCount = DATA.entries.filter(e=>['active','stub','review-needed'].includes(e.wiki_status||'missing')).length;
+  document.getElementById('stat-wiki').innerHTML = wikiCount + ' <small>pages</small>';
+
+  // Gen time
+  if (DATA.generated_at){
+    document.getElementById('gen-time').textContent = DATA.generated_at;
+    document.getElementById('gen-time').setAttribute('datetime', DATA.generated_at);
+  }
+
+  applyFilters();
+})();
+</script>
+</body>
+</html>

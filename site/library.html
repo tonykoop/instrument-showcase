@@ -93,6 +93,7 @@ code{font-family:var(--mono);font-size:0.88em}
 .badge-family.family-string{background:#FCEFC6;color:#7A5814;border-color:var(--pill-border)}
 .badge-family.family-drum{background:#F8E3DC;color:var(--block);border-color:var(--block)}
 .badge-family.family-idiophone{background:#D8EBD3;color:#1F5520;border-color:var(--ok)}
+.badge-family.family-hybrid{background:#EEEAE0;color:var(--muted);border-color:var(--muted)}
 .badge-fam-count{background:transparent;color:var(--muted);border-style:dashed}
 .card-pills{display:flex;gap:5px;flex-wrap:wrap}
 .pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--ui);
@@ -118,16 +119,6 @@ code{font-family:var(--mono);font-size:0.88em}
 .pill-cad.pill-cad-gltf{background:#EEEAE0;border-color:var(--muted);color:var(--muted)}
 .pill-cad.pill-cad-gltf .dot{background:var(--muted)}
 .pill-cad.pill-cad-none{background:var(--cream);border-color:var(--rule);color:var(--muted)}
-.pill-wiki{text-decoration:none}
-.pill-wiki:hover{text-decoration:none;border-color:var(--lapis)}
-.pill-wiki-missing{background:var(--cream);border-color:var(--rule);color:var(--muted)}
-.pill-wiki-missing .dot{background:var(--muted)}
-.pill-wiki-stub{background:#FCEFC6;border-color:var(--pill-border);color:#7A5814}
-.pill-wiki-stub .dot{background:var(--warn)}
-.pill-wiki-active{background:#E8F1E5;border-color:var(--ok);color:var(--ok)}
-.pill-wiki-active .dot{background:var(--ok)}
-.pill-wiki-review-needed{background:#F5DBD2;border-color:var(--block);color:var(--block)}
-.pill-wiki-review-needed .dot{background:var(--block)}
 
 .explorer-pill{font-family:var(--ui);font-size:10px;letter-spacing:0.06em;
   text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:3px;flex:0 0 auto}
@@ -153,7 +144,6 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="actions">
     <a class="action-btn" href="index.html">Deliverables Hub</a>
-    <a class="action-btn" href="../wiki/index.md">Wiki Index</a>
     <a class="action-btn" href="manifest.html">Manifest</a>
     <a class="action-btn" href="https://github.com/tonykoop" target="_blank" rel="noopener">GitHub</a>
   </div>
@@ -162,15 +152,14 @@ code{font-family:var(--mono);font-size:0.88em}
 <main class="wrap">
   <section class="hero">
     <h1><span class="eyebrow">Library</span>Browse every studio explorer in one place</h1>
-    <p>One card per instrument repo. Click an "Explorer ready" card to open that repo's full studio explorer — sidebar TOC, file viewers, interactive Wolfram-Cloud acoustic model, and the inline 3D CAD viewer where present. The Wiki pill shows whether this instrument has a maintained knowledge page in the LLM wiki layer.</p>
+    <p>One card per instrument repo. Click an "Explorer ready" card to open that repo's full studio explorer — sidebar TOC, file viewers, interactive Wolfram-Cloud acoustic model, and the inline 3D CAD viewer where present. Cards without an explorer yet have a capstone-manifest.json and are ready for a <code>generate_explorer.py</code> run.</p>
   </section>
 
   <section class="stats">
-    <div class="stat"><div class="k">Repos in library</div><div class="v">80</div></div>
-    <div class="stat"><div class="k">With explorer</div><div class="v">75</div></div>
-    <div class="stat"><div class="k">Wolfram live</div><div class="v">3</div></div>
+    <div class="stat"><div class="k">Repos in library</div><div class="v">48</div></div>
+    <div class="stat"><div class="k">With explorer</div><div class="v">31</div></div>
+    <div class="stat"><div class="k">Wolfram live</div><div class="v">2</div></div>
     <div class="stat"><div class="k">CAD inlined</div><div class="v">0</div></div>
-    <div class="stat"><div class="k">With wiki</div><div class="v">6</div></div>
   </section>
 
   <section class="controls">
@@ -178,7 +167,7 @@ code{font-family:var(--mono);font-size:0.88em}
     <div class="filter-group" data-filter-key="family">
       <label>Family</label>
       <button class="filter-btn active" data-filter-key="family" data-filter-val="all">all</button>
-      <button class="filter-btn" data-filter-key="family" data-filter-val="drum">drum <span class="count">9</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="idiophone">idiophone <span class="count">20</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="string">string <span class="count">16</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="wind">wind <span class="count">37</span></button>
+      <button class="filter-btn" data-filter-key="family" data-filter-val="drum">drum <span class="count">8</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="idiophone">idiophone <span class="count">11</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="string">string <span class="count">6</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="wind">wind <span class="count">23</span></button>
     </div>
     <div class="filter-group" data-filter-key="cad">
       <label>CAD</label>
@@ -201,261 +190,10 @@ code{font-family:var(--mono);font-size:0.88em}
       <button class="filter-btn" data-filter-key="has-explorer" data-filter-val="yes">ready</button>
       <button class="filter-btn" data-filter-key="has-explorer" data-filter-val="no">pending</button>
     </div>
-    <div class="filter-group" data-filter-key="wiki">
-      <label>Wiki</label>
-      <button class="filter-btn active" data-filter-key="wiki" data-filter-val="all">all</button>
-      <button class="filter-btn" data-filter-key="wiki" data-filter-val="active">active</button>
-      <button class="filter-btn" data-filter-key="wiki" data-filter-val="stub">stub</button>
-      <button class="filter-btn" data-filter-key="wiki" data-filter-val="review-needed">review</button>
-      <button class="filter-btn" data-filter-key="wiki" data-filter-val="missing">missing</button>
-    </div>
   </section>
 
   <section class="grid" id="grid">
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="no" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="https://github.com/tonykoop/bell-stack-chord-horn">Bell-Stack Chord Horn — Sheet-Metal Greenfield Blueprint</a>
-    <span class="explorer-pill explorer-pill-no">Explorer pending</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge badge-acoustic">bessel-flare chord radiator</span>
-  </div>
-  <p class="card-slug"><code>bell-stack-chord-horn</code></p>
-  <p class="card-desc">Three nested Bessel-flare bells (4"/5"/6" mouths, γ = 0.85/0.55/0.35) on a 1500 mm Bb tenor body. A single buzz radiates a Bb major triad — H1 (root) + H3 (5th) + H5 (3rd) — via per-bell cutoff tuning. v0.1.0-blueprint with cascaded transmission-line acoustic model.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../brass-marine-reed-horn/explorer.html">Brass Marine Reed Horn - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge badge-acoustic">conical reed horn</span>
-  </div>
-  <p class="card-slug"><code>brass-marine-reed-horn</code></p>
-  <p class="card-desc">A compact brass conical single-reed horn with a Bb-clarinet cane reed, two-turn cornet-like wrap, and seven D-major tone holes around a D4 low-note target.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter model in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and equations only"><span class="dot"></span>CAD · Skeleton</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../disc-trumpet/explorer.html">Disc Trumpet - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge badge-acoustic">pancake horn</span>
-  </div>
-  <p class="card-slug"><code>disc-trumpet</code></p>
-  <p class="card-desc">A Bb trumpet-length horn folded into a 280 mm circular sheet-metal sandwich with rectangular internal bore channels, side valves, and a compact rim-exit bell.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../steam-train-whistle/explorer.html">Steam Train Whistle - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">woodwind</span>
-    <span class="badge badge-acoustic">multi-chime flue whistle</span>
-  </div>
-  <p class="card-slug"><code>steam-train-whistle</code></p>
-  <p class="card-desc">A compressed-air-only five-chime brass train whistle with rolled stopped pipes, precision mouth slots, and a low-pressure manifold tuned to a G-major chord.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and placeholder assets only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../slide-cornetto/explorer.html">Slide Cornetto - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge badge-acoustic">conical slide horn</span>
-  </div>
-  <p class="card-slug"><code>slide-cornetto</code></p>
-  <p class="card-desc">A Bb conical brass hybrid with a short cylindrical trombone-style slide, 30 mm smoothing collars, and a compact 4 in bell.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter model in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and equations only"><span class="dot"></span>CAD · Skeleton</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../branching-multibell-horn/explorer.html">Branching Multibell Ensemble Horn - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-  </div>
-  <p class="card-desc">A private-review brass blueprint with one leadpipe, a Y-Y sheet-metal manifold, and three stopped-port selectable bells targeting Bb1, F2, and C3 after prototype trim.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private"><span class="dot"></span>private</span>
-    <span class="pill pill-wolfram pill-w-pending"><span class="dot"></span>wolfram pending</span>
-    <span class="pill pill-cad pill-cad-none"><span class="dot"></span>cad none</span>
-    <span class="pill pill-wiki pill-wiki-missing"><span class="dot"></span>wiki missing</span>
-  </div>
-  <div class="card-slug">branching-multibell-horn</div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../dual-bell-phasing-horn/explorer.html">Dual-Bell Phasing Horn - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge">sheet metal</span>
-  </div>
-  <p class="card-slug"><code>dual-bell-phasing-horn</code></p>
-  <p class="card-desc">A Bb brass horn whose shared mouthpipe and valve block split through a leak-tested Y-junction into two selectable bells with matched pitch and contrasting spectral color.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Starter</span>
-    <span class="pill pill-cad pill-cad-none" title="Placeholder DXFs only; no cut-ready CAD"><span class="dot"></span>CAD · Placeholder</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-class="wind" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../iris-bell-tonal-horn/explorer.html">Iris-Bell Tonal Horn - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge badge-acoustic">iris-bell</span>
-  </div>
-  <p class="card-slug"><code>iris-bell-tonal-horn</code></p>
-  <p class="card-desc">A Bb trumpet-style horn with eight hammer-formed brass iris petals that sweep the terminal aperture from 2 in to 5 in for acoustic wah and projection control.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and coupon-gated flat patterns only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-pan-flute/explorer.html">Sheet-Metal Pan Flute - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">woodwind</span>
-    <span class="badge">stopped pipe</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-pan-flute</code></p>
-  <p class="card-desc">A 13-tube C-major pan flute made from rolled sheet-metal stopped pipes with brazed plug closures and tuning by open-end trimming.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="Placeholder DXFs only; no cut-ready CAD"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-class="wind" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../portable-calliope/explorer.html">Portable Calliope Rank - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">woodwind</span>
-    <span class="badge badge-acoustic">stopped-flue rank</span>
-  </div>
-  <p class="card-slug"><code>portable-calliope</code></p>
-  <p class="card-desc">Eight stopped sheet-metal flue pipes on a low-pressure wind chest with a side keyboard, foot-bellows/shop-air options, and coupon-gated mouth voicing.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and coupon-gated flat patterns only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../mute-tuned-natural-horn/explorer.html">Mute-Tuned Natural Horn - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge">brass</span>
-    <span class="badge badge-acoustic">mute-tuned natural horn</span>
-  </div>
-  <p class="card-slug"><code>mute-tuned-natural-horn</code></p>
-  <p class="card-desc">A compact 3700 mm brass natural horn whose removable bell-throat cone mutes retune harmonic 4 toward F, E, Eb, D, and C without valves or crooks.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-class="drum" data-family="drum" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../bass-surface-drum/explorer.html">Bass Surface Drum — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">drum</span>
-    <span class="badge badge-acoustic">single-membrane</span>
-    <span class="badge badge-fam-count">v0 blueprint</span>
-  </div>
-  <p class="card-slug"><code>bass-surface-drum</code></p>
-  <p class="card-desc">800 mm OD single-head frame drum with rolled sheet-metal frame; tuned to a sub-bass acceptance band centered at 50 Hz (~G1) for cinematic boom.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private review">Private review</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../triple-cone-slide-guitar/explorer.html">Triple-Cone Slide Guitar — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge">resonator</span>
-  </div>
-  <p class="card-slug"><code>triple-cone-slide-guitar</code></p>
-  <p class="card-desc">A six-string slide guitar whose segmented bridge drives three independent spun-aluminum resonator cones for bass, mid, and treble string pairs.</p>
-  <div class="card-pills">
-    <span class="pill pill-wiki pill-wiki-missing"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="active">
+<article class="card" data-family="drum" data-status="public" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../cajon/explorer.html">Cajon Family Public-Review Prototype</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -466,15 +204,14 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="Pre-Build V5 Build-Packet Candidate">Pre-Build V5 Build-Packet Candidate</span>
+    <span class="pill pill-status pill-public" title="Public">Public</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <a class="pill pill-wiki pill-wiki-active" href="../wiki/instruments/cajon.md" title="Wiki page has integrated source notes; updated 2026-05-18"><span class="dot"></span>Wiki · Active · 11 src · 6 q</a>
   </div>
   <p class="card-slug"><code>cajon</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="drum" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../djembe/explorer.html">Djembe Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -488,31 +225,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>djembe</code></p>
 </article>
 
-<article class="card" data-class="percussion" data-family="drum" data-status="private" data-cad="none" data-wolfram="none" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-djembe/explorer.html">Sheet-Metal Djembe — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">drum</span>
-    <span class="badge badge-acoustic">single-membrane</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private review">Private Review</span>
-    <span class="pill pill-wolfram pill-w-none" title="No Wolfram notebook yet"><span class="dot"></span>Wolfram · None</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-djembe</code></p>
-  <p class="card-desc">Rolled-and-spun 1.0 mm cold-rolled steel goblet shell with goatskin head and rope tuning — a sheet-metal re-body of the West African djembe preserving the three-tone voice (bass ~80 Hz, tone, slap).</p>
-</article>
-
-<article class="card" data-family="drum" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="drum" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../dundun/explorer.html">Dundun Trio Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -526,15 +243,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>dundun</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../frame-drum/explorer.html">Frame Drum V5 Explorer Packet</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Frame Drum Packet</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-drum">drum</span>
@@ -542,72 +258,17 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate">V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>frame-drum</code></p>
 </article>
 
-<article class="card" data-class="percussion" data-family="membranophone" data-state="explorer-ready" data-wolfram="pending" data-cad="none" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../bowed-frame-drum/explorer.html">Bowed Frame Drum — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">membranophone</span>
-    <span class="badge badge-acoustic">frame-drum</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-wolfram pill-w-pending"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>bowed-frame-drum</code></p>
-  <p class="card-desc">Bodhran-scale 450 mm OD rolled-steel frame drum with internal sympathetic tone bar and optional rosined-wheel bowing mode for sustained drone. C3 fundamental, ~900 g, ~$107 build cost.</p>
-</article>
-
-<article class="card" data-class="percussion" data-family="membranophone" data-state="explorer-ready" data-wolfram="pending" data-cad="none" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../modular-pedestal-drum-stack/explorer.html">Modular Pedestal Drum Stack — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">membranophone</span>
-    <span class="badge badge-acoustic">5-drum pentatonic pedestal</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-wolfram pill-w-pending"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>modular-pedestal-drum-stack</code></p>
-  <p class="card-desc">Five single-headed sheet-metal drums (300/250/200/150/100 mm OD) stacked on a central pedestal pole, tuned A-minor pentatonic (A2-C3-E3-G3-A3). 1.2 mm rolled CRS shells with snare-style external lug rings, played top-down with mallets. v0.1.0-blueprint with Bessel-function membrane acoustic model.</p>
-</article>
-
-<article class="card" data-class="percussion" data-family="membranophone" data-state="explorer-ready" data-wolfram="pending" data-cad="none" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-talking-drum/explorer.html">Talking Drum (Dùndún) — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">membranophone</span>
-    <span class="badge badge-acoustic">pressure-tuned hourglass</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-wolfram pill-w-pending"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-talking-drum</code></p>
-  <p class="card-desc">West African pressure-tuned hourglass drum with double-cone rolled-steel shell; squeeze tension cords mid-play to bend pitch across ≥ 2 octaves. v0.1.0-blueprint with Bessel membrane acoustic model.</p>
-</article>
-
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="active">
-  <header class="card-head">
-    <a class="card-title" href="../../ceramic-tongue-drum/explorer.html">Slip-Cast Ceramic Tongue Drum Family - V5 explorer readiness packet</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Slip-Cast Ceramic Tongue Drum Family - v4.3 Barebones Research Packet</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-drum">drum</span>
@@ -618,15 +279,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <a class="pill pill-wiki pill-wiki-active" href="../wiki/instruments/ceramic-tongue-drum.md" title="Wiki page has integrated source notes; updated 2026-05-18"><span class="dot"></span>Wiki · Active · 13 src · 8 q</a>
   </div>
   <p class="card-slug"><code>ceramic-tongue-drum</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../udu/explorer.html">Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Slip-Cast Ceramic Udu Drum Family — v4.1 Capstone</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-drum">drum</span>
@@ -634,54 +294,32 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate">V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>udu</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../steel-tongue-drum/explorer.html">Steel Tongue Drum - V5 issue readiness packet</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Steel Tongue Drum Capstone</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-drum">drum</span>
     <span class="badge badge-acoustic">tongue-drum-steel</span>
-
+    
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>steel-tongue-drum</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../steel-pot-drum/explorer.html">Steel Pot Drum - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">drum</span>
-    <span class="badge badge-acoustic">membrane+tongue-hybrid</span>
-
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>steel-pot-drum</code></p>
-  <p class="card-desc">A struck membranophone + idiophone hybrid: a 12-quart stainless stockpot becomes a resonator with a tunable Mylar head (E2) on top and six plasma-cut tongues (C minor pentatonic, C4-C5) on the side wall, played as both a hand drum and a tongue drum.</p>
-</article>
-
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no" data-wiki="active">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
     <a class="card-title" >Wood Shell Tongue Drum Capstone</a>
     <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
@@ -695,71 +333,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <a class="pill pill-wiki pill-wiki-active" href="../wiki/instruments/wood-shell-tongue-drum.md" title="Wiki page has integrated source notes; updated 2026-05-18"><span class="dot"></span>Wiki · Active · 12 src · 8 q</a>
   </div>
   <p class="card-slug"><code>wood-shell-tongue-drum</code></p>
 </article>
 
-<article class="card" data-class="percussion" data-family="drum" data-state="explorer-ready" data-wolfram="pending" data-cad="none" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../pitched-bell-cajon/explorer.html">Pitched Bell Cajon — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">drum</span>
-    <span class="badge badge-family family-drum" style="background:#D8EBD3;color:#1F5520;border-color:#2E7D32;">idiophone</span>
-  </div>
-  <p class="card-slug"><code>pitched-bell-cajon</code></p>
-  <p class="card-desc">Foot-pedal-actuated chromatic brass bells (G major pentatonic, 5 bells) suspended inside a sheet-metal cajón box — traditional hand percussion fused with tuned idiophone pitches. 480 × 300 × 300 mm; 1.2 mm CRS body; 1.0 mm CW617N brass bells.</p>
-  <div class="card-pills">
-    <span class="pill pill-wiki pill-wiki-missing"><span class="dot"></span>Wiki · Missing</span>
-    <span class="pill pill-wolfram pill-w-pending"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none"><span class="dot"></span>CAD · Pending</span>
-  </div>
-</article>
-
-<article class="card" data-class="drum" data-family="drum" data-status="private"
-         data-cad="none" data-wolfram="pending" data-has-explorer="yes"
-         data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../tunable-snare-frame-array/explorer.html">Tunable Snare Frame Array — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-drum">drum</span>
-    <span class="badge badge-acoustic">3-membrane</span>
-    <span class="badge">snare array</span>
-  </div>
-  <p class="card-slug"><code>tunable-snare-frame-array</code></p>
-  <p class="card-desc">Three individually tunable snare drums (6", 8", 10" Remo Ambassador heads) mounted in a shared sheet-metal frame, pitched to D3·A3·D4 (power-chord voicing) for hand-percussion array play. Rolled 1.0 mm CRS shells, plasma-cut 1.5 mm CRS frame, per-drum thumb-wheel snare release.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private review">Private review</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Bessel membrane model in wolfram-starter.wl, not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../bowed-dish/explorer.html">Cristal-Baschet Bowed Dish - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge">bowed</span>
-    <span class="badge">dish</span>
-  </div>
-  <p class="card-slug"><code>bowed-dish</code></p>
-  <p class="card-desc">A private-review C4 bowed idiophone where rosined fingers excite a 12 mm steel rod coupled to a formed 400 mm aluminum dish tuned by measured curvature, thinning, and clamp length.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="active">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../ceramic-hang/explorer.html">Ceramic Hang Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -770,38 +348,17 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Explorer-Readiness Scaffold">V5 Explorer-Readiness Scaffold</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <a class="pill pill-wiki pill-wiki-active" href="../wiki/instruments/ceramic-hang.md" title="Wiki page has integrated source notes; updated 2026-05-18"><span class="dot"></span>Wiki · Active · 17 src · 8 q</a>
   </div>
   <p class="card-slug"><code>ceramic-hang</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../chromatic-25-tongue-drum/explorer.html">Chromatic 25-Note Tongue Drum - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge badge-acoustic">chromatic-tongue-drum</span>
-    <span class="badge">sheet steel</span>
-  </div>
-  <p class="card-slug"><code>chromatic-25-tongue-drum</code></p>
-  <p class="card-desc">A 500 mm steel shell with 25 U-shaped tongues for chromatic C3-C5, using fixed-free tongue estimates and coupon-gated shell, coupling, and nitriding validation before fabrication release.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../duntong/explorer.html">Duntong Original Cylindrical Tongue Drum</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Duntong Original Cylindrical Tongue Drum</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-idiophone">idiophone</span>
@@ -809,18 +366,17 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Starter/Build-Packet Candidate; Not Build-Ready">V5 Starter/Build-Packet Candidate; Not Build-Ready</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>duntong</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../glockenspiel/explorer.html">Glockenspiel - Tuned Metal-Bar Idiophone Build Packet</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Glockenspiel - Tuned Metal-Bar Idiophone Build Packet</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-idiophone">idiophone</span>
@@ -828,15 +384,14 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned">V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>glockenspiel</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../handpan/explorer.html">Handpan</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -850,32 +405,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-private" title="Private review">Private review</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>handpan</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../inverted-pan-tower/explorer.html">Inverted Steel Pan Tower - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge badge-acoustic">stacked steel pan</span>
-    <span class="badge badge-state-ready">private blueprint</span>
-  </div>
-  <p class="card-desc">Five inverted 550 mm steel pans stack into a 1.2 m hollow tower with 45 tuned note fields and a shared bass-coupling cavity.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter model in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and equations only"><span class="dot"></span>CAD · Skeleton</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>inverted-pan-tower</code></p>
-</article>
-
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../marimba/explorer.html">Marimba CNC Bar And Resonator Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -889,15 +423,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>marimba</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../rainstick/explorer.html">Rainstick</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Rainstick</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-idiophone">idiophone</span>
@@ -908,12 +441,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>rainstick</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="blocked" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../resonant-box/explorer.html">Resonant Box Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -924,56 +456,16 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>resonant-box</code></p>
 </article>
 
-<article class="card" data-class="idiophone" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-mbira/explorer.html">Sheet Metal Mbira - Round 4 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge badge-acoustic">lamellophone</span>
-  </div>
-  <p class="card-desc">An all-metal mbira concept with a 250 x 200 x 80 mm steel soundbox, 17 welded spring-steel tongues, a removable brass buzzer plate, and coupon-gated tongue-root validation.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo">Private</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and placeholder DXFs only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-mbira</code></p>
-</article>
-
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../solenoid-disc-idiophone/explorer.html">Solenoid-Struck Idiophone Disc - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge badge-acoustic">modal bronze disc</span>
-    <span class="badge">MIDI solenoids</span>
-  </div>
-  <p class="card-slug"><code>solenoid-disc-idiophone</code></p>
-  <p class="card-desc">A 1000 mm B8 bronze disc with twenty-five rear-face MIDI solenoid mallets, using measured modal strike placement to pursue distinct pitches from one resonant plate.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../steel-pan/explorer.html">Steel Pan Starter Build Packet - V5 Readiness</a>
+    <a class="card-title" href="../../steel-pan/explorer.html">Steel Pan Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
   <div class="card-meta">
@@ -982,98 +474,17 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated">Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>steel-pan</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../steel-pan-organ/explorer.html">Steel Pan Organ - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge badge-acoustic">air-excited pan</span>
-    <span class="badge">pneumatic keyboard</span>
-  </div>
-  <p class="card-slug"><code>steel-pan-organ</code></p>
-  <p class="card-desc">A 25-note C4-C6 steel pan whose tone fields are sustained by keyboard-controlled low-pressure air jets from a removable sheet-metal manifold.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and placeholder assets only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../pitched-bell-ladder/explorer.html">Pitched Bell Chime Ladder - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge">bell shells</span>
-    <span class="badge">sheet metal</span>
-  </div>
-  <p class="card-slug"><code>pitched-bell-ladder</code></p>
-  <p class="card-desc">A vertical C5-C6 chromatic ladder of thirteen hammer-formed brass bell shells, each tuned as a struck idiophone with a bell-like hum and strike-tone relationship.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="Placeholder DXFs only; no cut-ready CAD"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../spiral-chime-tower/explorer.html">Spiral Chime Tower - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge badge-acoustic">tuned-petal-chime</span>
-    <span class="badge">sheet brass</span>
-  </div>
-  <p class="card-slug"><code>spiral-chime-tower</code></p>
-  <p class="card-desc">A 1.2 m Fibonacci-helix tower of 24 nodally isolated brass sheet-metal petals, first-order modeled as free-free chime leaves and reserved for coupon-validated tuning before fabrication release.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../tuned-slit-drum-bank/explorer.html">Tuned Slit Drum Bank - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-idiophone">idiophone</span>
-    <span class="badge">slit-drum</span>
-    <span class="badge">chromatic</span>
-  </div>
-  <p class="card-slug"><code>tuned-slit-drum-bank</code></p>
-  <p class="card-desc">A private-review 12-note C3-B3 sheet-metal slit drum bank with folded steel boxes, U-cut tuned tongues, coupon-gated beam-model corrections, and an isolated marimba-style rack.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Wolfram source ships in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../tubular-bells/explorer.html">Tubular Bells Build Packet</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Tubular Bells Capstone</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-idiophone">idiophone</span>
@@ -1081,15 +492,14 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private review">Private review</span>
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>tubular-bells</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../wooden-hang/explorer.html">Wooden Hang Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1103,12 +513,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>wooden-hang</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../xylophone/explorer.html">Xylophone Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1122,50 +531,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>xylophone</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../bowed-metal-psaltery/explorer.html">Bowed Metal Psaltery - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">bowed-zither</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>bowed-metal-psaltery</code></p>
-  <p class="card-desc">A 25-string chromatic bowed psaltery with a planished B8 bronze top plate and steel frame for a sustained metallic halo.</p>
-</article>
-
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../ceramic-electric-violin/explorer.html">Ceramic Electric Violin Capstone</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">bowed-electric</span>
-    
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Issue-Readiness Scaffold">V5 Issue-Readiness Scaffold</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>ceramic-electric-violin</code></p>
-</article>
-
-<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../erhu/explorer.html">Erhu Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1179,12 +549,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>erhu</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../guzheng/explorer.html">Guzheng Reference-Member-First Family Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1198,35 +567,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>guzheng</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="live" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../folding-travel-resonator-guitar/explorer.html">Folding Travel Resonator Guitar - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">resonator guitar</span>
-    <span class="badge badge-state-ready">private blueprint</span>
-  </div>
-  <p class="card-desc">Folding parlor-size resonator guitar with a gasketed hinged sheet-metal body, bought neck and strings, and a lower-half cone/bridge load path.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private review blueprint">Private review</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter model in repo; publish pending"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD skeleton and drawing briefs only"><span class="dot"></span>CAD · Skeleton</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>folding-travel-resonator-guitar</code></p>
-</article>
-
-<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="live" data-has-explorer="yes" data-wiki="active">
-  <header class="card-head">
-    <a class="card-title" href="../../kora/explorer.html">Kora-inspired 21-string prototype</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Kora-inspired 21-string prototype</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-string">string</span>
@@ -1237,12 +585,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <a class="pill pill-wiki pill-wiki-active" href="../wiki/instruments/kora.md" title="Wiki page has integrated source notes; updated 2026-05-18"><span class="dot"></span>Wiki · Active · 10 src · 7 q</a>
   </div>
   <p class="card-slug"><code>kora</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../konghou/explorer.html">Modern Konghou Family Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1256,49 +603,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>konghou</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="live" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../magnetic-chromatic-harp/explorer.html">Magnetic Chromatic Harp - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">electric-harp</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-live" title="Wolfram starter exists in repo"><span class="dot"></span>Wolfram · Live</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>magnetic-chromatic-harp</code></p>
-</article>
-
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../multi-bridge-sheet-zither/explorer.html">Multi-Bridge Sheet Zither - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">zither</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>multi-bridge-sheet-zither</code></p>
-  <p class="card-desc">A 48-string radial zither on a shallow 600 mm sheet-steel dish, with three adjustable bridge rings creating 144 independently tunable string sections.</p>
-</article>
-
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no" data-wiki="missing">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
     <a class="card-title" >Pipa Image-Grounded Prototype Packet</a>
     <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
@@ -1312,33 +621,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>pipa</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="live" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../resophonic-bouzouki/explorer.html">Resophonic Bouzouki - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">resophonic</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint repo">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Local Wolfram starter present"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No native CAD assets yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>resophonic-bouzouki</code></p>
-</article>
-
-<article class="card" data-family="string" data-status="private" data-cad="none" data-wolfram="live" data-has-explorer="yes" data-wiki="active">
-  <header class="card-head">
-    <a class="card-title" href="../../sambuca/explorer.html">Sambuca — Modern Boat-Shaped Arched Harp Inspired by the Royal Cemetery of Ur</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Sambuca — Modern Boat-Shaped Arched Harp Inspired by the Royal Cemetery of Ur</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-string">string</span>
@@ -1349,88 +639,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-private" title="Private review">Private review</span>
     <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <a class="pill pill-wiki pill-wiki-active" href="../wiki/instruments/sambuca.md" title="Wiki page has integrated source notes; updated 2026-05-18"><span class="dot"></span>Wiki · Active · 15 src · 9 q</a>
   </div>
   <p class="card-slug"><code>sambuca</code></p>
 </article>
 
-<article class="card" data-class="string" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../spun-aluminum-cello/explorer.html">Spun Aluminum Cello - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">bowed</span>
-  </div>
-  <p class="card-desc">Two spun 1100-O aluminum half-shells replace a carved wooden cello body, with f-hole area, hammered ribs, and staged string-load validation carrying the acoustic risk.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Local Wolfram starter, not published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>spun-aluminum-cello</code></p>
-</article>
-
-<article class="card" data-class="string" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../sympathetic-sarangi-fiddle/explorer.html">Sympathetic-String Sarangi-Inspired Fiddle - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">bowed-sympathetic</span>
-  </div>
-  <p class="card-desc">A trapezoidal steel bowed fiddle with three melody strings and fifteen chromatic sympathetic strings, using precision-drilled sheet-metal string paths to create a sarangi-like overtone halo.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Local Wolfram starter, not published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>sympathetic-sarangi-fiddle</code></p>
-</article>
-
-<article class="card" data-class="string" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../bowed-sheet-metal-sarod/explorer.html">Bowed Sheet-Metal Sarod - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">bowed-sympathetic</span>
-  </div>
-  <p class="card-desc">A bowed sarod with a 1.2 mm sheet-steel waisted body, mirror-polished stainless-steel fingerboard, four bowable melody strings (G4/D4/A3/D3) and eight D-Aeolian sympathetic strings — sustained raga voice with continuous <em>meend</em> and metallic shimmer.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Local Wolfram starter, not published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>bowed-sheet-metal-sarod</code></p>
-</article>
-
-<article class="card" data-class="string" data-family="string" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../aeolian-harp-pillar/explorer.html">Wind-String Aeolian Harp Pillar - Round 3 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-string">string</span>
-    <span class="badge badge-acoustic">aeolian-harp</span>
-  </div>
-  <p class="card-desc">A 2.4 m stainless outdoor pillar with twelve D-pentatonic wind strings, 30 mm string offset, starter Wolfram tension checks, and coupon-gated sheet-metal validation.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private blueprint">Private blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Local Wolfram starter, not published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan only; no CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>aeolian-harp-pillar</code></p>
-</article>
-
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../andean-duct-flutes/explorer.html">Andean Duct Flutes Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1444,31 +657,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>andean-duct-flutes</code></p>
 </article>
 
-<article class="card" data-class="wind" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-bass-clarinet/explorer.html">Sheet-Metal Bass Clarinet - Round 6 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">single reed</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-bass-clarinet</code></p>
-  <p class="card-desc">A precision-rolled nickel-silver cylindrical single-reed body with bought bass-clarinet mouthpiece/keywork and a closed-open low-D2 acoustic model.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter model in repo; not yet published"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and equations only"><span class="dot"></span>CAD · Skeleton</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../chalumeau/explorer.html">Chalumeau Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1482,12 +675,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>chalumeau</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../clarinet/explorer.html">Clarinet Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1501,12 +693,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>clarinet</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../didgeridoo/explorer.html">Didgeridoo Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1520,12 +711,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>didgeridoo</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../duduk/explorer.html">Duduk Family — Studio Explorer</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1539,31 +729,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>duduk</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../flutes/explorer.html">Flutes V5 Packet Scaffold</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">duct-flute</span>
-    
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>flutes</code></p>
-</article>
-
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../fujara/explorer.html">Fujara Studio Explorer</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1577,12 +747,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>fujara</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../gemshorn/explorer.html">Gemshorn Build Methods And Slip-Cast Family</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1596,12 +765,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>gemshorn</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../great-highland-bagpipe/explorer.html">Great Highland Bagpipe Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1615,12 +783,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>great-highland-bagpipe</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../hulusi/explorer.html">Hulusi (葫芦丝) — Wooden Cucurbit Free-Reed Flute Family (HUL-001) — Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1634,12 +801,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>hulusi</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../irish-flute/explorer.html">Irish Flute</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1653,12 +819,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>irish-flute</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../kaval-alghosazi-flutes/explorer.html">Kaval + Alghosazi Fipple Flutes Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1672,34 +837,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>kaval-alghosazi-flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../kena/explorer.html">KEN-001 Slip-Cast Kena G Key</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">open-pipe</span>
-    
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Starter/Build-Packet Candidate; Not Build-Ready">V5 Starter/Build-Packet Candidate; Not Build-Ready</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>kena</code></p>
-</article>
-
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../moseno/explorer.html">Moseno Capstone</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >KEN-001 Slip-Cast Kena G Key Capstone</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-wind">wind</span>
@@ -1710,12 +855,29 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
+  </div>
+  <p class="card-slug"><code>kena</code></p>
+</article>
+
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
+  <header class="card-head">
+    <a class="card-title" >Moseno Capstone</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
+  </header>
+  <div class="card-meta">
+    <span class="badge badge-family family-wind">wind</span>
+    <span class="badge badge-acoustic">open-pipe</span>
+    
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
+    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>moseno</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../drone-flutes/explorer.html">Native American Drone Flute Family</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1729,12 +891,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="In-Progress">In-Progress</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>drone-flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../shakuhachi/explorer.html">Shakuhachi</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1748,50 +909,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>shakuhachi</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-bass-clarinet/explorer.html">Sheet-Metal Bass Clarinet - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">single-reed</span>
-    <span class="badge badge-fam-count">1 variant</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo">Private</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and placeholder DXFs only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-bass-clarinet</code></p>
-</article>
-
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-recorder-quartet/explorer.html">Sheet-Metal Recorder Quartet - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">duct-flute</span>
-    <span class="badge badge-fam-count">4 variants</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo">Private</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and placeholder DXFs only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-recorder-quartet</code></p>
-</article>
-
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
     <a class="card-title" >Sheng</a>
     <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
@@ -1805,12 +927,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="L2 V5 Build-Packet Candidate">L2 V5 Build-Packet Candidate</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>sheng</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../siku-zampona/explorer.html">Siku (Zampoña)</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1824,14 +945,13 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>siku-zampona</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" href="../../ocarina/explorer.html">Slip-Cast Ceramic Ocarina (OCA-001) - V5 explorer candidate</a>
+    <a class="card-title" href="../../ocarina/explorer.html">Slip-Cast Ceramic Ocarina (OCA-001) — v3.1 smoke test</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
   <div class="card-meta">
@@ -1843,31 +963,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>ocarina</code></p>
 </article>
 
-<article class="card" data-class="wind" data-family="wind" data-status="private" data-cad="none" data-wolfram="pending" data-has-explorer="yes" data-wiki="missing" data-state="explorer-ready">
-  <header class="card-head">
-    <a class="card-title" href="../../telescoping-bass-profundo/explorer.html">Telescoping Bass Profundo - Round 2 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">brass-slide</span>
-  </div>
-  <p class="card-desc">A vertical C1 bass brass concept with a 0.700 inch cylindrical bore, four folded returns, and a 1.2 m double-pass telescoping slide predicted to span at least six semitones.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo">Private</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Starter Wolfram script committed; no cloud publication"><span class="dot"></span>Wolfram · Pending</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and placeholder DXFs only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>telescoping-bass-profundo</code></p>
-</article>
-
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../transverse-flute/explorer.html">Slip-Cast Transverse Flute Family</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1881,15 +981,14 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>transverse-flute</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
-    <a class="card-title" href="../../pistalka/explorer.html">Slovak Pistalka Six-Hole Flute Build Packet</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+    <a class="card-title" >Slovak Pistalka Six-Hole Flute Build Packet</a>
+    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
   </header>
   <div class="card-meta">
     <span class="badge badge-family family-wind">wind</span>
@@ -1900,12 +999,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>pistalka</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
   <header class="card-head">
     <a class="card-title" >Tin Whistle</a>
     <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
@@ -1919,32 +1017,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>tin-whistle</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../sheet-metal-tin-whistle-set/explorer.html">Sheet-Metal Tin Whistle Set - V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-wind">wind</span>
-    <span class="badge badge-acoustic">fipple-flute</span>
-    <span class="badge">D/G/C family</span>
-  </div>
-  <p class="card-slug"><code>sheet-metal-tin-whistle-set</code></p>
-  <p class="card-desc">A private blueprint for D, G, and C rolled sheet-metal tin whistles with six-hole open-open pipe layouts, bought-head proofing, fabricated fipple-head option, and an explicit C-member tuning risk gate.</p>
-  <div class="card-pills">
-    <span class="pill pill-status pill-private" title="Private repo, blueprint stage">Private · v0.1.0-blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Local starter model"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="CAD plan and equations only"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-</article>
-
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../vessel-flutes/explorer.html">Vessel Flutes Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1958,12 +1035,11 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>vessel-flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes" data-wiki="missing">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../xiao/explorer.html">Xiao</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1977,29 +1053,8 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
     <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
   </div>
   <p class="card-slug"><code>xiao</code></p>
-</article>
-
-<article class="card" data-family="percussion" data-status="blueprint"
-         data-cad="none" data-wolfram="owner-only" data-has-explorer="yes"
-         data-wiki="missing">
-  <header class="card-head">
-    <a class="card-title" href="../../compact-drum-kit/explorer.html">Compact 5-Piece Drum Kit — V5 sheet-metal blueprint</a>
-    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
-  </header>
-  <div class="card-meta">
-    <span class="badge badge-family family-percussion">percussion</span>
-    <span class="badge badge-acoustic">membrane</span>
-  </div>
-  <div class="card-pills">
-    <span class="pill pill-status pill-blueprint" title="Blueprint packet">Blueprint</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Bessel model in wolfram-starter.wl, not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
-    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
-    <span class="pill pill-wiki pill-wiki-missing" title="No wiki/instruments page yet"><span class="dot"></span>Wiki · Missing</span>
-  </div>
-  <p class="card-slug"><code>compact-drum-kit</code></p>
 </article>
 
   </section>
@@ -2007,9 +1062,8 @@ code{font-family:var(--mono);font-size:0.88em}
   <div class="no-results" id="no-results" style="display:none">No instruments match the current filters.</div>
 
   <p style="margin-top:36px;color:var(--muted);font-size:12px">
-    Generated <time>2026-05-18T21:44:01Z</time> from <code>scripts/generate_library.py</code> walking the GitHub workspace.
-    Companion data: <a href="../data/library-manifest.json"><code>../data/library-manifest.json</code></a>
-    and <a href="../data/wiki-manifest.json"><code>../data/wiki-manifest.json</code></a>.
+    Generated <time>2026-05-18T09:56:14Z</time> from <code>scripts/generate_library.py</code> walking the GitHub workspace.
+    Companion data: <a href="../data/library-manifest.json"><code>../data/library-manifest.json</code></a>.
   </p>
 </main>
 
@@ -2019,9 +1073,9 @@ code{font-family:var(--mono);font-size:0.88em}
   const cards = Array.from(grid.querySelectorAll('.card'));
   const noResults = document.getElementById('no-results');
   const search = document.getElementById('search');
-  const state = { family:'all', cad:'all', wolfram:'all', 'has-explorer':'all', wiki:'all', q:'' };
 
-  function camel(k){ return k.replace(/-(.)/g, (_,c)=>c.toUpperCase()); }
+  // Filter state per group
+  const state = { family:'all', cad:'all', wolfram:'all', 'has-explorer':'all', q:'' };
 
   function applyFilters(){
     let visible = 0;
@@ -2043,12 +1097,14 @@ code{font-family:var(--mono);font-size:0.88em}
     noResults.style.display = visible === 0 ? 'block' : 'none';
   }
 
+  function camel(k){ return k.replace(/-(.)/g, (_,c)=>c.toUpperCase()); }
+
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const key = btn.dataset.filterKey;
       const val = btn.dataset.filterVal;
       state[key] = val;
-      document.querySelectorAll('.filter-btn[data-filter-key="' + key + '"]').forEach(b => {
+      document.querySelectorAll(`.filter-btn[data-filter-key="${key}"]`).forEach(b => {
         b.classList.toggle('active', b.dataset.filterVal === val);
       });
       applyFilters();
