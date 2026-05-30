@@ -1,8 +1,33 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-05-18T09:56:14Z",
-  "workspace": "/sessions/adoring-fervent-wright/mnt/GitHub",
+  "generated_at": "2026-05-30T05:58:19Z",
+  "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
+    {
+      "slug": "acoustic-violin",
+      "title": "Acoustic Violin Bare-Bones Starter Packet",
+      "instrument": "acoustic violin",
+      "family": "string",
+      "acoustic_class": "bowed",
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/acoustic-violin/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "wolfram-starter",
+      "family_count": 3,
+      "family_members": [
+        "4-string acoustic violin",
+        "bowed string",
+        "violin-family scaffold"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
     {
       "slug": "andean-duct-flutes",
       "title": "Andean Duct Flutes Build Packet",
@@ -11,7 +36,7 @@
       "acoustic_class": "duct-flute",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../andean-duct-flutes/explorer.html",
+      "explorer_path": "../../../woodwind/andean-duct-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -20,7 +45,9 @@
       "wolfram_notebook": "andean-duct-flutes-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "cajon",
@@ -28,9 +55,9 @@
       "instrument": "Cajon Family Public-Review Prototype",
       "family": "drum",
       "acoustic_class": "box-drum",
-      "status": "public",
-      "status_label": "Public",
-      "explorer_path": "../../cajon/explorer.html",
+      "status": "unknown",
+      "status_label": "Pre-Build V5 Build-Packet Candidate",
+      "explorer_path": "../../../percussion/cajon/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -39,7 +66,30 @@
       "wolfram_notebook": "cajon-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "ceramic-electric-violin",
+      "title": "Ceramic Electric Violin Capstone",
+      "instrument": "Ceramic Electric Violin Capstone",
+      "family": "string",
+      "acoustic_class": "bowed-electric",
+      "status": "unknown",
+      "status_label": "V5 Issue-Readiness Scaffold",
+      "explorer_path": "../../../strings/ceramic-electric-violin/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "owner-only",
+      "wolfram_url": "",
+      "wolfram_notebook": "ceramic-electric-violin-packet-starter",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "ceramic-hang",
@@ -48,8 +98,8 @@
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../ceramic-hang/explorer.html",
+      "status_label": "V5 Explorer-Readiness Scaffold",
+      "explorer_path": "../../../idiophones/ceramic-hang/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -58,18 +108,20 @@
       "wolfram_notebook": "ceramic-hang-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "ceramic-tongue-drum",
-      "title": "Slip-Cast Ceramic Tongue Drum Family - v4.3 Barebones Research Packet",
-      "instrument": "Slip-Cast Ceramic Tongue Drum Family - v4.3 Barebones Research Packet",
+      "title": "Slip-Cast Ceramic Tongue Drum Family - V5 explorer readiness packet",
+      "instrument": "Slip-Cast Ceramic Tongue Drum Family - V5 explorer readiness packet",
       "family": "drum",
       "acoustic_class": "tongue-drum-ceramic",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../ceramic-tongue-drum/explorer.html",
-      "has_explorer": false,
+      "explorer_path": "../../../idiophones/ceramic-tongue-drum/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -77,7 +129,9 @@
       "wolfram_notebook": "ceramic-tongue-drum-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "chalumeau",
@@ -87,7 +141,7 @@
       "acoustic_class": "reed",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../chalumeau/explorer.html",
+      "explorer_path": "../../../woodwind/chalumeau/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -101,7 +155,9 @@
         "clarinet ancestor",
         "optional two-key handmade keywork"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "clarinet",
@@ -111,7 +167,7 @@
       "acoustic_class": "reed",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../clarinet/explorer.html",
+      "explorer_path": "../../../woodwind/clarinet/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -124,7 +180,51 @@
         "closed-open cylindrical bore study",
         "clarinet-family measurement scaffold"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/clarinet/images/Screenshot -bill-of-materials-inspiration.png",
+      "has_hero": true
+    },
+    {
+      "slug": "cnc-guitar-bodies",
+      "title": "Cnc Guitar Bodies",
+      "instrument": "Cnc Guitar Bodies",
+      "family": "string",
+      "acoustic_class": "plucked-electric",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../strings/cnc-guitar-bodies/explorer.html",
+      "has_explorer": false,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "conga",
+      "title": "Conga",
+      "instrument": "Conga",
+      "family": "drum",
+      "acoustic_class": "single-membrane",
+      "status": "unknown",
+      "status_label": "V5 Explorer Readiness Packet With Openscad/Provenance Scaffold",
+      "explorer_path": "../../../percussion/conga/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "owner-only",
+      "wolfram_url": "",
+      "wolfram_notebook": "conga-starter",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "didgeridoo",
@@ -134,7 +234,7 @@
       "acoustic_class": "lip-driven",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../didgeridoo/explorer.html",
+      "explorer_path": "../../../woodwind/didgeridoo/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -148,7 +248,9 @@
         "one-end-closed stopped pipe",
         "open-foot wind instrument"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/didgeridoo/images/00-hero-didgeridoo.jpg",
+      "has_hero": true
     },
     {
       "slug": "djembe",
@@ -158,7 +260,7 @@
       "acoustic_class": "single-membrane",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../djembe/explorer.html",
+      "explorer_path": "../../../percussion/djembe/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -171,7 +273,9 @@
         "goblet drum",
         "membrane percussion"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../percussion/djembe/images/00-hero-three-djembes.jpg",
+      "has_hero": true
     },
     {
       "slug": "drone-flutes",
@@ -181,7 +285,7 @@
       "acoustic_class": "duct-flute",
       "status": "unknown",
       "status_label": "In-Progress",
-      "explorer_path": "../../drone-flutes/explorer.html",
+      "explorer_path": "../../../woodwind/drone-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -190,7 +294,9 @@
       "wolfram_notebook": "drone-flutes-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "duduk",
@@ -200,7 +306,7 @@
       "acoustic_class": "reed",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../duduk/explorer.html",
+      "explorer_path": "../../../woodwind/duduk/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -215,7 +321,9 @@
         "Georgian duduki",
         "double reed woodwind"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "dundun",
@@ -225,7 +333,7 @@
       "acoustic_class": "double-membrane",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../dundun/explorer.html",
+      "explorer_path": "../../../percussion/dundun/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -238,7 +346,9 @@
         "sangban",
         "doundounba"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../percussion/dundun/images/00-hero-dundun.jpg",
+      "has_hero": true
     },
     {
       "slug": "duntong",
@@ -247,9 +357,9 @@
       "family": "idiophone",
       "acoustic_class": "tuned-bar",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../duntong/explorer.html",
-      "has_explorer": false,
+      "status_label": "V5 Starter/Build-Packet Candidate; Not Build-Ready",
+      "explorer_path": "../../../percussion/duntong/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -257,7 +367,56 @@
       "wolfram_notebook": "duntong-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "electric-guitar-bodies",
+      "title": "Electric Guitar Bodies",
+      "instrument": "Electric Guitar Bodies",
+      "family": "string",
+      "acoustic_class": "plucked-electric",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../strings/electric-guitar-bodies/explorer.html",
+      "has_explorer": false,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "owner-only",
+      "wolfram_url": "",
+      "wolfram_notebook": "body-readiness-starter",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "electric-violin",
+      "title": "Electric Violin Bare-Bones Starter Packet",
+      "instrument": "Electric Violin",
+      "family": "string",
+      "acoustic_class": "bowed-electric",
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/electric-violin/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "wolfram-starter",
+      "family_count": 4,
+      "family_members": [
+        "electric bowed string",
+        "solid-body electric violin",
+        "4-string violin",
+        "optional 5-string violin"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "erhu",
@@ -267,7 +426,7 @@
       "acoustic_class": "bowed",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../erhu/explorer.html",
+      "explorer_path": "../../../strings/erhu/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -281,18 +440,66 @@
         "spike fiddle",
         "bowed string"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "floor-harp",
+      "title": "Floor Harp Studio Explorer",
+      "instrument": "floor harp",
+      "family": "string",
+      "acoustic_class": "harp",
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/floor-harp/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "wolfram-starter",
+      "family_count": 3,
+      "family_members": [
+        "harp",
+        "chordophone",
+        "floor-standing string instrument"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "flutes",
+      "title": "Flutes V5 Packet Scaffold",
+      "instrument": "Flutes V5 Packet Scaffold",
+      "family": "wind",
+      "acoustic_class": "duct-flute",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../woodwind/flutes/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "owner-only",
+      "wolfram_url": "",
+      "wolfram_notebook": "Flutes_Acoustic_Model",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/flutes/images/00-hero-flutes.jpg",
+      "has_hero": true
     },
     {
       "slug": "frame-drum",
-      "title": "Frame Drum Packet",
-      "instrument": "Frame Drum Packet",
+      "title": "Frame Drum V5 Explorer Packet",
+      "instrument": "Frame Drum V5 Explorer Packet",
       "family": "drum",
       "acoustic_class": "single-membrane",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../frame-drum/explorer.html",
-      "has_explorer": false,
+      "status_label": "V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate",
+      "explorer_path": "../../../percussion/frame-drum/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -300,7 +507,9 @@
       "wolfram_notebook": "frame-drum-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "fujara",
@@ -310,7 +519,7 @@
       "acoustic_class": "open-pipe",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../fujara/explorer.html",
+      "explorer_path": "../../../woodwind/fujara/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -324,7 +533,9 @@
         "side-tube fujara",
         "woodwind"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/fujara/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "gemshorn",
@@ -334,7 +545,7 @@
       "acoustic_class": "vessel-flute",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../gemshorn/explorer.html",
+      "explorer_path": "../../../woodwind/gemshorn/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -343,7 +554,9 @@
       "wolfram_notebook": "gemshorn-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "glockenspiel",
@@ -352,9 +565,9 @@
       "family": "idiophone",
       "acoustic_class": "tuned-bar-metal",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../glockenspiel/explorer.html",
-      "has_explorer": false,
+      "status_label": "V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned",
+      "explorer_path": "../../../idiophones/glockenspiel/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -362,7 +575,9 @@
       "wolfram_notebook": "glockenspiel-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "great-highland-bagpipe",
@@ -372,7 +587,7 @@
       "acoustic_class": "reed",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../great-highland-bagpipe/explorer.html",
+      "explorer_path": "../../../woodwind/great-highland-bagpipe/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -381,7 +596,9 @@
       "wolfram_notebook": "great-highland-bagpipe-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "guzheng",
@@ -391,7 +608,7 @@
       "acoustic_class": "zither",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../guzheng/explorer.html",
+      "explorer_path": "../../../strings/guzheng/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -404,7 +621,36 @@
         "GUZ-REF-21",
         "GUZ-BAS-21"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "haegeum",
+      "title": "Haegeum-Inspired Two-String Vertical Fiddle Starter Packet",
+      "instrument": "haegeum-inspired two-string vertical fiddle",
+      "family": "string",
+      "acoustic_class": "bowed",
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/haegeum/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 5,
+      "family_members": [
+        "haegeum",
+        "haegum",
+        "two-string vertical fiddle",
+        "bowed string",
+        "haegeum-inspired prototype"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "handpan",
@@ -414,7 +660,7 @@
       "acoustic_class": "tuned-shell",
       "status": "private",
       "status_label": "Private review",
-      "explorer_path": "../../handpan/explorer.html",
+      "explorer_path": "../../../idiophones/handpan/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -423,7 +669,9 @@
       "wolfram_notebook": "handpan-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "hulusi",
@@ -433,7 +681,7 @@
       "acoustic_class": "free-reed",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../hulusi/explorer.html",
+      "explorer_path": "../../../woodwind/hulusi/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -448,7 +696,9 @@
         "HUL-F",
         "HUL-G"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "irish-flute",
@@ -458,7 +708,7 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../irish-flute/explorer.html",
+      "explorer_path": "../../../woodwind/irish-flute/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -467,7 +717,9 @@
       "wolfram_notebook": "irish-flute-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "kaval-alghosazi-flutes",
@@ -477,7 +729,7 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../kaval-alghosazi-flutes/explorer.html",
+      "explorer_path": "../../../woodwind/kaval-alghosazi-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -486,18 +738,20 @@
       "wolfram_notebook": "kaval-alghosazi-flutes-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/kaval-alghosazi-flutes/images/hero.png",
+      "has_hero": true
     },
     {
       "slug": "kena",
-      "title": "KEN-001 Slip-Cast Kena G Key Capstone",
+      "title": "KEN-001 Slip-Cast Kena G Key",
       "instrument": "Kena",
       "family": "wind",
       "acoustic_class": "open-pipe",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../kena/explorer.html",
-      "has_explorer": false,
+      "status_label": "V5 Starter/Build-Packet Candidate; Not Build-Ready",
+      "explorer_path": "../../../woodwind/kena/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -505,7 +759,30 @@
       "wolfram_notebook": "kena-packet-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "khaen",
+      "title": "CNC Khaen Solid-Body Control-Build Packet",
+      "instrument": "Khaen-inspired CNC free-reed control build",
+      "family": "wind",
+      "acoustic_class": "free-reed",
+      "status": "unknown",
+      "status_label": "L1 Concept Packet; Control-Build; Measurement_Required",
+      "explorer_path": "../../../woodwind/khaen/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "konghou",
@@ -515,7 +792,7 @@
       "acoustic_class": "harp",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../konghou/explorer.html",
+      "explorer_path": "../../../strings/konghou/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -529,7 +806,9 @@
         "KGH-PAIR-01 paired-course mockup",
         "KGH-FAM-* deferred family"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "kora",
@@ -539,16 +818,39 @@
       "acoustic_class": "harp-lute",
       "status": "blocked",
       "status_label": "Public-release blocked",
-      "explorer_path": "../../kora/explorer.html",
-      "has_explorer": false,
-      "cad": "none",
-      "cad_size_bytes": 0,
+      "explorer_path": "../../../strings/kora/explorer.html",
+      "has_explorer": true,
+      "cad": "inline-glb",
+      "cad_size_bytes": 971736,
       "wolfram_state": "live",
       "wolfram_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-starter.wl",
       "wolfram_notebook": "kora-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "lyre",
+      "title": "Lyre",
+      "instrument": "Lyre",
+      "family": "string",
+      "acoustic_class": "lyre",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../strings/lyre/explorer.html",
+      "has_explorer": false,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "owner-only",
+      "wolfram_url": "",
+      "wolfram_notebook": "lyre-acoustics-starter",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "../../../strings/lyre/images/P-Lyre-Harp-1200x1200-1_1080xinspiration.webp",
+      "has_hero": true
     },
     {
       "slug": "marimba",
@@ -558,7 +860,7 @@
       "acoustic_class": "tuned-bar",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../marimba/explorer.html",
+      "explorer_path": "../../../idiophones/marimba/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -567,7 +869,30 @@
       "wolfram_notebook": "marimba-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "marimba-piano",
+      "title": "Marimba Piano",
+      "instrument": "Marimba Piano",
+      "family": "idiophone",
+      "acoustic_class": "tuned-bar",
+      "status": "unknown",
+      "status_label": "L1 Concept Packet",
+      "explorer_path": "../../../idiophones/marimba-piano/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "moseno",
@@ -577,8 +902,8 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../moseno/explorer.html",
-      "has_explorer": false,
+      "explorer_path": "../../../woodwind/moseno/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -586,17 +911,45 @@
       "wolfram_notebook": "moseno-packet-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "ngoni",
+      "title": "Ngoni - Studio Explorer",
+      "instrument": "Ngoni",
+      "family": "string",
+      "acoustic_class": "harp-lute",
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/ngoni/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "ngoni-model",
+      "family_count": 4,
+      "family_members": [
+        "West African harp-lute / chordophone",
+        "Donso 6-string",
+        "Kamele 10-string",
+        "Kamele 14-string"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "ocarina",
-      "title": "Slip-Cast Ceramic Ocarina (OCA-001) \u2014 v3.1 smoke test",
-      "instrument": "Slip-Cast Ceramic Ocarina (OCA-001) \u2014 v3.1 smoke test",
+      "title": "Slip-Cast Ceramic Ocarina (OCA-001) - V5 explorer candidate",
+      "instrument": "Slip-Cast Ceramic Ocarina (OCA-001) - V5 explorer candidate",
       "family": "wind",
       "acoustic_class": "vessel-flute",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../ocarina/explorer.html",
+      "explorer_path": "../../../woodwind/ocarina/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -605,26 +958,34 @@
       "wolfram_notebook": "ocarina-ceramic-vessel-lab-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/ocarina/images/exploded-view-concept.png",
+      "has_hero": true
     },
     {
       "slug": "pipa",
       "title": "Pipa Image-Grounded Prototype Packet",
-      "instrument": "Pipa Image-Grounded Prototype Packet",
+      "instrument": "pipa",
       "family": "string",
       "acoustic_class": "lute",
-      "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../pipa/explorer.html",
-      "has_explorer": false,
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/pipa/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
-      "wolfram_state": "owner-only",
+      "wolfram_state": "pending",
       "wolfram_url": "",
-      "wolfram_notebook": "pipa-starter",
-      "family_count": 0,
-      "family_members": [],
-      "has_manifest": true
+      "wolfram_notebook": "wolfram-starter",
+      "family_count": 3,
+      "family_members": [
+        "pipa",
+        "plucked lute",
+        "chordophone"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "pistalka",
@@ -634,8 +995,8 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../pistalka/explorer.html",
-      "has_explorer": false,
+      "explorer_path": "../../../woodwind/pistalka/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -643,7 +1004,9 @@
       "wolfram_notebook": "pistalka-build-packet-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "rainstick",
@@ -653,8 +1016,8 @@
       "acoustic_class": "shaker",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../rainstick/explorer.html",
-      "has_explorer": false,
+      "explorer_path": "../../../idiophones/rainstick/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -662,26 +1025,9 @@
       "wolfram_notebook": "rainstick-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
-    },
-    {
-      "slug": "resonant-box",
-      "title": "Resonant Box Build Packet",
-      "instrument": "Resonant Box Build Packet",
-      "family": "idiophone",
-      "acoustic_class": "resonator-aid",
-      "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../resonant-box/explorer.html",
-      "has_explorer": true,
-      "cad": "none",
-      "cad_size_bytes": 0,
-      "wolfram_state": "owner-only",
-      "wolfram_url": "",
-      "wolfram_notebook": "resonant-box-starter",
-      "family_count": 0,
-      "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "sambuca",
@@ -691,8 +1037,8 @@
       "acoustic_class": "arched-harp",
       "status": "private",
       "status_label": "Private review",
-      "explorer_path": "../../sambuca/explorer.html",
-      "has_explorer": false,
+      "explorer_path": "../../../strings/sambuca/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "live",
@@ -706,7 +1052,9 @@
         "SAM-13-AE",
         "SAM-13-MULE"
       ],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../strings/sambuca/images/Sambuca Solidworks equations.png",
+      "has_hero": true
     },
     {
       "slug": "shakuhachi",
@@ -716,7 +1064,7 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../shakuhachi/explorer.html",
+      "explorer_path": "../../../woodwind/shakuhachi/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -725,26 +1073,34 @@
       "wolfram_notebook": "shakuhachi-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../woodwind/shakuhachi/images/SHK-D4-P1-08-hero.jpg",
+      "has_hero": true
     },
     {
       "slug": "sheng",
-      "title": "Sheng",
-      "instrument": "Sheng",
+      "title": "Sheng Mouth-Organ Family Packet",
+      "instrument": "sheng",
       "family": "wind",
       "acoustic_class": "free-reed",
-      "status": "unknown",
-      "status_label": "L2 V5 Build-Packet Candidate",
-      "explorer_path": "../../sheng/explorer.html",
-      "has_explorer": false,
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../woodwind/sheng/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
-      "wolfram_state": "owner-only",
+      "wolfram_state": "pending",
       "wolfram_url": "",
-      "wolfram_notebook": "sheng-starter",
-      "family_count": 0,
-      "family_members": [],
-      "has_manifest": true
+      "wolfram_notebook": "wolfram-starter",
+      "family_count": 3,
+      "family_members": [
+        "free-reed mouth organ",
+        "traditional side-branch reed",
+        "compact stopped-end control"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "siku-zampona",
@@ -754,7 +1110,7 @@
       "acoustic_class": "stopped-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../siku-zampona/explorer.html",
+      "explorer_path": "../../../woodwind/siku-zampona/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -763,17 +1119,40 @@
       "wolfram_notebook": "siku-zampona-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "stave-lute-oud",
+      "title": "Stave Lute Oud",
+      "instrument": "Stave Lute Oud",
+      "family": "string",
+      "acoustic_class": "lute",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../strings/stave-lute-oud/explorer.html",
+      "has_explorer": false,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "steel-pan",
-      "title": "Steel Pan Build Packet",
-      "instrument": "Steel Pan Build Packet",
+      "title": "Steel Pan Starter Build Packet - V5 Readiness",
+      "instrument": "Steel Pan Starter Build Packet - V5 Readiness",
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../steel-pan/explorer.html",
+      "status_label": "Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated",
+      "explorer_path": "../../../idiophones/steel-pan/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -782,18 +1161,20 @@
       "wolfram_notebook": "steel-pan-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "steel-tongue-drum",
-      "title": "Steel Tongue Drum Capstone",
-      "instrument": "Steel Tongue Drum Capstone",
+      "title": "Steel Tongue Drum - V5 issue readiness packet",
+      "instrument": "Steel Tongue Drum - V5 issue readiness packet",
       "family": "drum",
       "acoustic_class": "tongue-drum-steel",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../steel-tongue-drum/explorer.html",
-      "has_explorer": false,
+      "explorer_path": "../../../idiophones/steel-tongue-drum/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -801,7 +1182,9 @@
       "wolfram_notebook": "steel-tongue-drum-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "tin-whistle",
@@ -811,16 +1194,22 @@
       "acoustic_class": "duct-flute",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../tin-whistle/explorer.html",
+      "explorer_path": "../../../woodwind/tin-whistle/explorer.html",
       "has_explorer": false,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
       "wolfram_url": "",
       "wolfram_notebook": "tin-whistle-starter",
-      "family_count": 0,
-      "family_members": [],
-      "has_manifest": true
+      "family_count": 3,
+      "family_members": [
+        "TW-D4",
+        "TW-D5",
+        "TW-G5"
+      ],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "transverse-flute",
@@ -830,7 +1219,7 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../transverse-flute/explorer.html",
+      "explorer_path": "../../../woodwind/transverse-flute/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -839,18 +1228,20 @@
       "wolfram_notebook": "transverse-flute-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "tubular-bells",
-      "title": "Tubular Bells Capstone",
-      "instrument": "Tubular Bells Capstone",
+      "title": "Tubular Bells Build Packet",
+      "instrument": "tubular-bells",
       "family": "idiophone",
       "acoustic_class": "tuned-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../tubular-bells/explorer.html",
-      "has_explorer": false,
+      "status": "private",
+      "status_label": "Private review",
+      "explorer_path": "../../../idiophones/tubular-bells/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -858,18 +1249,20 @@
       "wolfram_notebook": "tubular-bells-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "udu",
-      "title": "Slip-Cast Ceramic Udu Drum Family \u2014 v4.1 Capstone",
-      "instrument": "Slip-Cast Ceramic Udu Drum Family \u2014 v4.1 Capstone",
+      "title": "Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness",
+      "instrument": "Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness",
       "family": "drum",
       "acoustic_class": "vessel-membrane",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../udu/explorer.html",
-      "has_explorer": false,
+      "status_label": "V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate",
+      "explorer_path": "../../../percussion/udu/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -877,7 +1270,30 @@
       "wolfram_notebook": "udu-ceramic-vessel-lab-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "../../../percussion/udu/images/family-overview-concept.png",
+      "has_hero": true
+    },
+    {
+      "slug": "ukulele",
+      "title": "Ukulele Build Packet",
+      "instrument": "Ukulele Build Packet",
+      "family": "string",
+      "acoustic_class": "lute",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../strings/ukulele/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "vessel-flutes",
@@ -887,7 +1303,7 @@
       "acoustic_class": "vessel-flute",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../vessel-flutes/explorer.html",
+      "explorer_path": "../../../woodwind/vessel-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -896,7 +1312,30 @@
       "wolfram_notebook": "vessel-flutes-ceramic-vessel-lab-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
+    },
+    {
+      "slug": "whamola-bass",
+      "title": "Whamola Bass V5 Packet Scaffold",
+      "instrument": "whamola-bass",
+      "family": "string",
+      "acoustic_class": "bowed",
+      "status": "blocked",
+      "status_label": "Public-release blocked",
+      "explorer_path": "../../../strings/whamola-bass/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "wood-shell-tongue-drum",
@@ -905,9 +1344,9 @@
       "family": "drum",
       "acoustic_class": "tongue-drum-wood",
       "status": "unknown",
-      "status_label": "Unknown",
-      "explorer_path": "../../wood-shell-tongue-drum/explorer.html",
-      "has_explorer": false,
+      "status_label": "Prototype_Planning_Packet_With_V5_Explorer",
+      "explorer_path": "../../../idiophones/wood-shell-tongue-drum/explorer.html",
+      "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
       "wolfram_state": "owner-only",
@@ -915,7 +1354,9 @@
       "wolfram_notebook": "wood-shell-tongue-drum-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "wooden-hang",
@@ -925,7 +1366,7 @@
       "acoustic_class": "tuned-shell",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../wooden-hang/explorer.html",
+      "explorer_path": "../../../idiophones/wooden-hang/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -934,7 +1375,9 @@
       "wolfram_notebook": "wooden-hang-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "xiao",
@@ -944,7 +1387,7 @@
       "acoustic_class": "open-pipe",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../xiao/explorer.html",
+      "explorer_path": "../../../woodwind/xiao/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -953,7 +1396,9 @@
       "wolfram_notebook": "xiao-wolfram-model",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     },
     {
       "slug": "xylophone",
@@ -963,7 +1408,7 @@
       "acoustic_class": "tuned-bar",
       "status": "unknown",
       "status_label": "Unknown",
-      "explorer_path": "../../xylophone/explorer.html",
+      "explorer_path": "../../../idiophones/xylophone/explorer.html",
       "has_explorer": true,
       "cad": "none",
       "cad_size_bytes": 0,
@@ -972,7 +1417,9 @@
       "wolfram_notebook": "xylophone-starter",
       "family_count": 0,
       "family_members": [],
-      "has_manifest": true
+      "has_manifest": true,
+      "hero_image_path": "",
+      "has_hero": false
     }
   ]
 }

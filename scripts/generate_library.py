@@ -41,7 +41,10 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 SHOWCASE_DIR = SCRIPT_DIR.parent
-DEFAULT_WORKSPACE = SHOWCASE_DIR.parent
+# Post-2026-05-25 reorg: showcase lives at <workspace>/instruments/_meta/instrument-showcase
+# so the GitHub workspace root is three parents up from SHOWCASE_DIR.
+DEFAULT_WORKSPACE = SHOWCASE_DIR.parent.parent.parent
+INSTRUMENT_FAMILY_DIRS = ("strings", "woodwind", "brass", "percussion", "idiophones")
 INLINE_GLB_THRESHOLD = 5 * 1024 * 1024
 
 # --------------------------------------------------------------------------
@@ -153,6 +156,8 @@ class LibraryEntry:
     family_count: int = 0
     family_members: list[str] = field(default_factory=list)
     has_manifest: bool = False
+    hero_image_path: str = ""   # rel from site/library.html; "" when no hero image found
+    has_hero: bool = False
 
 
 # --------------------------------------------------------------------------
@@ -162,7 +167,7 @@ class LibraryEntry:
 
 def load_embed_urls(workspace: Path) -> dict[str, dict]:
     """slug -> first matching row from wolfram_embed_urls.json (or {})"""
-    p = workspace / "wolfram-cloud-sync" / "manifest" / "wolfram_embed_urls.json"
+    p = workspace / "_meta" / "wolfram-cloud-sync" / "manifest" / "wolfram_embed_urls.json"
     if not p.exists():
         return {}
     out: dict[str, dict] = {}
@@ -195,7 +200,7 @@ def derive_wolfram_state(manifest: dict, embed_row: dict | None) -> tuple[str, s
     # 1. Prefer manifest engineering.wolfram[]
     eng = (manifest.get("engineering") or {})
     arr = eng.get("wolfram")
-    if isinstance(arr, list) and arr:
+    if isinstance(arr, list) and arr and isinstance(arr[0], dict):
         first = arr[0]
         perm = (first.get("permission") or "").strip()
         url = (first.get("cloud_url") or "").strip()
@@ -222,8 +227,8 @@ def derive_wolfram_state(manifest: dict, embed_row: dict | None) -> tuple[str, s
 
 
 def derive_status(manifest: dict) -> tuple[str, str]:
-    raw = (manifest.get("release_status")
-           or manifest.get("status") or "").lower()
+    raw_val = manifest.get("release_status") or manifest.get("status") or ""
+    raw = (raw_val if isinstance(raw_val, str) else "").lower()
     rg = manifest.get("release_gate") or {}
     if rg.get("public_candidate") is False or rg.get("required_before_public"):
         return ("blocked", "Public-release blocked")
@@ -234,16 +239,46 @@ def derive_status(manifest: dict) -> tuple[str, str]:
     return ("unknown", raw.title() or "Unknown")
 
 
+HERO_CANDIDATES = (
+    "images/hero-render.png", "images/hero.png", "images/hero-render.jpg",
+    "images/hero.jpg", "renders/hero.png", "explorer-assets/hero.png",
+)
+
+
+def detect_hero(repo: Path) -> str:
+    """Return a repo-relative path to a hero image, or '' if none found.
+
+    Checks well-known hero locations first, then falls back to the first
+    image file under images/. Refs instrument-showcase#13 (library cards
+    rendered without photos because the manifest had no image field).
+    """
+    for cand in HERO_CANDIDATES:
+        if (repo / cand).is_file():
+            return cand
+    img_dir = repo / "images"
+    if img_dir.is_dir():
+        for p in sorted(img_dir.iterdir()):
+            if p.is_file() and p.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp"):
+                return f"images/{p.name}"
+    return ""
+
+
 def scan_workspace(workspace: Path) -> list[LibraryEntry]:
     embed_index = load_embed_urls(workspace)
     entries: list[LibraryEntry] = []
 
-    for repo in sorted(workspace.iterdir()):
-        if not repo.is_dir():
+    instruments_root = workspace / "instruments"
+    repo_candidates: list[tuple[str, Path]] = []
+    for family_dir in INSTRUMENT_FAMILY_DIRS:
+        fam_root = instruments_root / family_dir
+        if not fam_root.is_dir():
             continue
-        # Identify candidate repos: must have explorer.html OR capstone-manifest.json
-        # AND must be in our family map (skip non-instrument folders like
-        # "greenhouses", "claude-skills", etc.)
+        for repo in sorted(fam_root.iterdir()):
+            if repo.is_dir():
+                repo_candidates.append((family_dir, repo))
+    repo_candidates.sort(key=lambda t: t[1].name)
+
+    for family_dir, repo in repo_candidates:
         slug = repo.name
         if slug not in FAMILY_MAP:
             continue
@@ -270,6 +305,8 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
         wstate, wurl, wnb = derive_wolfram_state(manifest, embed_index.get(slug))
         status, status_label = derive_status(manifest)
         fam_members = manifest.get("family_members") or []
+        hero_rel = detect_hero(repo)
+        hero_path = f"../../../{family_dir}/{slug}/{hero_rel}" if hero_rel else ""
 
         entries.append(LibraryEntry(
             slug=slug,
@@ -279,7 +316,7 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
             acoustic_class=acoustic,
             status=status,
             status_label=status_label,
-            explorer_path=f"../../{slug}/explorer.html",  # rel from site/library.html
+            explorer_path=f"../../../{family_dir}/{slug}/explorer.html",  # rel from instruments/_meta/instrument-showcase/site/library.html
             has_explorer=explorer.exists(),
             cad=cad_kind,
             cad_size_bytes=cad_size,
@@ -289,6 +326,8 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
             family_count=len(fam_members),
             family_members=fam_members,
             has_manifest=has_manifest,
+            hero_image_path=hero_path,
+            has_hero=bool(hero_rel),
         ))
     return entries
 
@@ -308,6 +347,7 @@ CARD_TPL = """\
     <a class="card-title" {open_attr}>{title}</a>
     {explorer_pill}
   </header>
+  {hero_img}
   <div class="card-meta">
     <span class="badge badge-family family-{family}">{family}</span>
     <span class="badge badge-acoustic">{acoustic_class}</span>
@@ -352,6 +392,15 @@ def render_card(e: LibraryEntry) -> str:
     if e.family_count > 1:
         family_count_badge = f'<span class="badge badge-fam-count">{e.family_count} variants</span>'
 
+    if e.hero_image_path:
+        hero_img = (
+            f'<a class="card-hero" {open_attr} style="display:block;margin:8px 0 2px;">'
+            f'<img src="{esc(e.hero_image_path)}" alt="{esc(e.title)}" loading="lazy" '
+            f'style="width:100%;height:150px;object-fit:cover;border-radius:8px;background:#f0ece3;"></a>'
+        )
+    else:
+        hero_img = ""
+
     return CARD_TPL.format(
         family=esc(e.family),
         status=esc(e.status),
@@ -369,6 +418,7 @@ def render_card(e: LibraryEntry) -> str:
         cad_title=esc(ctitle),
         cad_label=esc(clabel),
         slug=esc(e.slug),
+        hero_img=hero_img,
     )
 
 
