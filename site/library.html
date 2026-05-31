@@ -156,9 +156,9 @@ code{font-family:var(--mono);font-size:0.88em}
   </section>
 
   <section class="stats">
-    <div class="stat"><div class="k">Repos in library</div><div class="v">63</div></div>
-    <div class="stat"><div class="k">With explorer</div><div class="v">58</div></div>
-    <div class="stat"><div class="k">Wolfram live</div><div class="v">2</div></div>
+    <div class="stat"><div class="k">Repos in library</div><div class="v">68</div></div>
+    <div class="stat"><div class="k">With explorer</div><div class="v">68</div></div>
+    <div class="stat"><div class="k">Wolfram live</div><div class="v">46</div></div>
     <div class="stat"><div class="k">CAD inlined</div><div class="v">1</div></div>
   </section>
 
@@ -167,7 +167,7 @@ code{font-family:var(--mono);font-size:0.88em}
     <div class="filter-group" data-filter-key="family">
       <label>Family</label>
       <button class="filter-btn active" data-filter-key="family" data-filter-val="all">all</button>
-      <button class="filter-btn" data-filter-key="family" data-filter-val="drum">drum <span class="count">9</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="idiophone">idiophone <span class="count">11</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="string">string <span class="count">18</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="wind">wind <span class="count">25</span></button>
+      <button class="filter-btn" data-filter-key="family" data-filter-val="drum">drum <span class="count">11</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="idiophone">idiophone <span class="count">12</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="string">string <span class="count">20</span></button> <button class="filter-btn" data-filter-key="family" data-filter-val="wind">wind <span class="count">25</span></button>
     </div>
     <div class="filter-group" data-filter-key="cad">
       <label>CAD</label>
@@ -193,7 +193,26 @@ code{font-family:var(--mono);font-size:0.88em}
   </section>
 
   <section class="grid" id="grid">
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+  <header class="card-head">
+    <a class="card-title" href="../../../percussion/ashiko-drum-workshop/explorer.html">Ashiko Drum Workshop</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  <a class="card-hero" href="../../../percussion/ashiko-drum-workshop/explorer.html" style="display:block;margin:8px 0 2px;"><img src="../../../percussion/ashiko-drum-workshop/images/01-early-build.jpg" alt="Ashiko Drum Workshop" loading="lazy" style="width:100%;height:150px;object-fit:cover;border-radius:8px;background:#f0ece3;"></a>
+  <div class="card-meta">
+    <span class="badge badge-family family-drum">drum</span>
+    <span class="badge badge-acoustic">single-membrane</span>
+    
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
+    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
+  </div>
+  <p class="card-slug"><code>ashiko-drum-workshop</code></p>
+</article>
+
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../percussion/cajon/explorer.html">Cajon Family Public-Review Prototype</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -206,13 +225,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Pre-Build V5 Build-Packet Candidate">Pre-Build V5 Build-Packet Candidate</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>cajon</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../percussion/conga/explorer.html">Conga</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -224,8 +243,8 @@ code{font-family:var(--mono);font-size:0.88em}
     
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="V5 Explorer Readiness Packet With Openscad/Provenance Scaffold">V5 Explorer Readiness Packet With Openscad/Provenance Scaffold</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-status pill-unknown" title="L2 V5 Build-Packet Candidate">L2 V5 Build-Packet Candidate</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>conga</code></p>
@@ -269,7 +288,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>dundun</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../percussion/frame-drum/explorer.html">Frame Drum V5 Explorer Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -282,13 +301,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate">V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>frame-drum</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/ceramic-tongue-drum/explorer.html">Slip-Cast Ceramic Tongue Drum Family - V5 explorer readiness packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -301,13 +320,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>ceramic-tongue-drum</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../percussion/udu/explorer.html">Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -320,13 +339,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate">V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>udu</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/steel-tongue-drum/explorer.html">Steel Tongue Drum - V5 issue readiness packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -339,13 +358,32 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>steel-tongue-drum</code></p>
 </article>
 
-<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
+  <header class="card-head">
+    <a class="card-title" href="../../../idiophones/tongue-drum/explorer.html">Tongue Drum</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  
+  <div class="card-meta">
+    <span class="badge badge-family family-drum">drum</span>
+    <span class="badge badge-acoustic">tongue-drum-wood</span>
+    
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
+  </div>
+  <p class="card-slug"><code>tongue-drum</code></p>
+</article>
+
+<article class="card" data-family="drum" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/wood-shell-tongue-drum/explorer.html">Wood Shell Tongue Drum Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -358,13 +396,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Prototype_Planning_Packet_With_V5_Explorer">Prototype_Planning_Packet_With_V5_Explorer</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>wood-shell-tongue-drum</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/ceramic-hang/explorer.html">Ceramic Hang Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -377,13 +415,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Explorer-Readiness Scaffold">V5 Explorer-Readiness Scaffold</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>ceramic-hang</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../percussion/duntong/explorer.html">Duntong Original Cylindrical Tongue Drum</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -396,13 +434,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Starter/Build-Packet Candidate; Not Build-Ready">V5 Starter/Build-Packet Candidate; Not Build-Ready</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>duntong</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/glockenspiel/explorer.html">Glockenspiel - Tuned Metal-Bar Idiophone Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -415,18 +453,18 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned">V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>glockenspiel</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/handpan/explorer.html">Handpan</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
-  
+  <a class="card-hero" href="../../../idiophones/handpan/explorer.html" style="display:block;margin:8px 0 2px;"><img src="../../../idiophones/handpan/images/hero-render.png" alt="Handpan" loading="lazy" style="width:100%;height:150px;object-fit:cover;border-radius:8px;background:#f0ece3;"></a>
   <div class="card-meta">
     <span class="badge badge-family family-idiophone">idiophone</span>
     <span class="badge badge-acoustic">tuned-shell</span>
@@ -434,13 +472,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-private" title="Private review">Private review</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>handpan</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/marimba/explorer.html">Marimba CNC Bar And Resonator Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -453,7 +491,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>marimba</code></p>
@@ -478,7 +516,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>marimba-piano</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/rainstick/explorer.html">Rainstick</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -491,13 +529,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>rainstick</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/steel-pan/explorer.html">Steel Pan Starter Build Packet - V5 Readiness</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -510,13 +548,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated">Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>steel-pan</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="private" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/tubular-bells/explorer.html">Tubular Bells Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -529,13 +567,32 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-private" title="Private review">Private review</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>tubular-bells</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+  <header class="card-head">
+    <a class="card-title" href="../../../idiophones/wind-chimes/explorer.html">Wind Chimes</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  
+  <div class="card-meta">
+    <span class="badge badge-family family-idiophone">idiophone</span>
+    <span class="badge badge-acoustic">tuned-pipe</span>
+    
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
+    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
+  </div>
+  <p class="card-slug"><code>wind-chimes</code></p>
+</article>
+
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/wooden-hang/explorer.html">Wooden Hang Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -548,13 +605,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>wooden-hang</code></p>
 </article>
 
-<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="idiophone" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../idiophones/xylophone/explorer.html">Xylophone Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -567,7 +624,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>xylophone</code></p>
@@ -592,7 +649,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>acoustic-violin</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../strings/ceramic-electric-violin/explorer.html">Ceramic Electric Violin Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -605,21 +662,40 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Issue-Readiness Scaffold">V5 Issue-Readiness Scaffold</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>ceramic-electric-violin</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="pending" data-has-explorer="no">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" >Cnc Guitar Bodies</a>
-    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
+    <a class="card-title" href="../../../strings/cnc-guitar-bodies/explorer.html">Cnc Guitar Bodies</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
   
   <div class="card-meta">
     <span class="badge badge-family family-string">string</span>
     <span class="badge badge-acoustic">plucked-electric</span>
+    
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
+  </div>
+  <p class="card-slug"><code>cnc-guitar-bodies</code></p>
+</article>
+
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+  <header class="card-head">
+    <a class="card-title" href="../../../strings/egyptian-harps/explorer.html">Egyptian Harps</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  
+  <div class="card-meta">
+    <span class="badge badge-family family-string">string</span>
+    <span class="badge badge-acoustic">arched-harp</span>
     
   </div>
   <div class="card-pills">
@@ -627,13 +703,13 @@ code{font-family:var(--mono);font-size:0.88em}
     <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
-  <p class="card-slug"><code>cnc-guitar-bodies</code></p>
+  <p class="card-slug"><code>egyptian-harps</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" >Electric Guitar Bodies</a>
-    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
+    <a class="card-title" href="../../../strings/electric-guitar-bodies/explorer.html">Electric Guitar Bodies</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
   
   <div class="card-meta">
@@ -643,7 +719,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>electric-guitar-bodies</code></p>
@@ -668,7 +744,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>electric-violin</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../strings/erhu/explorer.html">Erhu Bare-Bones Starter Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -681,7 +757,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>erhu</code></p>
@@ -763,20 +839,20 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>kora</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" >Lyre</a>
-    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
+    <a class="card-title" href="../../../strings/lyre/explorer.html">Lyre Studio Explorer</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
-  <a class="card-hero"  style="display:block;margin:8px 0 2px;"><img src="../../../strings/lyre/images/P-Lyre-Harp-1200x1200-1_1080xinspiration.webp" alt="Lyre" loading="lazy" style="width:100%;height:150px;object-fit:cover;border-radius:8px;background:#f0ece3;"></a>
+  <a class="card-hero" href="../../../strings/lyre/explorer.html" style="display:block;margin:8px 0 2px;"><img src="../../../strings/lyre/images/P-Lyre-Harp-1200x1200-1_1080xinspiration.webp" alt="Lyre Studio Explorer" loading="lazy" style="width:100%;height:150px;object-fit:cover;border-radius:8px;background:#f0ece3;"></a>
   <div class="card-meta">
     <span class="badge badge-family family-string">string</span>
     <span class="badge badge-acoustic">lyre</span>
-    
+    <span class="badge badge-fam-count">3 variants</span>
   </div>
   <div class="card-pills">
-    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
+    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>lyre</code></p>
@@ -858,10 +934,10 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>sambuca</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="pending" data-has-explorer="no">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" >Stave Lute Oud</a>
-    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
+    <a class="card-title" href="../../../strings/stave-lute-oud/explorer.html">Stave Lute Oud</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
   
   <div class="card-meta">
@@ -871,13 +947,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>stave-lute-oud</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../strings/ukulele/explorer.html">Ukulele Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -890,13 +966,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>ukulele</code></p>
 </article>
 
-<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+<article class="card" data-family="string" data-status="blocked" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../strings/whamola-bass/explorer.html">Whamola Bass V5 Packet Scaffold</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -909,13 +985,32 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>whamola-bass</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="string" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
+  <header class="card-head">
+    <a class="card-title" href="../../../strings/zephyr-zither/explorer.html">Zephyr Zither</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
+  </header>
+  
+  <div class="card-meta">
+    <span class="badge badge-family family-string">string</span>
+    <span class="badge badge-acoustic">zither</span>
+    
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
+    <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
+  </div>
+  <p class="card-slug"><code>zephyr-zither</code></p>
+</article>
+
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/andean-duct-flutes/explorer.html">Andean Duct Flutes Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -928,7 +1023,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>andean-duct-flutes</code></p>
@@ -1029,7 +1124,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>duduk</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/flutes/explorer.html">Flutes V5 Packet Scaffold</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1042,13 +1137,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="pending" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="blocked" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/fujara/explorer.html">Fujara Studio Explorer</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1061,13 +1156,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-blocked" title="Public-release blocked">Public-release blocked</span>
-    <span class="pill pill-wolfram pill-w-pending" title="Awaiting upload or publish"><span class="dot"></span>Wolfram · Pending</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>fujara</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/gemshorn/explorer.html">Gemshorn Build Methods And Slip-Cast Family</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1080,13 +1175,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>gemshorn</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/great-highland-bagpipe/explorer.html">Great Highland Bagpipe Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1099,7 +1194,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>great-highland-bagpipe</code></p>
@@ -1124,7 +1219,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>hulusi</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/irish-flute/explorer.html">Irish Flute</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1137,13 +1232,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>irish-flute</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/kaval-alghosazi-flutes/explorer.html">Kaval + Alghosazi Fipple Flutes Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1156,13 +1251,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>kaval-alghosazi-flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/kena/explorer.html">KEN-001 Slip-Cast Kena G Key</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1175,13 +1270,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="V5 Starter/Build-Packet Candidate; Not Build-Ready">V5 Starter/Build-Packet Candidate; Not Build-Ready</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>kena</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/moseno/explorer.html">Moseno Capstone</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1194,13 +1289,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>moseno</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/drone-flutes/explorer.html">Native American Drone Flute Family</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1213,13 +1308,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="In-Progress">In-Progress</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>drone-flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/shakuhachi/explorer.html">Shakuhachi</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1232,7 +1327,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>shakuhachi</code></p>
@@ -1257,7 +1352,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <p class="card-slug"><code>sheng</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/siku-zampona/explorer.html">Siku (Zampoña)</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1270,13 +1365,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>siku-zampona</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/ocarina/explorer.html">Slip-Cast Ceramic Ocarina (OCA-001) - V5 explorer candidate</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1289,13 +1384,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>ocarina</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/transverse-flute/explorer.html">Slip-Cast Transverse Flute Family</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1308,13 +1403,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>transverse-flute</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/pistalka/explorer.html">Slovak Pistalka Six-Hole Flute Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1327,16 +1422,16 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>pistalka</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="no">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
-    <a class="card-title" >Tin Whistle</a>
-    <span class="explorer-pill explorer-pill-no">Awaiting explorer</span>
+    <a class="card-title" href="../../../woodwind/tin-whistle/explorer.html">Tin Whistle</a>
+    <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
   </header>
   
   <div class="card-meta">
@@ -1346,13 +1441,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>tin-whistle</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/vessel-flutes/explorer.html">Vessel Flutes Build Packet</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1365,13 +1460,13 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>vessel-flutes</code></p>
 </article>
 
-<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="owner-only" data-has-explorer="yes">
+<article class="card" data-family="wind" data-status="unknown" data-cad="none" data-wolfram="live" data-has-explorer="yes">
   <header class="card-head">
     <a class="card-title" href="../../../woodwind/xiao/explorer.html">Xiao</a>
     <span class="explorer-pill explorer-pill-yes">Explorer ready</span>
@@ -1384,7 +1479,7 @@ code{font-family:var(--mono);font-size:0.88em}
   </div>
   <div class="card-pills">
     <span class="pill pill-status pill-unknown" title="Unknown">Unknown</span>
-    <span class="pill pill-wolfram pill-w-owner-only" title="Uploaded but not yet published"><span class="dot"></span>Wolfram · Owner-only</span>
+    <span class="pill pill-wolfram pill-w-live" title="Public-Execute notebook iframe"><span class="dot"></span>Wolfram · Live</span>
     <span class="pill pill-cad pill-cad-none" title="No CAD assets in cad/ yet"><span class="dot"></span>CAD · None</span>
   </div>
   <p class="card-slug"><code>xiao</code></p>
@@ -1395,7 +1490,7 @@ code{font-family:var(--mono);font-size:0.88em}
   <div class="no-results" id="no-results" style="display:none">No instruments match the current filters.</div>
 
   <p style="margin-top:36px;color:var(--muted);font-size:12px">
-    Generated <time>2026-05-30T05:58:19Z</time> from <code>scripts/generate_library.py</code> walking the GitHub workspace.
+    Generated <time>2026-05-31T16:55:42Z</time> from <code>scripts/generate_library.py</code> walking the GitHub workspace.
     Companion data: <a href="../data/library-manifest.json"><code>../data/library-manifest.json</code></a>.
   </p>
 </main>
