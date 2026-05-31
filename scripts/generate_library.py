@@ -129,6 +129,107 @@ FAMILY_MAP: dict[str, tuple[str, str]] = {
     "cajon":                  ("drum", "box-drum"),
     "found-cavities":         ("idiophone", "tuned-shell"),
     "resonant-box":           ("idiophone", "resonator-aid"),
+    # ----------------------------------------------------------------------
+    # 2026-05-31: curated entries for the remaining 82 instrument repos
+    # (all already have explorer.html; previously dropped by the FAMILY_MAP gate).
+    # ----------------------------------------------------------------------
+    # BRASS - lip-reed aerophones (sheet-metal + experimental horns)
+    "bell-stack-chord-horn":      ("brass", "lip-reed"),
+    "branching-multibell-horn":   ("brass", "lip-reed"),
+    "brass-marine-reed-horn":     ("brass", "reed"),
+    "bugle-sheetmetal":           ("brass", "lip-reed"),
+    "centaur-duet-horn":          ("brass", "lip-reed"),
+    "cornet-sheetmetal":          ("brass", "lip-reed"),
+    "disc-trumpet":               ("brass", "lip-reed"),
+    "dual-bell-phasing-horn":     ("brass", "lip-reed"),
+    "iris-bell-tonal-horn":       ("brass", "lip-reed"),
+    "mute-tuned-natural-horn":    ("brass", "lip-reed"),
+    "octave-doubling-shofar":     ("brass", "lip-reed"),
+    "serpent-sheet-metal-packet": ("brass", "lip-reed"),
+    "slide-cornetto":             ("brass", "lip-reed"),
+    "spiral-conch-horn":          ("brass", "lip-reed"),
+    "trombone-sheetmetal":        ("brass", "lip-reed"),
+    "trumpet-sheetmetal":         ("brass", "lip-reed"),
+    # WIND - additional aerophones (sheet-metal flutes + organs)
+    "barrel-organ":                  ("wind", "organ-pipe"),
+    "hydraulophone":                 ("wind", "fluid"),
+    "portable-calliope":             ("wind", "steam-whistle"),
+    "portative-organ":               ("wind", "organ-pipe"),
+    "saxophone-sheetmetal":          ("wind", "reed"),
+    "sea-organ":                     ("wind", "organ-pipe"),
+    "sheet-metal-bass-clarinet":     ("wind", "reed"),
+    "sheet-metal-pan-flute":         ("wind", "stopped-pipe"),
+    "sheet-metal-recorder-quartet":  ("wind", "duct-flute"),
+    "sheet-metal-tin-whistle-set":   ("wind", "duct-flute"),
+    "steam-train-whistle":           ("wind", "steam-whistle"),
+    "transverse-flute-sheetmetal":   ("wind", "open-pipe"),
+    # STRING - additional chordophones (bowed / keyboard / zither / resonator)
+    "aeolian-harp-pillar":             ("string", "aeolian"),
+    "autoharp-inspired":               ("string", "zither"),
+    "bowed-metal-psaltery":            ("string", "bowed-zither"),
+    "bowed-sheet-metal-sarod":         ("string", "bowed"),
+    "brian-boru-harp-replica":         ("string", "harp"),
+    "clavichord":                      ("string", "struck-keyboard"),
+    "folding-travel-resonator-guitar": ("string", "resonator"),
+    "harpsichord":                     ("string", "plucked-keyboard"),
+    "magnetic-chromatic-harp":         ("string", "harp-electric"),
+    "marxophone":                      ("string", "zither"),
+    "multi-bridge-sheet-zither":       ("string", "zither"),
+    "nyckelharpa":                     ("string", "bowed-keyed"),
+    "octobass":                        ("string", "bowed"),
+    "pianola":                         ("string", "struck-keyboard"),
+    "resophonic-bouzouki":             ("string", "resonator"),
+    "spun-aluminum-cello":             ("string", "bowed"),
+    "sympathetic-sarangi-fiddle":      ("string", "bowed"),
+    "telescoping-bass-profundo":       ("string", "bowed"),
+    "triple-cone-slide-guitar":        ("string", "resonator"),
+    "tromba-marina":                   ("string", "bowed"),
+    "wheelharp":                       ("string", "bowed-keyed"),
+    "hurdy-gurdy":                     ("string", "bowed-keyed"),
+    # DRUM - additional membranophones (sheet-metal + experimental)
+    "bass-surface-drum":            ("drum", "single-membrane"),
+    "bowed-frame-drum":             ("drum", "single-membrane"),
+    "compact-drum-kit":             ("drum", "multi-membrane"),
+    "modular-pedestal-drum-stack":  ("drum", "multi-membrane"),
+    "pitched-bell-cajon":           ("drum", "box-drum"),
+    "sheet-metal-djembe":           ("drum", "single-membrane"),
+    "sheet-metal-talking-drum":     ("drum", "double-membrane"),
+    "timpani-sheetmetal":           ("drum", "kettle-membrane"),
+    "tunable-snare-frame-array":    ("drum", "snare-membrane"),
+    # IDIOPHONE - additional (lamellophone / friction / tuned-shell / bell / plate)
+    "array-mbira":                  ("idiophone", "lamellophone"),
+    "bowed-dish":                   ("idiophone", "friction"),
+    "carillon":                     ("idiophone", "tuned-bell"),
+    "celesta":                      ("idiophone", "tuned-bar-metal"),
+    "chromatic-25-tongue-drum":     ("idiophone", "tongue-drum-steel"),
+    "cristal-baschet":              ("idiophone", "friction"),
+    "daxophone":                    ("idiophone", "friction"),
+    "glass-armonica":               ("idiophone", "friction"),
+    "glass-harp":                   ("idiophone", "friction"),
+    "handpan-sheetmetal":           ("idiophone", "tuned-shell"),
+    "inverted-pan-tower":           ("idiophone", "tuned-shell"),
+    "jal-tarang":                   ("idiophone", "tuned-vessel"),
+    "music-box":                    ("idiophone", "lamellophone"),
+    "musical-saw":                  ("idiophone", "friction"),
+    "pitched-bell-ladder":          ("idiophone", "tuned-bell"),
+    "sheet-metal-mbira":            ("idiophone", "lamellophone"),
+    "solenoid-disc-idiophone":      ("idiophone", "struck-metal"),
+    "spiral-chime-tower":           ("idiophone", "tuned-pipe"),
+    "steel-pan-organ":              ("idiophone", "tuned-shell"),
+    "steel-pot-drum":               ("idiophone", "tuned-shell"),
+    "tuned-slit-drum-bank":         ("idiophone", "slit-drum"),
+    "waterphone":                   ("idiophone", "friction"),
+    "wind-gong-sheetmetal":         ("idiophone", "tuned-plate"),
+}
+
+# Folder -> broad family fallback, used when a slug isn't explicitly in FAMILY_MAP
+# (keeps new instruments from being silently dropped from the library).
+FOLDER_FAMILY: dict[str, str] = {
+    "strings": "string",
+    "woodwind": "wind",
+    "brass": "brass",
+    "percussion": "drum",
+    "idiophones": "idiophone",
 }
 
 
@@ -280,8 +381,6 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
 
     for family_dir, repo in repo_candidates:
         slug = repo.name
-        if slug not in FAMILY_MAP:
-            continue
         explorer = repo / "explorer.html"
         manifest_path = repo / "capstone-manifest.json"
         if not (explorer.exists() or manifest_path.exists()):
@@ -300,7 +399,7 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
                  or slug.replace("-", " ").title())
         instrument = manifest.get("instrument") or title
 
-        family, acoustic = FAMILY_MAP[slug]
+        family, acoustic = FAMILY_MAP.get(slug) or (FOLDER_FAMILY.get(family_dir, "other"), "unclassified")
         cad_kind, cad_size = detect_cad(repo)
         wstate, wurl, wnb = derive_wolfram_state(manifest, embed_index.get(slug))
         status, status_label = derive_status(manifest)
