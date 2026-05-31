@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-05-31T17:23:06Z",
+  "generated_at": "2026-05-31T17:48:18Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -214,8 +214,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/bowed-dish/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "bowed-frame-drum",
@@ -403,8 +403,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/carillon/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "celesta",
@@ -424,8 +424,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/celesta/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "centaur-duet-horn",
@@ -487,8 +487,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/ceramic-hang/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "ceramic-tongue-drum",
@@ -508,8 +508,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/ceramic-tongue-drum/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "chalumeau",
@@ -1929,8 +1929,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../brass/octave-doubling-shofar/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "octobass",
@@ -2233,8 +2233,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../brass/serpent-sheet-metal-packet/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "shakuhachi",
@@ -2468,8 +2468,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../brass/slide-cornetto/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "solenoid-disc-idiophone",
@@ -2531,8 +2531,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../brass/spiral-conch-horn/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "spun-aluminum-cello",
@@ -2892,8 +2892,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../brass/trombone-sheetmetal/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "trumpet-sheetmetal",
@@ -2913,8 +2913,8 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../brass/trumpet-sheetmetal/images/hero-render.png",
+      "has_hero": true
     },
     {
       "slug": "tubular-bells",
