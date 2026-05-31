@@ -1,0 +1,47 @@
+# raw-sources/.ingest-allowlist
+#
+# Newline-separated path globs the wiki agent MAY read from raw-sources/.
+# Anything not matched is off-limits unless explicitly added.
+# Comments start with #. Globs are relative to raw-sources/.
+#
+# Conservative default: instrument-related vault folders, clippings,
+# recent daily notes, making, outdoors, wrfcoin. Sensitive folders
+# (Healthcare, Finance, IP, LLM Conversations, Inboxes, Archive) stay off.
+
+# Vault folders are numbered; entries below reflect actual folder names.
+second-brain/01 - Instruments/**
+second-brain/04 - Making and Fabrication/**
+second-brain/05 - Outdoors/**
+second-brain/06 - Wrfcoin/**
+second-brain/Clippings/**
+
+# qmd collection 'obsidian' indexes these via ~/qmd-staging/second-brain/
+# symlinks. To add a folder to the index, symlink it under the staging dir
+# and add the corresponding entry here.
+
+obsidian-clips/**
+
+inbox/**
+processed/**
+
+# Off-limits by default (uncomment to allow):
+# second-brain/02 - Yoga/**
+# second-brain/07 - Social Media/**
+# second-brain/08 - Healthcare/**
+# second-brain/09 - Tech and Gear/**
+# second-brain/10 - Projects/**
+# second-brain/11 - Intellectual Property/**
+# second-brain/12 - Reading and Learning/**
+# second-brain/13 - Collections/**
+# second-brain/14 - Business and Finance/**
+# second-brain/16 - Vehicles/**
+# second-brain/17 - Equipment and Manuals/**
+# second-brain/18 - LLM Conversations/**
+# second-brain/Archive/**
+# second-brain/Owner_Inbox/**
+# second-brain/Team_Inbox/**
+
+# Daily Notes folder is not present at the vault top level as of 2026-05-18.
+# If/when a Daily Notes/ folder is added, allowlist it here:
+# second-brain/Daily Notes/2025-*
+# second-brain/Daily Notes/2026-*
