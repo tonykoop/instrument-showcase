@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heifer Zephyr — Instrument Design Catalog</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--rule:#262b36;--ink:#e7e9ee;--mut:#9aa3b2;--accent:#c9a24a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+header{padding:64px 24px 28px;max-width:1040px;margin:0 auto}
+h1{font-size:34px;margin:0 0 8px}.sub{color:var(--mut);max-width:60ch}
+.grid{max-width:1040px;margin:0 auto;padding:8px 24px 64px;display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+text-decoration:none;color:inherit;transition:.15s border-color,.15s transform}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#0b0d11}
+.card-body{padding:14px 16px}.fam{color:var(--accent);font-size:12px;text-transform:uppercase;
+letter-spacing:.08em}.card h2{font-size:18px;margin:4px 0 0;line-height:1.3}
+footer{max-width:1040px;margin:0 auto;padding:0 24px 60px;color:var(--mut);font-size:13px}
+a.brand{color:var(--accent);text-decoration:none}
+</style></head><body>
+<header>
+  <h1>Heifer Zephyr — Instrument Design Catalog</h1>
+  <p class="sub">A curated, open look at original and traditional musical-instrument designs —
+  engineering packets, acoustic models, and build documentation. A growing public preview,
+  eventually living at <a class="brand" href="https://heiferzephyr.com">heiferzephyr.com</a>.</p>
+</header>
+<main class="grid">
+    <a class="card" href="instruments/percussion/ashiko-drum-workshop/explorer.html">
+      <img src="instruments/percussion/ashiko-drum-workshop/images/hero-render.jpg" alt="Ashiko Drum-Building Workshop" loading="lazy">
+      <div class="card-body"><span class="fam">percussion</span><h2>Ashiko Drum-Building Workshop</h2></div>
+    </a>
+    <a class="card" href="instruments/woodwind/flutes/explorer.html">
+      <img src="instruments/woodwind/flutes/images/hero-render.jpg" alt="Flutes — Engineering Documentation for Native American Style Wooden Flutes" loading="lazy">
+      <div class="card-body"><span class="fam">woodwind</span><h2>Flutes — Engineering Documentation for Native American Style Wooden Flutes</h2></div>
+    </a>
+</main>
+<footer>Design files and documentation © Tony Koop · licensed CERN-OHL-W-v2 (hardware) + CC-BY-4.0 (docs)
+unless noted. Source designs are maintained privately; this site publishes a curated subset.</footer>
+</body></html>
