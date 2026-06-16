@@ -232,6 +232,18 @@ FOLDER_FAMILY: dict[str, str] = {
     "idiophones": "idiophone",
 }
 
+# Display labels for the catalog (maps internal family tokens to the 5 canonical
+# family names used by the completeness trackers #26-#31).
+FAMILY_LABELS: dict[str, str] = {
+    "string": "Strings", "wind": "Woodwind", "brass": "Brass",
+    "drum": "Percussion", "idiophone": "Idiophones",
+    "hybrid": "Hybrid", "other": "Other",
+}
+COMPLETENESS_LABELS = {
+    "complete": "Complete", "near": "Near",
+    "in-progress": "In progress", "scaffold": "Scaffold",
+}
+
 
 # --------------------------------------------------------------------------
 # Data shapes
@@ -259,6 +271,13 @@ class LibraryEntry:
     has_manifest: bool = False
     hero_image_path: str = ""   # rel from site/library.html; "" when no hero image found
     has_hero: bool = False
+    # Explorer completeness axis (issue #31): W = live Wolfram, I = rendered
+    # images shown in explorer, 3D = <model-viewer>. score 0-3.
+    wolfram_live: bool = False
+    images_present: bool = False
+    viewer_present: bool = False
+    completeness_score: int = 0
+    completeness_state: str = "scaffold"  # complete | near | in-progress | scaffold
 
 
 # --------------------------------------------------------------------------
@@ -364,7 +383,36 @@ def detect_hero(repo: Path) -> str:
     return ""
 
 
-def scan_workspace(workspace: Path) -> list[LibraryEntry]:
+def detect_explorer_features(explorer: Path) -> tuple[bool, bool, bool]:
+    """Report (wolfram_present, images_present, viewer_present) from explorer.html,
+    matching the per-family completeness trackers (issue #31), which assess the
+    EXPLORER's interactive completeness:
+      W  = embeds a live Wolfram Cloud model (a wolframcloud.com URL).
+      I  = displays at least one rendered concept image (an <img> element).
+      3D = embeds a <model-viewer> element.
+    All three are read from the explorer, not the manifest: a Wolfram model can
+    be published in the manifest while the explorer is still a scaffold that
+    doesn't embed it (e.g. cnc-guitar-bodies). The tracker counts the explorer,
+    so we do too. (manifest wolfram_state is kept separately for the Wolfram
+    pill/filter — "is a model published" — a different axis from "shown here".)
+    """
+    if not explorer.exists():
+        return (False, False, False)
+    try:
+        html = explorer.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return (False, False, False)
+    wolfram_present = "wolframcloud.com" in html
+    viewer_present = "model-viewer" in html
+    images_present = "<img" in html
+    return (wolfram_present, images_present, viewer_present)
+
+
+COMPLETENESS_STATE = {3: "complete", 2: "near", 1: "in-progress", 0: "scaffold"}
+
+
+def scan_workspace(workspace: Path, base_url: str = "",
+                   published: "frozenset[str]" = frozenset()) -> list[LibraryEntry]:
     embed_index = load_embed_urls(workspace)
     entries: list[LibraryEntry] = []
 
@@ -405,7 +453,27 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
         status, status_label = derive_status(manifest)
         fam_members = manifest.get("family_members") or []
         hero_rel = detect_hero(repo)
-        hero_path = f"../../../{family_dir}/{slug}/{hero_rel}" if hero_rel else ""
+        # Explorer completeness (issue #31): W + I + 3D all read from the explorer.
+        wolfram_present, images_present, viewer_present = detect_explorer_features(explorer)
+        wolfram_live = wolfram_present  # completeness W axis = explorer embeds a live model
+        comp_score = int(wolfram_live) + int(images_present) + int(viewer_present)
+        comp_state = COMPLETENESS_STATE[comp_score]
+        if base_url:
+            # Publishing mode: each instrument is its own GitHub Pages site at
+            # {base_url}/{slug}/. Only repos in the `published` set (public +
+            # Pages-live) get live links/images; the rest render as clean,
+            # non-clickable text cards so the page never shows 404s or broken
+            # images, and they upgrade automatically as more are published.
+            root = base_url.rstrip("/")
+            if slug in published:
+                explorer_path = f"{root}/{slug}/explorer.html"
+                hero_path = f"{root}/{slug}/{hero_rel}" if hero_rel else ""
+            else:
+                explorer_path = ""
+                hero_path = ""
+        else:
+            explorer_path = f"../../../{family_dir}/{slug}/explorer.html"
+            hero_path = f"../../../{family_dir}/{slug}/{hero_rel}" if hero_rel else ""
 
         entries.append(LibraryEntry(
             slug=slug,
@@ -415,7 +483,7 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
             acoustic_class=acoustic,
             status=status,
             status_label=status_label,
-            explorer_path=f"../../../{family_dir}/{slug}/explorer.html",  # rel from instruments/_meta/instrument-showcase/site/library.html
+            explorer_path=explorer_path,  # local ../../../ path, or absolute Pages URL in publishing mode
             has_explorer=explorer.exists(),
             cad=cad_kind,
             cad_size_bytes=cad_size,
@@ -427,6 +495,11 @@ def scan_workspace(workspace: Path) -> list[LibraryEntry]:
             has_manifest=has_manifest,
             hero_image_path=hero_path,
             has_hero=bool(hero_rel),
+            wolfram_live=wolfram_live,
+            images_present=images_present,
+            viewer_present=viewer_present,
+            completeness_score=comp_score,
+            completeness_state=comp_state,
         ))
     return entries
 
@@ -441,17 +514,18 @@ def esc(s) -> str:
 
 
 CARD_TPL = """\
-<article class="card" data-family="{family}" data-status="{status}" data-cad="{cad}" data-wolfram="{wolfram_state}" data-has-explorer="{has_explorer_str}">
+<article class="card" data-family="{family}" data-status="{status}" data-cad="{cad}" data-wolfram="{wolfram_state}" data-has-explorer="{has_explorer_str}" data-completeness="{completeness_state}" data-score="{completeness_score}">
   <header class="card-head">
     <a class="card-title" {open_attr}>{title}</a>
     {explorer_pill}
   </header>
   {hero_img}
   <div class="card-meta">
-    <span class="badge badge-family family-{family}">{family}</span>
+    <span class="badge badge-family family-{family}">{family_label}</span>
     <span class="badge badge-acoustic">{acoustic_class}</span>
     {family_count_badge}
   </div>
+  {completeness_pill}
   <div class="card-pills">
     <span class="pill pill-status pill-{status}" title="{status_label}">{status_label}</span>
     <span class="pill pill-wolfram pill-w-{wolfram_state}" title="{wolfram_title}"><span class="dot"></span>Wolfram · {wolfram_label}</span>
@@ -464,9 +538,13 @@ CARD_TPL = """\
 
 def render_card(e: LibraryEntry) -> str:
     has_explorer_str = "yes" if e.has_explorer else "no"
-    if e.has_explorer:
+    if e.has_explorer and e.explorer_path:
         open_attr = f'href="{esc(e.explorer_path)}"'
         explorer_pill = '<span class="explorer-pill explorer-pill-yes">Explorer ready</span>'
+    elif e.has_explorer:
+        # Explorer is built but the repo isn't published yet (private / no Pages).
+        open_attr = ""
+        explorer_pill = '<span class="explorer-pill explorer-pill-yes">Explorer built</span>'
     else:
         open_attr = ""
         explorer_pill = '<span class="explorer-pill explorer-pill-no">Awaiting explorer</span>'
@@ -500,6 +578,20 @@ def render_card(e: LibraryEntry) -> str:
     else:
         hero_img = ""
 
+    # Completeness pill (issue #31 axis): state label + W / I / 3D mini-chips.
+    def _axis(on: bool, label: str) -> str:
+        return f'<b class="ax {"on" if on else "off"}">{label}</b>'
+    completeness_pill = (
+        f'<div class="comp-row" title="Explorer completeness — W: live Wolfram model · '
+        f'I: rendered concept images · 3D: model-viewer">'
+        f'<span class="comp-state comp-{esc(e.completeness_state)}">'
+        f'{COMPLETENESS_LABELS.get(e.completeness_state, e.completeness_state)}</span>'
+        f'<span class="comp-axes">'
+        f'{_axis(e.wolfram_live, "W")}{_axis(e.images_present, "I")}{_axis(e.viewer_present, "3D")}'
+        f'</span></div>'
+    )
+    family_label = FAMILY_LABELS.get(e.family, e.family)
+
     return CARD_TPL.format(
         family=esc(e.family),
         status=esc(e.status),
@@ -518,6 +610,10 @@ def render_card(e: LibraryEntry) -> str:
         cad_label=esc(clabel),
         slug=esc(e.slug),
         hero_img=hero_img,
+        family_label=esc(family_label),
+        completeness_pill=completeness_pill,
+        completeness_state=esc(e.completeness_state),
+        completeness_score=e.completeness_score,
     )
 
 
@@ -529,23 +625,42 @@ def render_library_html(entries: list[LibraryEntry], generated_at: str) -> str:
     total = len(entries_sorted)
     with_explorer = sum(1 for e in entries_sorted if e.has_explorer)
     live_wolfram = sum(1 for e in entries_sorted if e.wolfram_state == "live")
-    inline_cad = sum(1 for e in entries_sorted if e.cad == "inline-glb")
-    families = {}
+    complete_count = sum(1 for e in entries_sorted if e.completeness_state == "complete")
+
+    # Per-family tallies + completeness progress (issue #31 dashboard).
+    fam_total: dict[str, int] = {}
+    fam_complete: dict[str, int] = {}
     for e in entries_sorted:
-        families[e.family] = families.get(e.family, 0) + 1
+        fam_total[e.family] = fam_total.get(e.family, 0) + 1
+        if e.completeness_state == "complete":
+            fam_complete[e.family] = fam_complete.get(e.family, 0) + 1
 
     cards_html = "\n".join(render_card(e) for e in entries_sorted)
     family_filter_buttons = " ".join(
-        f'<button class="filter-btn" data-filter-key="family" data-filter-val="{f}">{f} <span class="count">{n}</span></button>'
-        for f, n in sorted(families.items()))
+        f'<button class="filter-btn" data-filter-key="family" data-filter-val="{esc(f)}">'
+        f'{esc(FAMILY_LABELS.get(f, f))} <span class="count">{n}</span></button>'
+        for f, n in sorted(fam_total.items(), key=lambda kv: FAMILY_LABELS.get(kv[0], kv[0])))
+
+    # Per-family progress bars
+    rows = []
+    for f, n in sorted(fam_total.items(), key=lambda kv: FAMILY_LABELS.get(kv[0], kv[0])):
+        done = fam_complete.get(f, 0)
+        pct = round(100 * done / n) if n else 0
+        rows.append(
+            f'<div class="fam-prog"><span class="fam-prog-label">{esc(FAMILY_LABELS.get(f, f))}</span>'
+            f'<span class="fam-prog-bar"><span class="fam-prog-fill" style="width:{pct}%"></span></span>'
+            f'<span class="fam-prog-count">{done}/{n}</span></div>'
+        )
+    family_progress = "\n".join(rows)
 
     return LIBRARY_HTML.format(
         generated_at=esc(generated_at),
         total=total,
         with_explorer=with_explorer,
         live_wolfram=live_wolfram,
-        inline_cad=inline_cad,
+        complete_count=complete_count,
         family_filter_buttons=family_filter_buttons,
+        family_progress=family_progress,
         cards=cards_html,
     )
 
@@ -559,15 +674,22 @@ LIBRARY_HTML = """\
 <title>Heifer Zephyr · Studio Explorers Library</title>
 <style>
 :root{{
-  --walnut:#3D2817; --cedar:#B98B47; --cream:#F8F4E9; --paper:#FFFFFF;
-  --lapis:#1E3A8A; --gold:#D4A017; --ink:#1F1A14; --muted:#6B5E4D;
-  --rule:#E0D6C5; --ok:#2E7D32; --warn:#C89220; --block:#A03A2A;
-  --pill-bg:#FCEFC6; --pill-border:#D4A017;
-  --hover:#EFE7D3;
-  --serif:"Fraunces","Source Serif Pro",Georgia,serif;
-  --ui:"Inter","Source Sans Pro","Helvetica Neue",Arial,sans-serif;
-  --mono:"JetBrains Mono",Menlo,Consolas,monospace;
-  --italic-serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
+  --walnut:#15181d; --cedar:#5b626d; --cream:#f6f7f9; --paper:#ffffff;
+  --lapis:#d6562b; --gold:#d6562b; --ink:#15181d; --muted:#5b626d;
+  --rule:#e3e6ea; --rule-strong:#cdd2d9; --ok:#2f8f5b; --warn:#c79100; --block:#c4453a;
+  --pill-bg:#fbe9e2; --pill-border:#d6562b;
+  --hover:#eef0f3;
+  --shadow:0 1px 2px rgba(20,24,29,.05),0 4px 16px rgba(20,24,29,.04);
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:var(--ui); --italic-serif:var(--ui);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}}
+[data-theme="dark"]{{
+  --walnut:#e8ecf1; --cedar:#9aa4b2; --cream:#0e1116; --paper:#171d25;
+  --lapis:#f0794f; --gold:#f0794f; --ink:#e8ecf1; --muted:#9aa4b2;
+  --rule:#262d37; --rule-strong:#333c48; --ok:#4fb37e; --warn:#d9b13e; --block:#e0695e;
+  --pill-bg:#2a1c16; --pill-border:#f0794f; --hover:#1d232c;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 18px rgba(0,0,0,.28);
 }}
 *,*::before,*::after{{box-sizing:border-box}}
 html,body{{margin:0;padding:0;background:var(--cream);color:var(--ink);
@@ -576,21 +698,25 @@ a{{color:var(--lapis);text-decoration:none}}
 a:hover{{text-decoration:underline}}
 code{{font-family:var(--mono);font-size:0.88em}}
 
-.app-bar{{position:sticky;top:0;z-index:30;height:56px;
-  background:var(--walnut);color:var(--cream);
-  border-bottom:3px solid var(--gold);
-  display:flex;align-items:center;gap:24px;padding:0 22px}}
-.brand{{display:flex;align-items:baseline;gap:14px;flex:0 0 auto}}
+.app-bar{{position:sticky;top:0;z-index:30;height:58px;
+  background:color-mix(in srgb,var(--paper) 86%,transparent);
+  -webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px);
+  color:var(--ink);border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:18px;padding:0 22px}}
+.brand{{display:flex;align-items:center;gap:11px;flex:0 0 auto}}
+.brand .dot{{width:11px;height:11px;border-radius:3px;background:var(--gold);transform:rotate(45deg)}}
+.wordmark{{text-decoration:none;display:inline-flex;align-items:baseline;gap:11px}}
+.wordmark:hover{{text-decoration:none}}
+.wordmark:hover em{{color:var(--gold)}}
 .wordmark em{{font-family:var(--italic-serif);font-style:italic;
-  font-size:22px;color:var(--gold);letter-spacing:0.01em}}
-.tagline{{font-family:var(--serif);font-size:15px;color:var(--cream);
-  border-left:1px solid rgba(248,244,233,0.3);padding-left:14px}}
-.actions{{margin-left:auto;display:flex;align-items:center;gap:12px}}
-.action-btn{{display:inline-block;font-family:var(--ui);font-size:12px;
-  letter-spacing:0.04em;text-transform:uppercase;
-  color:var(--cream);border:1px solid rgba(248,244,233,0.35);
-  border-radius:3px;padding:6px 10px}}
-.action-btn:hover{{background:rgba(248,244,233,0.12);text-decoration:none;color:var(--gold)}}
+  font-size:22px;color:var(--ink);letter-spacing:0.005em;transition:color 120ms}}
+.tagline{{font-family:var(--ui);font-size:13px;color:var(--muted);
+  border-left:1px solid var(--rule);padding-left:12px}}
+.actions{{margin-left:auto;display:flex;align-items:center;gap:8px}}
+.action-btn{{display:inline-block;font-family:var(--ui);font-size:12px;font-weight:500;
+  color:var(--muted);border:1px solid var(--rule);background:var(--paper);
+  border-radius:8px;padding:7px 11px;cursor:pointer}}
+.action-btn:hover{{background:var(--hover);text-decoration:none;color:var(--ink)}}
 
 .wrap{{max-width:1400px;margin:0 auto;padding:28px 28px 80px}}
 .hero{{margin-bottom:18px}}
@@ -679,6 +805,37 @@ code{{font-family:var(--mono);font-size:0.88em}}
 .explorer-pill-no{{background:var(--cream);color:var(--muted);border:1px dashed var(--rule)}}
 .card-slug{{margin:auto 0 0;font-family:var(--mono);font-size:10.5px;color:var(--muted)}}
 
+/* Completeness pill (issue #31 axis: W live Wolfram · I images · 3D viewer) */
+.comp-row{{display:flex;align-items:center;gap:8px;margin:-1px 0 1px}}
+.comp-state{{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:0.05em;
+  text-transform:uppercase;padding:3px 9px;border-radius:11px;border:1px solid var(--rule)}}
+.comp-complete{{background:#D8EBD3;color:var(--ok);border-color:var(--ok)}}
+.comp-near{{background:#FCEFC6;color:#7A5814;border-color:var(--pill-border)}}
+.comp-in-progress{{background:#EEEAE0;color:var(--muted);border-color:var(--muted)}}
+.comp-scaffold{{background:var(--cream);color:var(--muted);border-color:var(--rule);border-style:dashed}}
+.comp-axes{{display:inline-flex;gap:3px}}
+.comp-axes .ax{{font-family:var(--mono);font-size:9px;font-weight:700;min-width:19px;text-align:center;
+  padding:2px 3px;border-radius:3px;line-height:1}}
+.comp-axes .ax.on{{background:var(--ok);color:#fff}}
+.comp-axes .ax.off{{background:var(--cream);color:#C9BEA9;border:1px solid var(--rule)}}
+
+/* Per-family completeness dashboard (issue #31) */
+.progress-panel{{background:var(--paper);border:1px solid var(--rule);border-radius:5px;
+  padding:14px 18px;margin:0 0 18px}}
+.progress-head{{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  flex-wrap:wrap;margin-bottom:10px}}
+.progress-title{{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--walnut)}}
+.progress-legend{{font-family:var(--ui);font-size:11px;color:var(--muted)}}
+.progress-legend b{{color:var(--walnut)}}
+.fam-prog{{display:grid;grid-template-columns:104px minmax(120px,360px) 52px;align-items:center;gap:12px;margin:5px 0}}
+.fam-prog-label{{font-family:var(--ui);font-size:12px;font-weight:600;color:var(--walnut)}}
+.fam-prog-bar{{height:8px;background:var(--cream);border:1px solid var(--rule);border-radius:6px;overflow:hidden}}
+.fam-prog-fill{{display:block;height:100%;background:linear-gradient(90deg,var(--cedar),var(--ok));border-radius:6px}}
+.fam-prog-count{{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right}}
+.stat-complete .of{{font-family:var(--ui);font-size:13px;color:var(--muted);font-weight:500;margin-left:3px}}
+.sort-select{{font-family:var(--ui);font-size:12px;padding:5px 8px;border:1px solid var(--rule);
+  border-radius:4px;background:#FFFCF5;color:var(--walnut);cursor:pointer}}
+
 .no-results{{text-align:center;padding:40px 20px;color:var(--muted);
   font-family:var(--serif);font-size:18px}}
 
@@ -692,13 +849,15 @@ code{{font-family:var(--mono);font-size:0.88em}}
 
 <header class="app-bar">
   <div class="brand">
-    <span class="wordmark"><em>Heifer Zephyr</em></span>
+    <span class="dot"></span>
+    <a class="wordmark" href="library.html" title="Back to the library"><em>Heifer Zephyr</em></a>
     <span class="tagline">Studio Explorers · Library</span>
   </div>
   <div class="actions">
     <a class="action-btn" href="index.html">Deliverables Hub</a>
     <a class="action-btn" href="manifest.html">Manifest</a>
     <a class="action-btn" href="https://github.com/tonykoop" target="_blank" rel="noopener">GitHub</a>
+    <button class="action-btn" id="theme-toggle" title="Toggle light / dark" aria-label="Toggle theme">◐ Theme</button>
   </div>
 </header>
 
@@ -712,11 +871,27 @@ code{{font-family:var(--mono);font-size:0.88em}}
     <div class="stat"><div class="k">Repos in library</div><div class="v">{total}</div></div>
     <div class="stat"><div class="k">With explorer</div><div class="v">{with_explorer}</div></div>
     <div class="stat"><div class="k">Wolfram live</div><div class="v">{live_wolfram}</div></div>
-    <div class="stat"><div class="k">CAD inlined</div><div class="v">{inline_cad}</div></div>
+    <div class="stat stat-complete"><div class="k">Explorers complete</div><div class="v">{complete_count}<span class="of">/ {total}</span></div></div>
+  </section>
+
+  <section class="progress-panel">
+    <div class="progress-head">
+      <span class="progress-title">Explorer completeness by family</span>
+      <span class="progress-legend">Complete = live <b>W</b>olfram model · rendered <b>I</b>mages · <b>3D</b> model-viewer</span>
+    </div>
+    {family_progress}
   </section>
 
   <section class="controls">
     <input id="search" class="search" placeholder="Search by name or slug…" aria-label="Search">
+    <div class="filter-group" data-filter-key="completeness">
+      <label>Completeness</label>
+      <button class="filter-btn active" data-filter-key="completeness" data-filter-val="all">all</button>
+      <button class="filter-btn" data-filter-key="completeness" data-filter-val="complete">complete</button>
+      <button class="filter-btn" data-filter-key="completeness" data-filter-val="near">near</button>
+      <button class="filter-btn" data-filter-key="completeness" data-filter-val="in-progress">in&nbsp;progress</button>
+      <button class="filter-btn" data-filter-key="completeness" data-filter-val="scaffold">scaffold</button>
+    </div>
     <div class="filter-group" data-filter-key="family">
       <label>Family</label>
       <button class="filter-btn active" data-filter-key="family" data-filter-val="all">all</button>
@@ -743,6 +918,14 @@ code{{font-family:var(--mono);font-size:0.88em}}
       <button class="filter-btn" data-filter-key="has-explorer" data-filter-val="yes">ready</button>
       <button class="filter-btn" data-filter-key="has-explorer" data-filter-val="no">pending</button>
     </div>
+    <div class="filter-group sort-group">
+      <label>Sort</label>
+      <select id="sort" class="sort-select">
+        <option value="completeness">Most complete</option>
+        <option value="family">Family</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
   </section>
 
   <section class="grid" id="grid">
@@ -765,7 +948,7 @@ code{{font-family:var(--mono);font-size:0.88em}}
   const search = document.getElementById('search');
 
   // Filter state per group
-  const state = {{ family:'all', cad:'all', wolfram:'all', 'has-explorer':'all', q:'' }};
+  const state = {{ completeness:'all', family:'all', cad:'all', wolfram:'all', 'has-explorer':'all', q:'' }};
 
   function applyFilters(){{
     let visible = 0;
@@ -809,6 +992,34 @@ code{{font-family:var(--mono);font-size:0.88em}}
       applyFilters();
     }}, 120);
   }});
+
+  // Sort (default: most complete first)
+  const sortSel = document.getElementById('sort');
+  const titleOf = c => c.querySelector('.card-title').textContent.toLowerCase();
+  function applySort(){{
+    const mode = sortSel ? sortSel.value : 'completeness';
+    cards.slice().sort((a,b) => {{
+      if (mode === 'completeness')
+        return ((b.dataset.score|0) - (a.dataset.score|0)) || titleOf(a).localeCompare(titleOf(b));
+      if (mode === 'family')
+        return (a.dataset.family||'').localeCompare(b.dataset.family||'') || titleOf(a).localeCompare(titleOf(b));
+      return titleOf(a).localeCompare(titleOf(b));
+    }}).forEach(c => grid.appendChild(c));
+  }}
+  if (sortSel) sortSel.addEventListener('change', applySort);
+  applySort();  // apply default sort on load
+}})();
+</script>
+<script>
+(function(){{
+  var KEY='hz-theme';
+  try{{var s=localStorage.getItem(KEY); if(s) document.documentElement.setAttribute('data-theme',s);}}catch(e){{}}
+  var b=document.getElementById('theme-toggle');
+  if(b) b.addEventListener('click',function(){{
+    var dark=document.documentElement.getAttribute('data-theme')!=='dark';
+    if(dark) document.documentElement.setAttribute('data-theme','dark'); else document.documentElement.removeAttribute('data-theme');
+    try{{localStorage.setItem(KEY,dark?'dark':'');}}catch(e){{}}
+  }});
 }})();
 </script>
 
@@ -832,13 +1043,28 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--output-data", type=Path,
                    default=SHOWCASE_DIR / "data" / "library-manifest.json",
                    help="Where to write the library-manifest.json")
+    p.add_argument("--base-url", default="",
+                   help="If set (e.g. https://tonykoop.github.io), emit absolute "
+                        "GitHub Pages URLs instead of local ../../../ paths.")
+    p.add_argument("--published", default="",
+                   help="Comma-separated slugs OR a path to a newline-delimited file "
+                        "listing repos that are public + Pages-live. With --base-url, "
+                        "only these get live links/images; others render as text cards.")
     args = p.parse_args(argv)
+
+    published: "frozenset[str]" = frozenset()
+    if args.published:
+        pub_path = Path(args.published)
+        if pub_path.is_file():
+            published = frozenset(s.strip() for s in pub_path.read_text().split() if s.strip())
+        else:
+            published = frozenset(s.strip() for s in args.published.split(",") if s.strip())
 
     if not args.workspace.is_dir():
         print(f"workspace not a directory: {args.workspace}", file=sys.stderr)
         return 2
 
-    entries = scan_workspace(args.workspace)
+    entries = scan_workspace(args.workspace, base_url=args.base_url, published=published)
     if not entries:
         print("No instrument repos found in workspace", file=sys.stderr)
         return 1
@@ -858,6 +1084,12 @@ def main(argv: list[str] | None = None) -> int:
     # site/library.html
     args.output_html.parent.mkdir(parents=True, exist_ok=True)
     html_out = render_library_html(entries, generated_at)
+    if args.base_url:
+        # Belt-and-suspenders: hide any hero image that fails to load (e.g. a
+        # repo whose Pages went live but whose hero render isn't committed yet).
+        fallback = ("<script>document.querySelectorAll('img').forEach(function(im){"
+                    "im.addEventListener('error',function(){this.style.display='none'});});</script>\n")
+        html_out = html_out.replace("</body>", fallback + "</body>", 1)
     args.output_html.write_text(html_out, encoding="utf-8")
 
     # Summary
@@ -865,8 +1097,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"                  wrote {args.output_data}")
     print(f"  entries          : {len(entries)}")
     print(f"  with explorer    : {sum(1 for e in entries if e.has_explorer)}")
-    print(f"  wolfram live     : {sum(1 for e in entries if e.wolfram_state == 'live')}")
-    print(f"  cad inlined      : {sum(1 for e in entries if e.cad == 'inline-glb')}")
+    print(f"  published live   : {sum(1 for e in entries if e.slug in published)}")
     print(f"  awaiting explorer: {sum(1 for e in entries if not e.has_explorer)}")
     return 0
 
