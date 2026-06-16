@@ -91,6 +91,40 @@ The source manifest lives in `data/deliverables-manifest.json`. Keep readiness a
 runtime evidence honest: Wolfram outputs and showcase HTML are review artifacts, not
 fabrication authority.
 
+## Publishing the public library (one command)
+
+`scripts/publish.sh` is the WSL/Linux one-command publisher (a bash port of the
+Windows `scripts/publish.ps1`, issue #22). It regenerates the public instrument
+library and pushes the refreshed `library.html` live to
+`https://tonykoop.github.io/library.html`.
+
+One-time setup:
+
+1. Install the GitHub CLI — `sudo apt install gh` on Ubuntu/WSL, or https://cli.github.com.
+2. `gh auth login`.
+
+Routine refresh (safe — never changes repo visibility):
+
+```bash
+./scripts/publish.sh
+```
+
+First-time publish (opt-in; flips every repo listed in `scripts/published.txt` to
+public and enables GitHub Pages on it):
+
+```bash
+./scripts/publish.sh --make-public
+```
+
+Other flags: `--workspace <dir>` (where the per-instrument repos are cloned;
+defaults to `~/Documents/GitHub`), `--base-url <url>`, and `--dry-run` to preview
+without changing anything.
+
+The build runs locally where the private repos are cloned and only the rendered
+`library.html` is pushed, so no private-repo credentials ever live in CI. The
+heavier one-command pieces — the self-contained `/docs` bundle (#20) and the
+image-optimization pass (#21) — hook into `scripts/build.sh` once they land.
+
 ## The Heifer Zephyr brand
 
 The brand identity lives in `brand/`:
