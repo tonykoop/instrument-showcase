@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-05-31T22:16:38Z",
+  "generated_at": "2026-06-16T07:25:06Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -26,7 +26,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "aeolian-harp-pillar",
@@ -47,7 +52,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "andean-duct-flutes",
@@ -67,8 +77,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/andean-duct-flutes/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "array-mbira",
@@ -89,7 +104,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../idiophones/array-mbira/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "ashiko-drum-workshop",
@@ -109,8 +129,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "../../../percussion/ashiko-drum-workshop/images/01-early-build.jpg",
-      "has_hero": true
+      "hero_image_path": "../../../percussion/ashiko-drum-workshop/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "autoharp-inspired",
@@ -131,7 +156,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../strings/autoharp-inspired/images/reference-oscar-schmidt-style.jpg",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "barrel-organ",
@@ -151,8 +181,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/barrel-organ/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "bass-surface-drum",
@@ -172,8 +207,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/bass-surface-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "bell-stack-chord-horn",
@@ -194,7 +234,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/bell-stack-chord-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "bowed-dish",
@@ -215,7 +260,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../idiophones/bowed-dish/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "bowed-frame-drum",
@@ -235,8 +285,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/bowed-frame-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "bowed-metal-psaltery",
@@ -257,7 +312,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "bowed-sheet-metal-sarod",
@@ -278,7 +338,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "branching-multibell-horn",
@@ -299,7 +364,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/branching-multibell-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "brass-marine-reed-horn",
@@ -320,7 +390,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/brass-marine-reed-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "brian-boru-harp-replica",
@@ -341,7 +416,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../strings/brian-boru-harp-replica/images/20191125_103813.jpg",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "bugle-sheetmetal",
@@ -362,7 +442,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/bugle-sheetmetal/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "cajon",
@@ -382,8 +467,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/cajon/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "carillon",
@@ -404,7 +494,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../idiophones/carillon/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "celesta",
@@ -425,7 +520,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../idiophones/celesta/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "centaur-duet-horn",
@@ -446,7 +546,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/centaur-duet-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "ceramic-electric-violin",
@@ -467,7 +572,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "ceramic-hang",
@@ -488,7 +598,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "../../../idiophones/ceramic-hang/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "ceramic-tongue-drum",
@@ -509,7 +624,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "../../../idiophones/ceramic-tongue-drum/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "chalumeau",
@@ -534,8 +654,13 @@
         "optional two-key handmade keywork"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/chalumeau/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "chromatic-25-tongue-drum",
@@ -555,8 +680,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/chromatic-25-tongue-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "clarinet",
@@ -580,8 +710,13 @@
         "clarinet-family measurement scaffold"
       ],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/clarinet/images/Screenshot -bill-of-materials-inspiration.png",
-      "has_hero": true
+      "hero_image_path": "../../../woodwind/clarinet/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "clavichord",
@@ -602,7 +737,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "cnc-guitar-bodies",
@@ -623,7 +763,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "compact-drum-kit",
@@ -643,8 +788,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/compact-drum-kit/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "conga",
@@ -664,8 +814,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/conga/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "cornet-sheetmetal",
@@ -686,7 +841,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/cornet-sheetmetal/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "cristal-baschet",
@@ -706,8 +866,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/cristal-baschet/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "daxophone",
@@ -727,8 +892,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/daxophone/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "didgeridoo",
@@ -753,8 +923,13 @@
         "open-foot wind instrument"
       ],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/didgeridoo/images/00-hero-didgeridoo.jpg",
-      "has_hero": true
+      "hero_image_path": "../../../woodwind/didgeridoo/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "disc-trumpet",
@@ -775,7 +950,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/disc-trumpet/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "djembe",
@@ -799,8 +979,13 @@
         "membrane percussion"
       ],
       "has_manifest": true,
-      "hero_image_path": "../../../percussion/djembe/images/00-hero-three-djembes.jpg",
-      "has_hero": true
+      "hero_image_path": "../../../percussion/djembe/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "drone-flutes",
@@ -820,8 +1005,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/drone-flutes/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "dual-bell-phasing-horn",
@@ -842,7 +1032,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/dual-bell-phasing-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "duduk",
@@ -868,8 +1063,13 @@
         "double reed woodwind"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/duduk/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "dundun",
@@ -893,8 +1093,13 @@
         "doundounba"
       ],
       "has_manifest": true,
-      "hero_image_path": "../../../percussion/dundun/images/00-hero-dundun.jpg",
-      "has_hero": true
+      "hero_image_path": "../../../percussion/dundun/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "duntong",
@@ -914,8 +1119,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/duntong/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "egyptian-harps",
@@ -936,7 +1146,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "electric-guitar-bodies",
@@ -957,7 +1172,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "electric-violin",
@@ -983,7 +1203,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "erhu",
@@ -1009,7 +1234,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "floor-harp",
@@ -1034,7 +1264,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "flutes",
@@ -1054,8 +1289,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/flutes/images/00-hero-flutes.jpg",
-      "has_hero": true
+      "hero_image_path": "../../../woodwind/flutes/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "folding-travel-resonator-guitar",
@@ -1076,7 +1316,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "frame-drum",
@@ -1096,8 +1341,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/frame-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "fujara",
@@ -1123,7 +1373,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "../../../woodwind/fujara/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "gemshorn",
@@ -1143,8 +1398,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/gemshorn/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "glass-armonica",
@@ -1164,8 +1424,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/glass-armonica/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "glass-harp",
@@ -1185,8 +1450,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/glass-harp/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "glockenspiel",
@@ -1206,8 +1476,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/glockenspiel/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "great-highland-bagpipe",
@@ -1227,8 +1502,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/great-highland-bagpipe/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "guzheng",
@@ -1253,7 +1533,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "haegeum",
@@ -1280,7 +1565,38 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
+    },
+    {
+      "slug": "hammered-dulcimer",
+      "title": "Hammered Dulcimer",
+      "instrument": "Hammered Dulcimer",
+      "family": "string",
+      "acoustic_class": "unclassified",
+      "status": "unknown",
+      "status_label": "Unknown",
+      "explorer_path": "../../../strings/hammered-dulcimer/explorer.html",
+      "has_explorer": true,
+      "cad": "none",
+      "cad_size_bytes": 0,
+      "wolfram_state": "pending",
+      "wolfram_url": "",
+      "wolfram_notebook": "",
+      "family_count": 0,
+      "family_members": [],
+      "has_manifest": false,
+      "hero_image_path": "",
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "handpan",
@@ -1301,7 +1617,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "../../../idiophones/handpan/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "handpan-sheetmetal",
@@ -1321,8 +1642,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/handpan-sheetmetal/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "harpsichord",
@@ -1343,7 +1669,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "hulusi",
@@ -1369,8 +1700,13 @@
         "HUL-G"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/hulusi/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "hurdy-gurdy",
@@ -1391,7 +1727,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "hydraulophone",
@@ -1411,8 +1752,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/hydraulophone/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "inverted-pan-tower",
@@ -1432,8 +1778,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/inverted-pan-tower/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "iris-bell-tonal-horn",
@@ -1454,7 +1805,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/iris-bell-tonal-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "irish-flute",
@@ -1474,8 +1830,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/irish-flute/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "jal-tarang",
@@ -1495,8 +1856,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/jal-tarang/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "kaval-alghosazi-flutes",
@@ -1516,8 +1882,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/kaval-alghosazi-flutes/images/hero.png",
-      "has_hero": true
+      "hero_image_path": "../../../woodwind/kaval-alghosazi-flutes/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "kena",
@@ -1537,8 +1908,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/kena/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "khaen",
@@ -1558,8 +1934,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/khaen/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "konghou",
@@ -1585,7 +1966,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "kora",
@@ -1598,7 +1984,7 @@
       "explorer_path": "../../../strings/kora/explorer.html",
       "has_explorer": true,
       "cad": "inline-glb",
-      "cad_size_bytes": 971736,
+      "cad_size_bytes": 2604200,
       "wolfram_state": "live",
       "wolfram_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-starter.wl",
       "wolfram_notebook": "kora-starter",
@@ -1606,7 +1992,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "lyre",
@@ -1631,7 +2022,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "../../../strings/lyre/images/P-Lyre-Harp-1200x1200-1_1080xinspiration.webp",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "magnetic-chromatic-harp",
@@ -1652,7 +2048,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "marimba",
@@ -1672,8 +2073,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/marimba/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "marimba-piano",
@@ -1693,8 +2099,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/marimba-piano/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "marxophone",
@@ -1715,7 +2126,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "modular-pedestal-drum-stack",
@@ -1735,8 +2151,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/modular-pedestal-drum-stack/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "moseno",
@@ -1756,8 +2177,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/moseno/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "multi-bridge-sheet-zither",
@@ -1778,7 +2204,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "music-box",
@@ -1798,8 +2229,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/music-box/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "musical-saw",
@@ -1819,8 +2255,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/musical-saw/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "mute-tuned-natural-horn",
@@ -1841,7 +2282,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/mute-tuned-natural-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "ngoni",
@@ -1867,7 +2313,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "nyckelharpa",
@@ -1888,7 +2339,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "ocarina",
@@ -1908,8 +2364,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/ocarina/images/exploded-view-concept.png",
-      "has_hero": true
+      "hero_image_path": "../../../woodwind/ocarina/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "octave-doubling-shofar",
@@ -1930,7 +2391,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/octave-doubling-shofar/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "octobass",
@@ -1951,7 +2417,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "pianola",
@@ -1972,7 +2443,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "pipa",
@@ -1997,7 +2473,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "pistalka",
@@ -2017,8 +2498,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/pistalka/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "pitched-bell-cajon",
@@ -2038,8 +2524,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/pitched-bell-cajon/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "pitched-bell-ladder",
@@ -2059,8 +2550,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/pitched-bell-ladder/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "portable-calliope",
@@ -2080,8 +2576,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/portable-calliope/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "portative-organ",
@@ -2101,8 +2602,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/portative-organ/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "rainstick",
@@ -2122,8 +2628,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/rainstick/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "resophonic-bouzouki",
@@ -2144,7 +2655,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sambuca",
@@ -2171,7 +2687,12 @@
       ],
       "has_manifest": true,
       "hero_image_path": "../../../strings/sambuca/images/Sambuca Solidworks equations.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "saxophone-sheetmetal",
@@ -2191,8 +2712,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/saxophone-sheetmetal/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sea-organ",
@@ -2212,8 +2738,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/sea-organ/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "serpent-sheet-metal-packet",
@@ -2234,7 +2765,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/serpent-sheet-metal-packet/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "shakuhachi",
@@ -2254,8 +2790,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/shakuhachi/images/SHK-D4-P1-08-hero.jpg",
-      "has_hero": true
+      "hero_image_path": "../../../woodwind/shakuhachi/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-bass-clarinet",
@@ -2275,8 +2816,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/sheet-metal-bass-clarinet/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-djembe",
@@ -2296,8 +2842,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/sheet-metal-djembe/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-mbira",
@@ -2317,8 +2868,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/sheet-metal-mbira/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-pan-flute",
@@ -2338,8 +2894,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/sheet-metal-pan-flute/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-recorder-quartet",
@@ -2359,8 +2920,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/sheet-metal-recorder-quartet/images/exploded-diagram.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-talking-drum",
@@ -2380,8 +2946,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/sheet-metal-talking-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheet-metal-tin-whistle-set",
@@ -2401,8 +2972,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/sheet-metal-tin-whistle-set/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "sheng",
@@ -2426,8 +3002,13 @@
         "compact stopped-end control"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/sheng/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "siku-zampona",
@@ -2447,8 +3028,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/siku-zampona/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "slide-cornetto",
@@ -2469,7 +3055,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/slide-cornetto/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "solenoid-disc-idiophone",
@@ -2489,8 +3080,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/solenoid-disc-idiophone/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "spiral-chime-tower",
@@ -2510,8 +3106,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/spiral-chime-tower/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "spiral-conch-horn",
@@ -2532,7 +3133,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/spiral-conch-horn/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "spun-aluminum-cello",
@@ -2553,7 +3159,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "stave-lute-oud",
@@ -2574,7 +3185,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "steam-train-whistle",
@@ -2594,8 +3210,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/steam-train-whistle/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "steel-pan",
@@ -2615,8 +3236,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/steel-pan/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "steel-pan-organ",
@@ -2636,8 +3262,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/steel-pan-organ/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "steel-pot-drum",
@@ -2657,8 +3288,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/steel-pot-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "steel-tongue-drum",
@@ -2678,8 +3314,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/steel-tongue-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "sympathetic-sarangi-fiddle",
@@ -2700,7 +3341,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "telescoping-bass-profundo",
@@ -2721,7 +3367,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "timpani-sheetmetal",
@@ -2741,8 +3392,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/timpani-sheetmetal/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "tin-whistle",
@@ -2766,8 +3422,13 @@
         "TW-G5"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../woodwind/tin-whistle/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "tongue-drum",
@@ -2787,8 +3448,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/tongue-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "transverse-flute",
@@ -2809,7 +3475,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "transverse-flute-sheetmetal",
@@ -2830,7 +3501,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     },
     {
       "slug": "triple-cone-slide-guitar",
@@ -2851,7 +3527,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "tromba-marina",
@@ -2872,7 +3553,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "trombone-sheetmetal",
@@ -2893,7 +3579,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/trombone-sheetmetal/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "trumpet-sheetmetal",
@@ -2914,7 +3605,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "../../../brass/trumpet-sheetmetal/images/hero-render.png",
-      "has_hero": true
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "tubular-bells",
@@ -2934,8 +3630,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/tubular-bells/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "tunable-snare-frame-array",
@@ -2955,8 +3656,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../percussion/tunable-snare-frame-array/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "tuned-slit-drum-bank",
@@ -2976,8 +3682,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/tuned-slit-drum-bank/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "udu",
@@ -2997,8 +3708,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../percussion/udu/images/family-overview-concept.png",
-      "has_hero": true
+      "hero_image_path": "../../../percussion/udu/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "ukulele",
@@ -3019,7 +3735,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "vessel-flutes",
@@ -3040,7 +3761,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "waterphone",
@@ -3060,8 +3786,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/waterphone/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "whamola-bass",
@@ -3082,7 +3813,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "wheelharp",
@@ -3103,7 +3839,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "wind-chimes",
@@ -3123,8 +3864,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/wind-chimes/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 1,
+      "completeness_state": "in-progress"
     },
     {
       "slug": "wind-gong-sheetmetal",
@@ -3144,8 +3890,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": false,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/wind-gong-sheetmetal/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "wood-shell-tongue-drum",
@@ -3165,8 +3916,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/wood-shell-tongue-drum/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": false,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "wooden-hang",
@@ -3186,8 +3942,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/wooden-hang/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "xiao",
@@ -3208,7 +3969,12 @@
       "family_members": [],
       "has_manifest": true,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": true,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "xylophone",
@@ -3228,8 +3994,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false
+      "hero_image_path": "../../../idiophones/xylophone/images/hero-render.png",
+      "has_hero": true,
+      "wolfram_live": false,
+      "images_present": true,
+      "viewer_present": true,
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "zephyr-zither",
@@ -3250,7 +4021,12 @@
       "family_members": [],
       "has_manifest": false,
       "hero_image_path": "",
-      "has_hero": false
+      "has_hero": false,
+      "wolfram_live": false,
+      "images_present": false,
+      "viewer_present": false,
+      "completeness_score": 0,
+      "completeness_state": "scaffold"
     }
   ]
 }
