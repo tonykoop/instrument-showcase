@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-06-19T17:43:33Z",
+  "generated_at": "2026-06-19T17:46:22Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -1204,11 +1204,11 @@
       "has_manifest": true,
       "hero_image_path": "",
       "has_hero": false,
-      "wolfram_live": false,
+      "wolfram_live": true,
       "images_present": true,
       "viewer_present": true,
-      "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "erhu",
