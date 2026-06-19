@@ -358,19 +358,65 @@ html{scroll-behavior:smooth}
   background:var(--ink-2);color:var(--paper);border:none;cursor:pointer;font-size:18px;line-height:1;
   box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
 .totop.show{opacity:.92;pointer-events:auto} .totop:hover{background:var(--accent)}
+/* ----- accessibility + lightbox + print ----- */
+.skip-link{position:absolute;left:8px;top:-44px;z-index:60;background:var(--accent);color:#fff;padding:9px 14px;border-radius:8px;transition:top .15s}
+.skip-link:focus{top:8px;color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lb{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(8,10,13,.86);padding:28px}
+.lb.open{display:flex}
+.lb img{max-width:94vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:16px;right:20px;width:42px;height:42px;border:none;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:22px;cursor:pointer}
+.lb-close:hover{background:var(--accent)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:none;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:24px;cursor:pointer}
+.lb-nav:hover{background:var(--accent)} .lb-prev{left:18px} .lb-next{right:18px}
+@media print{.appbar,.toc,.totop,.pager,.icon-btn,.lb{display:none!important}.app{grid-template-columns:1fr;padding:0}section.card{break-inside:avoid;box-shadow:none}}
 </style>"""
 
-THEME_SCRIPT = """<script>
+# Runs in <head> BEFORE first paint so dark-mode users get no white flash,
+# and first-time visitors inherit their OS preference.
+HEAD_THEME_INIT = """<script>
+(function(){var KEY='hz-theme';try{var s=localStorage.getItem(KEY);
+var d=s!==null?s:((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'');
+if(d==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>"""
+
+# Toggle handler + broken-image hiding; runs at end of <body>.
+THEME_TOGGLE = """<script>
 (function(){
-  var KEY='hz-theme';
-  try{var s=localStorage.getItem(KEY); if(s) document.documentElement.setAttribute('data-theme',s);}catch(e){}
-  var b=document.getElementById('theme-toggle');
+  var KEY='hz-theme', b=document.getElementById('theme-toggle');
+  function sync(){ if(b) b.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme')==='dark'); }
+  sync();
   if(b) b.addEventListener('click',function(){
-    var d=document.documentElement.getAttribute('data-theme')==='dark'?'':'dark';
-    if(d) document.documentElement.setAttribute('data-theme','dark'); else document.documentElement.removeAttribute('data-theme');
-    try{localStorage.setItem(KEY,d);}catch(e){}
+    var dark=document.documentElement.getAttribute('data-theme')==='dark';
+    if(dark) document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme','dark');
+    try{localStorage.setItem(KEY,dark?'':'dark');}catch(e){}
+    sync();
   });
   document.querySelectorAll('img').forEach(function(im){im.addEventListener('error',function(){var w=this.closest('.hero-cover,.gallery a');if(w)w.style.display='none';});});
+})();
+</script>"""
+
+# Vanilla, dependency-free gallery lightbox (progressive enhancement: the
+# <a href> still points at the file, so no-JS users get open-in-new-tab).
+LIGHTBOX_SCRIPT = """<script>
+(function(){
+  var thumbs=[].slice.call(document.querySelectorAll('.gallery a'));
+  if(!thumbs.length) return;
+  var lb=document.createElement('div');
+  lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label','Image viewer');
+  lb.innerHTML='<button class="lb-close" aria-label="Close">\\u00d7</button><button class="lb-nav lb-prev" aria-label="Previous">\\u2039</button><img alt=""><button class="lb-nav lb-next" aria-label="Next">\\u203a</button>';
+  document.body.appendChild(lb);
+  var img=lb.querySelector('img'), i=0;
+  function show(n){ i=(n+thumbs.length)%thumbs.length; var a=thumbs[i]; img.src=a.getAttribute('href'); var t=a.querySelector('img'); img.alt=t?t.alt:''; }
+  function open(n){ show(n); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(a,n){ a.addEventListener('click',function(e){ e.preventDefault(); open(n); }); });
+  lb.querySelector('.lb-close').addEventListener('click',close);
+  lb.querySelector('.lb-prev').addEventListener('click',function(e){ e.stopPropagation(); show(i-1); });
+  lb.querySelector('.lb-next').addEventListener('click',function(e){ e.stopPropagation(); show(i+1); });
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close(); else if(e.key==='ArrowLeft') show(i-1); else if(e.key==='ArrowRight') show(i+1); });
 })();
 </script>"""
 
@@ -453,8 +499,10 @@ def render_explorer(d: ExplorerData, prev=None, nxt=None) -> str:
     # I — completeness axis
     if d.gallery:
         cells = "".join(
-            f'<a href="{esc(g)}" target="_blank" rel="noopener"><img src="{esc(g)}" loading="lazy" alt=""></a>'
-            for g in d.gallery)
+            f'<a href="{esc(g)}" target="_blank" rel="noopener">'
+            f'<img src="{esc(g)}" loading="lazy" decoding="async" '
+            f'alt="{esc(d.title)} render {n}"></a>'
+            for n, g in enumerate(d.gallery, 1))
         add("Design", "gallery", "Gallery",
             f'<h2>Concept &amp; Render Gallery</h2><div class="lede">{len(d.gallery)} rendered images from <code>images/</code></div>'
             f'<div class="gallery">{cells}</div>')
@@ -521,10 +569,41 @@ def render_explorer(d: ExplorerData, prev=None, nxt=None) -> str:
     spec_html = "".join(f'<div class="spec"><div class="k">{esc(k)}</div><div class="v">{esc(v)}</div></div>' for k, v in specs)
 
     hero_cover = (
-        f'<div class="hero-cover"><img src="{esc(d.hero_rel)}" alt="{esc(d.title)}"></div>'
+        f'<div class="hero-cover"><img src="{esc(d.hero_rel)}" alt="{esc(d.title)}" '
+        f'loading="eager" decoding="async"></div>'
         if d.hero_rel else
         '<div class="hero-cover"><span class="ph">no hero render yet</span></div>'
     )
+
+    # ---- SEO / social metadata + perf-aware head ----
+    desc = (f"{d.title} - {d.family_label}"
+            + (f" ({d.acoustic_class})" if d.acoustic_class else "")
+            + ". Studio explorer with 3D model, render gallery, live Wolfram acoustic "
+              "model, bill of materials, and release gates, where present.")
+    og_image = f'<meta property="og:image" content="{esc(d.hero_rel)}">' if d.hero_rel else ""
+    tw_card = "summary_large_image" if d.hero_rel else "summary"
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": d.title,
+        "about": d.instrument,
+        "genre": d.family_label,
+        "creator": {"@type": "Brand", "name": "Heifer Zephyr"},
+    }, ensure_ascii=False).replace("<", "\\u003c")
+    head_meta = (
+        f'<meta name="description" content="{esc(desc)}">'
+        f'<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">'
+        f'<meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">'
+        f'<meta property="og:type" content="website">'
+        f'<meta property="og:title" content="{esc(d.title)} · Heifer Zephyr">'
+        f'<meta property="og:description" content="{esc(desc)}">'
+        f'{og_image}'
+        f'<meta name="twitter:card" content="{tw_card}">'
+        f'<script type="application/ld+json">{ld}</script>'
+    )
+    mv_script = ('<script type="module" '
+                 'src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>'
+                 ) if d.glb_rel else ""
 
     return f"""<!doctype html>
 <html lang="en">
@@ -532,10 +611,13 @@ def render_explorer(d: ExplorerData, prev=None, nxt=None) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(d.title)} · Studio Explorer · Heifer Zephyr</title>
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+{head_meta}
+{HEAD_THEME_INIT}
+{mv_script}
 {EXPLORER_CSS}
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="appbar">
   <div class="brand">
     <span class="dot"></span>
@@ -549,7 +631,7 @@ def render_explorer(d: ExplorerData, prev=None, nxt=None) -> str:
     <a href="https://github.com/tonykoop" target="_blank" rel="noopener">GitHub</a>
   </nav>
   <div class="appbar-tools">
-    <button class="icon-btn" id="theme-toggle" title="Toggle light / dark">◐ Theme</button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle light or dark theme" title="Toggle light / dark">◐ Theme</button>
   </div>
 </header>
 
@@ -572,8 +654,8 @@ def render_explorer(d: ExplorerData, prev=None, nxt=None) -> str:
 </section>
 
 <div class="app">
-  <nav class="toc">{toc_block}</nav>
-  <main>
+  <nav class="toc" aria-label="On this page">{toc_block}</nav>
+  <main id="main">
 {chr(10).join(body)}
     {pager}
   </main>
@@ -585,8 +667,9 @@ def render_explorer(d: ExplorerData, prev=None, nxt=None) -> str:
   Generated <time>{generated_at}</time> by <code>generate_explorer_v2.py</code> from this repo's build packet.
   <a href="../../_meta/instrument-showcase/site/library.html">← Back to the Studio Explorers Library</a>
 </footer>
-{THEME_SCRIPT}
+{THEME_TOGGLE}
 {NAV_SCRIPT}
+{LIGHTBOX_SCRIPT}
 </body>
 </html>
 """
