@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tunable Snare Frame Array · Studio Explorer · Heifer Zephyr</title>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+:root{
+  --ink:#15181d; --ink-2:#15181d; --ink-3:#5b626d; --ink-faint:#9aa1ac;
+  --rule:#e3e6ea; --rule-soft:#eef0f3; --rule-strong:#cdd2d9;
+  --paper:#ffffff; --paper-2:#ffffff; --paper-3:#f6f7f9;
+  --accent:#d6562b; --accent-soft:#fbe9e2; --cedar:#5b626d;
+  --gold:#d6562b; --gold-soft:#fbe9e2;
+  --ok:#2f8f5b; --ok-soft:#e3f1ea; --warn:#c79100; --block:#c4453a;
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:var(--ui); --italic-serif:var(--ui);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --radius:12px; --shadow:0 1px 2px rgba(20,24,29,.05),0 4px 16px rgba(20,24,29,.04);
+}
+[data-theme="dark"]{
+  --ink:#e8ecf1; --ink-2:#e8ecf1; --ink-3:#9aa4b2; --ink-faint:#69727f;
+  --rule:#262d37; --rule-soft:#1d232c; --rule-strong:#333c48;
+  --paper:#0e1116; --paper-2:#171d25; --paper-3:#151a21;
+  --accent:#f0794f; --accent-soft:#2a1c16; --cedar:#9aa4b2;
+  --gold:#f0794f; --gold-soft:#2a1c16;
+  --ok:#4fb37e; --ok-soft:#15301f; --warn:#d9b13e; --block:#e0695e;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 18px rgba(0,0,0,.28);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);
+  font-size:14.5px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
+a{color:var(--accent);text-decoration:none} a:hover{color:var(--ink-2)}
+code{font-family:var(--mono);font-size:.86em}
+.appbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 86%,transparent);
+  -webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px);
+  color:var(--ink);border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:12px 26px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .dot{width:11px;height:11px;border-radius:3px;background:var(--accent);transform:rotate(45deg);flex:0 0 auto}
+.wordmark{text-decoration:none;display:inline-flex;align-items:baseline;gap:11px}
+.wordmark:hover em{color:var(--accent)}
+.wordmark em{font-family:var(--italic-serif);font-style:italic;font-size:22px;color:var(--ink);line-height:1;transition:color .12s}
+.instrument-tag{font-family:var(--ui);font-size:13px;color:var(--ink-3);
+  border-left:1px solid var(--rule);padding-left:12px;font-style:normal}
+.appnav{display:flex;gap:3px;justify-self:center}
+.appnav a{font-family:var(--ui);font-size:13px;font-weight:500;color:var(--ink-3);
+  padding:7px 11px;border-radius:8px;transition:background .12s,color .12s}
+.appnav a:hover{background:var(--paper-3);color:var(--ink)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 12px;
+  border-radius:8px;color:var(--ink-3);background:var(--paper-2);border:1px solid var(--rule);
+  cursor:pointer;font-family:var(--ui);font-size:13px}
+.icon-btn:hover{color:var(--accent);border-color:var(--rule-strong)}
+.hero{border-bottom:1px solid var(--rule);background:
+  radial-gradient(900px 360px at 90% -20%,var(--gold-soft) 0%,transparent 60%),
+  radial-gradient(700px 320px at 10% -10%,var(--paper-3) 0%,transparent 65%),var(--paper)}
+.hero-inner{max-width:1320px;margin:0 auto;padding:34px 26px 24px;display:grid;
+  grid-template-columns:1fr 360px;gap:36px;align-items:end}
+@media(max-width:980px){.hero-inner{grid-template-columns:1fr;gap:18px}}
+.eyebrow{font-family:var(--ui);font-weight:600;font-size:11px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.18em;display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.2vw,44px);color:var(--ink);
+  line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}
+.meta-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.pill{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;border:1px solid var(--rule);background:var(--paper-3);color:var(--ink-2)}
+.pill-public{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
+.pill-private{background:var(--gold-soft);color:#7A5814;border-color:var(--gold)}
+.pill-blocked{background:#F5DBD2;color:var(--block);border-color:var(--block)}
+.pill-fam{font-family:var(--mono);letter-spacing:0;text-transform:none}
+.hero p{color:var(--ink-3);max-width:640px;margin:0 0 18px;font-size:15px}
+.hero-cover{aspect-ratio:4/3;background:var(--paper-3);border:1px solid var(--rule);
+  border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-cover .ph{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+/* completeness chips */
+.comp{display:flex;align-items:center;gap:8px;margin-top:4px}
+.comp-state{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:4px 10px;border-radius:11px;border:1px solid var(--rule)}
+.comp-complete{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
+.comp-near{background:var(--gold-soft);color:#7A5814;border-color:var(--gold)}
+.comp-in-progress{background:var(--paper-3);color:var(--ink-3);border-color:var(--ink-3)}
+.comp-scaffold{background:var(--paper);color:var(--ink-3);border:1px dashed var(--rule)}
+.axes{display:inline-flex;gap:3px}
+.ax{font-family:var(--mono);font-size:9.5px;font-weight:700;min-width:20px;text-align:center;padding:3px 4px;border-radius:3px;line-height:1}
+.ax.on{background:var(--ok);color:#fff} .ax.off{background:var(--paper-3);color:var(--ink-3);border:1px solid var(--rule)}
+.specstrip{max-width:1320px;margin:0 auto;padding:0 26px 22px;display:grid;
+  grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule)}
+@media(max-width:680px){.specstrip{grid-template-columns:repeat(3,1fr)}}
+.spec{padding:13px 14px;border-right:1px solid var(--rule)} .spec:last-child{border-right:none}
+.spec .k{font-family:var(--ui);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:5px}
+.spec .v{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);line-height:1.1}
+.app{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:36px;padding:30px 26px 80px}
+@media(max-width:980px){.app{grid-template-columns:1fr}}
+.toc{position:sticky;top:78px;align-self:start;font-family:var(--ui);font-size:13px}
+.toc a{display:block;color:var(--ink-3);padding:5px 10px;border-left:2px solid var(--rule);margin:1px 0}
+.toc a:hover{color:var(--accent);border-left-color:var(--accent)}
+.toc .toc-group{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--cedar);font-weight:700;margin:14px 0 5px 10px}
+section.card{background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);
+  padding:24px 28px;margin:0 0 22px;box-shadow:var(--shadow);scroll-margin-top:78px}
+section.card>h2{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--ink);margin:0 0 4px;letter-spacing:-.01em}
+section.card>.lede{color:var(--ink-3);margin:0 0 16px;font-size:13.5px}
+section.card p{color:var(--ink-2)}
+.mv-wrap,.wolfram-wrap{width:100%;aspect-ratio:16/10;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--paper-3)}
+model-viewer{width:100%;height:100%;background:var(--paper-3)}
+.wolfram-wrap iframe{width:100%;height:100%;border:0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.gallery a{display:block;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--paper-3)}
+.gallery img{width:100%;height:150px;object-fit:cover;display:block;transition:transform .15s}
+.gallery a:hover img{transform:scale(1.03)}
+table.bom{width:100%;border-collapse:collapse;font-size:13px}
+table.bom th,table.bom td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule-soft)}
+table.bom th{font-family:var(--ui);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);background:var(--paper-3)}
+.gates{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.gates li{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--paper-3);font-size:13px}
+.gates .gk{color:var(--ink-3)} .gates .gv{font-weight:600;color:var(--ink)}
+.files{columns:2;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+@media(max-width:680px){.files{columns:1}}
+.empty-axis{padding:14px 16px;border:1px dashed var(--rule);border-radius:var(--radius);color:var(--ink-3);font-size:13px;background:var(--paper-3)}
+footer.foot{max-width:1320px;margin:0 auto;padding:24px 26px 60px;color:var(--ink-3);font-size:12px;font-family:var(--ui)}
+footer.foot a{color:var(--cedar)}
+/* ----- in-page navigation ----- */
+html{scroll-behavior:smooth}
+.breadcrumb{font-family:var(--ui);font-size:12px;color:var(--ink-3);margin-bottom:14px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.breadcrumb a{color:var(--cedar)} .breadcrumb a:hover{color:var(--accent)} .breadcrumb .sep{opacity:.45}
+.toc a.active{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.pager{display:flex;justify-content:space-between;gap:14px;margin:4px 0 0}
+.pager a{flex:1 1 0;min-width:0;padding:13px 16px;border:1px solid var(--rule);border-radius:var(--radius);
+  background:var(--paper-2);color:var(--ink-2);box-shadow:var(--shadow)}
+.pager a:hover{border-color:var(--cedar);color:var(--accent)}
+.pager .prev:only-child{margin-right:auto;max-width:48%} .pager .next:only-child{margin-left:auto;max-width:48%}
+.pager .dir{font-family:var(--ui);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);display:block;margin-bottom:3px}
+.pager .nm{font-family:var(--serif);font-size:15px;font-weight:500;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pager .next{text-align:right}
+.totop{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border-radius:50%;
+  background:var(--ink-2);color:var(--paper);border:none;cursor:pointer;font-size:18px;line-height:1;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+.totop.show{opacity:.92;pointer-events:auto} .totop:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <a class="wordmark" href="../../../index.html" title="Back to the library"><em>Heifer Zephyr</em></a>
+    <span class="instrument-tag">Tunable Snare Frame Array</span>
+  </div>
+  <nav class="appnav">
+    <a href="../../../index.html">Library</a>
+    <a href="../../../index.html">Deliverables</a>
+    <a href="../../../index.html">Manifest</a>
+    <a href="https://github.com/tonykoop" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+  <div class="appbar-tools">
+    <button class="icon-btn" id="theme-toggle" title="Toggle light / dark">◐ Theme</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <nav class="breadcrumb"><a href="../../../index.html">Library</a><span class="sep">›</span><span>Percussion</span><span class="sep">›</span><span>Tunable Snare Frame Array</span></nav>
+      <span class="eyebrow">Percussion · snare-membrane</span>
+      <h1>Tunable Snare Frame Array</h1>
+      <div class="meta-line">
+        <span class="pill pill-unknown">Unknown</span>
+        <span class="pill pill-fam">tunable-snare-frame-array</span>
+      </div>
+      <div class="comp" title="Explorer completeness (#31): W live Wolfram · I rendered images · 3D model-viewer"><span class="comp-state comp-near">Near</span><span class="axes"><b class="ax on">W</b><b class="ax on">I</b><b class="ax off">3D</b></span></div>
+      <p>Tunable Snare Frame Array — studio explorer generated from the build packet: 3D model, render gallery, live Wolfram acoustic model, bill of materials, and release gates, where each is present.</p>
+    </div>
+    <div class="hero-cover"><img src="images/hero-render.png" alt="Tunable Snare Frame Array"></div>
+  </div>
+  <div class="specstrip"><div class="spec"><div class="k">Family</div><div class="v">Percussion</div></div><div class="spec"><div class="k">Acoustic class</div><div class="v">snare-membrane</div></div><div class="spec"><div class="k">Status</div><div class="v">Unknown</div></div><div class="spec"><div class="k">Variants</div><div class="v">1</div></div><div class="spec"><div class="k">Wolfram</div><div class="v">live</div></div><div class="spec"><div class="k">CAD</div><div class="v">none</div></div></div>
+</section>
+
+<div class="app">
+  <nav class="toc"><div class="toc-group">Project</div>
+<a href="#overview">Overview</a>
+<div class="toc-group">Design</div>
+<a href="#gallery">Gallery</a>
+<div class="toc-group">Build</div>
+<a href="#bom">Bill of Materials</a>
+<div class="toc-group">Validate</div>
+<a href="#wolfram">Run It · Wolfram</a>
+<a href="#next">To reach Complete</a></nav>
+  <main>
+<section class="card" id="overview"><h2>Overview</h2><div class="lede">From <code>design.md</code></div><p>&lt;!-- SPDX-License-Identifier: CC-BY-4.0 --&gt;</p></section>
+<section class="card" id="gallery"><h2>Concept &amp; Render Gallery</h2><div class="lede">3 rendered images from <code>images/</code></div><div class="gallery"><a href="images/exploded-diagram.png" target="_blank" rel="noopener"><img src="images/exploded-diagram.png" loading="lazy" alt=""></a><a href="images/hero-render.png" target="_blank" rel="noopener"><img src="images/hero-render.png" loading="lazy" alt=""></a><a href="images/macro/tension-snare-hardware.png" target="_blank" rel="noopener"><img src="images/macro/tension-snare-hardware.png" loading="lazy" alt=""></a></div></section>
+<section class="card" id="bom"><h2>Bill of Materials</h2><div class="lede">From <code>bom.csv</code> (first 14 rows)</div><table class="bom"><thead><tr><th># SPDX-License-Identifier: CERN-OHL-W-2.0</th></tr></thead><tbody><tr><td>part_no</td><td>item</td><td>category</td><td>qty</td><td>unit</td><td>required_spec</td><td>estimated_cost_usd</td><td>source_status</td><td>notes</td></tr><tr><td>BOM-001</td><td>CRS sheet 1.0mm</td><td>raw_material</td><td>1</td><td>sheet</td><td>300x900mm 20-gauge cold-rolled steel</td><td>8.00</td><td>stock</td><td>Covers all 3 shell blanks with nesting</td></tr><tr><td>BOM-002</td><td>CRS sheet 1.5mm</td><td>raw_material</td><td>1</td><td>sheet</td><td>500x500mm 16-gauge cold-rolled steel</td><td>5.00</td><td>stock</td><td>Frame + lug ears</td></tr><tr><td>BOM-003</td><td>Remo Ambassador head 10-inch</td><td>bought_component</td><td>1</td><td>each</td><td>Clear batter head 10in standard</td><td>18.00</td><td>buy_needed</td><td>Remo P3-1310-C2 or equivalent</td></tr><tr><td>BOM-004</td><td>Remo Ambassador head 8-inch</td><td>bought_component</td><td>1</td><td>each</td><td>Clear batter head 8in standard</td><td>14.00</td><td>buy_needed</td><td>Remo P3-1308-C2 or equivalent</td></tr><tr><td>BOM-005</td><td>Remo Ambassador head 6-inch</td><td>bought_component</td><td>1</td><td>each</td><td>Clear batter head 6in standard</td><td>10.00</td><td>buy_needed</td><td>Remo P3-1306-C2 or equivalent</td></tr><tr><td>BOM-006</td><td>Counter-hoop 10-inch</td><td>bought_component</td><td>1</td><td>each</td><td>Standard 10in triple-flange hoop</td><td>12.00</td><td>buy_needed</td><td>Match head diameter</td></tr><tr><td>BOM-007</td><td>Counter-hoop 8-inch</td><td>bought_component</td><td>1</td><td>each</td><td>Standard 8in triple-flange hoop</td><td>10.00</td><td>buy_needed</td><td>Match head diameter</td></tr><tr><td>BOM-008</td><td>Counter-hoop 6-inch</td><td>bought_component</td><td>1</td><td>each</td><td>Standard 6in triple-flange hoop</td><td>8.00</td><td>buy_needed</td><td>Match head diameter</td></tr><tr><td>BOM-009</td><td>Drum lugs 8-32 or M5</td><td>bought_component</td><td>16</td><td>each</td><td>Standard tension-claw drum lug 8-32 thread</td><td>32.00</td><td>buy_needed</td><td>6 for 10in + 6 for 8in + 4 for 6in</td></tr><tr><td>BOM-010</td><td>Tension rods 8-32</td><td>bought_component</td><td>16</td><td>each</td><td>35-40mm 8-32 tension rods with washer</td><td>8.00</td><td>buy_needed</td><td>Standard drum hardware</td></tr><tr><td>BOM-011</td><td>Snare wire 12-strand</td><td>bought_component</td><td>1</td><td>each</td><td>12-strand 10in snare wire with thumb-wheel</td><td>9.00</td><td>buy_needed</td><td>For Shell A (10in)</td></tr><tr><td>BOM-012</td><td>Snare wire 10-strand</td><td>bought_component</td><td>1</td><td>each</td><td>10-strand 8in snare wire with thumb-wheel</td><td>8.00</td><td>buy_needed</td><td>For Shell B (8in)</td></tr><tr><td>BOM-013</td><td>Snare wire 8-strand</td><td>bought_component</td><td>1</td><td>each</td><td>8-strand 6in snare wire with thumb-wheel</td><td>7.00</td><td>buy_needed</td><td>For Shell C (6in)</td></tr></tbody></table></section>
+<section class="card" id="wolfram"><h2>Run It — Wolfram Cloud</h2><div class="lede">Live Public-Execute acoustic model.</div><div class="wolfram-wrap"><iframe src="https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/percussion/tunable-snare-frame-array/tunable-snare-frame-array-starter.wl" loading="lazy" title="Tunable Snare Frame Array Wolfram model"></iframe></div><p style="margin-top:10px"><a href="https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/percussion/tunable-snare-frame-array/tunable-snare-frame-array-starter.wl" target="_blank" rel="noopener">Open notebook ↗</a></p></section>
+<section class="card" id="next"><h2>To reach Complete</h2><div class="empty-axis">This explorer is <b>Near</b>. Add a 3D model-viewer (3D) to complete the Percussion family tracker (#31).</div></section>
+    <nav class="pager"><a class="prev" href="../timpani-sheetmetal/explorer.html"><span class="dir">← Previous</span><span class="nm">Timpani Sheetmetal</span></a><a class="next" href="../udu/explorer.html"><span class="dir">Next →</span><span class="nm">Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness</span></a></nav>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Back to top" aria-label="Back to top">↑</button>
+
+<footer class="foot">
+  Generated <time>2026-06-19T17:36:17Z</time> by <code>generate_explorer_v2.py</code> from this repo's build packet.
+  <a href="../../../index.html">← Back to the Studio Explorers Library</a>
+</footer>
+<script>
+(function(){
+  var KEY='hz-theme';
+  try{var s=localStorage.getItem(KEY); if(s) document.documentElement.setAttribute('data-theme',s);}catch(e){}
+  var b=document.getElementById('theme-toggle');
+  if(b) b.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark'?'':'dark';
+    if(d) document.documentElement.setAttribute('data-theme','dark'); else document.documentElement.removeAttribute('data-theme');
+    try{localStorage.setItem(KEY,d);}catch(e){}
+  });
+  document.querySelectorAll('img').forEach(function(im){im.addEventListener('error',function(){var w=this.closest('.hero-cover,.gallery a');if(w)w.style.display='none';});});
+})();
+</script>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a')), map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var secs=[].slice.call(document.querySelectorAll('main section[id]'));
+  if('IntersectionObserver' in window && secs.length){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){
+        links.forEach(function(l){l.classList.remove('active');});
+        var a=map[e.target.id]; if(a) a.classList.add('active');
+      }});
+    },{rootMargin:'-40% 0px -55% 0px',threshold:0});
+    secs.forEach(function(s){obs.observe(s);});
+  }
+  var t=document.getElementById('totop');
+  if(t){
+    window.addEventListener('scroll',function(){t.classList.toggle('show',window.scrollY>520);},{passive:true});
+    t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
+</body>
+</html>
