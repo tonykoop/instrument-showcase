@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-06-19T18:25:58Z",
+  "generated_at": "2026-06-19T18:27:59Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -313,11 +313,11 @@
       "has_manifest": false,
       "hero_image_path": "",
       "has_hero": false,
-      "wolfram_live": false,
+      "wolfram_live": true,
       "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "bowed-sheet-metal-sarod",
