@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-06-19T18:03:16Z",
+  "generated_at": "2026-06-19T18:05:19Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -1374,11 +1374,11 @@
       "has_manifest": true,
       "hero_image_path": "../../../woodwind/fujara/images/hero-render.png",
       "has_hero": true,
-      "wolfram_live": false,
+      "wolfram_live": true,
       "images_present": true,
       "viewer_present": true,
-      "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_score": 3,
+      "completeness_state": "complete"
     },
     {
       "slug": "gemshorn",
