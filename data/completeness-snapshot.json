@@ -1,0 +1,1092 @@
+{
+  "generated_at": "2026-06-21",
+  "families": {
+    "strings": {
+      "total": 43,
+      "complete": 1,
+      "rows": [
+        {
+          "slug": "acoustic-violin",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "aeolian-harp-pillar",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "autoharp-inspired",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "bowed-metal-psaltery",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "bowed-sheet-metal-sarod",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "brian-boru-harp-replica",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "ceramic-electric-violin",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "clavichord",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "cnc-guitar-bodies",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "egyptian-harps",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "electric-guitar-bodies",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "electric-violin",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "erhu",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "floor-harp",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "folding-travel-resonator-guitar",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "guzheng",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "haegeum",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "hammered-dulcimer",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "harpsichord",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "hurdy-gurdy",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "konghou",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "kora",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "lyre",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "magnetic-chromatic-harp",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "marxophone",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "multi-bridge-sheet-zither",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "ngoni",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "nyckelharpa",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "octobass",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "pianola",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "pipa",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "resophonic-bouzouki",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sambuca",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "spun-aluminum-cello",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "stave-lute-oud",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "sympathetic-sarangi-fiddle",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "telescoping-bass-profundo",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "triple-cone-slide-guitar",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "tromba-marina",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "ukulele",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "whamola-bass",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "wheelharp",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "zephyr-zither",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        }
+      ]
+    },
+    "woodwind": {
+      "total": 37,
+      "complete": 12,
+      "rows": [
+        {
+          "slug": "andean-duct-flutes",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "barrel-organ",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "chalumeau",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "clarinet",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "didgeridoo",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "drone-flutes",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "duduk",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "flutes",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "fujara",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "gemshorn",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "great-highland-bagpipe",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "hulusi",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "hydraulophone",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "irish-flute",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "kaval-alghosazi-flutes",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "kena",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "khaen",
+          "wolfram": false,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "moseno",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "ocarina",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "pistalka",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "portable-calliope",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "portative-organ",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "saxophone-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sea-organ",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "shakuhachi",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-bass-clarinet",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-pan-flute",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-recorder-quartet",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-tin-whistle-set",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheng",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "siku-zampona",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "steam-train-whistle",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "tin-whistle",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "transverse-flute",
+          "wolfram": true,
+          "images": false,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "transverse-flute-sheetmetal",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "vessel-flutes",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "xiao",
+          "wolfram": true,
+          "images": false,
+          "model3d": false,
+          "has_explorer": true
+        }
+      ]
+    },
+    "idiophones": {
+      "total": 38,
+      "complete": 6,
+      "rows": [
+        {
+          "slug": "array-mbira",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "bowed-dish",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "carillon",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "celesta",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "ceramic-hang",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "ceramic-tongue-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "chromatic-25-tongue-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "cristal-baschet",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "daxophone",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "glass-armonica",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "glass-harp",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "glockenspiel",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "handpan",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "handpan-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "inverted-pan-tower",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "jal-tarang",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "marimba",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "marimba-piano",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "music-box",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "musical-saw",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "pitched-bell-ladder",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "rainstick",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-mbira",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "solenoid-disc-idiophone",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "spiral-chime-tower",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "steel-pan",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "steel-pan-organ",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "steel-pot-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "steel-tongue-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "tongue-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "tubular-bells",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "tuned-slit-drum-bank",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "waterphone",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "wind-chimes",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "wind-gong-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "wood-shell-tongue-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "wooden-hang",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "xylophone",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        }
+      ]
+    },
+    "percussion": {
+      "total": 17,
+      "complete": 8,
+      "rows": [
+        {
+          "slug": "ashiko-drum-workshop",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "bass-surface-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "bowed-frame-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "cajon",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "compact-drum-kit",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "conga",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "djembe",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "dundun",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "duntong",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "frame-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        },
+        {
+          "slug": "modular-pedestal-drum-stack",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "pitched-bell-cajon",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-djembe",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "sheet-metal-talking-drum",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "timpani-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "tunable-snare-frame-array",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "udu",
+          "wolfram": true,
+          "images": true,
+          "model3d": true,
+          "has_explorer": true
+        }
+      ]
+    },
+    "brass": {
+      "total": 16,
+      "complete": 0,
+      "rows": [
+        {
+          "slug": "bell-stack-chord-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "branching-multibell-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "brass-marine-reed-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "bugle-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "centaur-duet-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "cornet-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "disc-trumpet",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "dual-bell-phasing-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "iris-bell-tonal-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "mute-tuned-natural-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "octave-doubling-shofar",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "serpent-sheet-metal-packet",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "slide-cornetto",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "spiral-conch-horn",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "trombone-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        },
+        {
+          "slug": "trumpet-sheetmetal",
+          "wolfram": true,
+          "images": true,
+          "model3d": false,
+          "has_explorer": true
+        }
+      ]
+    }
+  }
+}
