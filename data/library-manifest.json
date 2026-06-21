@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-06-21T08:44:57Z",
+  "generated_at": "2026-06-21T08:56:15Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -2925,7 +2925,7 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../woodwind/sheet-metal-recorder-quartet/images/exploded-diagram.png",
+      "hero_image_path": "../../../woodwind/sheet-metal-recorder-quartet/images/hero-render.png",
       "has_hero": true,
       "wolfram_live": true,
       "images_present": true,
@@ -3479,13 +3479,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../woodwind/transverse-flute/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "transverse-flute-sheetmetal",
@@ -3505,13 +3505,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../woodwind/transverse-flute-sheetmetal/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "triple-cone-slide-guitar",
@@ -3765,13 +3765,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../woodwind/vessel-flutes/images/family-group.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "waterphone",
@@ -3973,13 +3973,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../woodwind/xiao/images/family-group.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "xylophone",
