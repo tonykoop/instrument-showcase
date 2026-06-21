@@ -1,6 +1,6 @@
 {
   "schema": "instrument-showcase-library-manifest-v1",
-  "generated_at": "2026-06-21T08:56:15Z",
+  "generated_at": "2026-06-21T09:40:49Z",
   "workspace": "/mnt/c/Users/Tony/Documents/GitHub",
   "entries": [
     {
@@ -28,10 +28,10 @@
       "hero_image_path": "",
       "has_hero": false,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "aeolian-harp-pillar",
@@ -51,13 +51,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/aeolian-harp-pillar/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "andean-duct-flutes",
@@ -160,13 +160,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../strings/autoharp-inspired/images/reference-oscar-schmidt-style.jpg",
+      "hero_image_path": "../../../strings/autoharp-inspired/images/hero-render.png",
       "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "barrel-organ",
@@ -342,13 +342,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/bowed-sheet-metal-sarod/images/exploded-diagram.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "branching-multibell-horn",
@@ -420,13 +420,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "../../../strings/brian-boru-harp-replica/images/20191125_103813.jpg",
+      "hero_image_path": "../../../strings/brian-boru-harp-replica/images/hero-render.png",
       "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "bugle-sheetmetal",
@@ -576,13 +576,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/ceramic-electric-violin/images/exploded-diagram.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "ceramic-hang",
@@ -741,13 +741,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/clavichord/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "cnc-guitar-bodies",
@@ -770,10 +770,10 @@
       "hero_image_path": "",
       "has_hero": false,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "compact-drum-kit",
@@ -1150,13 +1150,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/egyptian-harps/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "electric-guitar-bodies",
@@ -1176,13 +1176,13 @@
       "family_count": 0,
       "family_members": [],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/electric-guitar-bodies/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "electric-violin",
@@ -1207,13 +1207,13 @@
         "optional 5-string violin"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/electric-violin/images/exploded-diagram.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "erhu",
@@ -1238,13 +1238,13 @@
         "bowed string"
       ],
       "has_manifest": true,
-      "hero_image_path": "",
-      "has_hero": false,
+      "hero_image_path": "../../../strings/erhu/images/hero-render.png",
+      "has_hero": true,
       "wolfram_live": true,
-      "images_present": false,
+      "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "floor-harp",
@@ -1609,8 +1609,8 @@
       "instrument": "Handpan",
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "unknown",
+      "status_label": "V5 Planning Packet; Shell/Tuner Path Decided; Awaiting First Physical Shell",
       "explorer_path": "../../../idiophones/handpan/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1941,11 +1941,11 @@
       "has_manifest": true,
       "hero_image_path": "../../../woodwind/khaen/images/hero-render.png",
       "has_hero": true,
-      "wolfram_live": false,
+      "wolfram_live": true,
       "images_present": true,
       "viewer_present": false,
-      "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_score": 2,
+      "completeness_state": "near"
     },
     {
       "slug": "konghou",
