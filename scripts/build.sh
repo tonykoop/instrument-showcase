@@ -35,13 +35,16 @@ else
 fi
 
 if [[ "$SKIP_BUNDLE" -eq 1 ]]; then
-  echo "==> [3/4] skipping /docs pages bundle (pass --skip-bundle to confirm)"
+  echo "==> [3/5] skipping /docs pages bundle (--skip-bundle set)"
+  echo "==> [4/5] skipping image QA gate (no bundle built)"
 else
-  echo "==> [3/4] building self-contained /docs pages bundle (#20/#21)"
+  echo "==> [3/5] building self-contained /docs pages bundle (#20/#21)"
   python3 scripts/build_pages.py
+  echo "==> [4/5] image QA gate: duplicates + blanks + bad-aspect check (#25)"
+  python3 scripts/qa_images.py
 fi
 
-echo "==> [4/4] pre-publish health check"
+echo "==> [5/5] pre-publish health check"
 python3 scripts/check_site.py
 
 echo "==> build complete"

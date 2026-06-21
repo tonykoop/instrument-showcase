@@ -91,8 +91,9 @@ if [[ "$DRY_RUN" -eq 0 ]]; then
   fi
 fi
 
-echo "== Step 4: build self-contained /docs bundle (#20/#21) + commit + push =="
+echo "== Step 4: build self-contained /docs bundle (#20/#21) + image QA gate (#25) =="
 run "$PY" "$SHOWCASE/scripts/build_pages.py"
+run "$PY" "$SHOWCASE/scripts/qa_images.py"
 if [[ "$DRY_RUN" -eq 0 ]]; then
   git -C "$SHOWCASE" add docs/
   if git -C "$SHOWCASE" diff --cached --quiet; then
