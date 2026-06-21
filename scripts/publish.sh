@@ -91,5 +91,17 @@ if [[ "$DRY_RUN" -eq 0 ]]; then
   fi
 fi
 
+echo "== Step 4: build self-contained /docs bundle (#20/#21) + commit + push =="
+run "$PY" "$SHOWCASE/scripts/build_pages.py"
+if [[ "$DRY_RUN" -eq 0 ]]; then
+  git -C "$SHOWCASE" add docs/
+  if git -C "$SHOWCASE" diff --cached --quiet; then
+    echo "  /docs unchanged — nothing to push."
+  else
+    git -C "$SHOWCASE" commit -m "Refresh /docs Pages bundle ($(date -u +%Y-%m-%d))"
+    git -C "$SHOWCASE" push
+  fi
+fi
+
 echo ""
-echo "Done. Live at $BASE_URL/library.html in about a minute."
+echo "Done. instrument-showcase Pages at $BASE_URL/instrument-showcase/ in about a minute."

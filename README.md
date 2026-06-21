@@ -120,10 +120,11 @@ Other flags: `--workspace <dir>` (where the per-instrument repos are cloned;
 defaults to `~/Documents/GitHub`), `--base-url <url>`, and `--dry-run` to preview
 without changing anything.
 
-The build runs locally where the private repos are cloned and only the rendered
-`library.html` is pushed, so no private-repo credentials ever live in CI. The
-heavier one-command pieces — the self-contained `/docs` bundle (#20) and the
-image-optimization pass (#21) — hook into `scripts/build.sh` once they land.
+The build runs locally where the private repos are cloned and only the built
+artifacts are pushed, so no private-repo credentials ever live in CI. Step 4
+calls `scripts/build_pages.py` to assemble the self-contained `/docs` bundle
+(#20/#21) — optimizing images and rewriting cross-repo links — then commits
+and pushes `/docs` to trigger the Pages deployment.
 
 ## The Heifer Zephyr brand
 
