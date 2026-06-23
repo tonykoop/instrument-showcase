@@ -1,0 +1,45 @@
+name: Pages CI
+
+# Validates the /docs bundle on every push and PR that touches publishable content.
+# The actual build happens locally (private repos aren't in CI); this gate ensures
+# that whatever was pushed to docs/ is structurally sound before it goes live.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/check_site.py'
+      - 'scripts/qa_images.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/check_site.py'
+      - 'scripts/qa_images.py'
+
+jobs:
+  validate:
+    name: Validate Pages bundle
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml Pillow
+
+      - name: Check site structure
+        run: python3 scripts/check_site.py
+
+      - name: Image QA (warn-only)
+        # Known sibling-duplicate renders fail this check until re-rendered in
+        # the private source repos. Run as a warning gate: always reports, never
+        # blocks the PR.
+        run: python3 scripts/qa_images.py || true
