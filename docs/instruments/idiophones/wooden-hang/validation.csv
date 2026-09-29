@@ -1,0 +1,11 @@
+build_id,stage,date,species_or_laminate,moisture_content_pct,field_id,target_note,target_freq_hz,field_major_in,field_minor_in,local_thickness_in,gu_diameter_in,measured_freq_hz,cents_error,decay_sec,cross_talk_note,body_mode_hz,action,result,notes
+WHG-P0,raw_coupon,2026-05-06,hard maple long grain,8.0,Coupon-A,G4,392.00,2.50,1.60,0.240,0.00,, , ,none,,Cut baseline coupon set,pending,Measure free ring before backing cavity
+WHG-P0,raw_coupon,2026-05-06,birch laminate cross ply,8.0,Coupon-B,G4,392.00,2.50,1.60,0.240,0.00,, , ,none,,Compare laminate stability,pending,Use identical geometry against Coupon-A
+WHG-P0,sealed_coupon,2026-05-06,hard maple long grain,8.0,Coupon-C,C5,523.25,2.10,1.40,0.220,0.00,, , ,none,,Check finish damping shift,pending,Apply light shellac to half only
+WHG-P1,assembled_rig,2026-05-06,maple top plus maple bowl,8.0,Ding,G3,196.00,3.90,3.10,0.280,2.75,, , ,none,,Measure first field over cavity,pending,Record unsupported and mounted values
+WHG-P1,assembled_rig,2026-05-06,maple top plus maple bowl,8.0,Gu,none,0.00,0.00,0.00,0.000,2.75,, , ,none,,Measure cavity bloom and port response,pending,Tap shell and record spectral peak
+WHG-P2,sector_test,2026-05-06,birch laminate top plus walnut body,8.0,T1,Bb3,233.08,3.30,2.40,0.270,3.00,, , ,D4,,Validate three-note interaction,pending,Track sympathetic ringing between adjacent zones
+WHG-P2,sector_test,2026-05-06,birch laminate top plus walnut body,8.0,T2,C4,261.63,3.10,2.25,0.255,3.00,, , ,Bb3,,Validate center spacing,pending,Check strike accessibility with relaxed hands
+WHG-P2,sector_test,2026-05-06,birch laminate top plus walnut body,8.0,T3,D4,293.66,2.90,2.10,0.245,3.00,, , ,C4,,Validate slot geometry,pending,Compare isolated plate vs tongue-slot pattern
+WHG-P3,subset_layout,2026-05-06,selected best top system,8.0,Subset,subset,0.00,0.00,0.00,0.000,3.25,, , ,mixed,,Build first five-note playable subset,pending,Advance only if P2 cross-talk stays manageable
+WHG-P4,full_layout,2026-05-06,selected best top system,8.0,FullSet,G minor 9-note,0.00,0.00,0.00,0.000,3.25,, , ,mixed,,Assess full concept,pending,Use measured correction factors from earlier rows

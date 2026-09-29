@@ -1050,6 +1050,13 @@ def main(argv: list[str] | None = None) -> int:
                    help="Comma-separated slugs OR a path to a newline-delimited file "
                         "listing repos that are public + Pages-live. With --base-url, "
                         "only these get live links/images; others render as text cards.")
+    p.add_argument("--visibility-json", type=Path, default=None,
+                   help="Output of `gh repo list <owner> --limit 500 --json name,visibility`. "
+                        "Entries whose repo is not PUBLIC (or is unknown) are dropped from the "
+                        "page and data file unless --include-private is passed.")
+    p.add_argument("--include-private", action="store_true",
+                   help="PRIVACY SWITCH: keep entries backed by private repos (default: drop them "
+                        "when --visibility-json is given).")
     args = p.parse_args(argv)
 
     published: "frozenset[str]" = frozenset()
@@ -1068,6 +1075,12 @@ def main(argv: list[str] | None = None) -> int:
     if not entries:
         print("No instrument repos found in workspace", file=sys.stderr)
         return 1
+
+    if args.visibility_json and not args.include_private:
+        vis = {r["name"]: r["visibility"] for r in json.loads(args.visibility_json.read_text())}
+        dropped = [e.slug for e in entries if vis.get(e.slug) != "PUBLIC"]
+        entries = [e for e in entries if vis.get(e.slug) == "PUBLIC"]
+        print(f"  privacy gate     : dropped {len(dropped)} non-public entries (--include-private to keep)")
 
     generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 

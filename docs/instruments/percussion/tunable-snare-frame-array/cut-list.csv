@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: CERN-OHL-W-2.0
+part,blank_W_mm,blank_H_mm,material,thickness_mm,qty,process,nesting_notes
+shell_A_254mm,798.0,60.0,CRS,1.0,1,plasma or shear + roll,Cut as rectangle; roll to 254mm OD cylinder; TIG butt seam
+shell_B_203mm,637.7,50.0,CRS,1.0,1,plasma or shear + roll,Cut as rectangle; roll to 203mm OD cylinder; TIG butt seam
+shell_C_152mm,477.5,40.0,CRS,1.0,1,plasma or shear + roll,Cut as rectangle; roll to 152mm OD cylinder; TIG butt seam
+mounting_frame,450.0,131.5,CRS,1.5,1,plasma,Includes 3x circle cut-outs and lug ear holes; bend flanges after plasma
+lug_ear,60.0,40.0,CRS,1.5,16,plasma or shear,4 ears per drum × 3 drums = 12 + 4 spares; fold 15mm base tab after cutting

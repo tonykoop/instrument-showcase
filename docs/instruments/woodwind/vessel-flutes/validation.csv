@@ -1,0 +1,11 @@
+check,target,method,tool,actual,pass,notes
+Wet cavity volume,130 cc +/- 5 cc,water fill before drying,graduated cylinder,pending,pending,Record before shrinkage
+Dry/fired shrinkage,measured percent on test tiles,measure before/after firing,caliper,pending,pending,Required before mold claims
+Voicing first sound,stable tone at low and medium breath,play test,shop notes,pending,pending,Fix voicing before drilling scale
+Fundamental A4,440 Hz +/- 20 cents before tone holes,tuner at room temp,tuner,pending,pending,Adjust voicing or volume if far off
+Hole 1 B4,493.88 Hz +/- 10 cents after tuning,undersize drill then enlarge,tuner,pending,pending,Record final diameter
+Hole 2 C#5,554.37 Hz +/- 10 cents after tuning,undersize drill then enlarge,tuner,pending,pending,Track cumulative area
+Hole 3 E5,659.25 Hz +/- 10 cents after tuning,undersize drill then enlarge,tuner,pending,pending,Check hand coverage
+Hole 4 F#5,739.99 Hz +/- 10 cents after tuning,undersize drill then enlarge,tuner,pending,pending,Watch tone stability
+Octave A5,880 Hz response check,overblow and fingering test,tuner,pending,pending,Do not overclaim if unstable
+Leak check,no leaks around seam or voicing,water/air leak test,visual/play test,pending,pending,Seal prototype before judging pitch

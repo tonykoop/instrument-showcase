@@ -1,0 +1,12 @@
+item_id,workpiece,system,quantity_basis,authority,dimension_status,notes
+CL-001,keyboard action rail coupon,keyboard,estimate_pending_measurement,pending_measurement,pending_measurement,"Bench action support category only; key length rail spacing and guide geometry are not released."
+CL-002,single jack coupon,action,estimate_pending_measurement,pending_measurement,pending_measurement,"One-jack mockup category only; jack height width travel and slot geometry are pending."
+CL-003,tongue and plectrum coupon,action,estimate_pending_measurement,pending_measurement,pending_measurement,"Pluck/reset test category only; plectrum cut material and voicing are not released."
+CL-004,damper coupon,action,estimate_pending_measurement,pending_measurement,pending_measurement,"Damping behavior test category; felt/leather material and contact location are pending."
+CL-005,register slide coupon,registers,estimate_pending_measurement,pending_measurement,pending_measurement,"Alignment/service mockup category only; 8' and 4' spacing or slot geometry is not claimed."
+CL-006,buff stop contact coupon,stops,estimate_pending_measurement,pending_measurement,pending_measurement,"Reversible damping test category; material dimensions and contact path are pending."
+CL-007,stringing authority worksheet,stringing,estimate_pending_measurement,concept_only,none,"Reference-selection and measurement worksheet only; not a string length gauge or tuning table."
+CL-008,soundboard and bridge study coupon,acoustic_body,estimate_pending_measurement,pending_measurement,pending_measurement,"Risk-review category only; soundboard thickness bridge curve and rib layout are not released."
+CL-009,case and wrestplank study coupon,structure,estimate_pending_measurement,pending_measurement,pending_measurement,"Structural review category only; case dimensions and tuning-pin layout are pending."
+CL-010,service access mockup,maintenance,estimate_pending_measurement,pending_measurement,pending_measurement,"Regulation and voicing access category; clearance dimensions and tool paths are pending."
+CL-011,test log template,documentation,estimate_pending_measurement,concept_only,none,"Paper or digital record template for action register buff stop stringing and safety observations."

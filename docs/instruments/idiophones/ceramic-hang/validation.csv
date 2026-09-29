@@ -1,0 +1,9 @@
+build_id,stage,date,clay_body,shrinkage_expected_pct,master_scale_factor,field_id,target_note,target_freq_hz,field_major_in,field_minor_in,field_thickness_in,measured_freq_hz,cents_error,decay_sec,crack_status,body_mode_hz,gu_hz,action,result,notes
+CHG-P0,bisque,,TBD,12,1.136,coupon_A,G4,392,TBD,TBD,TBD,,,,none,,,Measure coupon before committing full dome,,
+CHG-P0,bisque,,TBD,12,1.136,coupon_B,C5,523.25,TBD,TBD,TBD,,,,none,,,Compare thickness sweep,,
+CHG-P1,greenware,,TBD,12,1.136,T1,Bb3,233.08,3.4,TBD,TBD,,,,none,,,Check drying distortion,,
+CHG-P1,bisque,,TBD,12,1.136,T1,Bb3,233.08,3.4,TBD,TBD,,,,TBD,,,First shell tone-field measurement,,
+CHG-P2,bisque,,TBD,12,1.136,Ding,G3,196,4.0,TBD,TBD,,,,TBD,TBD,TBD,Measure center ding and gu coupling,,
+CHG-P2,bisque,,TBD,12,1.136,Gu,TBD,TBD,TBD,TBD,TBD,,,,TBD,TBD,TBD,Tap/blow gu and record body mode,,
+CHG-P3,glaze_fire,,TBD,12,1.136,TBD,TBD,TBD,TBD,TBD,TBD,,,,TBD,TBD,TBD,Compare glaze shift and damping,,
+

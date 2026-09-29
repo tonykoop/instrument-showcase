@@ -1,0 +1,9 @@
+cut_id,system,part_or_blank,authority,source_status,estimate_size,quantity,notes
+GH-CUT-001,layout,spill-safe tray blank,pending_measurement,estimate_pending,TBD,TBD,"Tray size, material, and damping behavior require measured layout tests."
+GH-CUT-002,layout,removable locator strip blanks,pending_measurement,estimate_pending,TBD,TBD,"Locators must not clamp or damp glasses; geometry is not released."
+GH-CUT-003,layout,non-damping pad samples,pending_measurement,estimate_pending,TBD,TBD,"Pad material and contact area require listening tests."
+GH-CUT-004,documentation,temporary glass ID labels,pending_measurement,estimate_pending,TBD,TBD,"Label stock must survive moisture without touching playing rims."
+GH-CUT-005,documentation,temporary fill-marker labels,pending_measurement,estimate_pending,TBD,TBD,"Fill marks are workflow aids only, not measured tuning authority."
+GH-CUT-006,validation,measurement-log sheets,pending_measurement,estimate_pending,TBD,TBD,"Paper or digital template for dry and filled response logging."
+GH-CUT-007,validation,drain/refill test kit parts,pending_measurement,estimate_pending,TBD,TBD,"Supports repeatability testing; no water volumes specified."
+GH-CUT-008,safety,storage dividers or soft packing blanks,pending_measurement,estimate_pending,TBD,TBD,"Protects selected glasses after inventory; dimensions depend on real glasses."

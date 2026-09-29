@@ -1,0 +1,13 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+README-001,README.md,render_preview,concept,concept_only,,none,false,"Concept packet index and L2 boundary statement; not dimensional authority."
+DESIGN-001,design.md,design_table,design_table,pending_measurement,README.md,none,false,"Parametric intent names unknowns without supplying bowl dimensions water volumes tuning values or support geometry."
+BOM-001,bom.csv,measurement_template,measurement_template,pending_measurement,design.md,none,false,"Estimated BOM categories only; quantities and specifications remain TBD."
+CUT-001,cut-list.csv,measurement_template,measurement_template,pending_measurement,design.md,none,false,"Candidate setup and test classes only; no bowl geometry water volumes tuning values or support dimensions."
+DEC-001,decision-record.md,render_preview,concept,concept_only,README.md,none,false,"Decision and open-question log; not fabrication authority."
+PROV-001,cad/mcp-session-log.md,render_preview,concept,concept_only,README.md,none,false,"Provenance stub records qmd Step 0 and confirms no CAD or MCP session ran."
+WL-STARTER-001,jal-tarang-starter.wl,wolfram_loader,source_code,reference_only,wolfram/jal-tarang-wolfram-model.wl,none,false,"Thin Wolfram entry point; source reference only; not fabrication authority."
+WL-MODEL-001,wolfram/jal-tarang-wolfram-model.wl,wolfram_model,source_code,reference_only,design.md,none,false,"Parametric symbolic water-loading relationship with Estimate placeholders only; pending measurement, not fabrication authority."
+RISK-001,risks.md,risk_register,risk_register,concept_only,design.md,none,false,"Acoustic/fabrication/safety risk list for a concept-only packet; no measured values."
+SOURCE-001,sourcing.csv,measurement_template,measurement_template,pending_measurement,bom.csv,none,false,"Supplier/spec candidates only; price, lead time, and bowl spec all TBD."
+VAL-001,validation.csv,measurement_template,measurement_template,pending_measurement,design.md,none,false,"Future measurement gates (bowl inventory, fill repeatability, pitch response, mallet, support, drift); no measured results yet."
+DRAW-001,drawing-brief.md,drawing_placeholder,drawing_inventory,concept_only,decision-record.md,none,false,"States no drawings are authorized yet at L2; lists future gated drawing needs only."

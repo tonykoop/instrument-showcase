@@ -203,7 +203,8 @@ a.brand{{color:var(--accent);text-decoration:none}}
   <h1>Heifer Zephyr — Instrument Design Catalog</h1>
   <p class="sub">A curated, open look at original and traditional musical-instrument designs —
   engineering packets, acoustic models, and build documentation. A growing public preview,
-  eventually living at <a class="brand" href="https://heiferzephyr.com">heiferzephyr.com</a>.</p>
+  eventually living at <a class="brand" href="https://heiferzephyr.com">heiferzephyr.com</a>.
+  <a class="brand" href="library.html">Browse the full library &rarr;</a></p>
 </header>
 <main class="grid">
 {cards}

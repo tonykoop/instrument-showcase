@@ -1,0 +1,6 @@
+artifact_path,artifact_type,authority,controlling_source,notes
+drawings/README.md,drawings_placeholder,pending_measurement,andean-duct-flutes-design-table.xlsx,No dimensioned drawings generated yet; placeholder marks the drawings/ folder for future DXF/SVG work.
+images/README-placeholder.txt,images_placeholder,pending_measurement,andean-duct-flutes-design-table.xlsx,No images generated yet; placeholder marks the images/ folder for future renders or build photos.
+andean-duct-flutes-starter.wl,wolfram_source,pending_measurement,andean-duct-flutes-design-table.xlsx,Wolfram source present; runtime execution and output artifacts not yet committed — source-only at L2.
+family-spec.csv,family_spec,pending_measurement,andean-duct-flutes-design-table.xlsx,Family geometry summary; dimension_provenance is measurement_required until prototype run.
+cad/andean-duct-flutes.scad,cad_source,pending_measurement,family-spec.csv,Parametric OpenSCAD bore + tone-hole-position envelope master (G4/A4/C5 variants); equation-driven hole schedule from design.md. Duct/fipple/window geometry explicitly out of scope. Renders clean in OpenSCAD. Not fabrication authority until reviewed against a measured prototype.

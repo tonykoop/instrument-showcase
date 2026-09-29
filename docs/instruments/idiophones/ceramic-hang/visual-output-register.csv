@@ -1,0 +1,10 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+CAD-001,cad/ceramic_hang_master.scad,cad,concept,concept_only,,none,false,"OpenSCAD concept/master scaffold with named parameters; not measured ceramic fabrication authority."
+SVG-001,drawings/ceramic-hang-layout.svg,svg_preview,concept,concept_only,,none,false,"Top layout preview for review; no DXF export or measured strike-zone evidence in repo."
+SVG-002,drawings/ceramic-hang-section.svg,svg_preview,concept,concept_only,,none,false,"Section preview for review; shell geometry and shrinkage remain measurement-required."
+SVG-003,drawings/tone-field-detail.svg,svg_preview,concept,concept_only,,none,false,"Tone-field detail preview; strike-zone geometry and tuning behavior require fired coupon data."
+SVG-004,images/hero-concept.svg,svg_preview,story,concept_only,,none,false,"Hero concept artwork only; not a Blender render from OpenSCAD STL."
+SVG-005,site/assets/drawings/ceramic-hang-layout.svg,svg_preview,concept,concept_only,,none,false,"Site copy of SVG-001 for browser presentation."
+SVG-006,site/assets/drawings/ceramic-hang-section.svg,svg_preview,concept,concept_only,,none,false,"Site copy of SVG-002 for browser presentation."
+SVG-007,site/assets/drawings/tone-field-detail.svg,svg_preview,concept,concept_only,,none,false,"Site copy of SVG-003 for browser presentation."
+WL-001,ceramic-hang-starter.wl,wolfram_source,analysis_source,derived_preview,design.md,source_only,false,"First-order plate + Helmholtz model starter; source-only, not executed as fabrication authority."

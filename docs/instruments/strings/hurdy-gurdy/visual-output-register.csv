@@ -1,0 +1,11 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+readme,README.md,measurement_template,concept,concept_only,,none,false,"L2 packet overview only; no fabrication authority."
+design,design.md,measurement_template,concept,concept_only,,none,false,"Mechanism and risk map grounded in hurdy-gurdy mechanics; no released dimensions or tuning values."
+bom,bom.csv,design_table,concept,pending_measurement,design.md,none,false,"Estimated subsystem list only; every physical part requires review and measurement before fabrication."
+cut-list,cut-list.csv,design_table,concept,pending_measurement,design.md,none,false,"Estimated blank-family scaffold only; no released sizes, DXF geometry, or fabrication coordinates."
+decision-record,decision-record.md,measurement_template,story,concept_only,design.md,none,false,"Captures decisions, alternatives, and open measurement questions for future review."
+mcp-session-log,cad/mcp-session-log.md,measurement_template,build_log,concept_only,,none,false,"Records Step 0 provenance and absence of MCP/CAD authoring."
+HG-CAD-001,cad/hurdy-gurdy.scad,cad_source,cad_authoring,pending_measurement,docs/parametric-design.md,render_only_scaffold,false,"Parametric structural-envelope scaffold (scaffold_dimensions / render-only); encodes symbolic relationships as formulas with render-only placeholder leaf values. Renders clean in OpenSCAD (exit 0). NOT fabrication authority; mechanism internals out of scope."
+HG-CAD-README-001,cad/README.md,cad_note,cad_documentation,concept_only,cad/hurdy-gurdy.scad,none,false,"Notes on the envelope scaffold, placeholder boundary, and render check."
+hurdy-gurdy-starter-wl,hurdy-gurdy-starter.wl,source_code,reference,reference_only,wolfram/hurdy-gurdy-wolfram-model.wl,none,false,"Thin Wolfram entry point only; pending measurement, not fabrication authority."
+hurdy-gurdy-wolfram-model,wolfram/hurdy-gurdy-wolfram-model.wl,source_code,reference,reference_only,docs/parametric-design.md,none,false,"Parametric symbolic Wolfram model with estimate placeholders only; pending measurement, not fabrication authority."

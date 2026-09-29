@@ -1,0 +1,7 @@
+Part ID,Description,Material,Qty,Raw Length (in),Raw Width (in),Raw Thickness (in),Finished Length (in),Finished OD (in),Finished Bore ID (in),Notes
+XIAO-BLK-001,Body blank — G Nan Xiao,Black walnut,1,26.0,1.5,1.5,25.5,1.338,0.866,"Square blank; extra 0.5 in at each end for endgrain waste and setup. Finished OD = bore + 2×wall = 0.866 + 0.472 = 1.338 in. Turn round after boring."
+XIAO-SCRAP-001,Scrap bore validation blank,Pine or poplar,1,26.0,1.5,1.5,—,—,0.866,"Required: bore scrap BEFORE tonewood. Same cross-section. Measure bore wander and concentricity before drilling walnut."
+XIAO-BLK-002,Mouthpiece cap blank (Bei/Qin only),Matching hardwood,1,3.5,1.5,1.5,3.0,1.338,0.866,"Only for Bei Xiao / Qin Xiao. Cap is turned to fit over bore end and shaped to U-notch profile."
+XIAO-PEG-001,Foot plug,Hardwood or cork,1,1.0,—,—,0.75,0.866 OD (taper),—,"Turned or cut to fit bore ID at foot. Taper optional for adjustable tuning."
+,,,,,,,,,,
+,YIELD NOTES: Square blanks ripped from 8/4 lumber (min 2 in thickness). Allow one scrap blank for bore validation. Estimated waste ≤ 15%.,,,,,,,,

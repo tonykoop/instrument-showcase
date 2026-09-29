@@ -1,0 +1,8 @@
+part_id,subsystem,part_or_coupon,authority,quantity,dimension_status,notes
+CUT-001,stringing,one-course string-bed coupon,pending_measurement,TBD,pending_measurement,"No scale length gauge pitch map or tension is specified; define after string-response planning."
+CUT-002,bridge,bridge/termination coupon,pending_measurement,TBD,pending_measurement,"Bridge geometry and termination hardware remain pending until string tests select constraints."
+CUT-003,action,replaceable hammer-arm blanks,pending_measurement,TBD,pending_measurement,"Arm length mass stiffness pivot layout and contact geometry are intentionally unspecified."
+CUT-004,action,replaceable hammer tips,pending_measurement,TBD,pending_measurement,"Tip material and shape must be selected during action coupon trials."
+CUT-005,action,spring-return samples,pending_measurement,TBD,pending_measurement,"Spring style rate preload and mounts remain pending measurement."
+CUT-006,interface,key/tab/lever mockup parts,pending_measurement,TBD,pending_measurement,"Interface choice remains open; no travel leverage or geometry is claimed."
+CUT-007,resonator,full zither body,pending_measurement,TBD,pending_measurement,"Do not cut; body and soundboard require measured string/action evidence and reviewed drawings."

@@ -1,0 +1,11 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,review_status,notes
+HC-README-001,README.md,packet_readme,planning_summary,concept_only,,none,self_checked,"L2 planning status and concept boundary; no fabrication or tuning authority."
+HC-DESIGN-001,design.md,design_note,mechanism_planning,concept_only,README.md,none,self_checked,"Mechanism, subsystem interfaces, and measurement gates only."
+HC-BOM-001,bom.csv,bom_estimate,planning_inventory,pending_measurement,design.md,none,self_checked,"Estimated part classes; dimensions and sourced specs are pending measurement."
+HC-CUT-001,cut-list.csv,cut_list_estimate,planning_inventory,pending_measurement,design.md,none,self_checked,"Non-dimensional workpiece categories only; no released sizes string scales coordinates or cut authority."
+HC-DECISION-001,decision-record.md,decision_record,concept_decisions,concept_only,design.md,none,self_checked,"Design-study decisions and open questions."
+HC-MCP-001,cad/mcp-session-log.md,provenance_log,qmd_and_tooling,pending_measurement,README.md,none,self_checked,"QMD and external-tool provenance stub; no MCP/CAD session created geometry."
+HC-WL-001,harpsichord-starter.wl,wolfram_source,acoustic_model,reference_only,wolfram/harpsichord-wolfram-model.wl,none,self_checked,"Thin Wolfram loader; source-only and not executed; pending measurement, not fabrication authority."
+HC-WL-002,wolfram/harpsichord-wolfram-model.wl,wolfram_source,acoustic_model,reference_only,design.md,none,self_checked,"Parametric plucked-string and plectrum-energy model with estimate placeholders only; no measured dimensions tensions or frequencies."
+HC-CAD-001,cad/harpsichord.scad,cad_source,cad_authoring,pending_measurement,docs/parametric-design-table.md,none,self_checked,"Parametric structural-envelope scaffold; encodes HC-PAR symbolic relationships as formulas with render-only placeholder leaf values. Renders clean in OpenSCAD (exit 0). NOT fabrication authority; mechanism internals out of scope."
+HC-CAD-README-001,cad/README.md,cad_note,cad_documentation,concept_only,cad/harpsichord.scad,none,self_checked,"Notes on the envelope scaffold, placeholder boundary, and render check."

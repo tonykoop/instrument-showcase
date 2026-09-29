@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: CERN-OHL-W-2.0
+supplier,part,sku,url,min_qty,notes
+Remo,Ambassador Clear 10-inch batter head,P3-1310-C2,remo.com,1,Standard catalog; also available at Guitar Center / Amazon
+Remo,Ambassador Clear 8-inch batter head,P3-1308-C2,remo.com,1,Standard catalog
+Remo,Ambassador Clear 6-inch batter head,P3-1306-C2,remo.com,1,Standard catalog
+Drum Factory Direct,10-inch triple-flange hoop,varies,drumfactorydirect.com,1,Search by head size
+Drum Factory Direct,8-inch triple-flange hoop,varies,drumfactorydirect.com,1,Search by head size
+Drum Factory Direct,6-inch triple-flange hoop,varies,drumfactorydirect.com,1,Search by head size
+Drum Factory Direct,Tension claw lugs 8-32,varies,drumfactorydirect.com,6,Buy 2-3 packs; match thread to counter-hoop holes
+Drum Factory Direct,Tension rods 8-32 x 38mm,varies,drumfactorydirect.com,6,Pack of 6; need 16 total
+Drum Factory Direct,Snare strainer butt-style,varies,drumfactorydirect.com,3,One per drum; verify fits small drum OD
+Metals Supermarkets,CRS 20-gauge sheet,varies,metalssupermarkets.com,1,Cut to 300x900mm; verify availability at local branch
+Metals Supermarkets,CRS 16-gauge sheet,varies,metalssupermarkets.com,1,Cut to 500x500mm
+Hardware store,M5 x 20mm bolts and nuts,varies,local,12,Any hardware store

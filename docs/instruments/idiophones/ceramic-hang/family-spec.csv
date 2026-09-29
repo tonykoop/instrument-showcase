@@ -1,0 +1,6 @@
+member_id,name,outer_diameter_in,height_in,target_key,note_count,wall_target_in,gu_diameter_in,prototype_goal
+CHG-P1,Mini 3-field coupon dome,10,2.75,G minor subset,3,0.24,2.0,Validate tone-field geometry on a small shell.
+CHG-P2,Full blank body,18,4.5,None,0,0.26,3.5,Validate casting/drying/firing and gu/body mode.
+CHG-P3,Five-note vessel,18,4.5,G minor pentatonic,5,0.24,3.5,First musical ceramic shell.
+CHG-P4,Nine-note G minor,18,4.5,G minor,9,0.22-0.30,3.5,Full handpan-inspired target.
+

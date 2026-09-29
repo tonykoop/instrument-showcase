@@ -1,0 +1,14 @@
+Part ID,Description,Qty,Unit,Material / Spec,Est. Unit Cost,Est. Total,Sourcing,Notes
+XIAO-BLK-001,Body blank — Nan Xiao G,1,ea,"Black walnut, 1.5 in sq × 26 in (min)",8.00,8.00,Local hardwood supplier or online,Square stock preferred for headstock-driven drilling; leave +2 in for endgrain and waste
+XIAO-BLK-002,Mouthpiece cap blank (Bei/Qin only),1,ea,"Matching hardwood, 1.5 in sq × 3 in",2.00,2.00,Same supplier,Only required for Bei Xiao / Qin Xiao capped U-notch; Nan Xiao uses open bamboo-root end
+XIAO-PEG-001,Foot plug (end cap),1,ea,"Hardwood or cork, ~0.9 in OD",1.00,1.00,Local or order,Tuning adjustment end plug; fit to bore ID; cork optional
+XIAO-ABRS-001,Sandpaper — bore lapping,1,set,"120, 220, 320, 400 grit paper strips",3.00,3.00,Hardware store,Wrapped on dowel for bore finishing and tuning trim
+XIAO-FIN-001,Bore finish,1,ea,Boiled linseed oil or shellac (4 oz),4.00,4.00,Hardware store,Internal bore treatment; stabilizes wood and affects tuning (mark as TBD until calibrated)
+XIAO-FIN-002,Exterior finish,1,ea,Danish oil or wax finish (4 oz),5.00,5.00,Hardware store,Body exterior only
+XIAO-WRAP-001,Decorative wrap (optional),1,ea,"Hemp, silk, or bamboo bark thread (1 oz)",3.00,3.00,Specialty or online,Traditional joint/head wrap; structural and decorative
+XIAO-DRILL-001,Pilot drill bit,1,ea,"1/4 in HSS jobber, min 18 in length",8.00,8.00,McMaster-Carr or Toolmex,First-pass bore; check length before ordering — need min 24 in for Nan Xiao
+XIAO-DRILL-002,Finish drill bit — Nan Xiao G,1,ea,"55/64 in (0.859 in) HSS bit, min 18 in",25.00,25.00,Toolmex or Blair,Target bore 0.866 in; use 55/64 step then ream or lap to final diameter
+XIAO-REAM-001,Reamer — optional,1,ea,"7/8 in adjustable reamer or tapered reamer",35.00,35.00,McMaster-Carr,Used after drilling to achieve final bore diameter within ±0.005 in
+XIAO-JIG-001,Tailstock vise / square-stock carrier,1,ea,Shop-made or commercial V-block fixture,15.00,15.00,Shop-made,Required for headstock-driven deep-bore drilling — see jig-decision.md
+,,,,,,,,
+,,,,,TOTAL (est.),109.00,,Excludes lathe and drill press time; excludes scrap validation blank

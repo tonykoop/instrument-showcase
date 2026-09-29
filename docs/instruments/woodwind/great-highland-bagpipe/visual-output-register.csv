@@ -1,0 +1,9 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,notes
+SVG-001,images/ghb-system-map.svg,svg_concept,concept,concept_only,design.md,none,"System-map overview; concept communication only; not dimensional authority."
+DRW-001,drawings/ghb-chanter-front.svg,svg_drawing,concept,derived_preview,great-highland-bagpipe-design-table.xlsx,none,"First-pass chanter front view; review preview only; not CNC or inspection authority."
+DRW-002,drawings/ghb-drone-set.svg,svg_drawing,concept,derived_preview,great-highland-bagpipe-design-table.xlsx,none,"First-pass drone-set layout; review preview only; not CNC or inspection authority."
+DRW-003,drawings/ghb-pressure-interface.svg,svg_drawing,concept,derived_preview,design.md,none,"Pressure interface diagram; concept illustration only."
+DRW-004,drawings/ghb-system-validation.svg,svg_drawing,concept,derived_preview,validation.csv,none,"System validation map; review aid only."
+CAD-001,cad/great-highland-bagpipe-master.scad,openscad_starter,cad_scaffold,pending_measurement,great-highland-bagpipe-design-table.xlsx family-spec.csv,none,"Parametric OpenSCAD master starter; dimensions from design table; NOT fabrication authority until reviewed against physical reed and bore measurements."
+PDF-001,print-packet.pdf,print_packet,communication,derived_preview,design.md bom.csv validation.csv,none,"Print packet for packet review; fabrication callouts must be verified against design-table cells before shop use."
+WL-001,wolfram/great-highland-bagpipe-wolfram-model.wl,wolfram_source,analysis_source,derived_preview,great-highland-bagpipe-design-table.xlsx family-spec.csv validation.csv,source_only,"Generated Wolfram source package (chanter/drone stopped-pipe model); not executed; source-only L2 evidence."

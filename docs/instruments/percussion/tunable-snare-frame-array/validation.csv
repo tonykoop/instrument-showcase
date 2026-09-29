@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: CERN-OHL-W-2.0
+test_id,stage,field,target,predicted,measured,units,tolerance,method,environment,result,action_if_fail
+VAL-001,pre-assembly,shell_A_OD,254.0,,pending,mm,±0.5,calipers,shop,pending,Re-roll; adjust slip-roll gap; grind seam if proud
+VAL-002,pre-assembly,shell_B_OD,203.0,,pending,mm,±0.5,calipers,shop,pending,Re-roll; adjust slip-roll gap
+VAL-003,pre-assembly,shell_C_OD,152.0,,pending,mm,±0.5,calipers,shop,pending,Re-roll; smallest — watch for creasing
+VAL-004,pre-assembly,shell_A_seam_flush,0.0,,pending,mm,<0.5 proud,visual + feeler gauge,shop,pending,Grind flush; re-TIG if gap > 0.5mm
+VAL-005,pre-assembly,shell_B_seam_flush,0.0,,pending,mm,<0.5 proud,visual + feeler gauge,shop,pending,Grind flush
+VAL-006,pre-assembly,shell_C_seam_flush,0.0,,pending,mm,<0.5 proud,visual + feeler gauge,shop,pending,Grind flush
+VAL-007,pre-assembly,bearing_edge_sharpness,no_burr,,pending,qualitative,zero sharp catches,finger-drag test,shop,pending,Re-file chamfer; check with magnifier
+VAL-008,pre-assembly,frame_flatness,0.0,,pending,mm,<1.0 bow over 450mm,straightedge + feeler,shop,pending,Flatten by hand on surface plate; check flange welds
+VAL-009,tuning,drum_A_center_hz,146.8,143.0,pending,Hz,±50 cents (~8 Hz at D3),chromatic tuner,room temp 20C,pending,Tighten all rods ¼ turn; re-equalize; re-check
+VAL-010,tuning,drum_B_center_hz,220.0,189.0,pending,Hz,±50 cents (~12 Hz at A3),chromatic tuner,room temp 20C,pending,Tighten; Drum B needs highest tension — verify rods not binding
+VAL-011,tuning,drum_C_center_hz,293.7,240.0,pending,Hz,±50 cents (~17 Hz at D4),chromatic tuner,room temp 20C,pending,Tighten; smallest drum tunes fastest
+VAL-012,tuning,drum_A_rim_evenness,146.8,,pending,Hz,±10 cents between lug positions,tap each lug position + tuner,room temp,pending,Adjust individual rods; cross-tension pattern
+VAL-013,tuning,drum_B_rim_evenness,220.0,,pending,Hz,±10 cents between lug positions,tap each lug + tuner,room temp,pending,Adjust individual rods
+VAL-014,tuning,drum_C_rim_evenness,293.7,,pending,Hz,±10 cents between lug positions,tap each lug + tuner,room temp,pending,Adjust individual rods
+VAL-015,post-assembly,snare_A_disengage,no_rattle,,pending,qualitative,zero rattle at full release,play and listen,room temp,pending,Check thumb-wheel clearance; snare wire may need retrimming
+VAL-016,post-assembly,snare_B_disengage,no_rattle,,pending,qualitative,zero rattle at full release,play and listen,room temp,pending,See above
+VAL-017,post-assembly,snare_C_disengage,no_rattle,,pending,qualitative,zero rattle at full release,play and listen,room temp,pending,See above
+VAL-018,post-assembly,cross_talk_A_to_B,below_threshold,,pending,dB,adjacent drum resonance < −12 dB vs struck drum,SPL meter or phone mic,room temp,pending,Add rubber isolation pad between shell and frame cut-out
+VAL-019,post-assembly,cross_talk_B_to_C,below_threshold,,pending,dB,adjacent drum < −12 dB,SPL meter or phone mic,room temp,pending,Isolation pads
+VAL-020,post-assembly,frame_rigidity,no_movement,,pending,qualitative,zero drum shift under hard strike,visual,room temp,pending,Tighten M5 bolts; add lock washer if needed

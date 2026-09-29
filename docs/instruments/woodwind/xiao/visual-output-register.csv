@@ -1,0 +1,11 @@
+artifact_path,artifact_type,authority,controlling_source,notes
+drawings/xiao-bore-profile.svg,drawing,derived_preview,xiao-design-table.xlsx,Bore taper profile SVG; derived from design-table. First-order estimates — not fabrication authority.
+drawings/xiao-embouchure-detail.svg,drawing,derived_preview,xiao-design-table.xlsx,Embouchure (shakume) detail geometry SVG; derived from design-table. Empirical voicing required.
+drawings/xiao-headstock-drill-setup.svg,drawing,derived_preview,xiao-design-table.xlsx,Headstock-driven deep-bore drilling setup SVG; fixture dimensions require review.
+drawings/xiao-tonehole-layout.svg,drawing,derived_preview,xiao-design-table.xlsx,Tone-hole layout SVG; derived from design-table. Hole positions require prototype measurement.
+wolfram/instrument-model.wl,wolfram_source,pending_measurement,xiao-design-table.xlsx,Wolfram instrument model; source-only at L2 — runtime execution not yet recorded.
+wolfram/xiao-wolfram-model.wl,wolfram_source,pending_measurement,xiao-design-table.xlsx,Instrument-specific Wolfram model; source-only at L2.
+wolfram-starter.wl,wolfram_source,pending_measurement,wolfram/xiao-wolfram-model.wl,Root-mode loader; source-only at L2.
+xiao-starter.wl,wolfram_source,pending_measurement,xiao-design-table.xlsx,Instrument-specific Wolfram starter; source-only at L2.
+family-spec.csv,family_spec,pending_measurement,xiao-design-table.xlsx,L2 family spec scaffold (Bei/Nan/Qin Xiao members); dimension_provenance is measurement_required.
+cad/xiao.scad,cad_source,pending_measurement,design.md,New parametric OpenSCAD master (bore + tone-hole array only; blowing edge explicitly out of scope). fabrication_required=false. Renders clean in OpenSCAD (exit 0). Not fabrication authority until reviewed against a measured prototype. Flags bore_id/wall_thickness discrepancy vs xiao-design-table.xlsx row16/17 col E (see cad/xiao.scad header).

@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: CERN-OHL-W-2.0
+part_no,item,category,qty,unit,required_spec,estimated_cost_usd,source_status,notes
+BOM-001,CRS sheet 1.0mm,raw_material,1,sheet,"300x900mm 20-gauge cold-rolled steel",8.00,stock,Covers all 3 shell blanks with nesting
+BOM-002,CRS sheet 1.5mm,raw_material,1,sheet,"500x500mm 16-gauge cold-rolled steel",5.00,stock,Frame + lug ears
+BOM-003,Remo Ambassador head 10-inch,bought_component,1,each,"Clear batter head 10in standard",18.00,buy_needed,Remo P3-1310-C2 or equivalent
+BOM-004,Remo Ambassador head 8-inch,bought_component,1,each,"Clear batter head 8in standard",14.00,buy_needed,Remo P3-1308-C2 or equivalent
+BOM-005,Remo Ambassador head 6-inch,bought_component,1,each,"Clear batter head 6in standard",10.00,buy_needed,Remo P3-1306-C2 or equivalent
+BOM-006,Counter-hoop 10-inch,bought_component,1,each,"Standard 10in triple-flange hoop",12.00,buy_needed,Match head diameter
+BOM-007,Counter-hoop 8-inch,bought_component,1,each,"Standard 8in triple-flange hoop",10.00,buy_needed,Match head diameter
+BOM-008,Counter-hoop 6-inch,bought_component,1,each,"Standard 6in triple-flange hoop",8.00,buy_needed,Match head diameter
+BOM-009,Drum lugs 8-32 or M5,bought_component,16,each,"Standard tension-claw drum lug 8-32 thread",32.00,buy_needed,6 for 10in + 6 for 8in + 4 for 6in
+BOM-010,Tension rods 8-32,bought_component,16,each,"35-40mm 8-32 tension rods with washer",8.00,buy_needed,Standard drum hardware
+BOM-011,Snare wire 12-strand,bought_component,1,each,"12-strand 10in snare wire with thumb-wheel",9.00,buy_needed,For Shell A (10in)
+BOM-012,Snare wire 10-strand,bought_component,1,each,"10-strand 8in snare wire with thumb-wheel",8.00,buy_needed,For Shell B (8in)
+BOM-013,Snare wire 8-strand,bought_component,1,each,"8-strand 6in snare wire with thumb-wheel",7.00,buy_needed,For Shell C (6in)
+BOM-014,M5 bolts x 20mm,hardware,12,each,"M5 x 20mm hex-head bolt + nut",3.00,stock,Shell-to-frame mounting
+BOM-015,ER70S-6 TIG rod 1/16in,consumable,1,pack,"1/16 in mild steel TIG filler",8.00,stock,Shell seam welds + lug ear welds
+BOM-016,Flap disc 80-grit,consumable,2,each,"4.5in flap disc for angle grinder",6.00,stock,Seam flush-grinding

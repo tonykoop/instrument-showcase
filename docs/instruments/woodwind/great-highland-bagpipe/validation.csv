@@ -1,0 +1,22 @@
+check_id,subsystem,target,formula_or_spec,predicted,measured,units,tolerance,environment,result,action
+VAL-001,Reference,A4 sanity check,440*2^((69-69)/12),440,,Hz,0,room,Pending,Confirms frequency formula implementation
+VAL-002,Chanter Low A,480 Hz at stable pressure,c/(2*L_eff),480,,Hz,+/-10 cents at prototype stage,record temp humidity pressure,Pending,Set reed and pressure before hole tuning
+VAL-003,Chanter Low A effective length,c/(2*480),14.073,,in,+/-0.25 in first-order estimate,room,Pending,Compare with physical 14.5 in body and reed behavior
+VAL-004,Chanter scale all notes,Just ratios from design.md,c/(2*f_note),see design.md,,cents,+/-15 cents prototype; +/-5 cents final,record pressure and reed,Pending,Tune from undersize with tape/enlargement
+VAL-005,Tenor drone A3,240 Hz,c/(4*240),14.073,,in effective,+/-0.5 in before slide tuning,room,Pending,Check slide range before duplicate tenor
+VAL-006,Tenor drone frequency,240 Hz with chosen reed,stopped pipe plus reed/slide,240,,Hz,+/-5 cents against chanter Low A,record pressure and reed,Pending,Adjust reed bridle/screw then slide
+VAL-007,Bass drone A2,120 Hz,c/(4*120),28.146,,in effective,+/-1.0 in before slide tuning,room,Pending,Confirm bass slide travel and reed stability
+VAL-008,Bag pressure,18-25 inH2O planned normal-play window,manometer reading,18-25 planned,,inH2O,measurement_required,player test,Pending,Log measured start normal-play and cutoff pressure before treating the range as evidence
+VAL-009,Bag leak,Hold pressure for 60 seconds,pressure decay test,no audible leak,,pass/fail,No audible leak and slow pressure decay,bag assembled,Pending,Soap/bubble or manometer leak locate
+VAL-010,Blowpipe valve,No reverse flow,back-pressure test,no backflow,,pass/fail,No noticeable reverse flow,bag assembled,Pending,Replace or reseat valve if failed
+VAL-011,Drone slide fit,Smooth travel airtight,hand force plus leak test,smooth and sealed,,pass/fail,No binding no leak,hemped joint,Pending,Adjust hemp wrap and wax
+VAL-012,Stock tie-in,Five stocks airtight,pull and leak test,secure,,pass/fail,No stock movement no leak,bag tied,Pending,Retie if movement or bubbles appear
+VAL-013,Maintenance 24h retest,Pitch and pressure repeatability,repeat VAL-002 to VAL-012,within tolerance,,mixed,+/-5 cents drift target,24h after assembly,Pending,Identifies hemp compression and moisture drift
+VAL-014,Chanter reed onset,Low A starts before normal play pressure,reed-pressure-validation.csv RP-002,TBD,,inH2O,measurement_required,manometer plus tuner,Pending,Measure reed onset before opening tone holes further
+VAL-015,Chanter pressure response,Low A and sample scale notes stay stable at 18/21/25 inH2O,reed-pressure-validation.csv RP-003,TBD,,Hz/cents,measurement_required,record reed temp humidity pressure,Pending,Separate reed strength problems from hole-position problems
+VAL-016,Chanter cutoff margin,Cutoff or warble threshold stays above normal play pressure,reed-pressure-validation.csv RP-004,TBD,,inH2O,measurement_required,controlled overpressure test,Pending,Do not tune permanent holes until cutoff margin is known
+VAL-017,Tenor drone reed onset/restart,Reference tenor starts and restarts predictably,reed-pressure-validation.csv RP-005,TBD,,inH2O,measurement_required,manometer plus tuner,Pending,Validate first tenor before duplicating second tenor
+VAL-018,Tenor drone pressure response,A3 remains stable at 18/21/25 inH2O,reed-pressure-validation.csv RP-006,TBD,,Hz/cents,measurement_required,record reed and slide setting,Pending,Adjust reed before slide or bore changes
+VAL-019,Bass drone reed onset/cutoff,Bass starts and stays stable through normal play pressure,reed-pressure-validation.csv RP-007,TBD,,inH2O and Hz,measurement_required,manometer plus tuner,Pending,Keep bass slide and bore claims provisional until measured
+VAL-020,Full set coupled response,Chanter plus drones remain stable at shared pressure targets,reed-pressure-validation.csv RP-008,TBD,,mixed,measurement_required,drones-alone then full-set comparison,Pending,Do not promote coupled tuning claims without this evidence
+VAL-021,Pressure system control,Bag stocks and valve pass pressure hold before reed interpretation,reed-pressure-validation.csv RP-009,TBD,,inH2O decay,measurement_required,60-second pressure decay test,Pending,Fix leaks before interpreting reed data

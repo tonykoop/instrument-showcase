@@ -1,0 +1,11 @@
+part_id,subsystem,part_class,authority,estimate_status,measurement_gate,notes
+OCT-CUT-BODY,body,giant bowed-bass body shell,pending_measurement,estimate_class_only,reference and structural review,"No outline, plate, rib, or body-volume dimensions are specified."
+OCT-CUT-NECK,neck_and_scroll,extended neck or top support,pending_measurement,estimate_class_only,string load and scale review,"Geometry waits on measured string plan and stop positions."
+OCT-CUT-BRIDGE,stringing,oversized bridge assembly,pending_measurement,estimate_class_only,string and body response tests,"Bridge shape and material remain open."
+OCT-CUT-STRING-PATH,stringing,string termination and path hardware,pending_measurement,estimate_class_only,string gauge and tension tests,"No tuning, gauge, or scale values are asserted."
+OCT-CUT-STOP-RIG,stopping_mechanism,single-string stop-action coupon,pending_measurement,estimate_test_need,bench mechanism test,"Coupon should compare contact methods before full action design."
+OCT-CUT-HAND-CONSOLE,stopping_mechanism,hand lever console,pending_measurement,estimate_concept,ergonomic mockup,"Lever count, throw, and labels remain pending."
+OCT-CUT-FOOT-CONSOLE,stopping_mechanism,foot pedal console,pending_measurement,estimate_concept,ergonomic mockup,"Pedal layout and return feel remain pending."
+OCT-CUT-TRANSMISSION,linkage,cable rod or bell-crank transmission,pending_measurement,estimate_concept,backlash and friction test,"Routing, ratios, and supports are not specified."
+OCT-CUT-GUARDS,safety,string break and pinch-zone guards,pending_measurement,estimate_concept,safety review,"Guard geometry waits on string path and linkage routing."
+OCT-CUT-SERVICE,service,adjustment and inspection access panels,pending_measurement,estimate_concept,maintenance review,"Access locations wait on selected mechanism family."

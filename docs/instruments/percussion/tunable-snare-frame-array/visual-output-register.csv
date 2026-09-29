@@ -1,0 +1,28 @@
+artifact_id,path,artifact_kind,role,authority,dimension_claim,derived_from,fabrication_required,review_status,notes
+V5-REG-001,README.md,markdown,packet-overview,concept_only,none,existing repo packet,false,self_checked,V5 status line added; not a fabrication artifact.
+V5-REG-002,design.md,markdown,design-narrative,pending_measurement,acoustic model and geometry targets require review,existing Round 5 packet,false,unreviewed,Bessel model numeric claims are planning authority until prototype measurement.
+V5-REG-003,parameters.csv,csv,parameter-table,pending_measurement,all dimensions require review,design.md,false,unreviewed,Single source of truth for planning; not fabrication authority.
+V5-REG-004,tunable-snare-frame-array-starter.wl,wolfram,model-source,pending_measurement,computed membrane frequencies require execution and evidence,design.md,false,unreviewed,Source only; not executed in this lane.
+V5-REG-005,solidworks-plan.md,markdown,cad-plan,pending_measurement,planned CAD global variables require CAD review,parameters.csv,true,unreviewed,Plan only; no .sldprt or .sldasm exists in this repo.
+V5-REG-006,flat-pattern-checklist.md,markdown,dxf-spec,pending_measurement,flat-pattern dimensions require CAD/DXF review,parameters.csv,true,unreviewed,Spec only; no DXF geometry present.
+V5-REG-007,bend-table.csv,csv,bend-planning-table,pending_measurement,bend allowances require shop and CAD review,flat-pattern-checklist.md,true,unreviewed,Planning surface; not reviewed against tooling or coupon tests.
+V5-REG-008,cut-list.csv,csv,stock-and-nesting-plan,pending_measurement,stock and blank sizes require review,parameters.csv,true,unreviewed,Use for sourcing and planning only until drawings are reviewed.
+V5-REG-009,cnc/operations.csv,csv,cnc-operation-table,pending_measurement,operation data requires shop review,flat-pattern-checklist.md,true,unreviewed,No CAM or toolpath authority; shop plan rows require tooling and coupon evidence.
+V5-REG-010,cnc/setup-sheet.md,markdown,setup-sheet,pending_measurement,setup details require shop review,cnc/operations.csv,true,unreviewed,Narrative only; not a machine setup approval.
+V5-REG-011,fabrication-plan.md,markdown,fabrication-sequence,pending_measurement,process claims require shop evidence,cnc/setup-sheet.md,true,unreviewed,Gated by coupon/weld/bend/prototype validation; especially Shell C roll feasibility.
+V5-REG-012,assembly-manual.md,markdown,assembly-sequence,pending_measurement,assembly steps require prototype validation,fabrication-plan.md,true,unreviewed,Candidate process; not measured build evidence.
+V5-REG-013,bom.csv,csv,bill-of-materials,reference_only,none,design.md,false,self_checked,Supplier and catalog items; authority is vendor spec sheets not this file.
+V5-REG-014,sourcing.csv,csv,sourcing-plan,reference_only,none,bom.csv,false,self_checked,Sourcing references only.
+V5-REG-015,hardware.csv,csv,hardware-spec,reference_only,none,bom.csv,false,self_checked,Fastener catalog references only.
+V5-REG-016,supplier-rfq.md,markdown,procurement-note,reference_only,none,bom.csv,false,self_checked,Procurement narrative; not dimensional authority.
+V5-REG-017,tuning-notes.md,markdown,tuning-process,pending_measurement,tension and pitch targets require prototype validation,design.md,false,unreviewed,Process guide; all measurement gates remain pending.
+V5-REG-018,validation.csv,csv,validation-gates,pending_measurement,predicted and pass values require measured results,design.md,false,unreviewed,All 20 gates marked pending; fills on first prototype.
+V5-REG-019,risks.md,markdown,risk-register,concept_only,none,existing repo packet,false,self_checked,Risk and release gates define blockers; not dimensional authority.
+V5-REG-020,photo-shotlist.md,markdown,evidence-photo-plan,concept_only,none,existing repo packet,false,self_checked,Future photo plan only; no evidence captured in this migration.
+V5-REG-021,visual-bom-brief.md,markdown,visual-brief,concept_only,none,bom.csv,false,self_checked,Brief for future visuals; no generated image present.
+V5-REG-022,explorer.html,html,studio-explorer,derived_preview,non-authoritative summary of existing packet files,README.md,false,unreviewed,Communication preview only; do not infer dimensions or tuning values from this page.
+V5-REG-023,card-for-showcase.html,html,showcase-card,derived_preview,non-authoritative summary,README.md,false,unreviewed,Portfolio card; not dimensional authority.
+V5-REG-024,agent-record.md,markdown,provenance-note,reference_only,none,Round 5 agent record,false,self_checked,Historical provenance; useful context but not fabrication authority.
+V5-REG-025,learn-to-play/00-INDEX.md,markdown,player-notes,concept_only,none,existing repo packet,false,self_checked,Playing notes; not acoustic validation evidence.
+V5-REG-026,cad/mcp-session-log.md,markdown,tool-provenance,concept_only,none,R6 migration 2026-05-30,false,self_checked,Documents this migration session; no live CAD/MCP/measurement tooling used.
+V5-REG-027,cad/tunable-snare-frame-array.scad,openscad,cad-source,pending_measurement,shell OD/depth + frame flange/web geometry only; cutouts and drum spacing not modeled,parameters.csv,false,self_checked,Parametric OpenSCAD master: three rolled-cylinder shell envelopes + mounting-frame flat/flange envelope. Renders clean in OpenSCAD. Frame cutout holes and exact drum spacing intentionally out of scope (solidworks-plan.md flags that math as unresolved). Not fabrication authority until reviewed against a formed prototype.

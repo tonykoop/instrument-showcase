@@ -1,0 +1,13 @@
+cut_id,subsystem,part_or_blank,quantity_basis,authority,source_status,pre_fabrication_gate,notes
+CUT-001,bowed_string_core,one-string test rail blank,estimate_pending_measurement,pending_measurement,unmeasured,"select measured reference and safe stock","Planning blank only; no length width thickness or hole locations released."
+CUT-002,bowed_string_core,temporary nut reference blank,estimate_pending_measurement,pending_measurement,unmeasured,"review string path before cutting","Movable reference part for testing only; no final nut geometry."
+CUT-003,bowed_string_core,temporary bridge reference blank,estimate_pending_measurement,pending_measurement,unmeasured,"review bow clearance and tangent contact","Prototype bridge reference only; no crown or foot dimensions."
+CUT-004,key_action,keybox cassette side blanks,estimate_pending_measurement,pending_measurement,unmeasured,"review key travel access and guide material","Cassette planning parts for a removable test box; no final keybox dimensions."
+CUT-005,key_action,key guide rail blanks,estimate_pending_measurement,pending_measurement,unmeasured,"verify friction and side-play target by test","Guide concept only; cut after measured key material and clearance choices."
+CUT-006,key_action,sliding key blanks,estimate_pending_measurement,pending_measurement,unmeasured,"one-key test before keyboard expansion","Blank family only; no key count spacing or travel released."
+CUT-007,tangent_system,replaceable tangent blanks,estimate_pending_measurement,pending_measurement,unmeasured,"bench-test contact clarity and release","Small replaceable blanks for experiments; not final tangent layout."
+CUT-008,sympathetic_strings,underpass clearance mockup panel,estimate_pending_measurement,pending_measurement,unmeasured,"verify moving-key clearance","Mockup only for clearance/service review; no resonant body claim."
+CUT-009,sympathetic_strings,sympathetic nut/tail reference blanks,estimate_pending_measurement,pending_measurement,unmeasured,"review access and routing","Temporary support references only; no tuning path authority."
+CUT-010,body,planning shell panel blanks,estimate_pending_measurement,pending_measurement,unmeasured,"review mounting order before closed body","Shop-planning shell only; not an instrument body pattern."
+CUT-011,body,removable inspection cover blanks,estimate_pending_measurement,pending_measurement,unmeasured,"prove service path","Access concept only; final panel geometry pending."
+CUT-012,documentation,bench labels and witness marks,estimate_pending_measurement,concept_only,planned,"log prototype setup states","Labels for measurement discipline; not fabrication geometry."

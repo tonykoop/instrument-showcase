@@ -1,0 +1,16 @@
+item_id,category,item,authority,quantity,unit,notes
+BOM-001,body,giant bowed bass body,pending_measurement,TBD,TBD,Overall form and structure are concept only; no body dimensions or materials are specified.
+BOM-002,strings,three large bowed strings,pending_measurement,3,count,String count is prompt supplied; tuning gauge length and tension are not specified.
+BOM-003,bridge,oversized bridge assembly,pending_measurement,TBD,TBD,Bridge geometry and material require string plan and acoustic review.
+BOM-004,neck_and_scroll,extended neck or support head,pending_measurement,TBD,TBD,Structural layout depends on scale length and string load.
+BOM-005,stopping_mechanism,hand lever bank,pending_measurement,TBD,TBD,Concept actuator family; lever count throw and linkage ratios are not specified.
+BOM-006,stopping_mechanism,foot pedal bank,pending_measurement,TBD,TBD,Concept actuator family for stops that may need foot control.
+BOM-007,stopping_mechanism,remote tangents or padded stops,pending_measurement,TBD,TBD,Contact material shape and position require testing.
+BOM-008,linkage,cables rods bell cranks or mixed transmission,pending_measurement,TBD,TBD,Transmission choice requires backlash friction and return-force tests.
+BOM-009,frame,mechanism support frame,pending_measurement,TBD,TBD,Must hold stop geometry stable without claiming dimensions yet.
+BOM-010,hardware,adjusters pivots bushings springs and fasteners,pending_measurement,TBD,TBD,Hardware class only; no sizes or suppliers specified.
+BOM-011,finish,surface protection and service markings,concept_only,TBD,TBD,Future planning item only.
+BOM-012,validation,single-string stop-action test rig,pending_measurement,TBD,TBD,Recommended before any full-scale build packet promotion.
+BOM-013,ergonomics,player console mockup,pending_measurement,TBD,TBD,Hand and foot interface layout must be tested before action geometry is fixed.
+BOM-014,safety,string break and pinch-zone guards,pending_measurement,TBD,TBD,Safety elements require string path and linkage routing evidence.
+BOM-015,service,adjustment and inspection access,pending_measurement,TBD,TBD,Service envelope remains open until the mechanism family is selected.

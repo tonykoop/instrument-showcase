@@ -1,0 +1,8 @@
+item_id,item,required_spec,search_terms,supplier_candidates,date_checked,unit_price,lead_time,substitution_rule,risk_note
+OCA-SRC-001,#1 pottery plaster,Pottery mold plaster suitable for absorbent ceramic molds,USG #1 pottery plaster 10 lb 25 lb,TBD,,,,Use equivalent pottery plaster if absorption and strength are similar,Wrong plaster can give weak molds or poor casting absorption.
+OCA-SRC-002,Cone 6 casting slip,Stoneware slip with known shrinkage and firing schedule,cone 6 stoneware casting slip shrinkage,TBD,,,,Substitute only after measuring shrinkage bars,Unknown shrinkage invalidates CAD scale factor.
+OCA-SRC-003,PLA or resin,Print material that can be sanded and sealed,PLA filament smooth master mold making resin print,TBD,,,,Any stable printable material is acceptable if sealed,Layer lines transfer into mold and cast.
+OCA-SRC-004,Mold release,Mold soap compatible with plaster,pottery mold soap plaster release,TBD,,,,Commercial mold soap preferred,Release failure can damage master or mold.
+OCA-SRC-005,Diamond files,Small round and tapered profiles,diamond needle file set ceramic tuning,TBD,,,,Diamond burrs can substitute for some work,Coarse tools chip fired ceramic.
+OCA-SRC-006,Wax resist,Brushable wax for glaze masking,ceramic wax resist glaze masking,TBD,,,,Latex or tape only if kiln-safe workflow is confirmed,Glaze in holes or windway can ruin tuning.
+OCA-SRC-007,Measurement tools,Cent-accurate tuner plus volume measurement,chromatic tuner cents water volume graduated syringe,TBD,,,,Phone app acceptable for early tests,Inconsistent measurement hides process drift.

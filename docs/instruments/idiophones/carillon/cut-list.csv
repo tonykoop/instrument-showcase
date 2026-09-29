@@ -1,0 +1,8 @@
+part_id,subsystem,part_or_future_artifact,authority,quantity_status,dimension_status,notes
+CAR-CUT-001,action_mule,baton_action_test_member,pending_measurement,TBD,pending_measurement,"No baton spacing travel or force value is specified; define only after action-mule design review."
+CAR-CUT-002,action_mule,pedal_coupling_test_member,pending_measurement,TBD,pending_measurement,"No leverage travel or load is specified; use only for future non-sounding study planning."
+CAR-CUT-003,transmission,wires_trackers_guides_mockup,pending_measurement,TBD,pending_measurement,"Routing length guide spacing adjuster type and service access remain pending."
+CAR-CUT-004,clappers,external_clapper_motion_mockup,pending_measurement,TBD,pending_measurement,"Clapper mass pivot strike point clearance and rebound are intentionally unspecified."
+CAR-CUT-005,bells,cast_bronze_bells,pending_measurement,TBD,pending_measurement,"Do not cast or order; bell count profile weights alloy and partial targets require foundry/expert authority."
+CAR-CUT-006,frame,tower_or_support_frame,pending_measurement,TBD,pending_measurement,"Do not fabricate; structural loads lifting plan weather exposure and access require engineering review."
+CAR-CUT-007,documentation,bell_register_and_validation_tables,pending_measurement,TBD,pending_measurement,"Future tables only after foundry/expert review and measured action data exist."

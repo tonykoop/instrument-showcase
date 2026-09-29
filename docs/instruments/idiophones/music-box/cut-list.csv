@@ -1,0 +1,13 @@
+cut_id,subsystem,part_or_blank,authority,estimate_status,quantity_status,dimension_status,source_status,notes
+case-frame-blank,structure,case/frame blank stock,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Material and blank size pending frame resonance and access review."
+service-panel-blank,structure,service panel stock,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Panel locations and openings pending service mockup."
+cylinder-blank,program,cylinder blank,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Cylinder diameter length material and bearing interface pending registration mule."
+pin-stock,program,pin or bump stock,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Pin profile height and retention pending one-pin release coupon."
+comb-blank,sound-generator,steel comb blank,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Tooth count material heat treatment and tuning workflow pending comb coupon."
+comb-mount-blank,sound-generator,comb mounting block,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Mount stiffness and fastener pattern pending coupon review."
+governor-parts,speed-control,governor blanks or hardware,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Governor architecture pending speed-control mule."
+escapement-parts,speed-control,escapement blanks or hardware,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Escapement style and wear surfaces pending review."
+drive-parts,drive,drive train blanks or hardware,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Drive source gear ratios and bearing layout pending prototype."
+damping-stock,acoustics,damping or mute material,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Damping placement pending noise and sustain tests."
+comb-coupon-stock,validation,comb coupon test blank,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Validation coupon only; not a released instrument part."
+pin-coupon-stock,validation,pin release test blank,pending_measurement,estimate_pending_measurement,pending_measurement,no_released_dimensions,planned,"Validation coupon only; not a released barrel program."

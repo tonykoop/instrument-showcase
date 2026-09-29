@@ -1,0 +1,10 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+readme,README.md,measurement_template,concept,concept_only,,none,false,"L2 concept overview only; no fabrication authority."
+design,design.md,measurement_template,concept,concept_only,,none,false,"Mechanism and risk map grounded in clavichord mechanics; no released dimensions tuning values tangent coordinates or geometry."
+bom,bom.csv,design_table,concept,pending_measurement,design.md,none,false,"Estimated subsystem list only; every physical part requires review and measurement before fabrication."
+cut-list,cut-list.csv,design_table,concept,pending_measurement,design.md,none,false,"Candidate part ledger only; no quantities dimensions drilling positions or toolpaths."
+decision-record,decision-record.md,measurement_template,story,concept_only,design.md,none,false,"Captures decisions assumptions and open questions for future review."
+mcp-session-log,cad/mcp-session-log.md,measurement_template,build_log,concept_only,,none,false,"Records QMD Step 0 provenance and absence of MCP/CAD authoring."
+cad-coupon,cad/clavichord.scad,cad_source,cad_authoring,pending_measurement,design.md,none,false,"Illustrative-only OpenSCAD action-coupon scaffold (key lever + tangent + one string course). RELEASES NO DIMENSIONS; every parameter is an estimate_pending_measurement placeholder. Renders clean in OpenSCAD (exit 0). Not fabrication authority; do not measure geometry off it."
+wolfram-starter,clavichord-starter.wl,wolfram_source,acoustic_model,reference_only,wolfram/clavichord-wolfram-model.wl,none,false,"Thin Wolfram loader; source-only and not executed; pending measurement, not fabrication authority."
+wolfram-model,wolfram/clavichord-wolfram-model.wl,wolfram_source,acoustic_model,reference_only,design.md,none,false,"Parametric tangent-defined string model with estimate placeholders only; no measured dimensions tensions or frequencies."
