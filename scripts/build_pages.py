@@ -17,7 +17,7 @@ Usage:
   python3 scripts/build_pages.py              # full build
   python3 scripts/build_pages.py --dry-run    # list instruments, no writes
 """
-import os, re, json, shutil, html as _html, urllib.parse, argparse
+import os, re, sys, json, shutil, html as _html, urllib.parse, argparse
 from pathlib import Path
 from PIL import Image, ImageOps
 
@@ -220,6 +220,16 @@ def main():
     args = parser.parse_args()
 
     publish = load_publish_list()
+    # Same rule as generate_library: only PUBLIC repos ship; lookup failure aborts.
+    sys.path.insert(0, str(HERE))
+    from visibility import VisibilityError, public_slugs
+    try:
+        ok, hidden = public_slugs([s for _, s in publish])
+    except VisibilityError as exc:
+        sys.exit(f"build_pages: VISIBILITY GATE FAILED\n  {exc}")
+    if hidden:
+        print(f"  visibility gate: skipping non-public: {', '.join(hidden)}")
+    publish = [(f, s) for f, s in publish if s in ok]
     print(f"{'DRY-RUN: ' if args.dry_run else ''}building {len(publish)} instruments -> {DOCS}")
 
     if args.dry_run:
