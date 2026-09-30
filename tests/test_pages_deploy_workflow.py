@@ -29,3 +29,15 @@ def test_uploads_docs_with_pages_permissions():
     up = [s for s in wf["jobs"]["deploy"]["steps"] if "upload-pages-artifact" in s.get("uses", "")]
     assert up and up[0]["with"]["path"] == "docs"
     assert wf["jobs"]["deploy"]["environment"]["name"] == "github-pages"
+
+
+def test_main_ref_enforced_on_both_jobs():
+    jobs = _wf()["jobs"]
+    for j in ("check", "deploy"):
+        assert jobs[j]["if"] == "github.ref == 'refs/heads/main'"
+
+
+def test_live_visibility_gate_runs_before_deploy():
+    runs = [s.get("run", "") for s in _wf()["jobs"]["check"]["steps"]]
+    assert any("scripts/visibility.py" in r for r in runs)
+    assert runs.index("python3 scripts/visibility.py") < runs.index("python3 scripts/check_site.py")

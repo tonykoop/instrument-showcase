@@ -13,6 +13,8 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/check_site.py'
+      - 'scripts/visibility.py'
+      - 'data/library-manifest.json'
       - 'scripts/published.txt'
       - '.github/workflows/pages-deploy.yml'
   workflow_dispatch:
@@ -28,14 +30,21 @@ concurrency:
 
 jobs:
   check:
-    name: Gate (site structure + link/scope visibility)
+    name: Gate (live visibility + site structure)
     runs-on: ubuntu-latest
+    # workflow_dispatch can pick any ref; only main may publish.
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install pyyaml Pillow
+      - name: Visibility gate (live lookup of every shipped slug; unknown fails)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/visibility.py
+
       - name: Check site structure
         env:
           GH_TOKEN: ${{ github.token }}
@@ -45,6 +54,7 @@ jobs:
     name: Deploy /docs
     needs: check
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
