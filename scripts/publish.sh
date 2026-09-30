@@ -15,6 +15,9 @@
 #   ./scripts/publish.sh --workspace ~/Documents/GitHub
 #   ./scripts/publish.sh --dry-run        # show what would happen, change nothing
 #
+# Flow: sync manifest status -> build -> visibility gate -> check_site -> push.
+# Any failing gate stops the script before anything is pushed.
+#
 # Difference vs publish.ps1: the irreversible "make repos public + enable Pages"
 # step is OPT-IN here (--make-public) instead of always-on, so a routine library
 # refresh can't accidentally change repo visibility. Everything else mirrors the
@@ -64,24 +67,36 @@ else
   echo "== Step 1: skipped (pass --make-public to flip repo visibility + enable Pages) =="
 fi
 
-echo "== Step 2: regenerate library =="
+echo "== Step 2: sync manifest status to live GitHub visibility =="
+run "$PY" "$SHOWCASE/scripts/sync_manifest_visibility.py"
+
+echo "== Step 3: build (library page + self-contained /docs bundle, #20/#21) =="
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
+# One library artifact: docs/library.html is what Pages serves, what check_site validates
+# and what Step 5 copies to the personal-site mirror, so checked == published.
 run "$PY" "$GEN" \
   --workspace "$WORKSPACE" \
   --base-url "$BASE_URL" \
   --published "$PUBLISHED" \
-  --output-html "$TMP/hz_library.html" \
-  --output-data "$TMP/hz_manifest.json"
-if [[ "$DRY_RUN" -eq 0 && ! -f "$TMP/hz_library.html" ]]; then
+  --output-html "$SHOWCASE/docs/library.html" \
+  --output-data "$SHOWCASE/data/library-manifest.json"
+if [[ "$DRY_RUN" -eq 0 && ! -f "$SHOWCASE/docs/library.html" ]]; then
   echo "Generation failed — no library.html produced." >&2; exit 1
 fi
+# The explorer builder reads MB_SOURCE_ROOT; keep it on the same workspace as the generator.
+MB_SOURCE_ROOT="$WORKSPACE" run "$PY" "$SHOWCASE/scripts/build_pages.py"
 
-echo "== Step 3: push library live (temp clone of $OWNER.github.io, avoids sync lock) =="
+echo "== Step 4: gates (nothing is pushed unless all pass) =="
+run "$PY" "$SHOWCASE/scripts/visibility.py"      # every published slug's repo is PUBLIC now
+run "$PY" "$SHOWCASE/scripts/check_site.py"      # counts, links, scope, link visibility
+run "$PY" "$SHOWCASE/scripts/qa_images.py"
+
+echo "== Step 5: push (temp clone of $OWNER.github.io for the library; then /docs) =="
 SITE="$TMP/tksite"
 run gh repo clone "$OWNER/$OWNER.github.io" "$SITE"
 if [[ "$DRY_RUN" -eq 0 ]]; then
-  cp "$TMP/hz_library.html" "$SITE/library.html"
+  cp "$SHOWCASE/docs/library.html" "$SITE/library.html"
   git -C "$SITE" add library.html
   if git -C "$SITE" diff --cached --quiet; then
     echo "  library.html unchanged — nothing to push."
@@ -89,13 +104,7 @@ if [[ "$DRY_RUN" -eq 0 ]]; then
     git -C "$SITE" commit -m "Refresh instrument library"
     git -C "$SITE" push
   fi
-fi
-
-echo "== Step 4: build self-contained /docs bundle (#20/#21) + image QA gate (#25) =="
-run "$PY" "$SHOWCASE/scripts/build_pages.py"
-run "$PY" "$SHOWCASE/scripts/qa_images.py"
-if [[ "$DRY_RUN" -eq 0 ]]; then
-  git -C "$SHOWCASE" add docs/
+  git -C "$SHOWCASE" add docs/ data/library-manifest.json
   if git -C "$SHOWCASE" diff --cached --quiet; then
     echo "  /docs unchanged — nothing to push."
   else
