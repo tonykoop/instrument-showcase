@@ -18,7 +18,8 @@ generated manifest:
      is sticky — the most important publish gate, per #24).
 
   6. LINK VISIBILITY — no docs/ page links to a github.com/tonykoop/<repo> whose
-     live visibility is not PUBLIC.
+     visibility is not PUBLIC. Manifest-known repos use its recorded snapshot;
+     others are looked up live, and a failed lookup fails the check.
 
 Exit code: 0 if no hard failures, 1 otherwise. Soft issues print as warnings.
 
@@ -34,11 +35,11 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from visibility import VisibilityError, repo_visibility  # noqa: E402
+
 SHOWCASE_DIR = Path(__file__).resolve().parent.parent
 SITE_DIR = SHOWCASE_DIR / "site"
-
-# Private repos that are not catalog entries, so the manifest cannot vouch for them.
-NON_MANIFEST_PRIVATE = ("instrument-maker",)
 
 GREEN, RED, YEL, DIM, RST = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
 
@@ -162,23 +163,32 @@ def main(argv=None) -> int:
         print(f"{DIM}--   scope gate skipped (no scripts/published.txt){RST}")
 
     # 6. LINK VISIBILITY (#189) — docs/ must not link to non-PUBLIC repos --------
+    # Known repos use the manifest's recorded visibility snapshot. A repo the manifest
+    # does not cover is looked up live; a failed lookup is a hard failure, never PUBLIC.
     vis = {e["slug"]: e["visibility"] for e in all_entries if "visibility" in e}
-    for slug in NON_MANIFEST_PRIVATE:
-        vis.setdefault(slug, "PRIVATE")
-    bad_links: dict[str, list[str]] = {}
+    linked: dict[str, list[str]] = {}
     for f in sorted(args.library.parent.rglob("*")):
         if f.suffix not in (".md", ".html") or not f.is_file():
             continue
         for repo in set(re.findall(r"github\.com/tonykoop/([A-Za-z0-9._-]+)",
                                    f.read_text(encoding="utf-8", errors="ignore"))):
-            if vis.get(repo, "PUBLIC") != "PUBLIC":
-                bad_links.setdefault(repo, []).append(str(f.relative_to(args.library.parent)))
+            linked.setdefault(repo, []).append(str(f.relative_to(args.library.parent)))
+    bad_links: dict[str, str] = {}
+    for repo in sorted(linked):
+        if repo not in vis:
+            try:
+                vis[repo] = repo_visibility(repo)
+            except VisibilityError as exc:
+                bad_links[repo] = f"visibility unknown ({exc})"
+                continue
+        if vis[repo] != "PUBLIC":
+            bad_links[repo] = vis[repo]
     if bad_links:
-        fails.append("LINKS: docs link to non-PUBLIC repo(s): " + "; ".join(
-            f"{r} ({fs[0]}{' +%d more' % (len(fs) - 1) if len(fs) > 1 else ''})"
-            for r, fs in sorted(bad_links.items())))
+        fails.append("LINKS: docs link to non-PUBLIC or unverifiable repo(s): " + "; ".join(
+            f"{r} [{why}] in {linked[r][0]}" + (f" +{len(linked[r]) - 1} more" if len(linked[r]) > 1 else "")
+            for r, why in bad_links.items()))
     else:
-        print(f"{GREEN}ok{RST}   link visibility: no docs link to a non-PUBLIC repo")
+        print(f"{GREEN}ok{RST}   link visibility: {len(linked)} linked repos, all PUBLIC")
 
     # Report ---------------------------------------------------------------------
     print()
