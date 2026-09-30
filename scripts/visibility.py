@@ -35,6 +35,18 @@ def repo_visibility(slug, owner=OWNER):
     return vis
 
 
+STATUS_LABELS = {"public": "Public", "private": "Private"}
+
+
+def reconcile_status(status, status_label, vis):
+    """Status pill implied by live visibility. 'blocked' is a release blocker, not a
+    visibility, so it is left in place. Returns (status, status_label)."""
+    if status == "blocked":
+        return status, status_label
+    want = "public" if vis == "PUBLIC" else "private"
+    return want, STATUS_LABELS[want]  # label normalised too: a stale hand-edited one cannot survive
+
+
 def public_slugs(slugs, lookup=repo_visibility):
     """Return (public, non_public) lists. Raises VisibilityError if any lookup fails."""
     errors, public, hidden = [], [], []
