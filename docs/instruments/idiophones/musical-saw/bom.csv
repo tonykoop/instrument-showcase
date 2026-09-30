@@ -1,0 +1,9 @@
+item_id,subsystem,item,authority,source_status,notes
+blade,blade,flexible hand saw blade,pending_measurement,concept_estimate,"Blade family material tooth condition profile and safe flex behavior are unresolved."
+handle,grip,handle or grip interface,pending_measurement,concept_estimate,"Comfort control and safety are pending handling review."
+edge-guard,safety,tooth or edge guard,pending_measurement,planned,"Guarding concept only; no shape material or attachment method is specified."
+bow,excitation,bow and rosin,concept_only,concept_estimate,"Playing method concept only; bow hair rosin and contact setup require testing."
+striker,excitation,soft striker or mallet,pending_measurement,concept_estimate,"Secondary struck mode only; material mass and strike behavior are unresolved."
+flex-guide,control,temporary flex reference or jig,pending_measurement,planned,"Optional measurement aid only; no curvature or jig geometry is specified."
+measurement-log,validation,flex bowing striking and pitch observation log,concept_only,planned,"Future log for setup safety tone pitch observation and repeatability."
+storage,safety,blade storage or transport protection,pending_measurement,planned,"Protection concept only; final storage method pending safety review."

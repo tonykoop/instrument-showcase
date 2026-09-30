@@ -1,0 +1,11 @@
+part_id,assembly,qty,material,rough_dimensions_in,final_dimensions_in,grain_or_orientation,operation,yield_or_offcut_plan,notes
+CUT-001,Chanter,1,African blackwood or prototype Delrin/ipe/cherry,2 x 2 x 16.5,OD 0.88 reed seat to 1.25 bell; length 14.5,Straight grain along bore; avoid defects,Turn exterior; drill/ream conical bore; drill tone holes,Save offcut for reed-seat and finish tests,Leave extra length until bore and reed seat are proven
+CUT-002,Tenor bottom sections,2,African blackwood or Delrin,2 x 2 x 10,8.0 long; bore 0.344 nominal,Grain along bore,Turn; bore; make tenon/socket,Pair offcuts for slide gauges,Build first tenor bottom as setup proof
+CUT-003,Tenor top sections,2,African blackwood or Delrin,2 x 2 x 10,9.0 long; bore 0.563 nominal,Grain along bore,Turn; bore; chamber; cap feature,Use matching offcuts for cap tests,Tenors should be identical after validation
+CUT-004,Bass bottom,1,African blackwood or Delrin,2 x 2 x 10,8.0 long; bore 0.375 nominal,Grain along bore,Turn; bore; tenon/socket,Save bore plug sample,Validate before bass middle
+CUT-005,Bass middle,1,African blackwood or Delrin,2 x 2 x 16,15.0 long; bore 0.438 nominal,Grain along bore,Turn; long bore; tenon/socket,Plan center-drill from both ends if needed,Highest long-bore wander risk
+CUT-006,Bass top,1,African blackwood or Delrin,2 x 2 x 10,9.0 long; bore 0.625 nominal,Grain along bore,Turn; bore; chamber/cap feature,Use offcut for cap test,Match drone top visual language
+CUT-007,Stocks,5,African blackwood or Delrin,2 x 2 x 4 each,2.5-3.0 long; bore to mating part; tie-in groove,Grain along bore,Batch turn and bore,Make one extra stock blank,Groove depth must preserve wall strength
+CUT-008,Blowpipe,1,African blackwood or Delrin,2 x 2 x 14,10-12 long; bore 0.5 nominal,Grain along bore,Turn; bore; valve seat; mouthpiece fit,Offcut for valve seat test,Valve must seal before full assembly
+CUT-009,Mounts/ferrules,1 set,Delrin imitation ivory or nickel silver rod,As required by profile,Fit to each section,Neutral; avoid stress fit,Turn rings and ferrules,Prototype can omit,Do not glue permanently until tuning slides are proven
+CUT-010,Fixture gauges,1 set,Hardwood or Delrin scraps,Shop offcuts,Reed seat gauges; tenon gauges; bore check plugs,Stable material,Turn gauges before final parts,Reuse across builds,Gauges reduce repeated measurement error

@@ -1,0 +1,8 @@
+item_id,subsystem,part_class,quantity_status,authority,dimension_status,notes
+WH-CL-001,validation,one-wheel coupon frame,estimate_pending_measurement,pending_measurement,pending_measurement,"Fixture class only; stock size and geometry require reviewed test design."
+WH-CL-002,wheel-bank,wheel blank or edge coupon,estimate_pending_measurement,pending_measurement,pending_measurement,"No diameter profile material or axle details are released."
+WH-CL-003,keyboard,key-action mule parts,estimate_pending_measurement,pending_measurement,pending_measurement,"Prototype linkage pieces only after action architecture review."
+WH-CL-004,stringing,single-string test span supports,estimate_pending_measurement,pending_measurement,pending_measurement,"No scale length gauge pitch or tension is specified."
+WH-CL-005,stringing,damper test pieces,estimate_pending_measurement,pending_measurement,pending_measurement,"Damping materials and shapes pending release-cleanliness tests."
+WH-CL-006,drive,motor-drive test mounts and guards,estimate_pending_measurement,pending_measurement,pending_measurement,"Powered fixture parts require electrical and pinch-point review first."
+WH-CL-007,maintenance,removable service covers or guards,estimate_pending_measurement,pending_measurement,pending_measurement,"Access panel and guard classes only; no fabrication geometry."

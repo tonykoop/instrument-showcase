@@ -31,7 +31,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "aeolian-harp-pillar",
@@ -57,7 +58,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "andean-duct-flutes",
@@ -65,8 +67,8 @@
       "instrument": "Andean Duct Flutes Build Packet",
       "family": "wind",
       "acoustic_class": "duct-flute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/andean-duct-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -83,7 +85,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "array-mbira",
@@ -91,8 +94,8 @@
       "instrument": "array mbira",
       "family": "idiophone",
       "acoustic_class": "lamellophone",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/array-mbira/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -109,7 +112,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "ashiko-drum-workshop",
@@ -117,8 +121,8 @@
       "instrument": "18-stave goatskin-head ashiko hand drum",
       "family": "drum",
       "acoustic_class": "single-membrane",
-      "status": "unknown",
-      "status_label": "L4 V5 Empirical Packet",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/ashiko-drum-workshop/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -140,7 +144,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "autoharp-inspired",
@@ -166,7 +171,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "barrel-organ",
@@ -174,8 +180,8 @@
       "instrument": "barrel organ",
       "family": "wind",
       "acoustic_class": "organ-pipe",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/barrel-organ/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -192,7 +198,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "bass-surface-drum",
@@ -200,8 +207,8 @@
       "instrument": "bass surface drum",
       "family": "drum",
       "acoustic_class": "single-membrane",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/bass-surface-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -218,7 +225,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "bell-stack-chord-horn",
@@ -244,7 +252,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "bowed-dish",
@@ -270,7 +279,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "bowed-frame-drum",
@@ -278,8 +288,8 @@
       "instrument": "bowed frame drum",
       "family": "drum",
       "acoustic_class": "single-membrane",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/bowed-frame-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -296,7 +306,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "bowed-metal-psaltery",
@@ -322,7 +333,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "bowed-sheet-metal-sarod",
@@ -348,7 +360,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "branching-multibell-horn",
@@ -374,7 +387,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "brass-marine-reed-horn",
@@ -400,7 +414,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "brian-boru-harp-replica",
@@ -426,7 +441,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "bugle-sheetmetal",
@@ -452,7 +468,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "cajon",
@@ -460,8 +477,8 @@
       "instrument": "Cajon Family Public-Review Prototype",
       "family": "drum",
       "acoustic_class": "box-drum",
-      "status": "unknown",
-      "status_label": "Pre-Build V5 Build-Packet Candidate",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/cajon/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -478,7 +495,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "carillon",
@@ -486,8 +504,8 @@
       "instrument": "carillon",
       "family": "idiophone",
       "acoustic_class": "tuned-bell",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/carillon/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -504,7 +522,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "celesta",
@@ -512,8 +531,8 @@
       "instrument": "celesta",
       "family": "idiophone",
       "acoustic_class": "tuned-bar-metal",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/celesta/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -530,7 +549,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "centaur-duet-horn",
@@ -556,7 +576,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "ceramic-electric-violin",
@@ -564,8 +585,8 @@
       "instrument": "Ceramic Electric Violin Capstone",
       "family": "string",
       "acoustic_class": "bowed-electric",
-      "status": "unknown",
-      "status_label": "V5 Issue-Readiness Scaffold",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../strings/ceramic-electric-violin/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -582,7 +603,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "ceramic-hang",
@@ -590,8 +612,8 @@
       "instrument": "Ceramic Hang Capstone",
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
-      "status": "unknown",
-      "status_label": "V5 Explorer-Readiness Scaffold",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/ceramic-hang/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -608,7 +630,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "ceramic-tongue-drum",
@@ -616,8 +639,8 @@
       "instrument": "Slip-Cast Ceramic Tongue Drum Family - V5 explorer readiness packet",
       "family": "drum",
       "acoustic_class": "tongue-drum-ceramic",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../idiophones/ceramic-tongue-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -634,7 +657,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "chalumeau",
@@ -665,7 +689,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "chromatic-25-tongue-drum",
@@ -691,7 +716,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "clarinet",
@@ -721,7 +747,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "clavichord",
@@ -729,8 +756,8 @@
       "instrument": "clavichord",
       "family": "string",
       "acoustic_class": "struck-keyboard",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/clavichord/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -747,7 +774,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "cnc-guitar-bodies",
@@ -755,8 +783,8 @@
       "instrument": "Cnc Guitar Bodies",
       "family": "string",
       "acoustic_class": "plucked-electric",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../strings/cnc-guitar-bodies/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -773,7 +801,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "compact-drum-kit",
@@ -799,7 +828,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "conga",
@@ -807,8 +837,8 @@
       "instrument": "Conga",
       "family": "drum",
       "acoustic_class": "single-membrane",
-      "status": "unknown",
-      "status_label": "L2 V5 Build-Packet Candidate",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../percussion/conga/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -825,7 +855,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "cornet-sheetmetal",
@@ -851,7 +882,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "cristal-baschet",
@@ -859,8 +891,8 @@
       "instrument": "cristal baschet",
       "family": "idiophone",
       "acoustic_class": "friction",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/cristal-baschet/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -877,7 +909,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "daxophone",
@@ -885,8 +918,8 @@
       "instrument": "daxophone",
       "family": "idiophone",
       "acoustic_class": "friction",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/daxophone/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -903,7 +936,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "didgeridoo",
@@ -934,7 +968,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "disc-trumpet",
@@ -960,7 +995,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "djembe",
@@ -990,7 +1026,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "drone-flutes",
@@ -998,8 +1035,8 @@
       "instrument": "Native American Drone Flute Family",
       "family": "wind",
       "acoustic_class": "duct-flute",
-      "status": "unknown",
-      "status_label": "In-Progress",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/drone-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1016,7 +1053,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "dual-bell-phasing-horn",
@@ -1042,7 +1080,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "duduk",
@@ -1074,7 +1113,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "dundun",
@@ -1104,7 +1144,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "duntong",
@@ -1112,8 +1153,8 @@
       "instrument": "Duntong Original Cylindrical Tongue Drum",
       "family": "idiophone",
       "acoustic_class": "tuned-bar",
-      "status": "unknown",
-      "status_label": "V5 Starter/Build-Packet Candidate; Not Build-Ready",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/duntong/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1130,7 +1171,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "egyptian-harps",
@@ -1156,7 +1198,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "electric-guitar-bodies",
@@ -1164,8 +1207,8 @@
       "instrument": "Electric Guitar Bodies",
       "family": "string",
       "acoustic_class": "plucked-electric",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../strings/electric-guitar-bodies/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1182,7 +1225,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "electric-violin",
@@ -1213,7 +1257,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "erhu",
@@ -1244,7 +1289,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "floor-harp",
@@ -1274,7 +1320,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "flutes",
@@ -1282,8 +1329,8 @@
       "instrument": "Flutes V5 Packet Scaffold",
       "family": "wind",
       "acoustic_class": "duct-flute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1300,7 +1347,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "folding-travel-resonator-guitar",
@@ -1326,7 +1374,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "frame-drum",
@@ -1334,8 +1383,8 @@
       "instrument": "Frame Drum V5 Explorer Packet",
       "family": "drum",
       "acoustic_class": "single-membrane",
-      "status": "unknown",
-      "status_label": "V5 Explorer Packet Candidate; Not A Complete V5 Build-Packet Candidate",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/frame-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1352,7 +1401,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "fujara",
@@ -1383,7 +1433,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "gemshorn",
@@ -1391,8 +1442,8 @@
       "instrument": "Gemshorn Build Methods And Slip-Cast Family",
       "family": "wind",
       "acoustic_class": "vessel-flute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/gemshorn/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1409,7 +1460,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "glass-armonica",
@@ -1417,8 +1469,8 @@
       "instrument": "glass armonica",
       "family": "idiophone",
       "acoustic_class": "friction",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/glass-armonica/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1435,7 +1487,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "glass-harp",
@@ -1443,8 +1496,8 @@
       "instrument": "glass harp",
       "family": "idiophone",
       "acoustic_class": "friction",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/glass-harp/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1461,7 +1514,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "glockenspiel",
@@ -1469,8 +1523,8 @@
       "instrument": "Glockenspiel - Tuned Metal-Bar Idiophone Build Packet",
       "family": "idiophone",
       "acoustic_class": "tuned-bar-metal",
-      "status": "unknown",
-      "status_label": "V5 Build-Packet Candidate; Not Build-Ready, Measured, Or Tuned",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/glockenspiel/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1487,7 +1541,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "great-highland-bagpipe",
@@ -1495,8 +1550,8 @@
       "instrument": "Great Highland Bagpipe Capstone",
       "family": "wind",
       "acoustic_class": "reed",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/great-highland-bagpipe/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1513,7 +1568,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "guzheng",
@@ -1543,7 +1599,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "haegeum",
@@ -1575,7 +1632,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "hammered-dulcimer",
@@ -1601,7 +1659,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "handpan",
@@ -1609,8 +1668,8 @@
       "instrument": "Handpan",
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
-      "status": "unknown",
-      "status_label": "V5 Planning Packet; Shell/Tuner Path Decided; Awaiting First Physical Shell",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/handpan/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1627,7 +1686,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "handpan-sheetmetal",
@@ -1653,7 +1713,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "harpsichord",
@@ -1661,8 +1722,8 @@
       "instrument": "harpsichord",
       "family": "string",
       "acoustic_class": "plucked-keyboard",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/harpsichord/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1679,7 +1740,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "hulusi",
@@ -1711,7 +1773,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "hurdy-gurdy",
@@ -1719,8 +1782,8 @@
       "instrument": "hurdy gurdy",
       "family": "string",
       "acoustic_class": "bowed-keyed",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/hurdy-gurdy/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1737,7 +1800,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "hydraulophone",
@@ -1745,8 +1809,8 @@
       "instrument": "hydraulophone",
       "family": "wind",
       "acoustic_class": "fluid",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/hydraulophone/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1763,7 +1827,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "inverted-pan-tower",
@@ -1789,7 +1854,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "iris-bell-tonal-horn",
@@ -1815,7 +1881,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "irish-flute",
@@ -1823,8 +1890,8 @@
       "instrument": "Irish Flute",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/irish-flute/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1841,7 +1908,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "jal-tarang",
@@ -1849,8 +1917,8 @@
       "instrument": "jal tarang",
       "family": "idiophone",
       "acoustic_class": "tuned-vessel",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/jal-tarang/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1867,7 +1935,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "kaval-alghosazi-flutes",
@@ -1875,8 +1944,8 @@
       "instrument": "Kaval + Alghosazi Fipple Flutes Capstone",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/kaval-alghosazi-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1893,7 +1962,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "kena",
@@ -1901,8 +1971,8 @@
       "instrument": "Kena",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "V5 Starter/Build-Packet Candidate; Not Build-Ready",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../woodwind/kena/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1919,7 +1989,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "khaen",
@@ -1927,8 +1998,8 @@
       "instrument": "Khaen-inspired CNC free-reed control build",
       "family": "wind",
       "acoustic_class": "free-reed",
-      "status": "unknown",
-      "status_label": "L1 Concept Packet; Control-Build; Measurement_Required",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../woodwind/khaen/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -1945,7 +2016,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "konghou",
@@ -1976,7 +2048,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "kora",
@@ -2002,7 +2075,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "lyre",
@@ -2032,7 +2106,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "magnetic-chromatic-harp",
@@ -2058,7 +2133,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "marimba",
@@ -2066,8 +2142,8 @@
       "instrument": "Marimba CNC Bar And Resonator Build Packet",
       "family": "idiophone",
       "acoustic_class": "tuned-bar",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/marimba/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2084,7 +2160,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "marimba-piano",
@@ -2092,8 +2169,8 @@
       "instrument": "Marimba Piano",
       "family": "idiophone",
       "acoustic_class": "tuned-bar",
-      "status": "unknown",
-      "status_label": "L1 Concept Packet",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../idiophones/marimba-piano/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2110,7 +2187,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "marxophone",
@@ -2118,8 +2196,8 @@
       "instrument": "marxophone",
       "family": "string",
       "acoustic_class": "zither",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/marxophone/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2136,7 +2214,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "modular-pedestal-drum-stack",
@@ -2144,8 +2223,8 @@
       "instrument": "modular pedestal drum stack",
       "family": "drum",
       "acoustic_class": "multi-membrane",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/modular-pedestal-drum-stack/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2162,7 +2241,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "moseno",
@@ -2170,8 +2250,8 @@
       "instrument": "Moseno",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../woodwind/moseno/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2188,7 +2268,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "multi-bridge-sheet-zither",
@@ -2214,7 +2295,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "music-box",
@@ -2222,8 +2304,8 @@
       "instrument": "music box",
       "family": "idiophone",
       "acoustic_class": "lamellophone",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/music-box/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2240,7 +2322,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "musical-saw",
@@ -2248,8 +2331,8 @@
       "instrument": "musical saw",
       "family": "idiophone",
       "acoustic_class": "friction",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/musical-saw/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2266,7 +2349,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "mute-tuned-natural-horn",
@@ -2292,7 +2376,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "ngoni",
@@ -2323,7 +2408,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "nyckelharpa",
@@ -2331,8 +2417,8 @@
       "instrument": "nyckelharpa",
       "family": "string",
       "acoustic_class": "bowed-keyed",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/nyckelharpa/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2349,7 +2435,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "ocarina",
@@ -2357,8 +2444,8 @@
       "instrument": "Slip-Cast Ceramic Ocarina (OCA-001) - V5 explorer candidate",
       "family": "wind",
       "acoustic_class": "vessel-flute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/ocarina/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2375,7 +2462,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "octave-doubling-shofar",
@@ -2401,7 +2489,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "octobass",
@@ -2409,8 +2498,8 @@
       "instrument": "octobass",
       "family": "string",
       "acoustic_class": "bowed",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/octobass/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2427,7 +2516,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "pianola",
@@ -2435,8 +2525,8 @@
       "instrument": "pianola",
       "family": "string",
       "acoustic_class": "struck-keyboard",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/pianola/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2453,7 +2543,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "pipa",
@@ -2483,7 +2574,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "pistalka",
@@ -2491,8 +2583,8 @@
       "instrument": "Pistalka",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../woodwind/pistalka/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2509,7 +2601,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "pitched-bell-cajon",
@@ -2535,7 +2628,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "pitched-bell-ladder",
@@ -2561,7 +2655,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "portable-calliope",
@@ -2587,7 +2682,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "portative-organ",
@@ -2595,8 +2691,8 @@
       "instrument": "portative organ",
       "family": "wind",
       "acoustic_class": "organ-pipe",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/portative-organ/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2613,7 +2709,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "rainstick",
@@ -2621,8 +2718,8 @@
       "instrument": "Rainstick",
       "family": "idiophone",
       "acoustic_class": "shaker",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../idiophones/rainstick/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2639,7 +2736,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "resophonic-bouzouki",
@@ -2665,7 +2763,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sambuca",
@@ -2673,8 +2772,8 @@
       "instrument": "Sambuca \u2014 Modern Boat-Shaped Arched Harp Inspired by the Royal Cemetery of Ur",
       "family": "string",
       "acoustic_class": "arched-harp",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/sambuca/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2697,7 +2796,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "saxophone-sheetmetal",
@@ -2723,7 +2823,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sea-organ",
@@ -2731,8 +2832,8 @@
       "instrument": "sea organ",
       "family": "wind",
       "acoustic_class": "organ-pipe",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/sea-organ/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2749,7 +2850,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "serpent-sheet-metal-packet",
@@ -2775,7 +2877,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "shakuhachi",
@@ -2783,8 +2886,8 @@
       "instrument": "Shakuhachi",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/shakuhachi/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -2801,7 +2904,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "sheet-metal-bass-clarinet",
@@ -2827,7 +2931,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheet-metal-djembe",
@@ -2853,7 +2958,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheet-metal-mbira",
@@ -2879,7 +2985,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheet-metal-pan-flute",
@@ -2905,7 +3012,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheet-metal-recorder-quartet",
@@ -2931,7 +3039,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheet-metal-talking-drum",
@@ -2957,7 +3066,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheet-metal-tin-whistle-set",
@@ -2983,7 +3093,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "sheng",
@@ -3013,7 +3124,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "siku-zampona",
@@ -3021,8 +3133,8 @@
       "instrument": "Siku (Zampo\u00f1a)",
       "family": "wind",
       "acoustic_class": "stopped-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/siku-zampona/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3039,7 +3151,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "slide-cornetto",
@@ -3065,7 +3178,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "solenoid-disc-idiophone",
@@ -3091,7 +3205,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "spiral-chime-tower",
@@ -3117,7 +3232,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "spiral-conch-horn",
@@ -3143,7 +3259,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "spun-aluminum-cello",
@@ -3169,7 +3286,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "stave-lute-oud",
@@ -3177,8 +3295,8 @@
       "instrument": "Stave Lute Oud",
       "family": "string",
       "acoustic_class": "lute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../strings/stave-lute-oud/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3195,7 +3313,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "steam-train-whistle",
@@ -3221,7 +3340,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "steel-pan",
@@ -3229,8 +3349,8 @@
       "instrument": "Steel Pan Starter Build Packet - V5 Readiness",
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
-      "status": "unknown",
-      "status_label": "Starter Build-Packet Planning Surface; Not Build-Ready And Not L2/L3/L4 Validated",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../idiophones/steel-pan/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3247,7 +3367,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "steel-pan-organ",
@@ -3273,7 +3394,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "steel-pot-drum",
@@ -3299,7 +3421,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "steel-tongue-drum",
@@ -3307,8 +3430,8 @@
       "instrument": "Steel Tongue Drum - V5 issue readiness packet",
       "family": "drum",
       "acoustic_class": "tongue-drum-steel",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/steel-tongue-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3325,7 +3448,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "sympathetic-sarangi-fiddle",
@@ -3351,7 +3475,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "telescoping-bass-profundo",
@@ -3377,7 +3502,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "timpani-sheetmetal",
@@ -3403,7 +3529,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "tin-whistle",
@@ -3411,8 +3538,8 @@
       "instrument": "Tin Whistle",
       "family": "wind",
       "acoustic_class": "duct-flute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../woodwind/tin-whistle/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3433,7 +3560,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "tongue-drum",
@@ -3441,8 +3569,8 @@
       "instrument": "tongue drum",
       "family": "drum",
       "acoustic_class": "tongue-drum-wood",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/tongue-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3459,7 +3587,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "transverse-flute",
@@ -3467,8 +3596,8 @@
       "instrument": "Slip-Cast Transverse Flute Family",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/transverse-flute/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3485,7 +3614,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "transverse-flute-sheetmetal",
@@ -3511,7 +3641,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "triple-cone-slide-guitar",
@@ -3537,7 +3668,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "tromba-marina",
@@ -3545,8 +3677,8 @@
       "instrument": "tromba marina",
       "family": "string",
       "acoustic_class": "bowed",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/tromba-marina/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3563,7 +3695,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "trombone-sheetmetal",
@@ -3589,7 +3722,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "trumpet-sheetmetal",
@@ -3615,7 +3749,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "tubular-bells",
@@ -3641,7 +3776,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "tunable-snare-frame-array",
@@ -3649,8 +3785,8 @@
       "instrument": "tunable snare frame array",
       "family": "drum",
       "acoustic_class": "snare-membrane",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../percussion/tunable-snare-frame-array/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3667,7 +3803,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "tuned-slit-drum-bank",
@@ -3675,8 +3812,8 @@
       "instrument": "tuned slit drum bank",
       "family": "idiophone",
       "acoustic_class": "slit-drum",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/tuned-slit-drum-bank/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3693,7 +3830,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "udu",
@@ -3701,8 +3839,8 @@
       "instrument": "Slip-Cast Ceramic Udu Drum Family - V5 Explorer Readiness",
       "family": "drum",
       "acoustic_class": "vessel-membrane",
-      "status": "unknown",
-      "status_label": "V5 Explorer/Readiness Packet; Not A Full V5 Build-Packet Candidate",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../percussion/udu/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3719,7 +3857,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "ukulele",
@@ -3727,8 +3866,8 @@
       "instrument": "Ukulele Build Packet",
       "family": "string",
       "acoustic_class": "lute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "private",
+      "status_label": "Private",
       "explorer_path": "../../../strings/ukulele/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3745,7 +3884,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "vessel-flutes",
@@ -3753,8 +3893,8 @@
       "instrument": "Vessel Flutes Build Packet",
       "family": "wind",
       "acoustic_class": "vessel-flute",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/vessel-flutes/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3771,7 +3911,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "waterphone",
@@ -3779,8 +3920,8 @@
       "instrument": "waterphone",
       "family": "idiophone",
       "acoustic_class": "friction",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/waterphone/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3797,7 +3938,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "whamola-bass",
@@ -3823,7 +3965,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "wheelharp",
@@ -3831,8 +3974,8 @@
       "instrument": "wheelharp",
       "family": "string",
       "acoustic_class": "bowed-keyed",
-      "status": "private",
-      "status_label": "Private review",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../strings/wheelharp/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3849,7 +3992,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "wind-chimes",
@@ -3875,7 +4019,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "wind-gong-sheetmetal",
@@ -3901,7 +4046,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PRIVATE"
     },
     {
       "slug": "wood-shell-tongue-drum",
@@ -3909,8 +4055,8 @@
       "instrument": "Wood Shell Tongue Drum Capstone",
       "family": "drum",
       "acoustic_class": "tongue-drum-wood",
-      "status": "unknown",
-      "status_label": "Prototype_Planning_Packet_With_V5_Explorer",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/wood-shell-tongue-drum/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3927,7 +4073,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "wooden-hang",
@@ -3935,8 +4082,8 @@
       "instrument": "Wooden Hang Capstone",
       "family": "idiophone",
       "acoustic_class": "tuned-shell",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/wooden-hang/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3953,7 +4100,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "xiao",
@@ -3961,8 +4109,8 @@
       "instrument": "Xiao",
       "family": "wind",
       "acoustic_class": "open-pipe",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../woodwind/xiao/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -3979,7 +4127,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "xylophone",
@@ -3987,8 +4136,8 @@
       "instrument": "Xylophone Capstone",
       "family": "idiophone",
       "acoustic_class": "tuned-bar",
-      "status": "unknown",
-      "status_label": "Unknown",
+      "status": "public",
+      "status_label": "Public",
       "explorer_path": "../../../idiophones/xylophone/explorer.html",
       "has_explorer": true,
       "cad": "none",
@@ -4005,7 +4154,8 @@
       "images_present": true,
       "viewer_present": false,
       "completeness_score": 2,
-      "completeness_state": "near"
+      "completeness_state": "near",
+      "visibility": "PUBLIC"
     },
     {
       "slug": "zephyr-zither",
@@ -4031,7 +4181,8 @@
       "images_present": false,
       "viewer_present": false,
       "completeness_score": 1,
-      "completeness_state": "in-progress"
+      "completeness_state": "in-progress",
+      "visibility": "PRIVATE"
     }
   ]
 }

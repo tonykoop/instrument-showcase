@@ -1,0 +1,15 @@
+item_id,category,item,authority,quantity,unit,notes
+BOM-001,body,long resonant body or soundbox,pending_measurement,TBD,TBD,Body form material stackup and proportions require historical/reference review before layout.
+BOM-002,string,primary bowed string,pending_measurement,1,count,Single-string identity is retained; gauge tuning tension and scale length are unspecified.
+BOM-003,bridge,buzzing trumpet bridge,pending_measurement,TBD,TBD,Loose-foot bridge module for bench testing; gap mass height contact patch and preload are not specified.
+BOM-004,bridge,replaceable bridge-foot shims,pending_measurement,TBD,TBD,Future experiment parts for controlled buzz adjustment; material and thickness remain pending.
+BOM-005,soundboard,soundboard or bridge contact coupon,pending_measurement,TBD,TBD,First coupon should be chosen from reference/body plan; material and thickness remain unknown.
+BOM-006,neck,string path and harmonic reference surface,pending_measurement,TBD,TBD,Harmonic markers are possible only after scale length and tuning policy are reviewed.
+BOM-007,sympathetic_strings,internal sympathetic strings,pending_measurement,TBD,TBD,Optional branch; count tuning routing and anchors remain open.
+BOM-008,hardware,tuning hardware and string anchors,pending_measurement,TBD,TBD,Hardware sizing depends on string plan body structure and bench-rig loads.
+BOM-009,validation,buzzing-bridge bench rig,pending_measurement,TBD,TBD,Recommended first prototype before any full instrument packet.
+BOM-010,documentation,reference photos drawings and measurements,concept_only,TBD,TBD,Future evidence gathering item; no references are embedded here.
+BOM-011,test_fixture,interchangeable bridge holder,pending_measurement,TBD,TBD,Holds candidate bridge modules during bench tests; fixture geometry is not specified.
+BOM-012,test_fixture,string tensioning frame,pending_measurement,TBD,TBD,Supports the single-string bench rig; load rating and anchor geometry are pending engineering review.
+BOM-013,measurement,buzz and sustain observation log,concept_only,TBD,TBD,Planned evidence artifact for L3 promotion; no measurements exist yet.
+BOM-014,safety,guarding and setup checklist,concept_only,TBD,TBD,Required before tensioned-string tests; final checklist depends on selected hardware.

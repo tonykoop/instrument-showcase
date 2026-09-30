@@ -1,0 +1,10 @@
+part_id,subsystem,part_class,authority,estimate_status,measurement_gate,notes
+GA-CUT-BOWL-SET,bowl_stack,graduated glass bowls,pending_measurement,estimate_class_only,measured candidate bowl set,"No bowl count, size, spacing, pitch, or wall profile is specified."
+GA-CUT-SPINDLE,rotating_core,horizontal spindle blank,pending_measurement,estimate_class_only,reviewed bowl interface and bearing layout,"Shaft material and geometry wait on bowl support tests."
+GA-CUT-MOUNT-INTERFACES,rotating_core,non-marring bowl interfaces,pending_measurement,estimate_concept,sacrificial mounting coupon,"Gasket, cone, collar, or clamp strategy must be tested before fabrication."
+GA-CUT-BEARING-SUPPORTS,drive,bearing support blocks,pending_measurement,estimate_concept,quiet drive mockup,"Support shape and placement wait on spindle and water-protection review."
+GA-CUT-TREADLE-LINKAGE,drive,treadle and linkage members,pending_measurement,estimate_concept,ergonomic drive test,"No lengths, pivots, or ratios are asserted."
+GA-CUT-FLYWHEEL-GUARD,drive,flywheel and guard envelope,pending_measurement,estimate_concept,drive noise and safety review,"Flywheel size and guarding remain pending test rig evidence."
+GA-CUT-FRAME,structure,bench frame members,pending_measurement,estimate_concept,bowl stack envelope and service review,"Frame dimensions wait on measured bowl stack and access clearances."
+GA-CUT-WATER-TRAY,playing_interface,water tray and drip path,pending_measurement,estimate_concept,wetting and cleanup test,"Tray shape and material must protect drive hardware from moisture."
+GA-CUT-SAFETY-GUARDS,safety,rotating glass and belt guards,pending_measurement,estimate_concept,rotating hazard review,"Guard geometry remains pending reviewed drive and bowl layout."

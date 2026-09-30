@@ -1,0 +1,8 @@
+artifact_path,artifact_type,authority,controlling_source,notes
+drawings/README.md,drawings_placeholder,pending_measurement,vessel-flutes-design-table.xlsx,No dimensioned drawings generated yet; placeholder marks the drawings/ folder for future DXF/SVG work.
+images/README-placeholder.txt,images_placeholder,pending_measurement,vessel-flutes-design-table.xlsx,No images generated yet; placeholder marks the images/ folder for future renders or build photos.
+wolfram-starter.wl,wolfram_source,pending_measurement,vessel-flutes-design-table.xlsx,Root-mode loader; source-only at L2 — runtime execution not yet recorded.
+vessel-flutes-starter.wl,wolfram_source,pending_measurement,vessel-flutes-design-table.xlsx,Instrument-specific Wolfram starter; source-only at L2.
+helmholtz-gates.json,validation_data,reference_only,,Helmholtz resonator gate criteria; reference document for validation workflow planning. Not a dimensional authority.
+family-spec.csv,family_spec,pending_measurement,vessel-flutes-design-table.xlsx,Family geometry summary; dimension_provenance is measurement_required until volume/voicing measurements close the Helmholtz gates.
+cad/vessel-flutes.scad,cad_source,pending_measurement,family-spec.csv,Parametric Helmholtz-envelope master; cavity volume/wall/voicing-area/neck driven by family-spec.csv. Volume-matched spherical cavity proxy; exterior body form and voicing/fipple/finger-hole geometry OUT OF SCOPE (hand-refined). Renders clean in OpenSCAD. NOT fabrication authority until measured.

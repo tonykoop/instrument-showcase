@@ -17,11 +17,12 @@ Usage:
   python3 scripts/build_pages.py              # full build
   python3 scripts/build_pages.py --dry-run    # list instruments, no writes
 """
-import os, re, json, shutil, html as _html, urllib.parse, argparse
+import os, re, sys, json, shutil, html as _html, urllib.parse, argparse
 from pathlib import Path
 from PIL import Image, ImageOps
 
-ROOT = "/mnt/c/Users/Tony/Documents/GitHub"
+# Source tree: <ROOT>/instruments/<family>/<slug>. Override with MB_SOURCE_ROOT.
+ROOT = os.environ.get("MB_SOURCE_ROOT", "/mnt/c/Users/Tony/Documents/GitHub")
 HERE = Path(__file__).resolve().parent
 DOCS = str(HERE.parent / "docs")
 MAXEDGE, JPEG_Q = 1600, 82
@@ -203,7 +204,8 @@ a.brand{{color:var(--accent);text-decoration:none}}
   <h1>Heifer Zephyr — Instrument Design Catalog</h1>
   <p class="sub">A curated, open look at original and traditional musical-instrument designs —
   engineering packets, acoustic models, and build documentation. A growing public preview,
-  eventually living at <a class="brand" href="https://heiferzephyr.com">heiferzephyr.com</a>.</p>
+  eventually living at <a class="brand" href="https://heiferzephyr.com">heiferzephyr.com</a>.
+  <a class="brand" href="library.html">Browse the full library &rarr;</a></p>
 </header>
 <main class="grid">
 {cards}
@@ -213,12 +215,57 @@ unless noted. Source designs are maintained privately; this site publishes a cur
 </body></html>"""
 
 
+# Slugs that moved family folders: old URL -> new one. Stubs are regenerated on every
+# build (the build wipes docs/instruments) so old links, incl. shared ones, keep working.
+MOVED = {("idiophones", s): "percussion"
+         for s in ("steel-tongue-drum", "tongue-drum", "wood-shell-tongue-drum")}
+
+REDIRECT = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moved: {slug}</title>
+<link rel="canonical" href="{target}">
+<meta http-equiv="refresh" content="0; url={target}">
+</head><body>
+<p>{slug} moved to <a href="{target}">{target}</a>.</p>
+</body></html>
+"""
+
+
+def write_redirects(docs=None, moved=None):
+    """Write meta-refresh + link stubs at each moved slug's old explorer.html and index.html.
+    Only when the new explorer exists, so a redirect never points at a 404. Returns count."""
+    docs = docs or DOCS
+    n = 0
+    for (old_fam, slug), new_fam in (moved or MOVED).items():
+        if not os.path.isfile(f"{docs}/instruments/{new_fam}/{slug}/explorer.html"):
+            continue
+        old_dir = f"{docs}/instruments/{old_fam}/{slug}"
+        os.makedirs(old_dir, exist_ok=True)
+        target = f"../../{new_fam}/{slug}/explorer.html"
+        for name in ("explorer.html", "index.html"):
+            with open(f"{old_dir}/{name}", "w", encoding="utf-8") as f:
+                f.write(REDIRECT.format(slug=_html.escape(slug), target=target))
+        n += 1
+    return n
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="list instruments only, no writes")
     args = parser.parse_args()
 
     publish = load_publish_list()
+    # Same rule as generate_library: only PUBLIC repos ship; lookup failure aborts.
+    sys.path.insert(0, str(HERE))
+    from visibility import VisibilityError, public_slugs
+    try:
+        ok, hidden = public_slugs([s for _, s in publish])
+    except VisibilityError as exc:
+        sys.exit(f"build_pages: VISIBILITY GATE FAILED\n  {exc}")
+    if hidden:
+        print(f"  visibility gate: skipping non-public: {', '.join(hidden)}")
+    publish = [(f, s) for f, s in publish if s in ok]
     print(f"{'DRY-RUN: ' if args.dry_run else ''}building {len(publish)} instruments -> {DOCS}")
 
     if args.dry_run:
@@ -245,6 +292,7 @@ def main():
             title=_html.escape(e["title"]),
         ))
 
+    print(f"wrote redirect stubs for {write_redirects()} moved slug(s)")
     open(f"{DOCS}/index.html", "w", encoding="utf-8").write(INDEX.format(cards="\n".join(cards)))
     open(f"{DOCS}/.nojekyll", "w").write("")
     print(f"\nbuilt {len(cards)} instrument(s) -> {DOCS}/index.html")

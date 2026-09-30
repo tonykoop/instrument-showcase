@@ -1,0 +1,13 @@
+item_id,subsystem,item,authority,estimate_status,notes
+BOWL-001,resonator,metal resonator bowl,pending_measurement,estimate_material_family,"Stainless or bronze candidate; actual alloy, form, wall, and response require measurement."
+NECK-001,body,central neck or handle,pending_measurement,estimate_concept,"Provides grip and possible fill/service access; geometry and seal design not specified."
+WATER-001,resonator,internal water chamber,pending_measurement,estimate_concept,"Water fill and tilt response require repeatable fill marks and acoustic tests."
+ROD-001,rod_field,vertical rim rods,pending_measurement,estimate_material_family,"Rod material, count, length, attachment, and tuning remain unmeasured."
+ATTACH-001,rod_field,rod-to-rim attachment method,pending_measurement,estimate_process,"Welded, brazed, threaded, clamped, or isolated approaches require coupon trials."
+SEAL-001,body,fill cap and seal,pending_measurement,estimate_concept,"Must be leak-tested before any playable prototype claim."
+FINISH-001,finish,corrosion-safe surface finish,pending_measurement,estimate_concept,"Finish must preserve bowing response and water compatibility."
+PLAY-001,playing_tools,bow and soft striker set,concept_only,estimate_accessory,"Playing tools for future response tests; no performance target specified."
+TEST-001,validation,microphone or accelerometer measurement setup,pending_measurement,estimate_test_need,"Needed before promoting rod, bowl, or water-bend claims."
+COUPON-001,validation,rod and attachment coupon set,pending_measurement,estimate_test_need,"Needed before defining a full rim field or rod ordering."
+LEAK-001,validation,water leak and cleanup test setup,pending_measurement,estimate_test_need,"Needed before any playable wet chamber claim."
+SERVICE-001,maintenance,rod replacement and chamber service access,pending_measurement,estimate_concept,"Service plan remains open until attachment and neck strategy are tested."

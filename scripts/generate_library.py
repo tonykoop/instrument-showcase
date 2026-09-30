@@ -278,6 +278,7 @@ class LibraryEntry:
     viewer_present: bool = False
     completeness_score: int = 0
     completeness_state: str = "scaffold"  # complete | near | in-progress | scaffold
+    visibility: str = ""  # live GitHub visibility (PUBLIC/PRIVATE/INTERNAL); "" when gate skipped
 
 
 # --------------------------------------------------------------------------
@@ -1033,6 +1034,39 @@ code{{font-family:var(--mono);font-size:0.88em}}
 # --------------------------------------------------------------------------
 
 
+def _previous_generated_at(path: Path) -> str:
+    try:
+        return json.loads(path.read_text(encoding="utf-8")).get("generated_at", "")
+    except (OSError, ValueError):
+        return ""
+
+
+def _current_outputs(args) -> "tuple[str, str] | None":
+    try:
+        return (args.output_data.read_text(encoding="utf-8"),
+                args.output_html.read_text(encoding="utf-8"))
+    except OSError:
+        return None
+
+
+def _render_outputs(args, entries, render_entries, generated_at: str, published) -> "tuple[str, str]":
+    """Pure render of (manifest json text, library html) for a given timestamp."""
+    data = {
+        "schema": "instrument-showcase-library-manifest-v1",
+        "generated_at": generated_at,
+        "workspace": args.workspace.name,  # basename only: absolute paths differ per machine
+        "entries": [asdict(e) for e in entries],
+    }
+    html_out = render_library_html(render_entries, generated_at)
+    if args.base_url:
+        # Belt-and-suspenders: hide any hero image that fails to load (e.g. a
+        # repo whose Pages went live but whose hero render isn't committed yet).
+        fallback = ("<script>document.querySelectorAll('img').forEach(function(im){"
+                    "im.addEventListener('error',function(){this.style.display='none'});});</script>\n")
+        html_out = html_out.replace("</body>", fallback + "</body>", 1)
+    return json.dumps(data, indent=2), html_out
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Generate the Heifer Zephyr Studio Explorers Library page")
     p.add_argument("--workspace", type=Path, default=DEFAULT_WORKSPACE,
@@ -1050,6 +1084,10 @@ def main(argv: list[str] | None = None) -> int:
                    help="Comma-separated slugs OR a path to a newline-delimited file "
                         "listing repos that are public + Pages-live. With --base-url, "
                         "only these get live links/images; others render as text cards.")
+    p.add_argument("--generated-at", default="",
+                   help="Pin the generated-at stamp (default: keep the previous stamp unless content changed).")
+    p.add_argument("--skip-visibility-gate", action="store_true",
+                   help="DEV ONLY: skip the live GitHub visibility check (page is NOT publishable).")
     args = p.parse_args(argv)
 
     published: "frozenset[str]" = frozenset()
@@ -1069,28 +1107,40 @@ def main(argv: list[str] | None = None) -> int:
         print("No instrument repos found in workspace", file=sys.stderr)
         return 1
 
-    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    render_entries = entries
+    if not args.skip_visibility_gate:
+        # Catalog rule: show an entry only if tonykoop/<slug> is PUBLIC (live gh lookup).
+        # Any lookup failure aborts the build -- never guess. The manifest keeps every
+        # entry with its live visibility; the page renders PUBLIC entries only, and
+        # status pills are derived from visibility here, not patched afterwards.
+        from visibility import VisibilityError, public_slugs, reconcile_status, repo_visibility
+        vis: dict[str, str] = {}
+        try:
+            keep, dropped = public_slugs([e.slug for e in entries],
+                                         lookup=lambda s: vis.setdefault(s, repo_visibility(s)))
+        except VisibilityError as exc:
+            print(f"generate_library: VISIBILITY GATE FAILED\n  {exc}", file=sys.stderr)
+            return 3
+        for e in entries:
+            e.visibility = vis[e.slug]
+            e.status, e.status_label = reconcile_status(e.status, e.status_label, e.visibility)
+        render_entries = [e for e in entries if e.slug in set(keep)]
+        print(f"  visibility gate  : kept {len(keep)} public, hid {len(dropped)} non-public")
 
-    # data/library-manifest.json
-    data = {
-        "schema": "instrument-showcase-library-manifest-v1",
-        "generated_at": generated_at,
-        "workspace": str(args.workspace),
-        "entries": [asdict(e) for e in entries],
-    }
+    generated_at = args.generated_at
+    if not generated_at:
+        # Deterministic by default: if nothing but the timestamp would change, keep the
+        # old one so regenerating yields no diff. Only real content changes bump it.
+        generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        prev = _previous_generated_at(args.output_data)
+        if prev and _render_outputs(args, entries, render_entries, prev, published) == _current_outputs(args):
+            generated_at = prev
+    data_text, html_out = _render_outputs(args, entries, render_entries, generated_at, published)
     args.output_data.parent.mkdir(parents=True, exist_ok=True)
-    args.output_data.write_text(json.dumps(data, indent=2), encoding="utf-8")
-
-    # site/library.html
     args.output_html.parent.mkdir(parents=True, exist_ok=True)
-    html_out = render_library_html(entries, generated_at)
-    if args.base_url:
-        # Belt-and-suspenders: hide any hero image that fails to load (e.g. a
-        # repo whose Pages went live but whose hero render isn't committed yet).
-        fallback = ("<script>document.querySelectorAll('img').forEach(function(im){"
-                    "im.addEventListener('error',function(){this.style.display='none'});});</script>\n")
-        html_out = html_out.replace("</body>", fallback + "</body>", 1)
+    args.output_data.write_text(data_text, encoding="utf-8")
     args.output_html.write_text(html_out, encoding="utf-8")
+    entries = render_entries
 
     # Summary
     print(f"generate_library: wrote {args.output_html} ({len(html_out):,} chars)")

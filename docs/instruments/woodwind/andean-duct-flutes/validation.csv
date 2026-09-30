@@ -1,0 +1,21 @@
+check,target,method,tool,actual,pass,notes
+Actual bore ID,0.625 in +/- measured tolerance,inside caliper at three stations,digital caliper,pending,pending,Recalculate length if tube ID differs
+First sound response,stable tone at low and medium breath,play test with same player,shop notes,pending,pending,Record breath-pressure bin
+Fundamental G4,392.00 Hz +/- 15 cents before trim,chromatic tuner at 68 F,tuner,pending,pending,Trim foot after block/window settle
+Pentatonic hole 1,+3 semitones from fundamental,drill undersize then enlarge,tuner,pending,pending,Tune from foot upward
+Pentatonic hole 2,+5 semitones from fundamental,drill undersize then enlarge,tuner,pending,pending,Log hole diameter after tuning
+Pentatonic hole 3,+7 semitones from fundamental,drill undersize then enlarge,tuner,pending,pending,Watch cross-fingering leakage
+Pentatonic hole 4,+10 semitones from fundamental,drill undersize then enlarge,tuner,pending,pending,Keep ergonomic reach under review
+Octave response,+12 semitones accessible with breath shift,play test,tuner,pending,pending,Do not overclaim until repeatable
+Block reinstall repeatability,within 5 cents after removal/reinstall,tuner before/after,tuner,pending,pending,Reject loose block fit
+Leak check,no audible leak around block or window,soap bubble or breath hold,visual/play test,pending,pending,Wax temporary leaks before final fit
+Ambient temperature at measurement (T_meas),record actual room temperature,thermometer,thermometer,pending,pending,Required before any c or L_eff calc - see reference/duct-flute-acoustic-law.md
+Speed of sound at T_meas (c_meas),derive c_meas from T_meas,c = 13552 * sqrt(T_K / 293.15) in/s,calculator,pending,pending,Do not assume 13552 in/s unless T_meas equals 68 F
+Measured fundamental (f_meas),capture before any trim,chromatic tuner,tuner,pending,pending,Log breath-pressure bin used during capture
+Measured effective length (L_eff_meas),solve from f_meas and c_meas,L_eff = c_meas / (2 * f_meas),calculator,pending,pending,Compare against L_phys to recover dL_foot + dL_window
+Window end correction (dL_window),separate from foot end correction,close foot and re-measure or use textbook seed only as last resort,tuner + caliper,pending,pending,Textbook 0.6r seed is a guess - record measured value
+Foot end correction (dL_foot),measure with all holes closed,caliper at foot opening + tuner residual,tuner + caliper,pending,pending,Chamfer or wall thickness shifts value
+Free jet length (L_j),windway exit to labium tip,caliper or shadow-line measurement,caliper,pending,pending,Edge-tone behavior depends on this
+Edge-tone speak threshold (p_breath_min),lowest breath pressure that speaks cleanly,play test with breath-pressure bins,shop notes,pending,pending,Record bin name and player; manometer optional
+Hole chimney correction (dL_hole_i),per-hole correction after tuning,measure post-tuning hole diameter and wall thickness,caliper + tuner,pending,pending,Required if a second body is to copy this geometry
+Block-removal pitch drift (df_block),pitch shift before/after block removal,"tuner before, remove, reinstall, tuner",tuner,pending,pending,Greater than 5 cents indicates loose or shifting block fit

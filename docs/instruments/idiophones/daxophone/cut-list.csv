@@ -1,0 +1,11 @@
+item_id,workpiece,system,quantity_basis,authority,dimension_status,notes
+CL-001,tongue blank coupon,tongue,estimate_pending_measurement,pending_measurement,pending_measurement,"Wood coupon category only; species grain outline thickness length and profile are not released."
+CL-002,edge-finish coupon,tongue,estimate_pending_measurement,pending_measurement,pending_measurement,"Safe bowed-edge preparation test category; abrasives finish sequence and geometry are pending."
+CL-003,clamp jaw coupon,clamp,estimate_pending_measurement,pending_measurement,pending_measurement,"Clamp interface category only; jaw geometry pressure and liner dimensions are not released."
+CL-004,replaceable clamp liner,clamp,estimate_pending_measurement,pending_measurement,pending_measurement,"Candidate pad/liner category for buzz and damage tests; material and size pending."
+CL-005,dax-face coupon,player_interface,estimate_pending_measurement,pending_measurement,pending_measurement,"Hand-held contact surface category only; no curve fret location or contact map is claimed."
+CL-006,bench base support,structure,estimate_pending_measurement,pending_measurement,pending_measurement,"Prototype support category only; mass isolation and footprint are pending."
+CL-007,pickup mount coupon,electronics,estimate_pending_measurement,pending_measurement,pending_measurement,"Reversible mounting category for noise tests; pickup position and hardware are not specified."
+CL-008,output strain-relief coupon,electronics,estimate_pending_measurement,pending_measurement,pending_measurement,"Cable/connector support category; placement and shielding require review."
+CL-009,safety handling coupon,safety,estimate_pending_measurement,pending_measurement,pending_measurement,"Splinter and sharp-edge review category; treatment and acceptance criteria pending."
+CL-010,test log template,documentation,estimate_pending_measurement,concept_only,none,"Paper or digital record template for blank source clamp bow dax pickup and safety observations."

@@ -1,0 +1,9 @@
+build_id,stage,date,clay_body,shrinkage_expected_pct,master_scale_factor,chamber_volume_cm3,wall_thickness_cm,voicing_w_cm,voicing_h_cm,hole_id,target_note,target_freq_hz,measured_freq_hz,cents_error,action,result,notes,measured_hz,tuner,environment,measurement_date
+OCA-P0,voicing_tile,,,,,,,,,all_closed,A4,440,,,,,Practice fipple before full body.,,,,
+OCA-P1,greenware,,,,,130,0.4,0.9,0.5,all_closed,A4,440,,,,,Measure before drying if possible.,,,,
+OCA-P1,bisque,,,,,TBD,TBD,TBD,TBD,all_closed,A4,440,,,,,First real model check.,,,,
+OCA-P1,glaze_fire,,,,,TBD,TBD,TBD,TBD,all_closed,A4,440,,,,,Record glaze shift.,,,,
+OCA-P2,bisque,,,,,TBD,TBD,TBD,TBD,hole_1,Bb4,466.2,,,,,Start undersized and enlarge gradually.,,,,
+OCA-P2,bisque,,,,,TBD,TBD,TBD,TBD,hole_2,B4,493.9,,,,,Record hole diameter after tuning.,,,,
+OCA-P2,bisque,,,,,TBD,TBD,TBD,TBD,hole_3,C5,523.3,,,,,Check breath pressure sensitivity.,,,,
+OCA-P3,glaze_fire,,,,,TBD,TBD,TBD,TBD,hole_12,A5,880,,,,,Full 12-hole validation row.,,,,

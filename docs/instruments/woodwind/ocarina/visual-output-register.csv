@@ -1,0 +1,9 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+DT-001,ocarina-design-table.xlsx,design_table,design_table,fabrication,,derived_from_authority,true,"Candidate design authority for chamber volume, voicing-window values, shrinkage assumption, and hole-area schedule; requires measurement before production release."
+CAD-001,cad/ocarina_master.scad,cad,fabrication_geometry,fabrication,DT-001,derived_from_authority,true,"OpenSCAD master-shape starter; controls candidate envelope and chamber parameters but not validated fipple/voicing geometry."
+SVG-001,drawings/ocarina-body-section.svg,svg_preview,derived_preview,derived_preview,CAD-001,derived_from_authority,false,"Preview drawing for body section; review against CAD/design table before treating as shop authority."
+SVG-002,drawings/ocarina-hole-layout.svg,svg_preview,derived_preview,derived_preview,DT-001,derived_from_authority,false,"Preview hole-layout drawing; hole positions are ergonomic and final diameters require tuner validation."
+SVG-003,drawings/ocarina-mold-schematic.svg,svg_preview,derived_preview,derived_preview,CAD-001,derived_from_authority,false,"Preview mold schematic; plaster split, keys, and drain path need physical mold review."
+IMG-001,images/hero-concept.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support image only; not fabrication authority."
+IMG-002,images/exploded-view-concept.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support exploded view only; not fabrication authority."
+IMG-003,images/mold-cross-section-concept.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support mold cross-section only; not fabrication authority."

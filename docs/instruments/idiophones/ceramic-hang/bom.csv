@@ -1,0 +1,13 @@
+item_id,category,item,qty,spec,make_buy,estimated_cost,source_note,drawing_ref,notes
+CHG-BOM-001,Clay,Cone 6 casting slip,5 gal,Stoneware or porcelain casting slip with measured shrinkage,Buy,derived estimate $40-80,Date-check before purchase,CHG-DRW-001,Choose one clay body for the first controlled run.
+CHG-BOM-002,Mold,#1 pottery plaster,75 lb,Absorbent pottery plaster for upper/lower shell molds,Buy,derived estimate $50-90,Date-check before purchase,CHG-DRW-002,Large dome molds will consume more plaster than udu/ocarina molds.
+CHG-BOM-003,Master,3D printed upper shell master,1,Oversized by measured shrinkage with tone-field islands,Make,derived estimate $40-200,Print or outsource,CHG-DRW-003,Segmented print acceptable if seams are filled and sealed.
+CHG-BOM-004,Master,3D printed lower shell master,1,Oversized by measured shrinkage with gu port reference,Make,derived estimate $25-150,Print or outsource,CHG-DRW-004,Lower shell can be simpler than upper shell.
+CHG-BOM-005,Fixture,Drying support cradle,1,Breathable foam or plaster cradle,Make,derived estimate $10-40,Shop-made,CHG-DRW-005,Prevents dome sagging and rim distortion.
+CHG-BOM-006,Fixture,Firing setter or support ring,1,Kiln-safe support for shell,Make/Buy,derived estimate $20-120,Date-check refractory options,CHG-DRW-006,Must not fuse to body or block shrinkage.
+CHG-BOM-007,Tools,Diamond files and burrs,1 set,Fine diamond abrasive tools,Buy,derived estimate $15-40,Date-check before purchase,CHG-VAL-001,For cautious post-bisque edge cleanup only.
+CHG-BOM-008,Measurement,Tuner and microphone,1,Cent-accurate tuner plus recording mic,Buy,derived estimate $0-150,Existing tools okay,CHG-VAL-002,Use same setup across prototypes.
+CHG-BOM-009,Measurement,Scale and calipers,1 set,Mass and dimensional tracking,Buy,derived estimate $0-80,Existing tools okay,CHG-VAL-003,Mass change helps track glaze/water loss.
+CHG-BOM-010,Finish,Exterior glaze or oxide wash,1 batch,Cone-compatible finish,Buy,derived estimate $15-60,Date-check before purchase,CHG-DRW-007,Test glaze damping on coupons before full shell.
+CHG-BOM-011,Protection,Rim wrap or bumper,1,Leather/rope/silicone rim protection,Buy/Make,derived estimate $10-75,Date-check before purchase,CHG-DRW-008,Protects fragile rim and improves handling.
+CHG-BOM-012,Transport,Padded bag/case,1,18-20 in protective case,Buy,derived estimate $40-160,Date-check before purchase,CHG-DRW-009,Ceramic transport risk is high.

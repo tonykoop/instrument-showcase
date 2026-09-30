@@ -1,0 +1,13 @@
+gate_id,category,artifact,status,evidence,next_action
+V5-001,readiness,README.md,pass,"Approved L2 V5 status line present; no L3/L4 claim.",Keep status until measured/CAD authority exists
+V5-002,packet-surface,v5-packet-checklist.md,pass,"Required V5 review checklist added.",Update checklist as artifacts are promoted
+V5-003,fabrication-authority,cad-dxf-authority-plan.md,open,"Current fabrication authority is explicitly none.",Create reviewed CAD/DXF/design-table artifacts before L3
+V5-004,visual-authority,visual-output-register.csv,pass,"Scans and photos are reference_only with no dimensional authority claim.",Keep generated or reference visuals out of fabrication chain
+V5-005,mcp-provenance,cad/mcp-session-log.md,pass,"Starter V5 provenance table records existing Wolfram/source and reference visual artifacts.",Add rows for future CAD/MCP/tool sessions
+V5-006,wolfram,analysis/membrane-shell-study.wl,smoke-pass,"wolframscript -file completed on 2026-05-17; no measured outputs or plots are claimed.",Run again after measured inputs exist; record command/version/output
+V5-007,materials,v5-material-measurement-gates.md,open,"Material evidence gates are named but unresolved.",Measure and source stock/hide/rings/rope/finish before build release
+V5-008,measurements,validation-loop.csv,open,"Dimension/pitch/rope/ergonomic checks are defined but open.",Collect physical measurements and update gate statuses
+V5-009,cultural-review,risks.md,open,"Mande cultural/provenance review risk is named.",Add human review/source notes before public build instructions expand
+V5-010,shop-risk,risks.md,open,"Rope tension, hide handling, ring hardware, and player-contact risks are named.",Resolve with coupons and shop review before build release
+V5-011,shell-head-tension,shell-head-tension-validation-plan.md,open,"Family shell/head/tension validation gates are named for all three voices.","Collect measured shell basis, head-seat, rope stretch, and paired-head pitch evidence"
+V5-012,shop-gates,"shop-gate-tables.md; shop-gates.csv",open,"Shop release ladder is defined from P0 evidence setup through P5 CAD/DXF review.",Run gates in order and keep coupon evidence separate from build-ready release

@@ -1,0 +1,11 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+readme,README.md,measurement_template,concept,concept_only,,none,false,"L2 prototype-planning overview only; no fabrication authority."
+design,design.md,measurement_template,concept,pending_measurement,,none,false,"Mechanism and prototype planning map grounded in pianola pneumatic player-piano mechanics; no released dimensions tuning values pressure values or geometry."
+bom,bom.csv,design_table,concept,pending_measurement,design.md,none,false,"Estimated subsystem list only; every physical part requires review and measurement before fabrication."
+cut-list,cut-list.csv,design_table,concept,pending_measurement,design.md,none,false,"Coupon and fixture planning register only; no cut geometry dimensions or fabrication coordinates."
+decision-record,decision-record.md,measurement_template,story,concept_only,design.md,none,false,"Captures decisions assumptions L2 gates and open questions for future review."
+mcp-session-log,cad/mcp-session-log.md,measurement_template,build_log,concept_only,,none,false,"Records QMD Step 0 provenance and absence of MCP/CAD authoring."
+PL-CAD-001,cad/pianola.scad,cad_source,cad_authoring,pending_measurement,docs/parametric-design-table.md,render_only_scaffold,false,"Parametric structural-envelope scaffold (scaffold_dimensions / render-only; piano case + string band + keyboard/action + pneumatic-stack envelope); symbolic margins as formulas with render-only placeholder leaf values. Renders clean in OpenSCAD (exit 0, Simple: yes). NOT fabrication authority; full mechanism out of scope."
+PL-CAD-README-001,cad/README.md,cad_note,cad_documentation,concept_only,cad/pianola.scad,none,false,"Notes on the envelope scaffold, placeholder boundary, and render check."
+wolfram-starter,pianola-starter.wl,wolfram_source,engineering_model,reference_only,wolfram/pianola-wolfram-model.wl,none,false,"Thin Wolfram loader; source-only and not executed; pending measurement, not fabrication authority."
+wolfram-model,wolfram/pianola-wolfram-model.wl,wolfram_source,engineering_model,reference_only,design.md,none,false,"Parametric pneumatic action timing model with estimate placeholders only; no measured dimensions pressure values timings or frequencies."

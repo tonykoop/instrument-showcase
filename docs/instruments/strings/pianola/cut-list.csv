@@ -1,0 +1,11 @@
+item_id,subsystem,part_or_coupon,material_or_source,cut_status,authority,dimension_status,notes
+CUT-001,roll_transport,test paper strip,source_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Short roll-media coupon only; no roll scale hole geometry or strip dimensions released."
+CUT-002,tracker_bar,one-port tracker-bar coupon,material_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Inspectable sensing coupon; port size spacing and coordinates are pending measurement."
+CUT-003,tracker_bar,sealing-face sample,material_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Surface and paper-contact sample for leak and cleaning tests."
+CUT-004,pneumatic_chain,pouch clamp coupon,material_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Fixture for comparing pouch materials; no pouch area or geometry released."
+CUT-005,pneumatic_chain,valve-seat coupon,material_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Valve seat and vent behavior test piece; no seat dimensions released."
+CUT-006,pneumatic_chain,leak-isolation manifold coupon,material_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Bench plumbing aid for isolating tracker tube pouch and valve leaks."
+CUT-007,action_interface,actuator mounting coupon,material_pending,planned_coupon,pending_measurement,estimate_pending_measurement,"Adjustable interface to representative action load; no travel force or linkage geometry released."
+CUT-008,action_interface,representative action fixture,source_or_material_pending,planned_fixture,pending_measurement,estimate_pending_measurement,"Safe action load for timing and reset tests; not final piano geometry."
+CUT-009,service,open service mockup panel,material_pending,planned_mockup,pending_measurement,estimate_pending_measurement,"Checks access for cleaning pouch replacement and valve adjustment only."
+CUT-010,documentation,test labels and setup log sheets,paper_or_digital,planned_documentation,concept_only,not_dimensional,"Documentation support only; no fabrication authority."

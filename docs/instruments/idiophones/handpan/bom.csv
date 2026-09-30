@@ -1,0 +1,13 @@
+part_no,item,category,qty,unit,required_spec,estimated_cost,source_status,notes
+HP-001,Matched top and bottom shells,metal shell,1,pair,"21 in / 53 cm handpan shells, 1.0 mm DC04 low-carbon steel or approved stainless, no cracks or oil-canning",250,quote required,"Pre-drawn shells strongly preferred over first-time hand sinking"
+HP-002,Gas nitriding or approved surface treatment,heat treatment,1,service,"Process compatible with 1.0 mm low-carbon handpan shells; supplier to confirm temperature cycle and distortion risk",120,quote required,"Skip only for stainless branch with separate validation"
+HP-003,Tuning support ring / frame,fixture,1,each,"Rigid circular support for 21 in shell, padded contact, stable under hammering",75,shop fabricate,"Can be welded flat bar or CNC-cut plate/ring"
+HP-004,Oval tone-field template set,template,1,set,"Removable Ding plus 8 oval field templates from current design table; acrylic, hardboard, or printed film",35,shop fabricate,"Template is a layout aid, not final acoustic geometry"
+HP-005,Dimple press tooling,tooling,1,set,"Ball form and receiver dies for field dimples plus Ding forming support",60,shop fabricate or purchase,"Radius set must be tested on scrap shell"
+HP-006,Tuning hammer set,tools,1,set,"Small cross-peen, ball-peen, nylon/rubber mallet, polished faces",80,purchase,"Hammer faces must be smooth to avoid stress risers"
+HP-007,Measurement kit,measurement,1,set,"Chromatic strobe tuner, calibrated mic, audio interface or handheld recorder, FFT/spectrum software",150,purchase,"Existing shop equipment can satisfy this row"
+HP-008,Flexible shell adhesive,assembly,1,kit,"High-strength flexible epoxy or handpan rim adhesive compatible with steel treatment and cure schedule",45,quote or test required,"Do coupon test before final shell closure"
+HP-009,Gu edge trim or ring,finish,1,each,"3.5 in ID edge trim, silicone/rubber ring, or rolled-safe finish",15,purchase,"No sharp Gu edge after deburring"
+HP-010,Surface protection and cleaning supplies,finish,1,set,"Non-abrasive cloths, alcohol wipe, protective oil for nitrided shell or stainless-compatible cleaner",30,purchase,"Confirm finish compatibility"
+HP-011,Padded case,storage,1,each,"22 in handpan bag/case with dense padding",120,purchase,"Protect tuned shell during settling and transport"
+HP-012,Practice/scrap shell or coupon stock,training,1,set,"Low-cost steel practice shell or scrap formed areas for hammer/treatment trials",100,purchase or shop scrap,"Mandatory before committing final shell"

@@ -1,0 +1,18 @@
+item_id,category,item,authority,quantity,unit,notes
+BOM-001,bowls,porcelain ceramic glass or metal bowls,pending_measurement,TBD,TBD,Bowl count material geometry and pitch response require inventory measurement.
+BOM-002,water,measured fill water,pending_measurement,TBD,TBD,Water volumes are the tuning variable and are not specified in this L2 packet.
+BOM-003,measurement,water measuring vessel or scale,pending_measurement,TBD,TBD,Needed for repeatable fill logging; exact tool not selected.
+BOM-004,measurement,tuner or pitch logging setup,pending_measurement,TBD,TBD,Future validation tool; no pitch targets are claimed here.
+BOM-005,mallets,light striking mallets,pending_measurement,TBD,TBD,Mallet material mass hardness and tip geometry require listening tests.
+BOM-006,support,bowl support tray or cradle,pending_measurement,TBD,TBD,Support must balance stability and resonance; no layout dimensions released.
+BOM-007,labeling,bowl IDs and water-level labels,pending_measurement,TBD,TBD,Temporary labels recommended before any permanent marking.
+BOM-008,drainage,drain and refill kit,pending_measurement,TBD,TBD,Needed for repeatability tests and safe session reset.
+BOM-009,transport,soft packing or storage,concept_only,TBD,TBD,Future handling item only.
+BOM-010,documentation,pitch and fill log,concept_only,TBD,TBD,Future measurement record for bowl ID water volume pitch and notes.
+BOM-011,inventory,bowl condition and ID ledger,pending_measurement,TBD,TBD,Needed before selecting a tuning order or support layout.
+BOM-012,measurement,repeatable fill transfer tool,pending_measurement,TBD,TBD,Tool family only; exact vessel scale or method remains open.
+BOM-013,measurement,recording and room-note setup,pending_measurement,TBD,TBD,Needed to compare dry wet and session-drift observations without claiming pitch targets.
+BOM-014,mallets,mallet trial set,pending_measurement,TBD,TBD,Material and tip families only; hardness and mass are unmeasured.
+BOM-015,support,resonance-safe test cradle,pending_measurement,TBD,TBD,Trial support before any final tray or stage layout.
+BOM-016,safety,water spill and bowl-handling kit,pending_measurement,TBD,TBD,Needed for wet setup tests and safe reset.
+BOM-017,validation,repeatability test log,pending_measurement,TBD,TBD,Future record for drain refill retune and session drift evidence.

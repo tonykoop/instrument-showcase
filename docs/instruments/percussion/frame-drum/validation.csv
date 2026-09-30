@@ -1,0 +1,11 @@
+check,target,method,tool,actual,pass,notes
+hoop roundness,within 0.0625 in across diameters,measure 0/45/90/135 deg,calipers or tape,,,record before and after head tension
+hoop depth,2.75 in baseline,measure four quadrants,calipers,,,FD-16 baseline
+wall thickness,0.375 in baseline,measure four quadrants,calipers,,,watch thin spots at scarf or stave seams
+bearing edge smoothness,no sharp cuts or discontinuities,hand inspection and visual check,light and touch,,,finish before mounting head
+low tension fundamental,record Hz,tuner or FFT,phone tuner or audio interface,,,first-order membrane model only
+medium tension fundamental,record Hz,tuner or FFT,phone tuner or audio interface,,,repeat after settling overnight
+high tension fundamental,record Hz,tuner or FFT,phone tuner or audio interface,,,do not exceed head or hoop safety
+sustain,record decay time,strike test,audio recording,,,same mallet/hand position each pass
+ergonomics,comfortable hand access and rim feel,player test,hands and notes,,,check with bare hand and beater
+humidity response,record tuning drift over 24 hr,repeat tuner checks,hygrometer and tuner,,,important for natural hide

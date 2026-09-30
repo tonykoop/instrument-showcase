@@ -17,6 +17,10 @@ generated manifest:
      whose repo manifest is private / blocked / patent-candidate (private→public
      is sticky — the most important publish gate, per #24).
 
+  6. LINK VISIBILITY — no docs/ page links to a github.com/tonykoop/<repo> whose
+     visibility is not PUBLIC. Manifest-known repos use its recorded snapshot;
+     others are looked up live, and a failed lookup fails the check.
+
 Exit code: 0 if no hard failures, 1 otherwise. Soft issues print as warnings.
 
 Usage:
@@ -30,6 +34,9 @@ import json
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from visibility import VisibilityError, repo_visibility  # noqa: E402
 
 SHOWCASE_DIR = Path(__file__).resolve().parent.parent
 SITE_DIR = SHOWCASE_DIR / "site"
@@ -48,7 +55,9 @@ def _num(label_pat: str, html: str) -> int | None:
 
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="Pre-publish health checks for the showcase site")
-    p.add_argument("--library", type=Path, default=SITE_DIR / "library.html")
+    # docs/ is what GitHub Pages serves; site/library.html is a stale copy.
+    p.add_argument("--library", type=Path, default=SHOWCASE_DIR / "docs" / "library.html")
+    p.add_argument("--index", type=Path, default=SHOWCASE_DIR / "docs" / "index.html")
     p.add_argument("--manifest", type=Path, default=SHOWCASE_DIR / "data" / "library-manifest.json")
     p.add_argument("--published", type=Path, default=SHOWCASE_DIR / "scripts" / "published.txt")
     args = p.parse_args(argv)
@@ -66,6 +75,11 @@ def main(argv=None) -> int:
     html = args.library.read_text(encoding="utf-8", errors="ignore")
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     entries = manifest.get("entries", manifest if isinstance(manifest, list) else [])
+    # The shipped library lists PUBLIC repos only; the manifest keeps every entry.
+    # Entries carry a live `visibility` (sync_manifest_visibility.py); without it, count all.
+    all_entries = entries
+    if any("visibility" in e for e in entries):
+        entries = [e for e in entries if e.get("visibility") == "PUBLIC"]
     site_dir = args.library.parent
 
     # 1. COUNT CONSISTENCY (#14) -------------------------------------------------
@@ -121,18 +135,60 @@ def main(argv=None) -> int:
     else:
         print(f"{GREEN}ok{RST}   all local <img> srcs resolve")
 
+    # 3b. LANDING PAGE (docs/index.html): every card link must resolve -------------
+    if args.index.exists():
+        idx = args.index.read_text(encoding="utf-8", errors="ignore")
+        idx_links = re.findall(r'<a class="card" href="([^"]+)"', idx)
+        idx_broken = [h for h in idx_links if not (args.index.parent / h).exists()]
+        if idx_broken or not idx_links:
+            fails.append(f"{args.index.name}: {len(idx_broken)} broken / {len(idx_links)} card link(s), "
+                         f"e.g. {(idx_broken or ['no cards'])[0]}")
+        else:
+            print(f"{GREEN}ok{RST}   {args.index.name}: {len(idx_links)} card links resolve")
+
     # 5. SCOPE GATE (#24 — private→public is sticky) -----------------------------
     if args.published.exists():
         pub = {s.strip() for s in args.published.read_text().split() if s.strip()}
-        leaked = [e["slug"] for e in entries
-                  if e.get("slug") in pub and e.get("status") in ("private", "blocked")]
+        # Non-public = live GitHub visibility if recorded, else manifest status 'private'.
+        # A 'blocked' release blocker is not a visibility, so it does not fail this gate.
+        leaked = [e["slug"] for e in all_entries
+                  if e.get("slug") in pub and (e["visibility"] != "PUBLIC" if "visibility" in e
+                                               else e.get("status") == "private")]
         if leaked:
-            fails.append(f"SCOPE: {len(leaked)} published slug(s) are private/blocked: "
+            fails.append(f"SCOPE: {len(leaked)} published slug(s) are not PUBLIC on GitHub: "
                          f"{', '.join(leaked[:5])} — do NOT publish")
         else:
-            print(f"{GREEN}ok{RST}   scope gate: {len(pub)} published slugs, none private/blocked")
+            print(f"{GREEN}ok{RST}   scope gate: {len(pub)} published slugs, all PUBLIC")
     else:
         print(f"{DIM}--   scope gate skipped (no scripts/published.txt){RST}")
+
+    # 6. LINK VISIBILITY (#189) — docs/ must not link to non-PUBLIC repos --------
+    # Known repos use the manifest's recorded visibility snapshot. A repo the manifest
+    # does not cover is looked up live; a failed lookup is a hard failure, never PUBLIC.
+    vis = {e["slug"]: e["visibility"] for e in all_entries if "visibility" in e}
+    linked: dict[str, list[str]] = {}
+    for f in sorted(args.library.parent.rglob("*")):
+        if f.suffix not in (".md", ".html") or not f.is_file():
+            continue
+        for repo in set(re.findall(r"github\.com/tonykoop/([A-Za-z0-9._-]+)",
+                                   f.read_text(encoding="utf-8", errors="ignore"))):
+            linked.setdefault(repo, []).append(str(f.relative_to(args.library.parent)))
+    bad_links: dict[str, str] = {}
+    for repo in sorted(linked):
+        if repo not in vis:
+            try:
+                vis[repo] = repo_visibility(repo)
+            except VisibilityError as exc:
+                bad_links[repo] = f"visibility unknown ({exc})"
+                continue
+        if vis[repo] != "PUBLIC":
+            bad_links[repo] = vis[repo]
+    if bad_links:
+        fails.append("LINKS: docs link to non-PUBLIC or unverifiable repo(s): " + "; ".join(
+            f"{r} [{why}] in {linked[r][0]}" + (f" +{len(linked[r]) - 1} more" if len(linked[r]) > 1 else "")
+            for r, why in bad_links.items()))
+    else:
+        print(f"{GREEN}ok{RST}   link visibility: {len(linked)} linked repos, all PUBLIC")
 
     # Report ---------------------------------------------------------------------
     print()

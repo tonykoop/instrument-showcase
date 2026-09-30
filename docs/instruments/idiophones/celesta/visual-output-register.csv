@@ -1,0 +1,11 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+readme,README.md,measurement_template,concept,concept_only,,none,false,"L2 packet overview only; no fabrication authority."
+design,design.md,measurement_template,concept,concept_only,,none,false,"Mechanism gates and risk map for keyboard, felt hammers, steel bars, resonators, and dampers; no released dimensions or tuning values."
+bom,bom.csv,design_table,concept,concept_only,design.md,none,false,"Estimated subsystem list only; physical parts require review and measurement before fabrication."
+cut-list,cut-list.csv,design_table,planned_test_classes,pending_measurement,design.md,planned_missing_dimensions,false,"Coupon and fixture classes only; no stock sizes geometry tuning values or fabrication release."
+decision-record,decision-record.md,measurement_template,story,concept_only,design.md,none,false,"Captures decisions and open questions for future review."
+mcp-session-log,cad/mcp-session-log.md,measurement_template,build_log,concept_only,,none,false,"Records QMD Step 0 failure and absence of MCP/CAD authoring."
+future-bar-coupon,cad/bar-coupon.scad,cad,planned_coupon,pending_measurement,design.md,planned_missing_artifact,false,"Future CAD only after measured or reviewed bar and fixture parameters exist."
+future-cad,cad/,cad,concept,pending_measurement,design.md,planned_missing_artifact,false,"Reserved for future CAD after measured or reviewed parameters exist; no CAD geometry is present."
+celesta-wl-starter,celesta-starter.wl,wolfram_source,model_entrypoint,reference_only,wolfram/celesta-wolfram-model.wl,estimate_placeholders_only,false,"Thin Wolfram starter; source code only and not fabrication authority."
+celesta-wl-model,wolfram/celesta-wolfram-model.wl,wolfram_source,parametric_acoustic_model,reference_only,design.md,estimate_placeholders_only,false,"Parametric struck steel bar hammer impulse and resonator relationship model using estimates pending measurement; not calibrated or fabrication authority."

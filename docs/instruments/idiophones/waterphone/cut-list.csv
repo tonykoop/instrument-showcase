@@ -1,0 +1,11 @@
+part_id,subsystem,part_class,authority,estimate_status,measurement_gate,notes
+WATER-CUT-BOWL,resonator,metal resonator bowl,pending_measurement,estimate_material_family,bowl response and leak review,"No bowl dimensions, alloy, wall, or forming process is specified."
+WATER-CUT-CHAMBER,resonator,internal water chamber and seal path,pending_measurement,estimate_concept,water-fill and leak tests,"Fill volume and chamber geometry remain pending measurement."
+WATER-CUT-NECK,body,central neck handle or service port,pending_measurement,estimate_concept,handling and service mockup,"Neck duties and geometry remain open."
+WATER-CUT-ROD-COUPONS,rod_field,rod sample and attachment coupons,pending_measurement,estimate_test_need,rod response and joint trials,"Coupon set must precede a full rim field."
+WATER-CUT-ROD-FIELD,rod_field,vertical rim rod field,pending_measurement,estimate_concept,measured rod and bowl response,"No rod count, length, pitch, spacing, or ordering is asserted."
+WATER-CUT-JOINTS,rod_field,rod-to-rim joint hardware or process,pending_measurement,estimate_process,attachment coupon review,"Welded, brazed, threaded, clamped, or isolated approaches remain candidates."
+WATER-CUT-FILL-CAP,body,fill cap or service closure,pending_measurement,estimate_concept,leak and cleaning review,"Closure design must be tested before wet use."
+WATER-CUT-FINISH,finish,water-compatible finish or passivation,pending_measurement,estimate_concept,corrosion and bowing response review,"Finish must not block rod or bowl response."
+WATER-CUT-PLAY-TOOLS,playing_tools,bow and striker trial set,concept_only,estimate_accessory,response test planning,"Accessory candidates only; no performance specification."
+WATER-CUT-TEST-RIG,validation,recording leak and handling test setup,pending_measurement,estimate_test_need,validation plan,"Needed before promoting water-bend or playable prototype claims."

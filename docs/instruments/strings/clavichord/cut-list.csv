@@ -1,0 +1,9 @@
+part_id,subsystem,part_class,authority,estimate_status,measurement_gate,notes
+CLV-CUT-KEY-COUPON,key_action,one-key lever coupon,pending_measurement,estimate_test_need,key dip leverage and return test,"No key dimensions spacing or pivot locations are specified."
+CLV-CUT-TANGENT,tangents,brass tangent samples,pending_measurement,estimate_material_family,tangent contact and bebung test,"Face angle polish hardness and adjustment remain pending."
+CLV-CUT-STRING-COURSE,stringing,single string course test bed,pending_measurement,estimate_test_need,string material gauge tuning and load review,"No string count gauge tuning or scale length is asserted."
+CLV-CUT-DAMPER,damping,non-speaking segment damper samples,pending_measurement,estimate_material_family,damping and release test,"Material and placement wait on tangent/contact response."
+CLV-CUT-LAYOUT-MAP,layout,fretted listed conflict map,pending_measurement,estimate_review_artifact,note-conflict and load review,"Planning artifact only; not a released layout."
+CLV-CUT-BRIDGE-PIN,bridges,bridge hitch and tuning-pin concept parts,pending_measurement,estimate_concept,string load and case review,"No pin field or bridge placement is specified."
+CLV-CUT-CASE,structure,case and soundboard concept members,pending_measurement,estimate_concept,load path and service review,"Case geometry remains concept-only."
+CLV-CUT-SERVICE,service,tangent adjustment and key-removal access,pending_measurement,estimate_concept,coupon serviceability test,"Access geometry must be proven before promotion."

@@ -1,0 +1,11 @@
+item_id,category,item,qty,spec,make_buy,estimated_cost,source_note,drawing_ref,notes
+OCA-BOM-001,Master,3D printed body master,1 set,PLA or resin printed top and bottom master,Make,$2-5,Workbook estimate not date-checked,OCA-DRW-001,Scale master for measured clay shrinkage.
+OCA-BOM-002,Mold,#1 pottery plaster,10 lb,USG #1 pottery plaster or equivalent,Buy,$15-25,Workbook estimate not date-checked,OCA-DRW-002,Enough for several small mold sets depending on cottle size.
+OCA-BOM-003,Clay,Cone 6 stoneware slip or clay body,25 lb,Slip casting body or press-moldable clay,Buy,$20-35,Workbook estimate not date-checked,OCA-DRW-003,Record batch and measured shrinkage.
+OCA-BOM-004,Finish,Cone 6 exterior glaze,3-5 pints,Food-safe or durable ceramic glaze,Buy,$30-60,Workbook estimate not date-checked,OCA-DRW-004,"Mask fipple, holes, and interior."
+OCA-BOM-005,Tuning,Diamond needle files,1 set,Assorted profiles,Buy,$10-20,Workbook estimate not date-checked,OCA-DRW-005,Needed after bisque and final fire.
+OCA-BOM-006,Tuning,Chromatic tuner or analysis app,1,Cent-accurate tuner,Buy,$15-30,Workbook estimate not date-checked,OCA-VAL-001,Use same app/settings across prototypes.
+OCA-BOM-007,Mold,Mold soap or release,1 bottle,Murphy's oil soap or mold release,Buy,$5-10,Workbook estimate not date-checked,OCA-DRW-002,For sealed master and plaster parting surfaces.
+OCA-BOM-008,Firing,Bisque and glaze firing,per load,Cone 06 bisque and Cone 6 glaze,Buy,$20-50/load,Workbook estimate not date-checked,OCA-VAL-002,Record firing schedule and kiln location.
+OCA-BOM-009,Masking,Wax resist,1 small jar,Brushable wax resist,Buy,TBD,Add supplier/date before purchase,OCA-DRW-004,Protect tuning-critical holes and fipple.
+OCA-BOM-010,Measurement,Graduated syringe or burette,1,Water-fill volume measurement,Buy,TBD,Add supplier/date before purchase,OCA-VAL-003,Needed for chamber volume validation.

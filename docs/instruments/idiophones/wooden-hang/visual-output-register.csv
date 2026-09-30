@@ -1,0 +1,9 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+CAD-001,cad/wooden_hang_master.scad,cad,fabrication_geometry,fabrication,,derived_from_authority,true,Parametric concept CAD controls current first-pass geometry but remains measurement-required before build-ready release.
+DT-001,cad/design-table-inputs.csv,design_table,design_table,fabrication,,derived_from_authority,true,Named parameter table for first-pass concept geometry; statuses identify assumptions derived estimates and experiment ranges.
+DT-002,cad/sw-global-variables.csv,design_table,design_table,fabrication,,derived_from_authority,true,SolidWorks variable seed table for future reviewed model; values are not measured validation evidence.
+SVG-001,drawings/wooden-hang-layout.svg,svg_preview,derived_preview,derived_preview,CAD-001;DT-001,derived_from_authority,false,Top layout preview derived from concept CAD/design-table values; note sizes remain assumptions.
+SVG-002,drawings/wooden-hang-section.svg,svg_preview,derived_preview,derived_preview,CAD-001;DT-001,derived_from_authority,false,Section preview for review and planning only until a reviewed drawing/DXF release exists.
+SVG-003,drawings/tone-field-detail.svg,svg_preview,derived_preview,derived_preview,CAD-001;DT-001,derived_from_authority,false,Tone-field preview documents current assumptions without measured tuning authority.
+IMG-001,images/hero-concept.svg,svg_preview,concept,concept_only,,none,false,Concept placeholder only; not dimensional or fabrication authority.
+WL-001,wooden-hang-starter.wl,wolfram_source,model_scaffold,derived_preview,,source_only,false,Provisional plate + Helmholtz starter model; not executed as fabrication authority. Embedded live in explorer.html (Wolfram Cloud Public-Execute iframe); source-only L2 evidence.

@@ -1,0 +1,6 @@
+member_id,name,outer_diameter_in,height_in,target_key,note_count,top_system,body_system,prototype_goal
+WHG-P0,Coupon matrix,4.0,0.5,Single-note study,1,solid or laminated strips,open or backed test blocks,Measure species and slot/thickness trends before body construction
+WHG-P1,Single-field cavity rig,9.0,2.25,G3 focus,1,replaceable tuned top,small bowl or test box,Validate one field and one cavity in a controllable fixture
+WHG-P2,Three-note sector,12.0,3.25,G minor subset,3,replaceable sector plate,sector bowl,Measure cross-talk and real hand spacing
+WHG-P3,Five-note subset,16.0,4.25,G minor pentatonic subset,5,hybrid top plate,full bowl body,First playable subset before full layout
+WHG-P4,Nine-note Wooden Hang,18.0,4.75,G minor,9,hybrid top plate or tuned shell,full bowl with gu,Full concept validation for circular layout

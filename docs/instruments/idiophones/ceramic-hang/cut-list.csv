@@ -1,0 +1,9 @@
+item_id,part,qty,rough_dimensions_in,final_dimensions_in,material,operation,fixture_or_tool,yield_note,notes
+CHG-CUT-001,Upper master print segments,1 set,20 x 20 x 5 envelope,18 in fired-equivalent dome scaled for shrinkage,PLA or resin,3D print and seal,Printer or print service,Segment if printer is smaller than master,Do not treat printed geometry as final until shrinkage bars are measured.
+CHG-CUT-002,Lower master print segments,1 set,20 x 20 x 3 envelope,18 in fired-equivalent lower shell scaled for shrinkage,PLA or resin,3D print and seal,Printer or print service,Segment if needed,Include gu reference and rim registration.
+CHG-CUT-003,Upper plaster mold,1,24 x 24 x 8 cottle,Upper dome mold with registration,#1 pottery plaster,Mold pour,Cottle boards,Single-use setup until mold design proven,Plan parting line before printing final master.
+CHG-CUT-004,Lower plaster mold,1,24 x 24 x 6 cottle,Lower shell mold with gu area,#1 pottery plaster,Mold pour,Cottle boards,Single-use setup until mold design proven,Keep lower mold simpler for first run.
+CHG-CUT-005,Drying cradle,1,20 x 20 x 5,Support upper shell without point loads,Foam/plaster/soft support,Cut/form,Knife/saw/rasp,Reusable,Must not trap moisture at rim.
+CHG-CUT-006,Firing support ring,1,18-20 OD,Support shell rim or neutral zone,Refractory clay/fiber/kiln furniture,Form/cut,Kiln-safe tools,Reusable if it survives,Test with scrap before full shell.
+CHG-CUT-007,Tone coupons,12,4 x 4 x variable thickness,3-4 in test fields,Casting slip or slab clay,Cast/press small coupons,Simple plaster tiles,Many small tests beat one large failed shell,Label every coupon with clay/body/thickness.
+

@@ -1,0 +1,4 @@
+packet_id,variant,scale,notes,shell_diameter_in,steel_thickness_mm,material_path,gu_port_diameter_in,release_status,notes
+HPAN-D-KURD-ROOT,Root D Kurd,D Kurd,"D3 A3 Bb3 C4 D4 E4 F4 G4 A4",21,1.0,Nitrided DC04,3.5,private review required,"Current workbook baseline; tuner-led prototype only"
+HPAN-D-CELTIC-RESEARCH,Variant D Celtic Minor,D Celtic Minor,"D3 A3 C4 D4 E4 F4 G4 A4 C5",21,1.0,Nitrided DC04,3.5,do not release,"Same shell class; requires new crosstalk and high-note validation"
+HPAN-CSPYGMY-RESEARCH,Variant C# Pygmy,C# Pygmy,"C#3 G#3 B3 C#4 D#4 G#4 B4 C#5 D#5",21,1.0,Nitrided DC04,3.5,do not release,"Higher upper fields may need smaller/closer tone zones; verify layout"

@@ -1,0 +1,9 @@
+item_id,part_name,qty,unit,required_spec,estimated_cost,cost_basis,critical_to_tuning,notes
+BOM-001,Steel shell or formed blank,1,each,"12 in diameter by 6 in high steel vessel or equivalent blank; thickness near 0.079 in; low-carbon steel preferred for first prototype",60,"rough planning estimate; verify before purchase",yes,"Actual grade and thickness drive the first-pass K assumption."
+BOM-002,Top tongue field blank,1,each,"Integral shell top or welded steel top compatible with 0.079 in tongue field",35,"rough planning estimate; verify before purchase",yes,"Avoid unknown hardened or heavily stressed salvage until measured."
+BOM-003,Rubber isolation feet,3,set,"Low-profile rubber feet or grommet supports; non-rattling; mechanically isolated from tongues",8,"rough planning estimate; verify before purchase",yes,"Mounting can shift pitch and sustain."
+BOM-004,Mallet pair,1,pair,"Medium-soft rubber or yarn-wrapped mallets; repeatable hardness for validation",15,"rough planning estimate; verify before purchase",yes,"Mallet hardness must be recorded in validation."
+BOM-005,Edge trim or rim protection,1,length,"Non-rattling edge trim compatible with finish and hand contact",12,"rough planning estimate; verify before purchase",no,"Avoid added mass near tongues unless measured after install."
+BOM-006,Finish system,1,set,"Corrosion-resistant finish or oil/wax compatible with struck instrument use",18,"rough planning estimate; verify before purchase",yes,"Finish mass and cure can move pitch."
+BOM-007,Abrasives and deburring tools,1,set,"Files, deburring wheel, abrasive pad, fine abrasive sheets",20,"rough planning estimate; verify before purchase",yes,"Deburr must smooth without uncontrolled thinning."
+BOM-008,Tuning measurement tools,1,set,"Chromatic tuner or spectrum app, microphone, calipers, notebook",0,"shop-owned or verify before purchase",yes,"Required for public-review readiness."

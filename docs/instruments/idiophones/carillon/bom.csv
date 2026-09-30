@@ -1,0 +1,13 @@
+item_id,subsystem,part_family,estimate_quantity,source_status,authority,notes
+CAR-BOM-001,bells,cast_bronze_bells,estimate_rank,pending_foundry_review,pending_measurement,"Bell count profile weights alloy and tuning are not specified in this L2 candidate."
+CAR-BOM-002,keyboard,baton_keyboard,estimate_one_console,pending_design,pending_measurement,"Baton spacing travel return force and spring feel pending ergonomic/action mule."
+CAR-BOM-003,keyboard,pedal_keyboard,estimate_one_pedalboard,pending_design,pending_measurement,"Pedal leverage coupling and return behavior pending action study."
+CAR-BOM-004,transmission,wires_trackers_guides,estimate_as_needed,pending_design,pending_measurement,"Transmission path length routing adjusters guide spacing and service access pending layout."
+CAR-BOM-005,clappers,external_clapper_assemblies,estimate_one_per_bell,pending_design,pending_measurement,"Clapper mass material pivot clearance strike point and rebound behavior pending expert review."
+CAR-BOM-006,action,return_springs_and_adjusters,estimate_as_needed,pending_design,pending_measurement,"Used to control slack rebound and lost motion; values pending mule."
+CAR-BOM-007,frame,tower_or_support_frame,estimate_one_system,pending_engineering,pending_measurement,"Structural design lifting plan weather exposure and safety review required before any build claim."
+CAR-BOM-008,maintenance,inspection_access_and_safety_hardware,estimate_as_needed,pending_engineering,pending_measurement,"Access routes guards service points and inspection procedures pending tower/frame design."
+CAR-BOM-009,test_fixture,non_sounding_action_mule,estimate_one_fixture,pending_design,pending_measurement,"First prototype target for keyboard transmission and clapper-motion behavior; no dimensions or loads specified."
+CAR-BOM-010,validation,action_observation_log,estimate_one_log,pending_design,concept_only,"Planned evidence artifact for L3 promotion; no measured action data exists yet."
+CAR-BOM-011,specialist_review,bell_foundry_and_tuning_review,estimate_required_review,pending_expert,concept_only,"Required before bell profiles partial targets pitch list casting details or tuning table can enter the packet."
+CAR-BOM-012,safety,tower_frame_safety_review,estimate_required_review,pending_engineering,concept_only,"Required before tower loads lifting service access or weather exposure claims can be made."

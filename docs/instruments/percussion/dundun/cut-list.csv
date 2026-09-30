@@ -1,0 +1,6 @@
+part_id,voice,part,qty,material,dimension_basis,length_in,width_in,thickness_in,angle_or_profile,status,next_gate
+CL-001,doundounba,body stave,18 or 24,hardwood,planning-derived shell target,27.5,TBD,TBD,7.5 deg for 24 staves or 10 deg for 18 staves,not build-ready,Confirm inside or outside diameter and wall thickness
+CL-002,sangban,body stave,18 or 24,hardwood,planning-derived shell target,22.65,TBD,TBD,7.5 deg for 24 staves or 10 deg for 18 staves,not build-ready,Confirm inside or outside diameter and wall thickness
+CL-003,kenkeni,body stave,18 or 24,hardwood,planning-derived shell target,17.35,TBD,TBD,7.5 deg for 24 staves or 10 deg for 18 staves,not build-ready,Confirm inside or outside diameter and wall thickness
+CL-004,all,head seating coupon,3,offcut hardwood,measurement coupon,TBD,TBD,TBD,bearing edge radius TBD,planned,Test hide seating and finish behavior
+CL-005,all,rope lacing coupon,1,rope and ring scrap,measurement coupon,TBD,TBD,TBD,TBD,planned,Measure rope stretch and knot slippage

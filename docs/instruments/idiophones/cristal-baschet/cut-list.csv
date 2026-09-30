@@ -1,0 +1,12 @@
+item_id,workpiece,subsystem,quantity_basis,authority,dimension_status,notes
+CL-001,glass rod coupon,exciter,estimate_pending_measurement,pending_measurement,pending_measurement,"One-rod test article category only; rod material length diameter and finish are not released."
+CL-002,rod support coupon,exciter,estimate_pending_measurement,pending_measurement,pending_measurement,"Support concept for bench tests; no notch clamp hole or pad geometry is released."
+CL-003,threaded stem coupon,transmission,estimate_pending_measurement,pending_measurement,pending_measurement,"Transmission test member category only; thread family length and boundary conditions are pending."
+CL-004,movable mass stack,tuning_setup,estimate_pending_measurement,pending_measurement,pending_measurement,"Adjustment hardware category only; no mass value position or tuning use is claimed."
+CL-005,cone resonator coupon,radiators,estimate_pending_measurement,pending_measurement,pending_measurement,"Replaceable radiator workpiece category; cone angle diameter material and thickness are pending."
+CL-006,flap resonator coupon,radiators,estimate_pending_measurement,pending_measurement,pending_measurement,"Replaceable flap workpiece category; outline material and mounting are pending."
+CL-007,neutral radiator coupon,radiators,estimate_pending_measurement,pending_measurement,pending_measurement,"Simple comparison radiator category for measurement discipline; geometry is pending."
+CL-008,whisker safety coupon,radiators,estimate_pending_measurement,pending_measurement,pending_measurement,"Handling and containment test article category; count length spacing and anchoring are pending."
+CL-009,frame rail mockup,frame,estimate_pending_measurement,pending_measurement,pending_measurement,"Bench-frame category for holding modules; no structural dimensions or hole pattern released."
+CL-010,player guard mockup,player_interface,estimate_pending_measurement,pending_measurement,pending_measurement,"Safety/access category for wet-finger operation; shape and clearances pending ergonomic review."
+CL-011,measurement log template,documentation,estimate_pending_measurement,concept_only,none,"Paper or digital record template for observations; not a fabricated part."

@@ -1,0 +1,11 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+readme,README.md,measurement_template,concept,concept_only,,none,false,"L2 shop-planning overview only; no fabrication authority."
+design,design.md,measurement_template,concept,concept_only,,none,false,"Mechanism and shop-planning risk map grounded in keyed-fiddle mechanics; no released dimensions tuning values or geometry."
+bom,bom.csv,design_table,concept,pending_measurement,design.md,none,false,"Expanded estimated subsystem list only; every physical part requires review and measurement before fabrication."
+cut-list,cut-list.csv,design_table,concept,pending_measurement,design.md,none,false,"Planning blanks and mockup parts only; no cut-ready dimensions DXF coordinates or fabrication authority."
+decision-record,decision-record.md,measurement_template,story,concept_only,design.md,none,false,"Captures L2 decisions assumptions shop-planning choices and open questions for future review."
+mcp-session-log,cad/mcp-session-log.md,measurement_template,build_log,concept_only,,none,false,"Records QMD Step 0 provenance and absence of MCP/CAD authoring."
+NH-CAD-001,cad/nyckelharpa.scad,cad_source,cad_authoring,pending_measurement,docs/parametric-design-table.md,render_only_scaffold,false,"Parametric structural-envelope scaffold (scaffold_dimensions / render-only); encodes symbolic relationships as formulas with render-only placeholder leaf values. Renders clean in OpenSCAD (exit 0). NOT fabrication authority; mechanism internals out of scope."
+NH-CAD-README-001,cad/README.md,cad_note,cad_documentation,concept_only,cad/nyckelharpa.scad,none,false,"Notes on the envelope scaffold, placeholder boundary, and render check."
+nyckelharpa-starter-wl,nyckelharpa-starter.wl,source_code,reference,reference_only,wolfram/nyckelharpa-wolfram-model.wl,none,false,"Thin Wolfram entry point only; pending measurement, not fabrication authority."
+nyckelharpa-wolfram-model,wolfram/nyckelharpa-wolfram-model.wl,source_code,reference,reference_only,docs/parametric-design-table.md,none,false,"Parametric symbolic Wolfram model with estimate placeholders only; pending measurement, not fabrication authority."

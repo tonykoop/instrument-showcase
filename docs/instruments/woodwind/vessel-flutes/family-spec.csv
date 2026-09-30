@@ -1,0 +1,4 @@
+member_id,name,target_note,target_hz,volume_cc,voicing_area_cm2,wall_cm,estimated_neck_cm,material_path,status
+VF-130-A4,Ocarina lab body,A4,440.00,130,0.45,0.40,0.63,hand-built clay or sealed proof body,first prototype
+VF-95-C5,Small vessel response body,C5,523.25,95,0.35,0.35,0.55,hand-built clay,after VF-130
+VF-180-G4,Large warm vessel body,G4,392.00,180,0.55,0.45,0.70,slab or slip-cast study,after shrinkage data

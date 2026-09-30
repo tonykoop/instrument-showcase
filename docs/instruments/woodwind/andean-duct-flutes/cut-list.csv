@@ -1,0 +1,6 @@
+part,qty,material,rough_dimensions_in,final_dimensions_in,operation_notes
+G4 PVC body,2,PVC tube,0.875 OD x 17.0 long,0.875 OD x 16.10 long plus trim,Leave 0.25 in extra until tuning
+G4 hardwood body,1,cherry or maple,1.00 x 1.00 x 18.0,0.875 OD x measured tuned length,Build only after PVC validation
+Removable block blanks,3,cedar maple or Delrin,0.60 x 0.60 x 1.25,fit to bore x 1.00 long,Plane/sand to airtight slip fit
+Fipple window coupon,3,same as body stock,2.0 long offcuts,window test coupons,Practice window and labium before body cut
+Hole-layout story stick,1,plywood or acrylic,1.0 x 18.0,marked stations from foot datum,Use for drilling repeatability

@@ -1,0 +1,7 @@
+part_id,subsystem,part_or_coupon,authority,quantity,dimension_status,notes
+CUT-001,bench_rig,string test span,pending_measurement,TBD,pending_measurement,"No scale length or tension is specified; define only after reference and hardware review."
+CUT-002,bench_rig,soundboard contact coupon,pending_measurement,TBD,pending_measurement,"Coupon size material and thickness remain pending; use to isolate bridge buzz before full body design."
+CUT-003,bridge,replaceable buzzing bridge blanks,pending_measurement,TBD,pending_measurement,"Bridge outline height mass loose-foot geometry and contact material are intentionally unspecified."
+CUT-004,bridge,replaceable loose-foot shims,pending_measurement,TBD,pending_measurement,"Shim material and thickness must be selected during bench-test planning."
+CUT-005,body,full resonator body,pending_measurement,TBD,pending_measurement,"Do not cut; body proportions require historical/reference measurements and reviewed drawings."
+CUT-006,sympathetic_strings,optional resonance-string support parts,pending_measurement,TBD,pending_measurement,"Deferred until the sympathetic-string branch is accepted and routed."

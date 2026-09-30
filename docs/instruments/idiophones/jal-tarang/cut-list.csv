@@ -1,0 +1,10 @@
+part_id,subsystem,part_class,authority,estimate_status,measurement_gate,notes
+JT-CUT-BOWL-INVENTORY,bowls,candidate bowl inventory,pending_measurement,estimate_class_only,bowl ID and condition review,"No bowl count material geometry pitch or order is specified."
+JT-CUT-FILL-KIT,water,repeatable fill and drain kit,pending_measurement,estimate_concept,fill workflow test,"No water volumes or fill marks are released."
+JT-CUT-PITCH-LOG,measurement,pitch and fill observation log,pending_measurement,estimate_test_need,measured pitch/fill sessions,"Template class only; no frequencies or scale targets are claimed."
+JT-CUT-MALLET-TRIAL,mallets,mallet material and tip trial set,pending_measurement,estimate_material_family,rim safety and attack test,"No mallet hardness mass length or tip geometry is specified."
+JT-CUT-SUPPORT-TRIAL,support,bowl support or cradle trial,pending_measurement,estimate_concept,stability and resonance test,"No support dimensions layout or bowl spacing is specified."
+JT-CUT-LABELS,labeling,temporary bowl ID and fill-state labels,pending_measurement,estimate_concept,label repeatability review,"Labels must avoid implying final tuning authority."
+JT-CUT-DRAINAGE,drainage,drain reset and spill-control setup,pending_measurement,estimate_concept,session reset test,"Drain and refill behavior must be measured before performance setup claims."
+JT-CUT-TRANSPORT,transport,soft storage and handling supports,concept_only,estimate_concept,handling review,"Future handling class only; no case dimensions or packing layout."
+JT-CUT-VALIDATION,validation,repeatability and session-drift test setup,pending_measurement,estimate_test_need,repeatability evidence,"Needed before promoting any tuning or performance-ready workflow."

@@ -1,0 +1,9 @@
+item_id,subsystem,item,authority,estimate_status,notes
+SEA-BOM-001,marine_site,seawall_or_shoreline_interface,pending_measurement,estimate_concept,"Civil/marine structure and site suitability require expert review; no structure is specified."
+SEA-BOM-002,wave_air_capture,wave_or_tide_air_capture_chamber,pending_measurement,estimate_concept,"Capture geometry chamber volume and water interface are not specified."
+SEA-BOM-003,air_path,ducts_manifold_and_drainage,pending_measurement,estimate_concept,"Duct routing drain paths and air losses require measured site and coupon tests."
+SEA-BOM-004,voice,pipes_or_whistle_resonators,pending_measurement,estimate_concept,"Pipe count material bore length pitch and voicing remain unmeasured."
+SEA-BOM-005,materials,marine_grade_fasteners_and_corrosion_controls,pending_measurement,estimate_material_family,"Saltwater corrosion and galvanic compatibility need review before selection."
+SEA-BOM-006,safety,public_access_guards_and_service_access,pending_measurement,estimate_concept,"Public safety maintenance access and shoreline hazards require site review."
+SEA-BOM-007,validation,wave_air_coupon_test_setup,concept_only,estimate_test_need,"Planned evidence path only; no test rig dimensions or measurements exist."
+SEA-BOM-008,documentation,site_measurement_and_permitting_record,concept_only,estimate_review_need,"Future evidence artifact for tide/wave data permits structural review and acoustic impact."

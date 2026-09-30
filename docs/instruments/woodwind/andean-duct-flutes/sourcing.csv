@@ -1,0 +1,6 @@
+item,required_spec,search_terms,preferred_source,current_check_needed,substitution_notes
+PVC proof tube,measured 0.625 in ID or closest stable tube,"rigid pvc tube 5/8 id",local hardware or plastics supplier,yes,Use measured ID in design table
+Hardwood blank,straight grain 1 x 1 x 24 in cherry maple or walnut,"cherry turning blank 1x1x24",wood supplier,yes,Only after PVC duct geometry is validated
+Block stock,dry cedar maple or Delrin insert stock,"cedar block stock delrin rod",shop scrap or plastics supplier,yes,Must fit airtight and remain removable
+Wax,beeswax or paraffin for temporary sealing,"beeswax block paraffin",craft or hardware store,yes,Used for leak tests not final glue
+Finish,non-toxic oil or shellac,"food safe mineral oil shellac flakes",woodworking supplier,yes,Apply after tuning is stable

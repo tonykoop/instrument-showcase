@@ -1,0 +1,10 @@
+item_id,item,required_spec,search_terms,supplier_candidates,date_checked,unit_price,lead_time,substitution_rule,risk_note
+CHG-SRC-001,Cone 6 casting slip,Known shrinkage and mature Cone 6 firing schedule,cone 6 stoneware porcelain casting slip shrinkage,TBD,,,,Substitute only after test bars,Unknown shrinkage invalidates master scale.
+CHG-SRC-002,#1 pottery plaster,Pottery mold plaster in bulk quantity,USG #1 pottery plaster 75 lb,TBD,,,,Equivalent plaster acceptable if absorption is known,Wrong plaster can ruin slip-casting performance.
+CHG-SRC-003,Large 3D print service,18 in dome master or printable master segments,large format PLA print service mold master,TBD,,,,Segmented print acceptable with sealed seams,Print warp changes shell/tone-field geometry.
+CHG-SRC-004,Refractory support material,Kiln-safe setter/support ring,kiln furniture refractory support ring ceramic firing,TBD,,,,Use known kiln-safe material only,Body can slump or stick during firing.
+CHG-SRC-005,Diamond abrasives,Fine diamond tools for ceramic cleanup,diamond burr needle file ceramic,TBD,,,,Use fine grits and light pressure,Coarse grinding can chip tone fields.
+CHG-SRC-006,Recording microphone,Repeatable measurement mic,measurement microphone tuner musical instrument,TBD,,,,Phone mic acceptable for rough first pass,Inconsistent measurement hides tuning trends.
+CHG-SRC-007,Rim protection,Soft durable bumper or wrap for 18 in rim,handpan rim rope leather bumper silicone edge guard,TBD,,,,Prototype with removable wrap first,Rim protection may damp shell vibration.
+CHG-SRC-008,Transport case,Padded 18-20 in case,18 inch handpan padded bag hard case,TBD,,,,Oversize case acceptable,Transport damage is a major ceramic risk.
+

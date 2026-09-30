@@ -1,0 +1,4 @@
+member_id,name,fundamental_hz,bore_id_in,od_in,physical_length_in,windway_height_in,windway_width_in,window_length_in,labium_angle_deg,scale_offsets,prototype_status,dL_foot_in,dL_window_in,L_eff_meas_in,T_meas_F,c_meas_in_per_s,acoustic_law_status
+ADF-G4-P1,Pinkullo G4 first prototype,392.00,0.625,0.875,16.10,0.040,0.500,0.450,35,"0 3 5 7 10 12",PVC proof-of-tune,unknown,unknown,unknown,unknown,unknown,scaffold_only_no_measurement
+ADF-A4-P2,Tarka A4 high prototype,440.00,0.562,0.812,14.30,0.036,0.450,0.400,35,"0 3 5 7 10 12",queued after G4 voicing,unknown,unknown,unknown,unknown,unknown,scaffold_only_no_measurement
+ADF-C5-P3,Small duct flute C5 proof body,523.25,0.500,0.750,11.90,0.032,0.400,0.350,35,"0 3 5 7 10 12",scale experiment body,unknown,unknown,unknown,unknown,unknown,scaffold_only_no_measurement

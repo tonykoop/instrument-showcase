@@ -1,0 +1,13 @@
+cut_id,subsystem,part_family,stock_or_blank,estimate_quantity,authority,source_status,operation_status,notes
+BO-CUT-001,program,pinned_barrel_body,pending_measurement,estimate_one,pending_measurement,pending_design,pending_cut,"No barrel dimensions or material selected; row reserves future cut planning only."
+BO-CUT-002,program,pin_stock,pending_measurement,estimate_assortment,pending_measurement,pending_selection,pending_cut,"Pin stock geometry and retention method pending wear test."
+BO-CUT-003,action,follower_blanks,pending_measurement,estimate_one_per_channel,pending_measurement,pending_design,pending_cut,"Follower shape and count pending channel-count and contact test."
+BO-CUT-004,action,tracker_or_lever_blanks,pending_measurement,estimate_one_per_channel,pending_measurement,pending_design,pending_cut,"Tracker travel and material not yet measured."
+BO-CUT-005,wind_system,bellows_boards_and_folds,pending_measurement,estimate_one_system,pending_measurement,pending_design,pending_cut,"Bellows scale material and fold pattern not specified."
+BO-CUT-006,wind_system,drive_linkage_parts,pending_measurement,estimate_one_system,pending_measurement,pending_design,pending_cut,"Drive ratios and centers are unknown; no geometry authority."
+BO-CUT-007,windchest,windchest_body_blank,pending_measurement,estimate_one,pending_measurement,pending_design,pending_cut,"Channel count gasket layout and service access pending wind mule."
+BO-CUT-008,windchest,pallet_blanks,pending_measurement,estimate_one_per_channel,pending_measurement,pending_design,pending_cut,"Pallet material gasket and return geometry pending leak test."
+BO-CUT-009,pipes,flue_pipe_test_parts,pending_measurement,estimate_optional_channel,pending_measurement,pending_decision,pending_cut,"Pipe scale mouth geometry and tuning are intentionally absent."
+BO-CUT-010,pipes,reed_pipe_test_parts,pending_measurement,estimate_optional_channel,pending_measurement,pending_decision,pending_cut,"Reed and resonator dimensions are intentionally absent."
+BO-CUT-011,case,inspection_frame_parts,pending_measurement,estimate_one_set,pending_measurement,pending_design,pending_cut,"Case proportions and access openings pending service mockup."
+BO-CUT-012,service,access_panel_blanks,pending_measurement,estimate_assortment,pending_measurement,pending_design,pending_cut,"Panel count size and fasteners pending inspection-frame design."

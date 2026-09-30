@@ -1,0 +1,7 @@
+part,qty,rough_dimensions_in,final_dimensions_in,tolerance,material,operation,notes
+FD-16 steam-bent strip,1,54 x 3.25 x 0.50,50.3 x 2.75 x 0.375,+0.125/-0.000,ash cherry maple or oak,steam bend and scarf trim,length includes trimming allowance
+FD-16 stave segment,16,4.0 x 3.25 x 0.75,3.0 outer chord x 2.75 x 0.375 wall,+0.030/-0.030,hardwood,cut 11.25 deg miters,use if segmented path is chosen
+FD-16 bending form disk,2,18 x 18 x 0.75,16.0 dia form,+0.030/-0.000,MDF or plywood,CNC or bandsaw,stack for steam bending form
+FD-16 head blank,1,20 x 20 hide blank,15.5-16.0 mounted head,fit to hoop,rawhide or synthetic,soak stretch trim,leave generous trim allowance
+tipper blank,1,12 x 0.75 x 0.75,9.5 x 0.50 dia,+0.050/-0.050,hardwood,turn or sand,optional bodhran study
+hand-drum beater handle,1,16 x 0.75 x 0.75,14 x 0.50 dia,+0.050/-0.050,hardwood,turn or sand,optional hand-drum study

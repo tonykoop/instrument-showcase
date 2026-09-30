@@ -1,0 +1,4 @@
+member_id,target_key,target_hz,acoustic_law,end_condition,bore_id_mm,tonehole_count,material_system,dimension_provenance,source_artifact,notes
+XIAO-NAN-D4,D4,293.66,open_open,both_ends_open,17.0,8+thumb,bamboo/pvc/hardwood,measurement_required,xiao-design-table.xlsx,L2 scaffold for Nan Xiao (standard root D4). Bore ID and tonehole positions are first-order model predictions — require prototype measurement before fabrication authority.
+XIAO-BEI-G4,G4,392.00,open_open,both_ends_open,15.0,8+thumb,bamboo/pvc/hardwood,measurement_required,xiao-design-table.xlsx,L2 scaffold for Bei Xiao (shorter high-key variant). Dimensions require design-table review and prototype measurement.
+XIAO-QIN-C4,C4,261.63,open_open,both_ends_open,19.0,8+thumb,bamboo/pvc/hardwood,measurement_required,xiao-design-table.xlsx,L2 scaffold for Qin Xiao (longer low-key variant). Dimensions require design-table review and prototype measurement.

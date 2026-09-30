@@ -1,0 +1,8 @@
+item_id,subsystem,part_class,quantity_status,authority,dimension_status,notes
+CEL-CL-001,sound-generator,single-bar coupon blanks,estimate_pending_measurement,pending_measurement,pending_measurement,"No bar lengths widths thicknesses profiles materials or tuning values are released."
+CEL-CL-002,sound-generator,bar support test pieces,estimate_pending_measurement,pending_measurement,pending_measurement,"Support class only; support spacing and hardware are pending measurement."
+CEL-CL-003,action,key-action mule parts,estimate_pending_measurement,pending_measurement,pending_measurement,"Prototype linkage class only; no lever ratios pivots travel or spring force values."
+CEL-CL-004,action,hammer comparison coupons,estimate_pending_measurement,pending_measurement,pending_measurement,"No hammer mass felt hardness strike shape or strike location is released."
+CEL-CL-005,acoustics,resonator comparison boxes,estimate_pending_measurement,pending_measurement,pending_measurement,"No resonator volumes openings wall thicknesses or tuning targets are specified."
+CEL-CL-006,action,damper test coupons,estimate_pending_measurement,pending_measurement,pending_measurement,"Damper material and lift-timing tests only; no geometry or lift values."
+CEL-CL-007,structure,service-access mockup panels,estimate_pending_measurement,pending_measurement,pending_measurement,"Mockup class only for regulation access and cover removal review."

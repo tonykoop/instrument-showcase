@@ -1,0 +1,13 @@
+item_id,system,item,authority,status,notes
+HYD-SUPPLY,water_loop,water supply or reservoir,pending_measurement,estimate_class_only,"Supply type capacity and water quality controls are not specified."
+HYD-PUMP,water_loop,pump or pressure source,pending_measurement,estimate_class_only,"Pump type pressure and flow are not specified; safety relief must precede testing."
+HYD-RELIEF,water_loop,pressure relief and shutoff controls,pending_measurement,estimate_class_only,"Required safety category; values and hardware are pending measurement and review."
+HYD-FILTER,water_loop,filter and debris control,pending_measurement,estimate_class_only,"Water cleanliness and clog control are pending design inputs."
+HYD-JETS,player_interface,playable jets or apertures,pending_measurement,estimate_class_only,"Jet count geometry spacing and tactile features are not specified."
+HYD-KEYS,player_interface,optional wet key or valve mechanism,pending_measurement,estimate_class_only,"Only a future concept class; no key geometry valve travel or linkage is claimed."
+HYD-RESONATOR,acoustic_body,resonator or acoustic coupling surface,pending_measurement,estimate_class_only,"Cavity tube edge baffle or radiator strategy is not specified."
+HYD-DRAIN,water_loop,drainage and return path,pending_measurement,estimate_class_only,"Drain route capacity splash control and recirculation are pending review."
+HYD-SPLASH,safety,splash guards and wet-zone containment,pending_measurement,estimate_class_only,"Player and floor protection category; geometry and materials are not released."
+HYD-FRAME,structure,frame and service access structure,pending_measurement,estimate_class_only,"Frame material layout and maintenance clearances are not specified."
+HYD-SANITATION,safety,cleaning drying and sanitation supplies,pending_measurement,estimate_class_only,"Cleaning protocol and materials require review before public use."
+HYD-LOG,documentation,test log and authority register updates,concept_only,planning_only,"Records water-loop jet acoustic and safety observations without becoming fabrication authority."

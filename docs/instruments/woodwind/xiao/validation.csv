@@ -1,0 +1,20 @@
+Check ID,Stage,Parameter,Target,Tolerance,Method,Result,Cents Error,Pass/Fail,Notes
+V-BORE-SCRAP,Boring — scrap blank,Bore diameter (scrap),0.866 in,±0.005 in,Drill gauge / telescoping gauge,TBD,,TBD,Run bore validation on pine/poplar scrap BEFORE tonewood
+V-BORE-WANDER,Boring — scrap blank,Bore wander (exit vs entry),< 0.030 in,—,Measure both ends with calipers,TBD,,TBD,Reject if wander > 1/16 in; re-jig tailstock carrier
+V-BORE-TONE,Boring — tonewood,Bore diameter (walnut),0.866 in,±0.005 in,Drill gauge,TBD,,TBD,Final bore after reaming/lapping
+V-BLANK-LENGTH,Turning,Blank total length,25.5 in,+0.25 / −0 in,Steel rule / calipers,TBD,,TBD,Leave trim allowance; do not cut short
+V-OD-ROUND,Turning,OD at mid-bore,1.338 in,±0.010 in,Calipers,TBD,,TBD,Turn OD round using bore axis as datum
+V-EMBROCHURE,Embouchure,Notch geometry (U-notch),TBD dimensions,—,Caliper + template,TBD,,TBD,See drawing-brief for notch width/depth; refine by playing
+V-FUND-FREQ,Tuning,Fundamental (root D4),293.66 Hz,±5 cents,Strobe tuner (Korg OT-120 or Peterson),TBD,,TBD,All holes closed; play softly at 68°F
+V-END-CORR,Tuning,Embouchure end correction vs model,0.260 in (model),TBD,Back-calculate from measured f_fund,TBD,,TBD,Compute as: L_eff_measured = c/(2·f_meas); δ_emb = L_eff_measured − L_bore − δ_foot
+V-HOLE1,Tuning,Hole 1 — E4,329.63 Hz,±10 cents,Strobe tuner,TBD,,TBD,RH pinky; measure after boring hole at model position; undercut to correct
+V-HOLE2,Tuning,Hole 2 — F4,349.23 Hz,±10 cents,Strobe tuner,TBD,,TBD,RH ring
+V-HOLE3,Tuning,Hole 3 — Gb4,369.99 Hz,±10 cents,Strobe tuner,TBD,,TBD,RH middle
+V-HOLE4,Tuning,Hole 4 — G4,392.00 Hz,±10 cents,Strobe tuner,TBD,,TBD,RH index — xiao key note
+V-HOLE5,Tuning,Hole 5 — A4,440.00 Hz,±10 cents,Strobe tuner,TBD,,TBD,LH ring
+V-HOLE6,Tuning,Hole 6 — B4,493.88 Hz,±10 cents,Strobe tuner,TBD,,TBD,LH middle
+V-HOLE7,Tuning,Hole 7 — C5,523.25 Hz,±10 cents,Strobe tuner,TBD,,TBD,LH index
+V-HOLE8,Tuning,Hole 8 — Db5,554.37 Hz,±10 cents,Strobe tuner,TBD,,TBD,LH thumb
+V-OCTAVE,Tuning,Overblown octave (hole 5 overblow → A5),880.00 Hz,±15 cents,Strobe tuner,TBD,,TBD,Verify overblowing response; cylindrical bore should overblow at 2:1
+V-BORE-FIN,Finishing,Internal bore finish applied,BLO or shellac,—,Visual + dry time,TBD,,TBD,Apply before final tuning; finish changes effective bore and may shift pitch
+V-STRUCT,Structural,No cracks at notch or holes,No visible cracks,—,Visual inspection + tap test,TBD,,TBD,Inspect after embouchure notch cut; tap along body for dead spots
