@@ -1,0 +1,10 @@
+artifact_id,path,artifact_kind,role,authority,dimension_claim,derived_from,fabrication_required,notes
+VIZ-001,drawings/img20260426_00504715.png,photo_reference,photo_reference,reference_only,image_inferred,,false,Primary planning scan; useful for targets but not fabrication authority
+VIZ-002,drawings/img20260426_00495569.png,photo_reference,photo_reference,reference_only,image_inferred,,false,Related planning page; measure or redraw before use
+VIZ-003,drawings/img20260426_00513182.png,photo_reference,photo_reference,reference_only,image_inferred,,false,Related planning page; measure or redraw before use
+VIZ-004,drawings/img20260426_00521619.png,photo_reference,photo_reference,reference_only,image_inferred,,false,Related planning page; measure or redraw before use
+VIZ-005,drawings/img20260426_00530060.png,photo_reference,photo_reference,reference_only,image_inferred,,false,Related planning page; measure or redraw before use
+VIZ-006,images/00-hero-dundun.jpg,photo_reference,photo_reference,reference_only,none,,false,Portfolio/reference photo only
+VIZ-007,images/20201120_093524.jpg,photo_reference,photo_reference,reference_only,none,,false,Build-process photo showing heading materials and rope
+CAD-001,CAD/dundun.scad,cad_source,cad_authoring,pending_measurement,derived_from_authority,family-spec.csv,false,Parametric OpenSCAD trio master (shell diameter/length per voice + stave-width/bevel formula from family-spec.csv). Renders clean in OpenSCAD (single-voice and trio render_mode both verified). Wall thickness/head diameter/ring dimensions are prototype_assumption placeholders pending reference/measured-authority-gates.csv DUN-AUTH-03/06. Not fabrication authority until reviewed.
+WL-002,wolfram/dundun-wolfram-model.wl,wolfram_source,wolfram,derived_preview,source_only,,false,Three-drum membrane tension model (kenkeni/sangban/doundounba); source-only, not executed this pass — L2 evidence.

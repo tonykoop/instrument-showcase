@@ -1,0 +1,9 @@
+item_id,assembly,item,qty_per_trio,voice_scope,material_spec,dimension_or_size,status,source_status,notes
+BOM-001,shell,stave stock,TBD,all,stable hardwood or known Morgan Drums equivalent,TBD by chosen stave count and wall thickness,measurement-required,unverified,Confirm species and board yield before cutting
+BOM-002,heads,cowhide heads,6,all,cowhide with suitable thickness and stretch,TBD by final head clear diameter,measurement-required,unverified,Two heads per drum; hide mass affects pitch
+BOM-003,rings,top and bottom hoop rings,6,all,steel or traditional ring stock with wrap,TBD by shell outside diameter and head seating,measurement-required,unverified,Confirm ring offset and wrap thickness
+BOM-004,rope,main vertical tension rope,TBD,all,low-stretch drum rope,TBD by rope path and diamond count,measurement-required,unverified,Measure stretch after first tuning cycle
+BOM-005,rope,tension diamond or pull rope,TBD,all,matching low-stretch rope,TBD,measurement-required,unverified,May be same rope as verticals or separate smaller cord
+BOM-006,hardware,side bell mount,TBD,optional per voice,strap or bracket hardware,TBD,optional,unverified,Only add after rope clearance and balance checks
+BOM-007,finish,shell finish and sealer,TBD,all,oil or durable moisture-resistant finish,TBD,planning,unverified,Must not compromise head seating or hide grip
+BOM-008,jigs,constant-angle stave cutting jig,1,all,shop jig or sled,TBD by table saw setup,planned,in-house,Shared jig depends on 18 vs 24 stave decision

@@ -1,0 +1,7 @@
+source_id,item,preferred_source_type,current_source,status,last_verified,evidence_needed,substitution_notes
+SRC-001,stave stock,local hardwood supplier,TBD,unverified,not verified for this packet,Species availability; board width; moisture content; cost at purchase time,Use stable straight-grained stock compatible with shell glue-up
+SRC-002,cowhide heads,drum-building supplier,TBD,unverified,not verified for this packet,Hide thickness; diameter; grade; shipping condition,Do not substitute goatskin without retuning the acoustic target
+SRC-003,ring stock,metal supplier or drum hardware supplier,TBD,unverified,not verified for this packet,Diameter; weld quality; roundness; corrosion protection,Ring dimensions must follow final shell/head-seat CAD
+SRC-004,drum rope,drum-building supplier,TBD,unverified,not verified for this packet,Diameter; stretch data; hand feel; abrasion resistance,Prototype a short lacing coupon before ordering full trio quantity
+SRC-005,finish,wood finish supplier,TBD,unverified,not verified for this packet,Compatibility with skin seating area and player contact,Keep finish away from bearing edge until seating behavior is known
+SRC-006,bell hardware,percussion supplier or fabricated bracket,TBD,optional,not verified for this packet,Mounting load; buzz risk; rope interference,Defer until core drum geometry is validated

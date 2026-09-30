@@ -1,0 +1,7 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+DST-001,family-spec.csv,design_table,design_table,fabrication,,none,true,"Nominal FD-14/FD-16/FD-18 family dimensions; first-prototype assumptions until measured."
+CAD-001,cad/frame_drum_hoop.scad,cad,fabrication_geometry,fabrication,DST-001,derived_from_authority,true,"OpenSCAD starter driven by family rows; controls only the current prototype model, not a measured build."
+DXF-001,drawings/frame-drum-hoop-plan.dxf,dxf,cut_layout,fabrication,DST-001,derived_from_authority,true,"2D hoop and stave layout export for review; verify scale, kerf, fixture, and head material before cutting."
+SVG-001,drawings/frame-drum-hoop-plan.svg,svg_preview,derived_preview,derived_preview,DXF-001,derived_from_authority,false,"Human-readable preview of the FD-16 hoop plan."
+HTML-001,explorer.html,render_preview,concept,concept_only,,none,false,"Interactive packet explorer; not dimensional or fabrication authority."
+WL-001,frame-drum-starter.wl,wolfram_source,analysis_source,derived_preview,DST-001,source_only,false,"Membrane-mode (Bessel J0 root) starter model for FD-14/16/18; source-only, not executed. Embedded live in explorer.html via Wolfram Cloud."

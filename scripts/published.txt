@@ -49,3 +49,9 @@ wood-shell-tongue-drum
 wooden-hang
 xiao
 xylophone
+ashiko-drum-workshop
+djembe
+dundun
+frame-drum
+handpan
+tongue-drum

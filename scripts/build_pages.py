@@ -21,7 +21,8 @@ import os, re, sys, json, shutil, html as _html, urllib.parse, argparse
 from pathlib import Path
 from PIL import Image, ImageOps
 
-ROOT = "/mnt/c/Users/Tony/Documents/GitHub"
+# Source tree: <ROOT>/instruments/<family>/<slug>. Override with MB_SOURCE_ROOT.
+ROOT = os.environ.get("MB_SOURCE_ROOT", "/mnt/c/Users/Tony/Documents/GitHub")
 HERE = Path(__file__).resolve().parent
 DOCS = str(HERE.parent / "docs")
 MAXEDGE, JPEG_Q = 1600, 82

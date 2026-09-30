@@ -7,4 +7,3 @@ drawings/slit-drum-bank-tongue.dxf,fabrication-plate,pending_measurement,not-yet
 cad/slit-drum-bank.scad,parametric-cad,pending_measurement,not-yet-generated,n/a,Planned: OpenSCAD parametric box + tongue model — requires coupon-validated tongue dimensions
 images/hero-render.png,render,concept_only,not-yet-generated,n/a,Planned: concept render of 12-box bank — not dimensional
 images/macro/tongue-detail.png,macro,concept_only,not-yet-generated,n/a,Planned: macro of U-tongue cut detail — concept only
-images/exploded-diagram.png,render,concept_only,generated,n/a,Clean exploded-view concept diagram of one slit-drum box — not dimensional

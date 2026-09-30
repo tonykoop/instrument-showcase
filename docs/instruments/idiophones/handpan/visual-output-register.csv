@@ -1,0 +1,13 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+DST-001,handpan-design-table.xlsx,design_table,design_table,pending_measurement,,none,true,"Workbook source for nominal shell scale and note targets; not calibrated tuned dimple geometry."
+DST-002,family-spec.csv,design_table,design_table,pending_measurement,DST-001,derived_from_authority,true,"Repo CSV summary of shell/material/scale variants; release branches require measured prototypes."
+TPL-001,data/measured-partial-log.csv,measurement_template,measurement_template,pending_measurement,,none,true,"Issue #7 blank measured-partial log; populate only from real shell captures."
+TPL-002,data/cross-talk-strike-log.csv,measurement_template,measurement_template,pending_measurement,,none,true,"Issue #7 blank cross-talk strike log; populate only from controlled strike captures."
+SVG-001,drawings/01-top-layout.svg,svg_preview,concept,concept_only,,none,false,"Top layout and tone-field envelope preview only; do not use as cut-ready or tuned-field geometry."
+SVG-002,drawings/02-gu-section-fixture.svg,svg_preview,concept,concept_only,,none,false,"Gu/section/fixture preview only; supplier shell, rim, lip, and fixture contact must be measured."
+HTML-001,explorer.html,render_preview,concept,concept_only,,none,false,"Studio explorer for packet review; not dimensional or fabrication authority."
+PDF-001,print-packet.pdf,drawing_pdf,visual_bom,concept_only,,none,false,"Printable review packet; contains planning summaries, not measured final build evidence."
+SVG-003,drawings/handpan-dimple-layout.svg,layout_vector,dimple_layout,pending,DST-001,"nominal_from_design_table — pending Illustrator MCP session",false,"Planned Illustrator MCP dimple-layout vector; session not yet run (issue #4). 9-field D Kurd polar arrangement. Authority upgrades to fabrication after MCP session and DXF dimension validation."
+DXF-001,drawings/handpan-dimple-layout.dxf,dxf_export,cnc_scribe_template,pending,SVG-003,"pending — export of SVG-003 when available",false,"DXF for CNC laser-mark or scribe; pending Illustrator MCP session for SVG-003 parent (issue #4). Not yet available."
+CAD-002,cad/handpan.scad,cad_source,cad_authoring,pending_measurement,DST-001,assumption,false,"Non-dimensional two-shell bounding envelope (top/bottom shell, rim joint, Ding-zone marker, Gu port) from workbook-input scale dimensions. Renders clean in OpenSCAD. Tone-field dimple geometry explicitly out of scope. Not fabrication authority until reviewed against a measured shell."
+WL-001,handpan-starter.wl,wolfram_source,wolfram,derived_preview,DST-001,source_only,false,"Root-mode Wolfram starter (Gu Helmholtz + plate sanity checks); not executed - source-only evidence at L2."

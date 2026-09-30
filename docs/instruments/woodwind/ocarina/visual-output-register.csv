@@ -7,5 +7,3 @@ SVG-003,drawings/ocarina-mold-schematic.svg,svg_preview,derived_preview,derived_
 IMG-001,images/hero-concept.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support image only; not fabrication authority."
 IMG-002,images/exploded-view-concept.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support exploded view only; not fabrication authority."
 IMG-003,images/mold-cross-section-concept.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support mold cross-section only; not fabrication authority."
-IMG-004,images/family-group.png,image_gen_2_output,concept,concept_only,,none,false,"Concept/support development ladder family group; not fabrication authority."
-
