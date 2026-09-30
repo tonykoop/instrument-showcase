@@ -73,16 +73,19 @@ run "$PY" "$SHOWCASE/scripts/sync_manifest_visibility.py"
 echo "== Step 3: build (library page + self-contained /docs bundle, #20/#21) =="
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
+# One library artifact: docs/library.html is what Pages serves, what check_site validates
+# and what Step 5 copies to the personal-site mirror, so checked == published.
 run "$PY" "$GEN" \
   --workspace "$WORKSPACE" \
   --base-url "$BASE_URL" \
   --published "$PUBLISHED" \
-  --output-html "$TMP/hz_library.html" \
-  --output-data "$TMP/hz_manifest.json"
-if [[ "$DRY_RUN" -eq 0 && ! -f "$TMP/hz_library.html" ]]; then
+  --output-html "$SHOWCASE/docs/library.html" \
+  --output-data "$SHOWCASE/data/library-manifest.json"
+if [[ "$DRY_RUN" -eq 0 && ! -f "$SHOWCASE/docs/library.html" ]]; then
   echo "Generation failed — no library.html produced." >&2; exit 1
 fi
-run "$PY" "$SHOWCASE/scripts/build_pages.py"
+# The explorer builder reads MB_SOURCE_ROOT; keep it on the same workspace as the generator.
+MB_SOURCE_ROOT="$WORKSPACE" run "$PY" "$SHOWCASE/scripts/build_pages.py"
 
 echo "== Step 4: gates (nothing is pushed unless all pass) =="
 run "$PY" "$SHOWCASE/scripts/visibility.py"      # every published slug's repo is PUBLIC now
@@ -93,7 +96,7 @@ echo "== Step 5: push (temp clone of $OWNER.github.io for the library; then /doc
 SITE="$TMP/tksite"
 run gh repo clone "$OWNER/$OWNER.github.io" "$SITE"
 if [[ "$DRY_RUN" -eq 0 ]]; then
-  cp "$TMP/hz_library.html" "$SITE/library.html"
+  cp "$SHOWCASE/docs/library.html" "$SITE/library.html"
   git -C "$SITE" add library.html
   if git -C "$SITE" diff --cached --quiet; then
     echo "  library.html unchanged — nothing to push."

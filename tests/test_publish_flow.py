@@ -19,3 +19,17 @@ def test_gates_run_before_any_push():
 
 def test_fails_fast():
     assert "set -euo pipefail" in SH
+
+
+def test_checked_library_is_the_published_library():
+    # generated into docs/library.html (what check_site validates) ...
+    assert '--output-html "$SHOWCASE/docs/library.html"' in SH
+    assert '--output-data "$SHOWCASE/data/library-manifest.json"' in SH
+    # ... and that same file is what the mirror push copies, not a separate temp render.
+    assert 'cp "$SHOWCASE/docs/library.html" "$SITE/library.html"' in SH
+    assert "hz_library.html" not in SH
+
+
+def test_generator_runs_before_check_site_and_uses_workspace_for_explorers():
+    assert _at('--output-html "$SHOWCASE/docs/library.html"') < _at("scripts/check_site.py")
+    assert 'MB_SOURCE_ROOT="$WORKSPACE"' in SH
