@@ -5,7 +5,8 @@ Rule (Tony): catalog status must match each repo's real GitHub visibility.
   PUBLIC repo  : 'private' / 'unknown' -> 'public'
   non-public   : 'public' / 'unknown'  -> 'private'
   'blocked' (a release blocker, not a visibility) is left in place.
-Any lookup failure aborts without writing (scripts/visibility.py).
+Each entry also records the live `visibility` (PUBLIC/PRIVATE/INTERNAL), which
+check_site.py uses for its count and scope gates. Any lookup failure aborts without writing (scripts/visibility.py).
 
 Usage: python3 scripts/sync_manifest_visibility.py [--dry-run]
 """
@@ -28,7 +29,11 @@ def main():
     changed = 0
     try:
         for e in data["entries"]:
-            want = "public" if repo_visibility(e["slug"]) == "PUBLIC" else "private"
+            vis = repo_visibility(e["slug"])
+            if e.get("visibility") != vis:
+                e["visibility"] = vis
+                changed += 1
+            want = "public" if vis == "PUBLIC" else "private"
             if e["status"] == "blocked" or e["status"] == want:
                 continue
             print(f"  {e['slug']}: {e['status']} -> {want}")

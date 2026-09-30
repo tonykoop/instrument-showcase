@@ -48,7 +48,9 @@ def _num(label_pat: str, html: str) -> int | None:
 
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="Pre-publish health checks for the showcase site")
-    p.add_argument("--library", type=Path, default=SITE_DIR / "library.html")
+    # docs/ is what GitHub Pages serves; site/library.html is a stale copy.
+    p.add_argument("--library", type=Path, default=SHOWCASE_DIR / "docs" / "library.html")
+    p.add_argument("--index", type=Path, default=SHOWCASE_DIR / "docs" / "index.html")
     p.add_argument("--manifest", type=Path, default=SHOWCASE_DIR / "data" / "library-manifest.json")
     p.add_argument("--published", type=Path, default=SHOWCASE_DIR / "scripts" / "published.txt")
     args = p.parse_args(argv)
@@ -66,6 +68,11 @@ def main(argv=None) -> int:
     html = args.library.read_text(encoding="utf-8", errors="ignore")
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     entries = manifest.get("entries", manifest if isinstance(manifest, list) else [])
+    # The shipped library lists PUBLIC repos only; the manifest keeps every entry.
+    # Entries carry a live `visibility` (sync_manifest_visibility.py); without it, count all.
+    all_entries = entries
+    if any("visibility" in e for e in entries):
+        entries = [e for e in entries if e.get("visibility") == "PUBLIC"]
     site_dir = args.library.parent
 
     # 1. COUNT CONSISTENCY (#14) -------------------------------------------------
@@ -121,16 +128,30 @@ def main(argv=None) -> int:
     else:
         print(f"{GREEN}ok{RST}   all local <img> srcs resolve")
 
+    # 3b. LANDING PAGE (docs/index.html): every card link must resolve -------------
+    if args.index.exists():
+        idx = args.index.read_text(encoding="utf-8", errors="ignore")
+        idx_links = re.findall(r'<a class="card" href="([^"]+)"', idx)
+        idx_broken = [h for h in idx_links if not (args.index.parent / h).exists()]
+        if idx_broken or not idx_links:
+            fails.append(f"{args.index.name}: {len(idx_broken)} broken / {len(idx_links)} card link(s), "
+                         f"e.g. {(idx_broken or ['no cards'])[0]}")
+        else:
+            print(f"{GREEN}ok{RST}   {args.index.name}: {len(idx_links)} card links resolve")
+
     # 5. SCOPE GATE (#24 — private→public is sticky) -----------------------------
     if args.published.exists():
         pub = {s.strip() for s in args.published.read_text().split() if s.strip()}
-        leaked = [e["slug"] for e in entries
-                  if e.get("slug") in pub and e.get("status") in ("private", "blocked")]
+        # Non-public = live GitHub visibility if recorded, else manifest status 'private'.
+        # A 'blocked' release blocker is not a visibility, so it does not fail this gate.
+        leaked = [e["slug"] for e in all_entries
+                  if e.get("slug") in pub and (e["visibility"] != "PUBLIC" if "visibility" in e
+                                               else e.get("status") == "private")]
         if leaked:
-            fails.append(f"SCOPE: {len(leaked)} published slug(s) are private/blocked: "
+            fails.append(f"SCOPE: {len(leaked)} published slug(s) are not PUBLIC on GitHub: "
                          f"{', '.join(leaked[:5])} — do NOT publish")
         else:
-            print(f"{GREEN}ok{RST}   scope gate: {len(pub)} published slugs, none private/blocked")
+            print(f"{GREEN}ok{RST}   scope gate: {len(pub)} published slugs, all PUBLIC")
     else:
         print(f"{DIM}--   scope gate skipped (no scripts/published.txt){RST}")
 
