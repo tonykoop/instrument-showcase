@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+"""Make data/library-manifest.json public/private status match live GitHub visibility.
+
+Rule (Tony): catalog status must match each repo's real GitHub visibility.
+  PUBLIC repo  : 'private' / 'unknown' -> 'public'
+  non-public   : 'public' / 'unknown'  -> 'private'
+  'blocked' (a release blocker, not a visibility) is left in place.
+Any lookup failure aborts without writing (scripts/visibility.py).
+
+Usage: python3 scripts/sync_manifest_visibility.py [--dry-run]
+"""
+import argparse, json, sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from visibility import VisibilityError, repo_visibility
+
+MANIFEST = HERE.parent / "data" / "library-manifest.json"
+LABELS = {"public": "Public", "private": "Private"}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args()
+    data = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    changed = 0
+    try:
+        for e in data["entries"]:
+            want = "public" if repo_visibility(e["slug"]) == "PUBLIC" else "private"
+            if e["status"] == "blocked" or e["status"] == want:
+                continue
+            print(f"  {e['slug']}: {e['status']} -> {want}")
+            e["status"], e["status_label"] = want, LABELS[want]
+            changed += 1
+    except VisibilityError as exc:
+        sys.exit(f"sync_manifest_visibility: VISIBILITY GATE FAILED\n  {exc}")
+    print(f"{changed} status(es) {'would change' if args.dry_run else 'updated'}")
+    if not args.dry_run and changed:
+        MANIFEST.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()
