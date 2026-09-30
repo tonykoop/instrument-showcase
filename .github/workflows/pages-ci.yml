@@ -11,8 +11,7 @@ on:
       - 'docs/**'
       - 'scripts/check_site.py'
       - 'scripts/qa_images.py'
-  pull_request:
-    branches: [main]
+  pull_request:  # any base, so stacked PRs run the gate too
     paths:
       - 'docs/**'
       - 'scripts/check_site.py'
@@ -36,6 +35,8 @@ jobs:
         run: pip install pyyaml Pillow
 
       - name: Check site structure
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python3 scripts/check_site.py
 
       - name: Image QA (warn-only)
