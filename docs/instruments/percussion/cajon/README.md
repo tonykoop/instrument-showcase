@@ -4,7 +4,7 @@
 
 **A parametric three-member box-drum family.** The Peruvian / flamenco cajón as a coordinated set of three sizes (Compact / Standard / Bass) in four interchangeable manufacturing variants, with an optional snare lineage.
 
-Part of the [tonykoop/instrument-maker](https://github.com/tonykoop/instrument-maker) catalogue. Heifer Zephyr Instruments — Tony Koop.
+Part of the tonykoop/instrument-maker catalogue. Heifer Zephyr Instruments — Tony Koop.
 
 ---
 

@@ -39,7 +39,7 @@ Tony's NAF K2 bore-diameter corrections (`+0.4%` at 0.875 in, `+1.0–1.6%` ≥1
 ## Hardware Alignment
 
 - Pipeline: **CNC + lathe + hand-finished utaguchi**, not split-bamboo. Tony's shop is set up for solid-billet drilling and turning, and madake import is impractical for a study series.
-- Bore-making strategy: **headstock-driven deep-bore drilling on square stock** ([`tonykoop/instrument-maker#84`](https://github.com/tonykoop/instrument-maker/issues/84)). The bit spins in the lathe headstock (Morse taper → Jacobs chuck); the square blank is gripped in a tailstock-mounted vise with a positive anti-rotation feature (V-block + side clamps); the tailstock quill advances the blank into the bit in short pecks. The bore is established before the outside is turned round, so the round-turning operation later registers off the established bore axis.
+- Bore-making strategy: **headstock-driven deep-bore drilling on square stock** (`tonykoop/instrument-maker#84`). The bit spins in the lathe headstock (Morse taper → Jacobs chuck); the square blank is gripped in a tailstock-mounted vise with a positive anti-rotation feature (V-block + side clamps); the tailstock quill advances the blank into the bit in short pecks. The bore is established before the outside is turned round, so the round-turning operation later registers off the established bore axis.
 - Outside turn: between centers off the bore, after the bore is reamed/lapped to finish ID.
 - Utaguchi: hand-cut bevel — chisel + fine file. Optional buffalo-horn or hardwood inlay (water buffalo horn = traditional; lignum vitae or African blackwood = Western substitute).
 - Tone-hole boring: drill press with index-fixed jig referenced off the bore axis. Holes start undersized (~7 mm / 0.276 in) and are filed open during tuning.
@@ -97,7 +97,7 @@ Detail in `assembly-manual.md`. Headlines:
 
 1. Mill 1×1×24 in square hardwood blanks on the table saw + planer. Quarter-sawn cherry / hard maple / black walnut for SHK-D4-P1.
 2. Center-mark both ends; cross-mark the bore axis with awl + center-finder.
-3. Headstock-driven deep-bore drilling per [`instrument-maker#84`](https://github.com/tonykoop/instrument-maker/issues/84):
+3. Headstock-driven deep-bore drilling per `instrument-maker#84`:
    - Pilot bit (3/8 in / 9.5 mm) brad-point, lathe MT2 → Jacobs chuck, square blank in tailstock vise.
    - Step up: 1/2 in (12.7 mm) → 5/8 in (15.9 mm) → 3/4 in (19.05 mm) → final 0.787 in (20 mm) reamer or step-down endmill in collet chuck.
    - Pecks ≤ 1.5 in deep; retract to clear chips.
@@ -158,7 +158,7 @@ The shakuhachi (尺八) originates from Tang-Chinese xiao ancestors imported to 
 
 ## Cross-references
 
-- [`tonykoop/instrument-maker#84`](https://github.com/tonykoop/instrument-maker/issues/84) — headstock-driven deep-bore drilling (technique reference).
+- `tonykoop/instrument-maker#84` — headstock-driven deep-bore drilling (technique reference).
 - [`tonykoop/flutes`](https://github.com/tonykoop/flutes) — NAF family + K2 derivation (do **not** apply K2 to shakuhachi; see "Empirical-correction guard").
 - [`tonykoop/fujara`](https://github.com/tonykoop/fujara) — long open-pipe stave-built sister; closest geometric neighbor.
 - [`tonykoop/transverse-flute`](https://github.com/tonykoop/transverse-flute) — slip-cast open-pipe sister; packet template baseline.

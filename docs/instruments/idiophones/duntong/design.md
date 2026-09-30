@@ -22,7 +22,7 @@ Mode A repo shape is used here: this is a single-instrument repository, so files
 | Inventor | Tony Koop, 2026 |
 | Workbook | `duntong-design-table.xlsx`, sheet `Duntong` |
 | Reference workbook | `Musical Instruments V2.xlsx`, sheet `Duntong` |
-| Done-bar reference | `tonykoop/tongue-drum` for tongue physics; `tonykoop/djembe`, `tonykoop/conga`, and `tonykoop/ashiko-drum-workshop` for segmented/stave construction |
+| Done-bar reference | `tonykoop/tongue-drum` for tongue physics; `tonykoop/djembe` and `tonykoop/ashiko-drum-workshop` for segmented/stave construction |
 | V1 recommendation | Medium stave cylinder, single-ring tongue layout, sealed or goatskin end option |
 | Current scale baseline | C minor pentatonic from the workbook |
 | Alternate scale request | D minor pentatonic remains TBD until the workbook row is updated |

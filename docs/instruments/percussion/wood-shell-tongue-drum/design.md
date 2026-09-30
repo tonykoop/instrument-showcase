@@ -292,5 +292,5 @@ The design table is parametric, but the following are **derived estimates** that
 - **BOM, sourcing, cut list, validation**: see the four CSVs at repo root.
 - **Risks**: see [`risks.md`](risks.md) for the red-team pass with verification tests attached.
 - **Wolfram exploration**: see [`wolfram-starter.wl`](wolfram-starter.wl) for the 3-DOF coupled oscillator (tongue + shell + air cavity) starter.
-- **Sister repos**: [`tongue-drum/`](https://github.com/tonykoop/tongue-drum) (rectangular-prism precursor) · [`steel-tongue-drum/`](https://github.com/tonykoop/steel-tongue-drum) (steel cantilever cousin) · [`ceramic-tongue-drum/`](https://github.com/tonykoop/ceramic-tongue-drum) (slip-cast cousin) · [`ashiko-drum-workshop/`](https://github.com/tonykoop/ashiko-drum-workshop) (segmented bowl reference) · [`conga/`](https://github.com/tonykoop/conga) (stave & segmented shell reference).
-- **Catalog**: [`tonykoop/instrument-maker`](https://github.com/tonykoop/instrument-maker) — orchestrating skill and Master Catalog.
+- **Sister repos**: [`tongue-drum/`](https://github.com/tonykoop/tongue-drum) (rectangular-prism precursor) · [`steel-tongue-drum/`](https://github.com/tonykoop/steel-tongue-drum) (steel cantilever cousin) · [`ashiko-drum-workshop/`](https://github.com/tonykoop/ashiko-drum-workshop) (segmented bowl reference).
+- **Catalog**: `tonykoop/instrument-maker` — orchestrating skill and Master Catalog (private).

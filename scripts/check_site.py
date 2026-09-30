@@ -17,6 +17,9 @@ generated manifest:
      whose repo manifest is private / blocked / patent-candidate (private→public
      is sticky — the most important publish gate, per #24).
 
+  6. LINK VISIBILITY — no docs/ page links to a github.com/tonykoop/<repo> whose
+     live visibility is not PUBLIC.
+
 Exit code: 0 if no hard failures, 1 otherwise. Soft issues print as warnings.
 
 Usage:
@@ -33,6 +36,9 @@ from pathlib import Path
 
 SHOWCASE_DIR = Path(__file__).resolve().parent.parent
 SITE_DIR = SHOWCASE_DIR / "site"
+
+# Private repos that are not catalog entries, so the manifest cannot vouch for them.
+NON_MANIFEST_PRIVATE = ("instrument-maker",)
 
 GREEN, RED, YEL, DIM, RST = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
 
@@ -154,6 +160,25 @@ def main(argv=None) -> int:
             print(f"{GREEN}ok{RST}   scope gate: {len(pub)} published slugs, all PUBLIC")
     else:
         print(f"{DIM}--   scope gate skipped (no scripts/published.txt){RST}")
+
+    # 6. LINK VISIBILITY (#189) — docs/ must not link to non-PUBLIC repos --------
+    vis = {e["slug"]: e["visibility"] for e in all_entries if "visibility" in e}
+    for slug in NON_MANIFEST_PRIVATE:
+        vis.setdefault(slug, "PRIVATE")
+    bad_links: dict[str, list[str]] = {}
+    for f in sorted(args.library.parent.rglob("*")):
+        if f.suffix not in (".md", ".html") or not f.is_file():
+            continue
+        for repo in set(re.findall(r"github\.com/tonykoop/([A-Za-z0-9._-]+)",
+                                   f.read_text(encoding="utf-8", errors="ignore"))):
+            if vis.get(repo, "PUBLIC") != "PUBLIC":
+                bad_links.setdefault(repo, []).append(str(f.relative_to(args.library.parent)))
+    if bad_links:
+        fails.append("LINKS: docs link to non-PUBLIC repo(s): " + "; ".join(
+            f"{r} ({fs[0]}{' +%d more' % (len(fs) - 1) if len(fs) > 1 else ''})"
+            for r, fs in sorted(bad_links.items())))
+    else:
+        print(f"{GREEN}ok{RST}   link visibility: no docs link to a non-PUBLIC repo")
 
     # Report ---------------------------------------------------------------------
     print()
