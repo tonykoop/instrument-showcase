@@ -40,7 +40,7 @@ def reconcile_status(status, status_label, vis):
     if status == "blocked":
         return status, status_label
     want = "public" if vis == "PUBLIC" else "private"
-    return (status, status_label) if status == want else (want, STATUS_LABELS[want])
+    return want, STATUS_LABELS[want]  # label normalised too: a stale hand-edited one cannot survive
 
 
 def public_slugs(slugs, lookup=repo_visibility):

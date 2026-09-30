@@ -51,3 +51,9 @@ def test_content_change_bumps_timestamp(tmp_path, monkeypatch):
     monkeypatch.setitem(VIS, "pub-flute", "PRIVATE")
     _, data = _gen(tmp_path, ws, monkeypatch)
     assert json.loads(data)["generated_at"] != "2020-01-01T00:00:00Z"
+
+
+def test_stale_label_is_normalised():
+    from visibility import reconcile_status
+    assert reconcile_status("public", "Hand edited", "PUBLIC") == ("public", "Public")
+    assert reconcile_status("blocked", "Public-release blocked", "PUBLIC") == ("blocked", "Public-release blocked")
