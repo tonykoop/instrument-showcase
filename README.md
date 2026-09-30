@@ -116,12 +116,35 @@ public and enables GitHub Pages on it):
 ./scripts/publish.sh --make-public
 ```
 
+### How status works
+
+A catalog entry's status mirrors its repo's **live GitHub visibility**, never a hand-set
+value:
+
+| GitHub repo | Status pill | On the public site |
+|---|---|---|
+| PUBLIC | `public` | shown |
+| PRIVATE / INTERNAL | `private` | hidden (kept in `data/library-manifest.json`, with its `visibility`) |
+| any, with a release blocker | `blocked` | shown only if the repo is PUBLIC; the blocker is not a visibility |
+
+`scripts/visibility.py` does the lookup (`gh repo view`). If a lookup fails the build
+stops; it never guesses. To make an instrument public, make its repo public and re-run
+`publish.sh`; to hide it, make the repo private. Pages CI re-checks the same rule on every
+PR (published slugs must be PUBLIC, and `docs/` must not link to a non-PUBLIC repo).
+
+### What `publish.sh` runs
+
+`sync manifest status → build (library + /docs) → visibility gate → check_site → push`.
+The gates run before any push, so a failure leaves the live site untouched. Each step
+is also runnable alone: `scripts/sync_manifest_visibility.py`, `scripts/build_pages.py`,
+`scripts/visibility.py`, `scripts/check_site.py`.
+
 Other flags: `--workspace <dir>` (where the per-instrument repos are cloned;
 defaults to `~/Documents/GitHub`), `--base-url <url>`, and `--dry-run` to preview
 without changing anything.
 
 The build runs locally where the private repos are cloned and only the built
-artifacts are pushed, so no private-repo credentials ever live in CI. Step 4
+artifacts are pushed, so no private-repo credentials ever live in CI. Step 3
 calls `scripts/build_pages.py` to assemble the self-contained `/docs` bundle
 (#20/#21) — optimizing images and rewriting cross-repo links — then commits
 and pushes `/docs` to trigger the Pages deployment.

@@ -1,0 +1,68 @@
+name: Pages deploy
+
+# Deploys /docs from main to GitHub Pages once the site checks are green.
+#
+# Why this exists (#194): the repo's Pages source is set to "GitHub Actions"
+# (build_type=workflow), so the old branch-based "pages build and deployment" no
+# longer runs, and nothing else published /docs. The last deploy was 2026-06-01.
+# This workflow is the missing publisher. Pages CI stays the PR-time validator.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/check_site.py'
+      - 'scripts/visibility.py'
+      - 'data/library-manifest.json'
+      - 'scripts/published.txt'
+      - '.github/workflows/pages-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Gate (live visibility + site structure)
+    runs-on: ubuntu-latest
+    # workflow_dispatch can pick any ref; only main may publish.
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pyyaml Pillow
+      - name: Visibility gate (live lookup of every shipped slug; unknown fails)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/visibility.py
+
+      - name: Check site structure
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/check_site.py
+
+  deploy:
+    name: Deploy /docs
+    needs: check
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

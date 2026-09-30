@@ -10,11 +10,17 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/check_site.py'
+      - 'scripts/visibility.py'
+      - 'scripts/published.txt'
+      - 'data/library-manifest.json'
       - 'scripts/qa_images.py'
   pull_request:  # any base, so stacked PRs run the gate too
     paths:
       - 'docs/**'
       - 'scripts/check_site.py'
+      - 'scripts/visibility.py'
+      - 'scripts/published.txt'
+      - 'data/library-manifest.json'
       - 'scripts/qa_images.py'
 
 jobs:
@@ -33,6 +39,11 @@ jobs:
 
       - name: Install dependencies
         run: pip install pyyaml Pillow
+
+      - name: Visibility gate (every published slug must be a PUBLIC repo)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/visibility.py
 
       - name: Check site structure
         env:

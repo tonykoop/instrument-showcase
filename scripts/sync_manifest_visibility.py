@@ -15,10 +15,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from visibility import VisibilityError, repo_visibility
+from visibility import VisibilityError, reconcile_status, repo_visibility
 
 MANIFEST = HERE.parent / "data" / "library-manifest.json"
-LABELS = {"public": "Public", "private": "Private"}
 
 
 def main():
@@ -33,11 +32,11 @@ def main():
             if e.get("visibility") != vis:
                 e["visibility"] = vis
                 changed += 1
-            want = "public" if vis == "PUBLIC" else "private"
-            if e["status"] == "blocked" or e["status"] == want:
+            status, label = reconcile_status(e["status"], e["status_label"], vis)
+            if status == e["status"]:
                 continue
-            print(f"  {e['slug']}: {e['status']} -> {want}")
-            e["status"], e["status_label"] = want, LABELS[want]
+            print(f"  {e['slug']}: {e['status']} -> {status}")
+            e["status"], e["status_label"] = status, label
             changed += 1
     except VisibilityError as exc:
         sys.exit(f"sync_manifest_visibility: VISIBILITY GATE FAILED\n  {exc}")
