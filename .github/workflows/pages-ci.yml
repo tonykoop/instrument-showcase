@@ -12,14 +12,15 @@ on:
       - 'scripts/check_site.py'
       - 'scripts/visibility.py'
       - 'scripts/published.txt'
+      - 'data/library-manifest.json'
       - 'scripts/qa_images.py'
-  pull_request:
-    branches: [main]
+  pull_request:  # any base, so stacked PRs run the gate too
     paths:
       - 'docs/**'
       - 'scripts/check_site.py'
       - 'scripts/visibility.py'
       - 'scripts/published.txt'
+      - 'data/library-manifest.json'
       - 'scripts/qa_images.py'
 
 jobs:
