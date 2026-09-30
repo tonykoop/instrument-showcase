@@ -36,6 +36,8 @@ jobs:
         run: pip install pyyaml Pillow
 
       - name: Check site structure
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python3 scripts/check_site.py
 
       - name: Image QA (warn-only)
