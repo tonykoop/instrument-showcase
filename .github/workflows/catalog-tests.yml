@@ -1,0 +1,22 @@
+name: Catalog tests
+
+# Runs the repo test suite on every PR (any base branch, so stacked PRs are checked)
+# and on main, with no path filter: script, workflow and data changes all get a real
+# current-head check.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    name: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pytest pyyaml Pillow
+      - run: python3 -m pytest -q tests
