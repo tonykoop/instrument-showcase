@@ -215,6 +215,41 @@ unless noted. Source designs are maintained privately; this site publishes a cur
 </body></html>"""
 
 
+# Slugs that moved family folders: old URL -> new one. Stubs are regenerated on every
+# build (the build wipes docs/instruments) so old links, incl. shared ones, keep working.
+MOVED = {("idiophones", s): "percussion"
+         for s in ("steel-tongue-drum", "tongue-drum", "wood-shell-tongue-drum")}
+
+REDIRECT = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moved: {slug}</title>
+<link rel="canonical" href="{target}">
+<meta http-equiv="refresh" content="0; url={target}">
+</head><body>
+<p>{slug} moved to <a href="{target}">{target}</a>.</p>
+</body></html>
+"""
+
+
+def write_redirects(docs=None, moved=None):
+    """Write meta-refresh + link stubs at each moved slug's old explorer.html and index.html.
+    Only when the new explorer exists, so a redirect never points at a 404. Returns count."""
+    docs = docs or DOCS
+    n = 0
+    for (old_fam, slug), new_fam in (moved or MOVED).items():
+        if not os.path.isfile(f"{docs}/instruments/{new_fam}/{slug}/explorer.html"):
+            continue
+        old_dir = f"{docs}/instruments/{old_fam}/{slug}"
+        os.makedirs(old_dir, exist_ok=True)
+        target = f"../../{new_fam}/{slug}/explorer.html"
+        for name in ("explorer.html", "index.html"):
+            with open(f"{old_dir}/{name}", "w", encoding="utf-8") as f:
+                f.write(REDIRECT.format(slug=_html.escape(slug), target=target))
+        n += 1
+    return n
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="list instruments only, no writes")
@@ -257,6 +292,7 @@ def main():
             title=_html.escape(e["title"]),
         ))
 
+    print(f"wrote redirect stubs for {write_redirects()} moved slug(s)")
     open(f"{DOCS}/index.html", "w", encoding="utf-8").write(INDEX.format(cards="\n".join(cards)))
     open(f"{DOCS}/.nojekyll", "w").write("")
     print(f"\nbuilt {len(cards)} instrument(s) -> {DOCS}/index.html")
