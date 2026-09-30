@@ -11,8 +11,7 @@ on:
       - 'docs/**'
       - 'scripts/check_site.py'
       - 'scripts/qa_images.py'
-  pull_request:
-    branches: [main]
+  pull_request:  # any base, so stacked PRs run the gate too
     paths:
       - 'docs/**'
       - 'scripts/check_site.py'
