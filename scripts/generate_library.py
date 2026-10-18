@@ -442,12 +442,26 @@ def _provenance(repo: Path, folder: str) -> dict:
     return data if isinstance(data, dict) else {}
 
 
+def promoted_file(repo: Path, rel: str, suffix: str) -> str:
+    """``rel`` when it is a regular ``suffix`` file inside the repo (no '..', absolute or symlinked parts), else ''."""
+    parts = Path(rel).parts if rel else ()
+    if not parts or Path(rel).is_absolute() or any(p in ("..", "") for p in parts) or not rel.lower().endswith(suffix):
+        return ""
+    path = repo
+    for part in parts:
+        path = path / part
+        if path.is_symlink():
+            return ""
+    return Path(*parts).as_posix() if path.is_file() else ""
+
+
 def best_makerbench_design(repo: Path, manifest: dict) -> dict:
     """The best promoted MakerBench design: most checks passed, then the latest.
 
     Promote to library (makerbench-hwe#1111) appends ``makerbench_promotions`` to the
     instrument's capstone-manifest.json and writes provenance.json beside the design.
-    Returns ``{tool, model, checks, passed, total, date, promoted_utc}`` or ``{}``.
+    Returns ``{tool, model, checks, passed, total, date, promoted_utc, glb}`` or ``{}``; ``glb`` is the
+    promoted model's repo-relative path when it is a real file in the repo (the explorer shows it).
     """
     best, best_key = {}, None
     for item in manifest.get("makerbench_promotions") or []:
@@ -473,7 +487,8 @@ def best_makerbench_design(repo: Path, manifest: dict) -> dict:
         if best_key is None or key > best_key:
             best_key = key
             best = {"tool": tool[:40], "model": model[:40], "checks": f"{passed}/{total}", "passed": passed,
-                    "total": total, "date": f"{when.day} {_MONTHS[when.month - 1]}", "promoted_utc": promoted}
+                    "total": total, "date": f"{when.day} {_MONTHS[when.month - 1]}", "promoted_utc": promoted,
+                    "glb": promoted_file(repo, str(item.get("glb") or ""), ".glb")}
     return best
 
 
@@ -616,7 +631,10 @@ def render_makerbench_line(e: LibraryEntry) -> str:
     text = f'MakerBench · {who} · {m["checks"]} checks · {m["date"]}'
     title = f'Best MakerBench design promoted {m["promoted_utc"]}'
     if e.explorer_path:
-        label = f'<a href="{esc(e.explorer_path)}#cad" title="{esc(title)}">{esc(text)}</a>'
+        # The explorer shows this promoted model in its 3D view (generate_explorer_v2 prefers it);
+        # without a promoted .glb there is no 3D view of it to jump to.
+        anchor = "#cad" if m.get("glb") else ""
+        label = f'<a href="{esc(e.explorer_path)}{anchor}" title="{esc(title)}">{esc(text)}</a>'
     else:
         label = f'<span title="{esc(title)}">{esc(text)}</span>'
     return f'<p class="card-makerbench">{label} {run}</p>'
@@ -1156,15 +1174,22 @@ RUN_TONIGHT_JS = """<script>
   }catch(e){return;}
   if(!port||!/^[0-9]{2,5}$/.test(port)) return;
   var base='http://127.0.0.1:'+port;
-  var ctl=('AbortController' in window)?new AbortController():null;
-  var t=setTimeout(function(){if(ctl)ctl.abort();},1500);
-  fetch(base+'/api/health',{mode:'no-cors',cache:'no-store',signal:ctl&&ctl.signal}).then(function(){
-    clearTimeout(t);
+  // Control Room serves a fixed 23x7 beacon image (makerbench-hwe /api/control-room/beacon.png).
+  // An image loads cross-origin without CORS and its size is readable, so the links appear only
+  // when that exact picture decodes: not on an error page, nor for another server on this port.
+  var img=new Image(), done=false;
+  var t=setTimeout(function(){done=true; img.src='';},2000);
+  img.onload=function(){
+    if(done) return; done=true; clearTimeout(t);
+    if(img.naturalWidth!==23||img.naturalHeight!==7) return;
     document.querySelectorAll('a.card-run-tonight').forEach(function(a){
       a.href=base+'/#/newrun?instrument='+encodeURIComponent(a.getAttribute('data-slug'));
       a.target='_blank'; a.rel='noopener'; a.hidden=false;
     });
-  }).catch(function(){clearTimeout(t);});
+  };
+  img.onerror=function(){done=true; clearTimeout(t);};
+  img.referrerPolicy='no-referrer';
+  img.src=base+'/api/control-room/beacon.png?t='+Date.now();
 })();
 </script>
 """
