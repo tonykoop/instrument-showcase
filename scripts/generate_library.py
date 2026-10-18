@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import html as _html
 from dataclasses import asdict, dataclass, field
@@ -279,6 +280,7 @@ class LibraryEntry:
     completeness_score: int = 0
     completeness_state: str = "scaffold"  # complete | near | in-progress | scaffold
     visibility: str = ""  # live GitHub visibility (PUBLIC/PRIVATE/INTERNAL); "" when gate skipped
+    makerbench: dict = field(default_factory=dict)  # best promoted MakerBench design (#1112), {} when none
 
 
 # --------------------------------------------------------------------------
@@ -412,6 +414,84 @@ def detect_explorer_features(explorer: Path) -> tuple[bool, bool, bool]:
 COMPLETENESS_STATE = {3: "complete", 2: "near", 1: "in-progress", 0: "scaffold"}
 
 
+# --------------------------------------------------------------------------
+# MakerBench badge (tonykoop/makerbench-hwe#1112)
+# --------------------------------------------------------------------------
+
+_CHECKS = re.compile(r"^\s*(\d+)\s*/\s*(\d+)\s*$")
+_MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+MAX_PROVENANCE_BYTES = 64 * 1024
+
+
+def _provenance(repo: Path, folder: str) -> dict:
+    """The promotion's provenance.json, read only inside the repo (no '..', no symlinks)."""
+    parts = Path(folder).parts if folder else ()
+    if not parts or Path(folder).is_absolute() or any(p in ("..", "") for p in parts):
+        return {}
+    path = repo
+    for part in (*parts, "provenance.json"):
+        path = path / part
+        if path.is_symlink():
+            return {}
+    try:
+        if not path.is_file() or path.stat().st_size > MAX_PROVENANCE_BYTES:
+            return {}
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def promoted_file(repo: Path, rel: str, suffix: str) -> str:
+    """``rel`` when it is a regular ``suffix`` file inside the repo (no '..', absolute or symlinked parts), else ''."""
+    parts = Path(rel).parts if rel else ()
+    if not parts or Path(rel).is_absolute() or any(p in ("..", "") for p in parts) or not rel.lower().endswith(suffix):
+        return ""
+    path = repo
+    for part in parts:
+        path = path / part
+        if path.is_symlink():
+            return ""
+    return Path(*parts).as_posix() if path.is_file() else ""
+
+
+def best_makerbench_design(repo: Path, manifest: dict) -> dict:
+    """The best promoted MakerBench design: most checks passed, then the latest.
+
+    Promote to library (makerbench-hwe#1111) appends ``makerbench_promotions`` to the
+    instrument's capstone-manifest.json and writes provenance.json beside the design.
+    Returns ``{tool, model, checks, passed, total, date, promoted_utc, glb}`` or ``{}``; ``glb`` is the
+    promoted model's repo-relative path when it is a real file in the repo (the explorer shows it).
+    """
+    best, best_key = {}, None
+    for item in manifest.get("makerbench_promotions") or []:
+        if not isinstance(item, dict):
+            continue
+        match = _CHECKS.match(str(item.get("checks_passed") or ""))
+        if not match or int(match.group(2)) == 0:
+            continue
+        passed, total = int(match.group(1)), int(match.group(2))
+        promoted = str(item.get("promoted_utc") or "")
+        try:
+            when = datetime.fromisoformat(promoted.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        record = _provenance(repo, str(item.get("folder") or ""))
+        route = str(record.get("tool_and_model") or item.get("tool_and_model") or "")
+        segments = [seg.strip() for seg in route.split("·") if seg.strip()]
+        tool = str(record.get("tool") or record.get("entrant") or (segments[0] if segments else "")).strip()
+        model = str(record.get("model") or (segments[1] if len(segments) > 1 else "")).strip()
+        if not tool:
+            continue
+        key = (passed / total, passed, promoted)
+        if best_key is None or key > best_key:
+            best_key = key
+            best = {"tool": tool[:40], "model": model[:40], "checks": f"{passed}/{total}", "passed": passed,
+                    "total": total, "date": f"{when.day} {_MONTHS[when.month - 1]}", "promoted_utc": promoted,
+                    "glb": promoted_file(repo, str(item.get("glb") or ""), ".glb")}
+    return best
+
+
 def scan_workspace(workspace: Path, base_url: str = "",
                    published: "frozenset[str]" = frozenset()) -> list[LibraryEntry]:
     embed_index = load_embed_urls(workspace)
@@ -454,6 +534,7 @@ def scan_workspace(workspace: Path, base_url: str = "",
         status, status_label = derive_status(manifest)
         fam_members = manifest.get("family_members") or []
         hero_rel = detect_hero(repo)
+        makerbench = best_makerbench_design(repo, manifest)
         # Explorer completeness (issue #31): W + I + 3D all read from the explorer.
         wolfram_present, images_present, viewer_present = detect_explorer_features(explorer)
         wolfram_live = wolfram_present  # completeness W axis = explorer embeds a live model
@@ -501,6 +582,7 @@ def scan_workspace(workspace: Path, base_url: str = "",
             viewer_present=viewer_present,
             completeness_score=comp_score,
             completeness_state=comp_state,
+            makerbench=makerbench,
         ))
     return entries
 
@@ -532,9 +614,30 @@ CARD_TPL = """\
     <span class="pill pill-wolfram pill-w-{wolfram_state}" title="{wolfram_title}"><span class="dot"></span>Wolfram · {wolfram_label}</span>
     <span class="pill pill-cad pill-cad-{cad}" title="{cad_title}"><span class="dot"></span>CAD · {cad_label}</span>
   </div>
+  {makerbench_line}
   <p class="card-slug"><code>{slug}</code></p>
 </article>
 """
+
+
+def render_makerbench_line(e: LibraryEntry) -> str:
+    """One line for the best promoted MakerBench design, linking to the explorer's 3D view,
+    plus a hidden "Run tonight" link that only Tony's own browser reveals (see RUN_TONIGHT_JS)."""
+    run = (f'<a class="card-run-tonight" data-slug="{esc(e.slug)}" hidden>Run tonight</a>')
+    m = e.makerbench
+    if not m:
+        return f'<p class="card-makerbench card-makerbench-none">{run}</p>'
+    who = m["tool"] + (f'/{m["model"]}' if m.get("model") else "")
+    text = f'MakerBench · {who} · {m["checks"]} checks · {m["date"]}'
+    title = f'Best MakerBench design promoted {m["promoted_utc"]}'
+    if e.explorer_path:
+        # The explorer shows this promoted model in its 3D view (generate_explorer_v2 prefers it);
+        # without a promoted .glb there is no 3D view of it to jump to.
+        anchor = "#cad" if m.get("glb") else ""
+        label = f'<a href="{esc(e.explorer_path)}{anchor}" title="{esc(title)}">{esc(text)}</a>'
+    else:
+        label = f'<span title="{esc(title)}">{esc(text)}</span>'
+    return f'<p class="card-makerbench">{label} {run}</p>'
 
 
 def render_card(e: LibraryEntry) -> str:
@@ -592,8 +695,10 @@ def render_card(e: LibraryEntry) -> str:
         f'</span></div>'
     )
     family_label = FAMILY_LABELS.get(e.family, e.family)
+    makerbench_line = render_makerbench_line(e)
 
     return CARD_TPL.format(
+        makerbench_line=makerbench_line,
         family=esc(e.family),
         status=esc(e.status),
         cad=esc(e.cad),
@@ -804,6 +909,10 @@ code{{font-family:var(--mono);font-size:0.88em}}
   text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:3px;flex:0 0 auto}}
 .explorer-pill-yes{{background:var(--lapis);color:var(--cream)}}
 .explorer-pill-no{{background:var(--cream);color:var(--muted);border:1px dashed var(--rule)}}
+.card-makerbench{{margin:6px 0 0;font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}}
+.card-makerbench a{{color:inherit}}
+.card-makerbench-none:not(:has(a:not([hidden]))){{display:none}}
+.card-run-tonight{{font-weight:600}}
 .card-slug{{margin:auto 0 0;font-family:var(--mono);font-size:10.5px;color:var(--muted)}}
 
 /* Completeness pill (issue #31 axis: W live Wolfram · I images · 3D viewer) */
@@ -1049,6 +1158,43 @@ def _current_outputs(args) -> "tuple[str, str] | None":
         return None
 
 
+#: "Run tonight" (makerbench-hwe#1112) shows only on Tony's PC. Probing localhost from a public
+#: page would ask every visitor's browser for local-network access, so nothing is probed until
+#: the page has been opened once as library.html?control-room=<port> on that machine. Then the
+#: page checks the MakerBench Control Room answers on 127.0.0.1:<port> and, only if it does,
+#: reveals the links into its New Run screen.
+RUN_TONIGHT_JS = """<script>
+(function(){
+  var KEY='makerbench-control-room', port=null;
+  try{
+    var q=new URLSearchParams(location.search).get('control-room');
+    if(q==='off'){localStorage.removeItem(KEY);}
+    else if(q&&/^[0-9]{2,5}$/.test(q)){localStorage.setItem(KEY,q);}
+    port=localStorage.getItem(KEY);
+  }catch(e){return;}
+  if(!port||!/^[0-9]{2,5}$/.test(port)) return;
+  var base='http://127.0.0.1:'+port;
+  // Control Room serves a fixed 23x7 beacon image (makerbench-hwe /api/control-room/beacon.png).
+  // An image loads cross-origin without CORS and its size is readable, so the links appear only
+  // when that exact picture decodes: not on an error page, nor for another server on this port.
+  var img=new Image(), done=false;
+  var t=setTimeout(function(){done=true; img.src='';},2000);
+  img.onload=function(){
+    if(done) return; done=true; clearTimeout(t);
+    if(img.naturalWidth!==23||img.naturalHeight!==7) return;
+    document.querySelectorAll('a.card-run-tonight').forEach(function(a){
+      a.href=base+'/#/newrun?instrument='+encodeURIComponent(a.getAttribute('data-slug'));
+      a.target='_blank'; a.rel='noopener'; a.hidden=false;
+    });
+  };
+  img.onerror=function(){done=true; clearTimeout(t);};
+  img.referrerPolicy='no-referrer';
+  img.src=base+'/api/control-room/beacon.png?t='+Date.now();
+})();
+</script>
+"""
+
+
 def _render_outputs(args, entries, render_entries, generated_at: str, published) -> "tuple[str, str]":
     """Pure render of (manifest json text, library html) for a given timestamp."""
     data = {
@@ -1058,6 +1204,7 @@ def _render_outputs(args, entries, render_entries, generated_at: str, published)
         "entries": [asdict(e) for e in entries],
     }
     html_out = render_library_html(render_entries, generated_at)
+    html_out = html_out.replace("</body>", RUN_TONIGHT_JS + "</body>", 1)
     if args.base_url:
         # Belt-and-suspenders: hide any hero image that fails to load (e.g. a
         # repo whose Pages went live but whose hero render isn't committed yet).

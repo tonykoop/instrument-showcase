@@ -188,9 +188,11 @@ def gather(repo: Path, family_dir: str, embed_index: dict) -> ExplorerData:
     wstate, wurl, _ = gl.derive_wolfram_state(manifest, embed_index.get(slug))
     cad_kind, _ = gl.detect_cad(repo)
 
-    glb_rel = ""
+    # The best promoted MakerBench design (makerbench-hwe#1111) is the model to show, ahead of any
+    # older top-level cad/*.glb: the library's MakerBench badge links to this 3D view.
+    glb_rel = gl.best_makerbench_design(repo, manifest).get("glb", "") if isinstance(manifest, dict) else ""
     cad_dir = repo / "cad"
-    if cad_dir.is_dir():
+    if not glb_rel and cad_dir.is_dir():
         glbs = sorted(cad_dir.glob("*.glb"), key=lambda p: p.stat().st_size, reverse=True)
         if glbs:
             glb_rel = str(glbs[0].relative_to(repo)).replace("\\", "/")
