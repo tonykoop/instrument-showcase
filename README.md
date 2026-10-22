@@ -103,7 +103,11 @@ One-time setup:
 1. Install the GitHub CLI — `sudo apt install gh` on Ubuntu/WSL, or https://cli.github.com.
 2. `gh auth login`.
 
-Routine refresh (safe — never changes repo visibility):
+Routine refresh (safe — never changes repo visibility). Re-run it after any change that
+alters instrument cards — a merged `generate_library.py` change, a new repo in
+`scripts/published.txt`, or a MakerBench *Promote to library* (`makerbench_promotions`
+in a repo's `capstone-manifest.json`) — because `library.html` only reaches
+tonykoop.github.io through this script, never through CI:
 
 ```bash
 ./scripts/publish.sh
